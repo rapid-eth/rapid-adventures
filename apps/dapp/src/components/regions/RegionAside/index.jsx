@@ -6,7 +6,7 @@ const RegionAside = ({sx, ...props}) => {
   return (
     <Atom.Flex column sx={sx}>
       <Atom.Flex center column>
-        <Molecule.Link to="/dashboard">
+        <Molecule.Link to="/">
           <Atom.Heading lg heavy sx={{mb: 0}}>
             Rapid Adventures
           </Atom.Heading>
@@ -14,6 +14,11 @@ const RegionAside = ({sx, ...props}) => {
         <Atom.Heading sm thin>
           Activate Your Life
         </Atom.Heading>
+        <Atom.Box>
+          <Atom.Span tag sx={{fontSize: 0}}>
+            earn crypto while adventuring
+          </Atom.Span>
+        </Atom.Box>
         <Atom.HorizontalRule
           sx={{
             width: '100%',

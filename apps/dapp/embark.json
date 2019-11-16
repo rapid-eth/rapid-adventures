@@ -1,0 +1,25 @@
+{
+  "contracts": ["contracts/**"],
+  "blockchain": false,
+  "storage": true,
+  "communication": false,
+  "webserver": false,
+  "app": {
+    "css/App.css": ["src/assets/**"]
+  },
+  "buildDir": "build/",
+  "config": "embark/",
+  "versions": {
+    "web3": "1.2.1",
+    "solc": "0.5.0",
+    "ipfs-api": "17.2.4"
+  },
+  "plugins": {},
+  "options": {
+    "solc": {
+      "optimize": true,
+      "optimize-runs": 200
+    }
+  },
+  "generationDir": "embarkArtifacts"
+}

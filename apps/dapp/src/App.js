@@ -10,16 +10,17 @@ import './assets/App.css';
 import {Router} from '@reach/router';
 import Providers from './providers';
 
-import {Home, Dashboard} from './pages';
+import {Account, Home, Dashboard} from './pages';
 import Content from './content';
 
 /* --- Component --- */
 export default () => (
-  <Providers>
-    <Router width="100%">
-      <Home path="/" />
-      <Dashboard path="/dashboard" />
-      <Content path="/*" />
-    </Router>
-  </Providers>
+	<Providers>
+		<Router width="100%">
+			<Home path="/" />
+			<Account path="/account" />
+			<Dashboard path="/dashboard/*" />
+			<Content path="/*" />
+		</Router>
+	</Providers>
 );

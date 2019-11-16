@@ -88,7 +88,13 @@ var gradient = (_ref5) => {
     theme,
     gradient,
     __gradientKey = 'gradients'
-  } = _ref5;
+  } = _ref5,
+      rest = _objectWithoutProperties(_ref5, ["sx", "theme", "gradient", "__gradientKey"]);
+
+  console.log(gradient, rest, 'gradient');
+  return (0, _css.default)({
+    backgroundImage: "linear-gradient(".concat((0, _css.get)(theme, "gradients.".concat(gradient)), ")")
+  });
 };
 
 var effects = (_ref6) => {
@@ -107,7 +113,7 @@ var Box = (0, _styled.default)('div', {
   margin: 0,
   minWidth: 0,
   position: 'relative'
-}, variants, variant, effects, shorthand, variantsShorthand, gradient, _space.default, _color.default, base, sx, props => props.css);
+}, gradient, variants, variant, effects, shorthand, variantsShorthand, gradient, _space.default, _color.default, base, sx, props => props.css);
 exports.Box = Box;
 var _default = Box;
 exports.default = _default;
