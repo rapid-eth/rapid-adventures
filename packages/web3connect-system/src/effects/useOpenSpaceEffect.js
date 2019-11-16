@@ -9,7 +9,7 @@
 import { useState, useEffect } from "react";
 
 /* --- Component --- */
-const useOpenSpaceEffect = (state, dispatch) => {
+const useOpenSpace= (state, dispatch) => {
   const [dispatched, setDispatched] = useState()
 
   useEffect(() => {

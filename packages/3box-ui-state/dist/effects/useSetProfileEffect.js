@@ -17,7 +17,7 @@ var _react = require("react");
 /* --- Global --- */
 
 /* --- Component --- */
-var useSetProfileEffect = (state, dispatch) => {
+var useSetProfile= (state, dispatch) => {
   var [dispatched, setDispatched] = (0, _react.useState)();
   (0, _react.useEffect)(() => {
     if (state.address) {

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.useGetProfile = void 0;
 
 var _react = require("react");
 
@@ -47,8 +47,5 @@ var useGetProfile = (state, dispatch) => {
   }, [state.store.profiles]);
   return dispatched;
 };
-/* --- Export --- */
 
-
-var _default = useGetProfile;
-exports.default = _default;
+exports.useGetProfile = useGetProfile;

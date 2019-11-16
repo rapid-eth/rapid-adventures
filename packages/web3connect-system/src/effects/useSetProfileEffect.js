@@ -9,7 +9,7 @@
 import { useState, useEffect } from "react";
 
 /* --- Component --- */
-const useSetProfileEffect = (state, dispatch) => {
+const useSetProfile= (state, dispatch) => {
   const [dispatched, setDispatched] = useState()
 
   useEffect(() => {

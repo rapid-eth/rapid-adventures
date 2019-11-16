@@ -9,7 +9,7 @@
 import { useState, useEffect } from "react";
 
 /* --- Component --- */
-const useGetSpaceEffect = (state, dispatch) => {
+const useGetSpace= (state, dispatch) => {
   const [dispatched, setDispatched] = useState()
 
   useEffect(() => {

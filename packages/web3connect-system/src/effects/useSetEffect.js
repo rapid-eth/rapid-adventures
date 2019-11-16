@@ -11,7 +11,7 @@ import dot from 'dot-prop-immutable-chain'
 import { useState, useEffect } from "react";
 
 /* --- Component --- */
-const useSetEffect = (state, dispatch) => {
+const useSet= (state, dispatch) => {
   const [dispatched, setDispatched] = useState()
 
   useEffect(() => {

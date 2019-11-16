@@ -17,7 +17,7 @@ var _react = require("react");
 /* --- Global --- */
 
 /* --- Component --- */
-var useAutoRequestProfileEffect = (state, dispatch) => {
+var useAutoRequestProfile = (state, dispatch) => {
   var [dispatched, setDispatched] = (0, _react.useState)();
   (0, _react.useEffect)(() => {
     if (!dispatched && state.address && state.isRequestProfileAuto) {

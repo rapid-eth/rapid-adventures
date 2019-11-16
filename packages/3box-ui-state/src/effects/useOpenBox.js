@@ -9,7 +9,7 @@
 import { useState, useEffect } from 'react';
 
 /* --- Component --- */
-const useOpenBoxEffect = (state, dispatch) => {
+export const useOpenBox = (state, dispatch) => {
 	const [dispatched, setDispatched] = useState();
 
 	useEffect(() => {
@@ -59,6 +59,3 @@ const useOpenBoxEffect = (state, dispatch) => {
 
 	return dispatched;
 };
-
-/* --- Export --- */
-export default useOpenBoxEffect;

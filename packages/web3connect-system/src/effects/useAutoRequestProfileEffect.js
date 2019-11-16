@@ -9,7 +9,7 @@
 import { useState, useEffect } from "react";
 
 /* --- Component --- */
-const useAutoRequestProfileEffect = (state, dispatch) => {
+const useAutoRequestProfile= (state, dispatch) => {
   const [dispatched, setDispatched] = useState()
 
   useEffect(() => {

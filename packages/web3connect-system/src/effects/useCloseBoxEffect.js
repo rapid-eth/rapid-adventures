@@ -9,7 +9,7 @@
 import { useState, useEffect } from "react";
 
 /* --- Component --- */
-const useCloseBoxEffect = (state, dispatch) => {
+const useCloseBox= (state, dispatch) => {
   const [dispatched, setDispatched] = useState()
 
   useEffect(() => {

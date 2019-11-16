@@ -9,7 +9,7 @@
 import { useState, useEffect } from 'react';
 
 /* --- Component --- */
-const useOpenBoxEffect = (state, dispatch) => {
+const useOpenBox= (state, dispatch) => {
   const [dispatched, setDispatched] = useState();
 
   useEffect(() => {

@@ -6,170 +6,168 @@ Object.defineProperty(exports, "__esModule", {
 Object.defineProperty(exports, "useAddExtension", {
   enumerable: true,
   get: function get() {
-    return _useAddExtension.default;
+    return _useAddExtension.useAddExtension;
   }
 });
-Object.defineProperty(exports, "useAutoEnableEffect", {
+Object.defineProperty(exports, "useAutoEnable", {
   enumerable: true,
   get: function get() {
-    return _useAutoEnableEffect.default;
+    return _useAutoEnable.useAutoEnable;
   }
 });
-Object.defineProperty(exports, "useAutoLoginEffect", {
+Object.defineProperty(exports, "useAutoLogin", {
   enumerable: true,
   get: function get() {
-    return _useAutoLoginEffect.default;
+    return _useAutoLogin.useAutoLogin;
   }
 });
-Object.defineProperty(exports, "useAutoRequestProfileEffect", {
+Object.defineProperty(exports, "useAutoRequestProfile", {
   enumerable: true,
   get: function get() {
-    return _useAutoRequestProfileEffect.default;
+    return _useAutoRequestProfile.useAutoRequestProfile;
   }
 });
-Object.defineProperty(exports, "useCloseBoxEffect", {
+Object.defineProperty(exports, "useCloseBox", {
   enumerable: true,
   get: function get() {
-    return _useCloseBoxEffect.default;
+    return _useCloseBox.useCloseBox;
   }
 });
-Object.defineProperty(exports, "useDeleteEffect", {
+Object.defineProperty(exports, "useDelete", {
   enumerable: true,
   get: function get() {
-    return _useDeleteEffect.default;
+    return _useDelete.useDelete;
   }
 });
-Object.defineProperty(exports, "useEnableEffect", {
+Object.defineProperty(exports, "useEnable", {
   enumerable: true,
   get: function get() {
-    return _useEnableEffect.default;
+    return _useEnable.useEnable;
   }
 });
-Object.defineProperty(exports, "useGetEffect", {
+Object.defineProperty(exports, "useGet", {
   enumerable: true,
   get: function get() {
-    return _useGetEffect.default;
+    return _useGet.useGet;
   }
 });
 Object.defineProperty(exports, "useGetProfile", {
   enumerable: true,
   get: function get() {
-    return _useGetProfile.default;
+    return _useGetProfile.useGetProfile;
   }
 });
-Object.defineProperty(exports, "useGetSpaceEffect", {
+Object.defineProperty(exports, "useGetSpace", {
   enumerable: true,
   get: function get() {
-    return _useGetSpaceEffect.default;
+    return _useGetSpace.useGetSpace;
   }
 });
-Object.defineProperty(exports, "useInsertEffect", {
+Object.defineProperty(exports, "useInsert", {
   enumerable: true,
   get: function get() {
-    return _useInsertEffect.default;
+    return _useInsert.useInsert;
   }
 });
-Object.defineProperty(exports, "useJoinThreadEffect", {
+Object.defineProperty(exports, "useJoinThread", {
   enumerable: true,
   get: function get() {
-    return _useJoinThreadEffect.default;
+    return _useJoinThread.useJoinThread;
   }
 });
-Object.defineProperty(exports, "useOpenBoxEffect", {
+Object.defineProperty(exports, "useOpenBox", {
   enumerable: true,
   get: function get() {
-    return _useOpenBoxEffect.default;
+    return _useOpenBox.useOpenBox;
   }
 });
-Object.defineProperty(exports, "useOpenSpaceEffect", {
+Object.defineProperty(exports, "useOpenSpace", {
   enumerable: true,
   get: function get() {
-    return _useOpenSpaceEffect.default;
+    return _useOpenSpace.useOpenSpace;
   }
 });
-Object.defineProperty(exports, "useRemoveEffect", {
+Object.defineProperty(exports, "useRemove", {
   enumerable: true,
   get: function get() {
-    return _useRemoveEffect.default;
+    return _useRemove.useRemove;
   }
 });
-Object.defineProperty(exports, "useSetAddressEffect", {
+Object.defineProperty(exports, "useSetAddress", {
   enumerable: true,
   get: function get() {
-    return _useSetAddressEffect.default;
+    return _useSetAddress.useSetAddress;
   }
 });
-Object.defineProperty(exports, "useSetEffect", {
+Object.defineProperty(exports, "useSet", {
   enumerable: true,
   get: function get() {
-    return _useSetEffect.default;
+    return _useSet.useSet;
   }
 });
-Object.defineProperty(exports, "useSetProfileEffect", {
+Object.defineProperty(exports, "useSetProfile", {
   enumerable: true,
   get: function get() {
-    return _useSetProfileEffect.default;
+    return _useSetProfile.useSetProfile;
   }
 });
-Object.defineProperty(exports, "useStorageRetrieveEffect", {
+Object.defineProperty(exports, "useStorageRetrieve", {
   enumerable: true,
   get: function get() {
-    return _useStorageRetrieveEffect.default;
+    return _useStorageRetrieve.useStorageRetrieve;
   }
 });
-Object.defineProperty(exports, "useThreadListenEffect", {
+Object.defineProperty(exports, "useThreadListen", {
   enumerable: true,
   get: function get() {
-    return _useThreadListenEffect.default;
+    return _useThreadListen.useThreadListen;
   }
 });
-Object.defineProperty(exports, "useThreadPostEffect", {
+Object.defineProperty(exports, "useThreadPost", {
   enumerable: true,
   get: function get() {
-    return _useThreadPostEffect.default;
+    return _useThreadPost.useThreadPost;
   }
 });
 
-var _useAddExtension = _interopRequireDefault(require("./useAddExtension"));
+var _useAddExtension = require("./useAddExtension");
 
-var _useAutoEnableEffect = _interopRequireDefault(require("./useAutoEnableEffect"));
+var _useAutoEnable = require("./useAutoEnable");
 
-var _useAutoLoginEffect = _interopRequireDefault(require("./useAutoLoginEffect"));
+var _useAutoLogin = require("./useAutoLogin");
 
-var _useAutoRequestProfileEffect = _interopRequireDefault(require("./useAutoRequestProfileEffect"));
+var _useAutoRequestProfile = require("./useAutoRequestProfile");
 
-var _useCloseBoxEffect = _interopRequireDefault(require("./useCloseBoxEffect"));
+var _useCloseBox = require("./useCloseBox");
 
-var _useDeleteEffect = _interopRequireDefault(require("./useDeleteEffect"));
+var _useDelete = require("./useDelete");
 
-var _useEnableEffect = _interopRequireDefault(require("./useEnableEffect"));
+var _useEnable = require("./useEnable");
 
-var _useGetEffect = _interopRequireDefault(require("./useGetEffect"));
+var _useGet = require("./useGet");
 
-var _useGetProfile = _interopRequireDefault(require("./useGetProfile"));
+var _useGetProfile = require("./useGetProfile");
 
-var _useGetSpaceEffect = _interopRequireDefault(require("./useGetSpaceEffect"));
+var _useGetSpace = require("./useGetSpace");
 
-var _useInsertEffect = _interopRequireDefault(require("./useInsertEffect"));
+var _useInsert = require("./useInsert");
 
-var _useJoinThreadEffect = _interopRequireDefault(require("./useJoinThreadEffect"));
+var _useJoinThread = require("./useJoinThread");
 
-var _useOpenBoxEffect = _interopRequireDefault(require("./useOpenBoxEffect"));
+var _useOpenBox = require("./useOpenBox");
 
-var _useOpenSpaceEffect = _interopRequireDefault(require("./useOpenSpaceEffect"));
+var _useOpenSpace = require("./useOpenSpace");
 
-var _useRemoveEffect = _interopRequireDefault(require("./useRemoveEffect"));
+var _useRemove = require("./useRemove");
 
-var _useSetAddressEffect = _interopRequireDefault(require("./useSetAddressEffect"));
+var _useSetAddress = require("./useSetAddress");
 
-var _useSetEffect = _interopRequireDefault(require("./useSetEffect"));
+var _useSet = require("./useSet");
 
-var _useSetProfileEffect = _interopRequireDefault(require("./useSetProfileEffect"));
+var _useSetProfile = require("./useSetProfile");
 
-var _useStorageRetrieveEffect = _interopRequireDefault(require("./useStorageRetrieveEffect"));
+var _useStorageRetrieve = require("./useStorageRetrieve");
 
-var _useThreadListenEffect = _interopRequireDefault(require("./useThreadListenEffect"));
+var _useThreadListen = require("./useThreadListen");
 
-var _useThreadPostEffect = _interopRequireDefault(require("./useThreadPostEffect"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _useThreadPost = require("./useThreadPost");

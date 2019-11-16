@@ -9,7 +9,7 @@
 import { useState, useEffect } from "react";
 
 /* --- Component --- */
-const useJoinThreadEffect = (state, dispatch) => {
+const useJoinThread= (state, dispatch) => {
   const [dispatched, setDispatched] = useState()
   useEffect(() => {
     if (state.store && state.store.threads) {

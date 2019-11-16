@@ -9,7 +9,7 @@
 import { useState, useEffect } from "react";
 
 /* --- Component --- */
-const useThreadPostEffect = (state, dispatch) => {
+const useThreadPost= (state, dispatch) => {
   const [dispatched, setDispatched] = useState()
 
   useEffect(() => {

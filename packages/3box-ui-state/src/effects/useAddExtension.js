@@ -9,7 +9,7 @@
 import { useState, useEffect } from 'react';
 
 /* --- Component --- */
-const useAddExtension = (state, dispatch, extension = {}) => {
+export const useAddExtension = (state, dispatch, extension = {}) => {
 	const [dispatched, setDispatched] = useState();
 
 	useEffect(() => {
@@ -56,6 +56,3 @@ const useAddExtension = (state, dispatch, extension = {}) => {
 
 	return dispatched;
 };
-
-/* --- Export --- */
-export default useAddExtension;

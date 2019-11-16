@@ -9,7 +9,7 @@
 import { useState, useEffect } from "react";
 
 /* --- Component --- */
-const useThreadListenEffect = (state, dispatch) => {
+const useThreadListen= (state, dispatch) => {
   const [dispatched, setDispatched] = useState()
 
   useEffect(() => {

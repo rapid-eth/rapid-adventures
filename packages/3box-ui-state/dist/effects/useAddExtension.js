@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.useAddExtension = void 0;
 
 var _react = require("react");
 
@@ -46,8 +46,5 @@ var useAddExtension = function useAddExtension(state, dispatch) {
   }, [state.isEnableAuto]);
   return dispatched;
 };
-/* --- Export --- */
 
-
-var _default = useAddExtension;
-exports.default = _default;
+exports.useAddExtension = useAddExtension;

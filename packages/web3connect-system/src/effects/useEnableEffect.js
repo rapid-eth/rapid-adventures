@@ -13,7 +13,7 @@ import { useState, useEffect } from "react";
 import { shortenAddress } from './../utilities'
 
 /* --- Component --- */
-const useEnableEffect = (state, dispatch) => {
+const useEnable= (state, dispatch) => {
   const [enabled, setEnabled] = useState()
 
   useEffect(() => {

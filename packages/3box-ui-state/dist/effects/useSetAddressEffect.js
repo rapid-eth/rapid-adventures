@@ -19,7 +19,7 @@ var _utilities = require("./utilities");
 /* --- Global --- */
 
 /* --- Local --- */
-var useSetAddressEffect = (state, dispatch) => {
+var useSetAddress= (state, dispatch) => {
   var [dispatched, setDispatched] = (0, _react.useState)();
   (0, _react.useEffect)(() => {
     var address = state.address;

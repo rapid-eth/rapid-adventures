@@ -12,7 +12,7 @@ import { useState, useEffect } from "react";
 import { shortenAddress, isAddress } from './utilities'
 
 /* --- Component --- */
-const useSetAddressEffect = (state, dispatch) => {
+const useSetAddress= (state, dispatch) => {
   const [dispatched, setDispatched] = useState()
 
   useEffect(() => {

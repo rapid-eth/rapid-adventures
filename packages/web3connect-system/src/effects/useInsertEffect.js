@@ -9,7 +9,7 @@
 import { useState, useEffect } from "react";
 
 /* --- Component --- */
-const useInsertEffect = (state, dispatch) => {
+const useInsert= (state, dispatch) => {
   const [dispatched, setDispatched] = useState()
 
   useEffect(() => {

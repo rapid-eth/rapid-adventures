@@ -9,7 +9,7 @@
 import { useState, useEffect } from "react";
 
 /* --- Component --- */
-const useRemoveEffect = (state, dispatch) => {
+const useRemove= (state, dispatch) => {
   const [dispatched, setDispatched] = useState()
 
   useEffect(() => {
