@@ -24,7 +24,7 @@ const useOpenSpaceEffect = (state, dispatch) => {
               threads = await space.subscribedThreads()
             }
             dispatch({
-              type: "OPEN_SPACE_SUCCESS",
+              type: "LOGIN_SPACE_SUCCESS",
               instance: space,
               space: selected.space,
               threads
@@ -34,7 +34,7 @@ const useOpenSpaceEffect = (state, dispatch) => {
           runEffect();
         } catch (error) {
           dispatch({
-            type: "OPEN_SPACE_FAILURE",
+            type: "LOGIN_SPACE_FAILURE",
             payload: error,
             space: selected.space,
           })

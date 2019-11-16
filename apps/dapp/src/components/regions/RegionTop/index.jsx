@@ -28,6 +28,10 @@ export default props => (
               to: '/about',
             },
             {
+              label: 'Account',
+              to: '/account',
+            },
+            {
               label: 'Dashboard',
               to: '/dashboard',
             },

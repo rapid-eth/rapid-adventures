@@ -71,7 +71,7 @@ var Provider = (_ref) => {
           closeCallback
         } = _ref3;
         return dispatch({
-          type: 'OPEN_PORTAL',
+          type: 'LOGIN_PORTAL',
           instance: 'modals',
           content,
           label,
@@ -92,7 +92,7 @@ var Provider = (_ref) => {
           styledLabel
         } = _ref4;
         return dispatch({
-          type: 'OPEN_PORTAL',
+          type: 'LOGIN_PORTAL',
           instance: 'panels',
           content,
           label,
@@ -111,7 +111,7 @@ var Provider = (_ref) => {
           closeOnClick
         } = _ref5;
         return dispatch({
-          type: 'OPEN_PORTAL',
+          type: 'LOGIN_PORTAL',
           instance: 'toasts',
           content,
           closeOnClick,

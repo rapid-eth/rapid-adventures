@@ -25,9 +25,11 @@ var _boxUiState = require("3box-ui-state");
 
 var _designSystemAtoms = require("@horizin/design-system-atoms");
 
-var _utilities = require("./utilities");
+var _utilities = require("../utilities");
 
 /* --- Global Dependencies --- */
+
+/* ------- Component ------- */
 var ProfileSmallView = function ProfileSmallView(_ref) {
   var box = _ref.box,
       address = _ref.address,
@@ -38,7 +40,8 @@ var ProfileSmallView = function ProfileSmallView(_ref) {
   var _useState = (0, _react.useState)(),
       _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
       profile = _useState2[0],
-      setProfile = _useState2[1];
+      setProfile = _useState2[1]; // const profileRequest = Effects.useGetProfile(box, props);
+
 
   (0, _react.useEffect)(function () {
     if (address && !profile) {
@@ -89,10 +92,10 @@ var ProfileCard = function ProfileCard(_ref2) {
     height: 24,
     maxWidth: 26
   }, "maxWidth", 26), profile.image ? _react["default"].createElement(_designSystemAtoms.BackgroundImage, {
-    ratio: .5,
+    ratio: 0.5,
     src: (0, _utilities.GenerateImage)(profile.image)
   }) : _react["default"].createElement(_designSystemAtoms.BackgroundImage, {
-    ratio: .5,
+    ratio: 0.5,
     src: "https://images.assetsdelivery.com/compings_v2/mingirov/mingirov1904/mingirov190400568.jpg"
   })), !isNameDisabled && _react["default"].createElement(_designSystemAtoms.Box, {
     ml: 10

@@ -11,6 +11,10 @@ var _Context = _interopRequireDefault(require("./Context"));
 
 var _reducer = _interopRequireDefault(require("./reducer"));
 
+var _actions = require("./middleware/actions");
+
+var _initialize = require("./middleware/initialize");
+
 var _effects = require("./effects");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -37,17 +41,17 @@ var Provider = (_ref) => {
       props = _objectWithoutProperties(_ref, ["children"]);
 
   var initialState = (0, _react.useContext)(_Context.default);
-  var [state, dispatch] = (0, _react.useReducer)(_reducer.default, initialState);
-  console.log(state, 'Box Provider'); // Uncomment to add WalletConnect feature:flag:walletconnect
-  // useAddExtension(state, dispatch, props.extensions[0]);
-
+  var [state, dispatch] = (0, _react.useReducer)(_reducer.default, initialState // initialize({}, {})
+  );
+  var actions = (0, _actions.enhanceActions)(state, dispatch);
+  console.log(state, 'Box Provider');
   (0, _effects.useAutoEnableEffect)(state, dispatch);
   (0, _effects.useAutoLoginEffect)(state, dispatch);
   (0, _effects.useAutoRequestProfileEffect)(state, dispatch);
   (0, _effects.useCloseBoxEffect)(state, dispatch);
   (0, _effects.useDeleteEffect)(state, dispatch);
   (0, _effects.useGetEffect)(state, dispatch);
-  (0, _effects.useGetProfileEffect)(state, dispatch);
+  (0, _effects.useGetProfile)(state, dispatch);
   (0, _effects.useGetSpaceEffect)(state, dispatch);
   (0, _effects.useEnableEffect)(state, dispatch);
   (0, _effects.useInsertEffect)(state, dispatch);
@@ -64,341 +68,8 @@ var Provider = (_ref) => {
     value: _objectSpread({}, state, {
       dispatch: dispatch,
       setConfig: config => _objectSpread({}, state.config, {}, config),
-      selector: select => state[select],
-      enable: () => dispatch({
-        type: 'ENABLE_REQUEST'
-      }),
-      login: () => dispatch({
-        type: 'OPEN_REQUEST'
-      }),
-      logout: () => dispatch({
-        type: 'LOGOUT_REQUEST'
-      }),
-
-      /* -------------------------------- */
-
-      /* Static
-      /* -------------------------------- */
-
-      /* --- Profiles (https://docs.3box.io/api/profiles#get) --- */
-      getProfile: address => dispatch({
-        type: 'GET_PROFILE_REQUEST',
-        address
-      }),
-      getProfileList: addresses => dispatch({
-        type: 'GET_PROFILE_LIST_REQUEST',
-        address
-      }),
-
-      /* --- Spaces (https://docs.3box.io/api/storage#get) --- */
-      getSpace: (_ref2) => {
-        var {
-          address,
-          space
-        } = _ref2;
-        return dispatch({
-          type: 'GET_SPACE_REQUEST',
-          address: address.toLowerCase(),
-          space
-        });
-      },
-      listSpaces: (_ref3) => {
-        var {
-          address,
-          space
-        } = _ref3;
-        return dispatch({
-          type: 'GET_SPACES_REQUEST',
-          address,
-          space
-        });
-      },
-
-      /* --- Threads (https://docs.3box.io/api/messaging#static-1) --- */
-      getThread: (_ref4) => {
-        var {
-          space,
-          threadName,
-          firstModerator,
-          members,
-          options
-        } = _ref4;
-        return dispatch({
-          type: 'GET_THREAD_REQUEST',
-          space,
-          threadName,
-          firstModerator,
-          members,
-          options
-        });
-      },
-      getThreadByAddress: (_ref5) => {
-        var {
-          threadAddress
-        } = _ref5;
-        return dispatch({
-          type: 'GET_THREAD_BY_ADDRESS_REQUEST',
-          threadAddress
-        });
-      },
-      listenThread: (_ref6) => {
-        var {
-          threadAddress,
-          threadName
-        } = _ref6;
-        return dispatch({
-          type: 'THREAD_LISTEN_REQUEST',
-          threadAddress,
-          threadName
-        });
-      },
-
-      /* -------------------------------- */
-
-      /* Stateful
-      /* -------------------------------- */
-
-      /* --- Authentication (https://docs.3box.io/api/auth) --- */
-      openSpace: space => dispatch({
-        type: 'OPEN_SPACE_REQUEST',
-        space
-      }),
-
-      /* --- Storage (https://docs.3box.io/api/storage) --- */
-      // Default 3Box CRUD
-      get: (_ref7) => {
-        var {
-          key,
-          access,
-          space
-        } = _ref7;
-        return dispatch({
-          type: 'GET_REQUEST',
-          access,
-          key,
-          space
-        });
-      },
-      set: (_ref8) => {
-        var {
-          keys,
-          key,
-          insert,
-          inputs,
-          access,
-          space,
-          append,
-          update
-        } = _ref8;
-        return dispatch({
-          type: 'SET_REQUEST',
-          append: insert || append,
-          keys,
-          key,
-          inputs,
-          access,
-          space,
-          update
-        });
-      },
-
-      /**
-       * setMerge and setInsert are the same.
-       * deprecate setInsert.
-       */
-      setMerge: (_ref9) => {
-        var {
-          access,
-          space,
-          key,
-          delta,
-          value
-        } = _ref9;
-        return dispatch({
-          type: 'SET_MERGE_REQUEST',
-          key,
-          space,
-          delta,
-          value,
-          access
-        });
-      },
-      setSingle: (_ref10) => {
-        var {
-          access,
-          key,
-          value,
-          space
-        } = _ref10;
-        return dispatch({
-          type: 'SET_SINGLE_REQUEST',
-          access,
-          key,
-          value,
-          space
-        });
-      },
-      setMultiple: (_ref11) => {
-        var {
-          space,
-          access,
-          keys,
-          inputs
-        } = _ref11;
-        return dispatch({
-          type: 'SET_MULTIPLE_REQUEST',
-          space,
-          access,
-          keys,
-          inputs
-        });
-      },
-      remove: (_ref12) => {
-        var {
-          space,
-          access,
-          key
-        } = _ref12;
-        return dispatch({
-          type: 'REMOVE_REQUEST',
-          access,
-          key,
-          space
-        });
-      },
-      // Enhanced 3Box CRUD
-
-      /**
-       * @function insert
-       * @description Insert value into object.
-       */
-      insert: (_ref13) => {
-        var {
-          space,
-          access,
-          index,
-          key,
-          value
-        } = _ref13;
-        return dispatch({
-          type: 'INSERT_REQUEST',
-          address: state.address,
-          space,
-          access,
-          index,
-          key,
-          value
-        });
-      },
-
-      /**
-       * @function delete
-       * @description Delete value from object.
-       */
-      delete: (_ref14) => {
-        var {
-          space,
-          access,
-          index,
-          key
-        } = _ref14;
-        return dispatch({
-          type: 'DELETE_REQUEST',
-          address: state.address,
-          space,
-          access,
-          index,
-          key
-        });
-      },
-
-      /**
-       * @function push
-       * @description Push value to array
-       * @todo ADD THIS FEATURE EVERYWHERE
-       */
-      push: (_ref15) => {
-        var {
-          space,
-          access,
-          index,
-          value
-        } = _ref15;
-        return dispatch({
-          type: 'PUSH_REQUEST',
-          address: state.address,
-          space,
-          access,
-          index,
-          value
-        });
-      },
-
-      /**
-       * @function filter
-       * @description Filter array.
-       * @todo ADD THIS FEATURE EVERYWHERE
-       */
-      filter: (_ref16) => {
-        var {
-          space,
-          access,
-          index,
-          filter: _filter
-        } = _ref16;
-        return dispatch({
-          type: 'FILTER_REQUEST',
-          address: state.address,
-          space,
-          access,
-          index,
-          filter: _filter
-        });
-      },
-
-      /* --- Messageing (https://docs.3box.io/api/messaging) --- */
-      joinThread: (_ref17) => {
-        var {
-          space,
-          threadName,
-          threadAddress,
-          options
-        } = _ref17;
-        return dispatch({
-          type: 'JOIN_THREAD_REQUEST',
-          space,
-          threadName,
-          threadAddress,
-          options
-        });
-      },
-      threadPost: (_ref18) => {
-        var {
-          space,
-          threadName,
-          post
-        } = _ref18;
-        return dispatch({
-          type: 'THREAD_POST_PUBLISH_REQUEST',
-          space,
-          threadName,
-          post
-        });
-      },
-      threadPostDelete: (_ref19) => {
-        var {
-          space,
-          threadName,
-          postId
-        } = _ref19;
-        return dispatch({
-          type: 'THREAD_POST_DELETE_REQUEST',
-          space,
-          threadName,
-          postId
-        });
-      }
-    })
+      selector: select => state[select]
+    }, actions)
   }, children);
 };
 

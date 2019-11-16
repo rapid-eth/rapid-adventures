@@ -33,7 +33,7 @@ var useOpenSpaceEffect = (state, dispatch) => {
               }
 
               dispatch({
-                type: 'OPEN_SPACE_SUCCESS',
+                type: 'LOGIN_SPACE_SUCCESS',
                 instance: space,
                 space: selected.space,
                 threads
@@ -49,7 +49,7 @@ var useOpenSpaceEffect = (state, dispatch) => {
           runEffect();
         } catch (error) {
           dispatch({
-            type: 'OPEN_SPACE_FAILURE',
+            type: 'LOGIN_SPACE_FAILURE',
             payload: error,
             space: selected.space
           });

@@ -38,7 +38,7 @@ const useOpenBoxEffect = (state, dispatch) => {
 						address: state.address
 					});
 					dispatch({
-						type: 'OPEN_SUCCESS',
+						type: 'LOGIN_SUCCESS',
 						profile,
 						instance,
 						spaces,
@@ -50,7 +50,7 @@ const useOpenBoxEffect = (state, dispatch) => {
 			}
 		} catch (error) {
 			dispatch({
-				type: 'OPEN_FAILURE',
+				type: 'LOGIN_FAILURE',
 				err: error
 			});
 			setDispatched(false);

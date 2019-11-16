@@ -1,5 +1,5 @@
 /**
- * @function useGetProfileEffect
+ * @function useGetProfile
  * @description Auto enable the 3Box authentication.
  * @param {Object} state
  * @param {Object} dispatch
@@ -9,7 +9,7 @@
 import { useState, useEffect } from 'react';
 
 /* --- Component --- */
-const useGetProfileEffect = (state, dispatch) => {
+const useGetProfile = (state, dispatch) => {
   const [dispatched, setDispatched] = useState();
 
   useEffect(() => {
@@ -38,4 +38,4 @@ const useGetProfileEffect = (state, dispatch) => {
 };
 
 /* --- Export --- */
-export default useGetProfileEffect;
+export default useGetProfile;

@@ -99,13 +99,13 @@ var _default = (state, action) => {
     /* OPEN
     /* ------------------ */
 
-    case 'OPEN_REQUEST':
+    case 'LOGIN_REQUEST':
       return (0, _dotPropImmutableChain.default)(state).set("isLoggingIn", true).value();
 
-    case 'OPEN_SUCCESS':
+    case 'LOGIN_SUCCESS':
       return (0, _dotPropImmutableChain.default)(state).set("@.".concat(state.address, ".profile"), action.profile).set("auth.verifications", action.verifications).set("auth.spaces", action.spaces).set("auth.instance", action.instance).set("instance", action.instance).set("isLogginIn", false).set("isLoggedIn", true).value();
 
-    case 'OPEN_FAILURE':
+    case 'LOGIN_FAILURE':
       return state;
 
     /* LOGOUT
@@ -122,10 +122,10 @@ var _default = (state, action) => {
     case 'LOGOUT_FAILURE':
       return state;
 
-    case 'OPEN_SPACE_REQUEST':
+    case 'LOGIN_SPACE_REQUEST':
       return (0, _dotPropImmutableChain.default)(state).set("store.open", [action]).value();
 
-    case 'OPEN_SPACE_SUCCESS':
+    case 'LOGIN_SPACE_SUCCESS':
       return (0, _dotPropImmutableChain.default)(state).set("spaces.".concat(action.space, ".instance"), action.instance) // Deprecated path
       .set("spaces.".concat(action.space, ".threads"), action.threads) // Deprecated path
       .set("auth.spaces.".concat(action.space, ".instance"), action.instance).set("auth.spaces.".concat(action.space, ".threads"), action.threads).set("store.open", []).value();

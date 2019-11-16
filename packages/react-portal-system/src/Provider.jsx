@@ -24,7 +24,7 @@ const Provider = ({ children, ...props }) => {
         id
       }),
       openModal: ({ content, label, styled, styledInner, styledLabel, variant, variantInner, closeCallback }) => dispatch({
-        type: 'OPEN_PORTAL',
+        type: 'LOGIN_PORTAL',
         instance: 'modals',
         content,
         label,
@@ -36,7 +36,7 @@ const Provider = ({ children, ...props }) => {
         closeCallback
       }),
       openPanel: ({ content, label, styled, styledInner, styledLabel }) => dispatch({
-        type: 'OPEN_PORTAL',
+        type: 'LOGIN_PORTAL',
         instance: 'panels',
         content,
         label,
@@ -45,7 +45,7 @@ const Provider = ({ children, ...props }) => {
         styledLabel
       }),
       openToast: ({ content, label, styled, styledLabel, closeTimer, closeOnClick }) => dispatch({
-        type: 'OPEN_PORTAL',
+        type: 'LOGIN_PORTAL',
         instance: 'toasts',
         content,
         closeOnClick,

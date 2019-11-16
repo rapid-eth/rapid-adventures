@@ -1,16 +1,19 @@
 // Core
-export { ProfileCover } from './components/ProfileCover'
-export { ProfileImage } from './components/ProfileImage'
+export { ProfileCover } from './components/ProfileCover';
+export { ProfileImage } from './components/ProfileImage';
 
 // Basics
-export { Avatar } from './components/Avatar'
-export { ProfileCard } from './components/ProfileCard'
-export { ProfileCardVanity } from './components/ProfileCardVanity'
-export { ProfileCardShowcase } from './components/ProfileCardShowcase'
+export { Avatar } from './components/Avatar';
+export { ProfileCard } from './components/ProfileCard';
+export { ProfileCardVanity } from './components/ProfileCardVanity';
+export { ProfileCardShowcase } from './components/ProfileCardShowcase';
+export { ProfileSmall } from './components/ProfileSmall';
 
 // Identity
-export { ProfileIdentity } from './components/ProfileIdentity'
+export { ProfileIdentity } from './components/ProfileIdentity';
 
 // Details
-export { ProfileDetailsOccupation } from './components/ProfileDetailsOccupation'
-export { ProfileDetailsSocial } from './components/ProfileDetailsSocial'
+export {
+	ProfileDetailsOccupation
+} from './components/ProfileDetailsOccupation';
+export { ProfileDetailsSocial } from './components/ProfileDetailsSocial';

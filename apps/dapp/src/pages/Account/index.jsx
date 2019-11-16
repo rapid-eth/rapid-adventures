@@ -2,6 +2,7 @@ import React from 'react';
 import {Canvas} from 'templates';
 
 import {FormJobCreate} from 'forms';
+import {Global} from '@emotion/core';
 
 const styles = {
   container: {
@@ -162,7 +163,9 @@ const Header = props => {
     <Atom.Absolute sx={styles.header}>
       <Atom.Flex between>
         <Atom.Box sx={styles.branding}>
-          <Atom.Heading>MeshHub</Atom.Heading>
+          <Molecule.Link to="/">
+            <Atom.Heading>{GLOBAL.siteName}</Atom.Heading>
+          </Molecule.Link>
         </Atom.Box>
         <Atom.Flex>
           <Atom.Button sm white>

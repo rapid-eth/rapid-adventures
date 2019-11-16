@@ -91,7 +91,6 @@ var gradient = (_ref5) => {
   } = _ref5,
       rest = _objectWithoutProperties(_ref5, ["sx", "theme", "gradient", "__gradientKey"]);
 
-  console.log(gradient, rest, 'gradient');
   return (0, _css.default)({
     backgroundImage: "linear-gradient(".concat((0, _css.get)(theme, "gradients.".concat(gradient)), ")")
   });

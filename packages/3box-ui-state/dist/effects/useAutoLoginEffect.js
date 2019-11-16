@@ -22,7 +22,7 @@ var useAutoLogin = (state, dispatch) => {
   (0, _react.useEffect)(() => {
     if (state.isLoginAuto && state.address) {
       dispatch({
-        type: 'OPEN_REQUEST'
+        type: 'LOGIN_REQUEST'
       });
       setDispatched(true);
     }

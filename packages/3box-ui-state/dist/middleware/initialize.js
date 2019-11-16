@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.initialize = void 0;
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -11,53 +11,23 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var uuidv1 = require('uuid/v1');
+// import { hashCode, getContract } from '../utilities';
 
-var reducerActions = (state, action) => {
-  var {
-    id,
-    type,
-    payload,
-    instance
-  } = action;
-
-  switch (action.type) {
-    case 'CLOSE_PORTAL':
-      switch (instance) {
-        case 'toasts':
-          var toasts = state.store[instance];
-          var r = toasts.splice(id, 1);
-          return _objectSpread({}, state, {
-            store: _objectSpread({}, state.store, {
-              [instance]: toasts
-            })
-          });
-          break;
-
-        default:
-          return _objectSpread({}, state, {
-            isActive: false,
-            store: _objectSpread({}, state.store, {
-              [instance]: []
-            })
-          });
-      }
-
-    case 'LOGIN_PORTAL':
-      return _objectSpread({}, state, {
-        isActive: true,
-        store: _objectSpread({}, state.store, {
-          [instance]: [...state.store[instance], _objectSpread({}, action, {
-            delta: uuidv1()
-          })]
-        })
-      });
-
-    default:
-      console.log(action);
-    // throw new Error(`No Reducer Type Set`);
+/**
+ * @summary The function is called by the 'useReducer' functionality, it will process the given smart contracts
+ *  and then add them to the initial state of the provider.
+ * @param {Array} contracts an array of the contract ABIs to be initialized
+ * @param {String} provider The name of the provider name to utilize
+ * @returns the initial state including with the initialized contracts(if provided)
+ */
+var initialize = (contracts, provider) => initialState => {
+  if (!contracts) {
+    return initialState;
   }
+
+  return _objectSpread({}, initialState, {
+    provider
+  });
 };
 
-var _default = reducerActions;
-exports.default = _default;
+exports.initialize = initialize;

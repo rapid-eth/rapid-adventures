@@ -12,7 +12,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 /* --- Component --- */
-var useGetProfileEffect = (state, dispatch) => {
+var useGetProfile = (state, dispatch) => {
   var [dispatched, setDispatched] = (0, _react.useState)();
   (0, _react.useEffect)(() => {
     if (state.store && state.store.profiles) {
@@ -28,7 +28,7 @@ var useGetProfileEffect = (state, dispatch) => {
             profile.verifications = verified;
             profile.address = selected.address;
             dispatch({
-              type: "GET_PROFILE_SUCCESS",
+              type: 'GET_PROFILE_SUCCESS',
               address: selected.address,
               payload: profile,
               id: selected
@@ -50,5 +50,5 @@ var useGetProfileEffect = (state, dispatch) => {
 /* --- Export --- */
 
 
-var _default = useGetProfileEffect;
+var _default = useGetProfile;
 exports.default = _default;

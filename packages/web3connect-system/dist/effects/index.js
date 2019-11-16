@@ -51,10 +51,10 @@ Object.defineProperty(exports, "useGetEffect", {
     return _useGetEffect.default;
   }
 });
-Object.defineProperty(exports, "useGetProfileEffect", {
+Object.defineProperty(exports, "useGetProfile", {
   enumerable: true,
   get: function get() {
-    return _useGetProfileEffect.default;
+    return _useGetProfile.default;
   }
 });
 Object.defineProperty(exports, "useGetSpaceEffect", {
@@ -146,7 +146,7 @@ var _useEnableEffect = _interopRequireDefault(require("./useEnableEffect"));
 
 var _useGetEffect = _interopRequireDefault(require("./useGetEffect"));
 
-var _useGetProfileEffect = _interopRequireDefault(require("./useGetProfileEffect"));
+var _useGetProfile = _interopRequireDefault(require("./useGetProfile"));
 
 var _useGetSpaceEffect = _interopRequireDefault(require("./useGetSpaceEffect"));
 

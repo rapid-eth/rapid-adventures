@@ -39,6 +39,12 @@ Object.defineProperty(exports, "ProfileCardShowcase", {
     return _ProfileCardShowcase.ProfileCardShowcase;
   }
 });
+Object.defineProperty(exports, "ProfileSmall", {
+  enumerable: true,
+  get: function get() {
+    return _ProfileSmall.ProfileSmall;
+  }
+});
 Object.defineProperty(exports, "ProfileIdentity", {
   enumerable: true,
   get: function get() {
@@ -69,6 +75,8 @@ var _ProfileCard = require("./components/ProfileCard");
 var _ProfileCardVanity = require("./components/ProfileCardVanity");
 
 var _ProfileCardShowcase = require("./components/ProfileCardShowcase");
+
+var _ProfileSmall = require("./components/ProfileSmall");
 
 var _ProfileIdentity = require("./components/ProfileIdentity");
 

@@ -30,7 +30,7 @@ const reducerActions = (state, action) => {
           }
       }
 
-    case 'OPEN_PORTAL':
+    case 'LOGIN_PORTAL':
       return {
         ...state,
         isActive: true,

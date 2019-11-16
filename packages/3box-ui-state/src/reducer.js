@@ -88,11 +88,11 @@ export default (state, action) => {
 
     /* OPEN
     /* ------------------ */
-    case 'OPEN_REQUEST':
+    case 'LOGIN_REQUEST':
       return dot(state)
         .set(`isLoggingIn`, true)
         .value();
-    case 'OPEN_SUCCESS':
+    case 'LOGIN_SUCCESS':
       return dot(state)
         .set(`@.${state.address}.profile`, action.profile)
         .set(`auth.verifications`, action.verifications)
@@ -102,7 +102,7 @@ export default (state, action) => {
         .set(`isLogginIn`, false)
         .set(`isLoggedIn`, true)
         .value();
-    case 'OPEN_FAILURE':
+    case 'LOGIN_FAILURE':
       return state;
 
     /* LOGOUT
@@ -120,12 +120,12 @@ export default (state, action) => {
     case 'LOGOUT_FAILURE':
       return state;
 
-    case 'OPEN_SPACE_REQUEST':
+    case 'LOGIN_SPACE_REQUEST':
       return dot(state)
         .set(`store.open`, [action])
         .value();
 
-    case 'OPEN_SPACE_SUCCESS':
+    case 'LOGIN_SPACE_SUCCESS':
       return dot(state)
         .set(`spaces.${action.space}.instance`, action.instance) // Deprecated path
         .set(`spaces.${action.space}.threads`, action.threads) // Deprecated path

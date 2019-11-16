@@ -53,7 +53,6 @@ const gradient = ({
   __gradientKey = 'gradients',
   ...rest
 }) => {
-  console.log(gradient, rest, 'gradient');
   return css({
     backgroundImage: `linear-gradient(${get(theme, `gradients.${gradient}`)})`,
   });

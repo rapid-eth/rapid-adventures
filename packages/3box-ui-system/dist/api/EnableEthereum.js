@@ -29,6 +29,7 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
+/* ---  Sub-Component --- */
 var Tag = (_ref) => {
   var {
     label
@@ -48,7 +49,7 @@ var EnableEthereum = (_ref2) => {
 
   var enabled = (0, _effects.useEnableEffect)(box);
   return _react.default.createElement(_react.default.Fragment, null, !enabled.dispatched && !enabled.ready && _react.default.createElement("span", {
-    onClick: () => box.enable()
+    onClick: () => box.enableRequest()
   }, (0, _uiCompose.Component)(props.componentIsDisconnected, _objectSpread({
     label: props.disconnectedLabel
   }, props.sxDisconnected))), enabled.dispatched && !enabled.ready ? (0, _uiCompose.Component)(props.componentIsLoading, _objectSpread({

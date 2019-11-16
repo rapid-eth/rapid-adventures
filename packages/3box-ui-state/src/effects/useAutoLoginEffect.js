@@ -14,7 +14,7 @@ const useAutoLogin = (state, dispatch) => {
 
   useEffect(() => {
     if (state.isLoginAuto && state.address) {
-      dispatch({ type: 'OPEN_REQUEST' });
+      dispatch({ type: 'LOGIN_REQUEST' });
       setDispatched(true);
     }
   }, [state.isLoginAuto, state.address]);
