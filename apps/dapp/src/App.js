@@ -7,10 +7,10 @@
 /* --- Local --- */
 import './assets/index.css';
 import './assets/App.css';
-import {Router} from '@reach/router';
+import { Router } from '@reach/router';
 import Providers from './providers';
 
-import {Account, CMS, Home, Dashboard} from './pages';
+import { Account, Home, Dashboard, Rimble } from './pages';
 import Content from './content';
 
 /* --- Component --- */
@@ -21,6 +21,7 @@ export default () => (
 			<Account path="/account" />
 			<CMS path="/cms" />
 			<Dashboard path="/dashboard/*" />
+			<Rimble path="/rimble" />
 			<Content path="/*" />
 		</Router>
 	</Providers>
