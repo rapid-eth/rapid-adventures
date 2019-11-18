@@ -7,7 +7,7 @@ const SmallStatistic = props => {
         mx: 3,
         ...props.sx,
       }}>
-      <Atom.Heading thin sx={{mb: 0, fontSize: [1]}}>
+      <Atom.Heading thin sx={{mb: 0, fontSize: [1, 1, 2, 4]}}>
         {props.value}
       </Atom.Heading>
       <Atom.Heading sx={{mb: 0, fontSize: [1]}}>{props.label}</Atom.Heading>

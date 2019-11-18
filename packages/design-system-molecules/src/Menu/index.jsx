@@ -17,24 +17,18 @@ import {activateMenu} from './helpers';
 const MenuItem = ({children, label, to, icon, vertical, ...props}) => {
   const [isOpen, setOpen] = useState(props.expanded);
   const [sxChild, setStyleChild] = useState({...props.sxChild});
-  const [sxImageWrapper, setImageWrapper] = useState({
-    // bg: 'rgba(255,255,255,0.9)',
-    // borderRadius: 9999,
+  const [sxImageWrapper] = useState({
     display: 'flex',
     alignContent: 'center',
     flexDirection: 'column',
-    // p: '8px',
-    mr: 2,
-    height: 18,
-    width: 18,
+    mr: 1,
+    height: 25,
+    width: 25,
   });
-  const [sxImageWrapperChild, setImageWrapperChild] = useState({
-    // bg: 'rgba(255,255,255,0.9)',
-    // borderRadius: 9999,
+  const [sxImageWrapperChild] = useState({
     display: 'flex',
     alignContent: 'center',
     flexDirection: 'column',
-    // p: '8px',
     width: 28,
   });
 
@@ -54,13 +48,17 @@ const MenuItem = ({children, label, to, icon, vertical, ...props}) => {
         alignCenter
         between
         sx={{
-          alignContent: 'center',
+          // alignContent: 'center',
           flex: 1,
           width: '100%',
           ...props.styledWrapper,
         }}
         active={props.styledWrapperActive}>
-        {props.image && <Span sx={{...sxImageWrapper}}>{props.image}</Span>}
+        {props.image && (
+          <Flex center column sx={{...sxImageWrapper}}>
+            {props.image}
+          </Flex>
+        )}
 
         <Flex alignCenter between sx={{width: '100%'}}>
           <WrapperLink
@@ -131,7 +129,7 @@ MenuItem.defaultProps = {
   expanded: false,
   styledItemDefaults: {
     fontSize: 2,
-    mx: 1,
+    // mx: 1,
     opacity: 0.8,
   },
   styledItemDefaultsActive: {
@@ -179,10 +177,10 @@ const WrapperLink = ({sx, to, children, ...props}) => (
 const LabelMenu = props => {
   return props.label ? (
     <>
-      <Heading fontSize={[2]} as="h5" noMargin>
+      <Heading as="h5" noMargin>
         {props.label}
       </Heading>
-      <HorizontalRule my={2} />
+      <HorizontalRule sx={{my: 2}} />
     </>
   ) : null;
 };

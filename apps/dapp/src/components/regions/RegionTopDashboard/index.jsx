@@ -19,33 +19,30 @@ export default props => (
       <Atom.Flex alignCenter ml={4}>
         <Molecule.Menu
           sx={{
-            m: 2,
-            mx: 3,
+            // m: 2,
+            mx: 2,
           }}
           items={[
             {
-              label: 'Dashboard',
-              to: '/dashboard',
-            },
-            {
               label: 'Profile',
               to: '/dashboard/profile',
+              image: (
+                <Atom.Image src="https://image.flaticon.com/icons/svg/1673/1673568.svg" />
+              ),
             },
             {
-              label: 'Adventure List',
-              to: '/dashboard/adventure-list',
+              label: 'Collections',
+              to: '/dashboard/collections',
+              image: (
+                <Atom.Image src="https://image.flaticon.com/icons/svg/1673/1673599.svg" />
+              ),
             },
             {
-              label: 'Adventure',
-              to: '/dashboard/adventure/:id',
-            },
-            {
-              label: 'Quest List',
-              to: '/dashboard/quest-list',
-            },
-            {
-              label: 'Quest',
-              to: '/dashboard/quest/:id',
+              label: 'Team',
+              to: '/dashboard/team',
+              image: (
+                <Atom.Image src="https://image.flaticon.com/icons/svg/1673/1673561.svg" />
+              ),
             },
           ]}
         />

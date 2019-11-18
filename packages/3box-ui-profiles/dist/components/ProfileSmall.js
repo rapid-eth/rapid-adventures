@@ -25,18 +25,16 @@ var _utilities = require("../utilities");
 var ProfileSmallView = function ProfileSmallView(_ref) {
   var box = _ref.box,
       address = _ref.address,
-      small = _ref.small,
-      styled = _ref.styled,
-      props = (0, _objectWithoutProperties2["default"])(_ref, ["box", "address", "small", "styled"]);
+      props = (0, _objectWithoutProperties2["default"])(_ref, ["box", "address"]);
 
   var account = _boxUiState.Selectors.useGetProfile(box, address.toLowerCase());
 
-  console.log(account, 'accountaccount');
-  return _react["default"].createElement(ProfileCard, (0, _extends2["default"])({
-    small: small,
-    profile: account.data.profile,
-    address: address
-  }, props));
+  return _react["default"].createElement(Atom.Box, {
+    sx: props.sx
+  }, _react["default"].createElement(ProfileCard, (0, _extends2["default"])({
+    address: address,
+    profile: account.data.profile
+  }, props)));
 };
 
 var ProfileCard = function ProfileCard(_ref2) {
@@ -88,7 +86,7 @@ var ProfileCard = function ProfileCard(_ref2) {
     sx: {
       m: 0
     }
-  }, "No Identity (", props.addres, ")")));
+  }, (0, _utilities.shortenAddress)(props.address, 7))));
 };
 
 var ProfileSmall = function ProfileSmall(props) {

@@ -2,18 +2,19 @@
 import idx from 'idx';
 import React from 'react';
 import { BoxInject, Selectors } from '3box-ui-state';
-import { GenerateImage } from '../utilities';
+import { GenerateImage, shortenAddress } from '../utilities';
+
 /* ------- Component ------- */
-const ProfileSmallView = ({ box, address, small, styled, ...props }) => {
+const ProfileSmallView = ({ box, address, ...props }) => {
   const account = Selectors.useGetProfile(box, address.toLowerCase());
-  console.log(account, 'accountaccount');
   return (
-    <ProfileCard
-      small={small}
-      profile={account.data.profile}
-      address={address}
-      {...props}
-    />
+    <Atom.Box sx={props.sx}>
+      <ProfileCard
+        address={address}
+        profile={account.data.profile}
+        {...props}
+      />
+    </Atom.Box>
   );
 };
 
@@ -70,7 +71,9 @@ const ProfileCard = ({ profile, small, ...props }) => {
         />
       </Atom.Span>
       <Atom.Box ml={10}>
-        <Atom.Heading sx={{ m: 0 }}>No Identity ({props.addres})</Atom.Heading>
+        <Atom.Heading sx={{ m: 0 }}>
+          {shortenAddress(props.address, 7)}
+        </Atom.Heading>
       </Atom.Box>
     </Atom.Flex>
   );

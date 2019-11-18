@@ -63,20 +63,44 @@ const RegionAside = ({sx, ...props}) => {
 
 const menu = [
   {
-    label: 'Search',
-    to: '/search',
-  },
-  {
-    label: 'Quests',
-    to: '/quests',
+    label: 'Dashboard',
+    to: '/dashboard',
+    image: (
+      <Atom.Image
+        src="https://image.flaticon.com/icons/svg/1673/1673630.svg"
+        sx={{mr: 3}}
+      />
+    ),
   },
   {
     label: 'Adventures',
-    to: '/adventures',
+    to: '/dashboard/adventures',
+    image: (
+      <Atom.Image
+        src="https://image.flaticon.com/icons/svg/1673/1673636.svg"
+        sx={{mr: 3}}
+      />
+    ),
+  },
+  {
+    label: 'Quests',
+    to: '/dashboard/quests',
+    image: (
+      <Atom.Image
+        src="https://image.flaticon.com/icons/svg/1673/1673641.svg"
+        sx={{mr: 3}}
+      />
+    ),
   },
   {
     label: 'Team',
-    to: '/team',
+    to: '/dashboard/team',
+    image: (
+      <Atom.Image
+        src="https://image.flaticon.com/icons/svg/1673/1673604.svg"
+        sx={{mr: 3}}
+      />
+    ),
   },
 ];
 

@@ -45,24 +45,18 @@ var MenuItem = (_ref) => {
 
   var [isOpen, setOpen] = (0, _react.useState)(props.expanded);
   var [sxChild, setStyleChild] = (0, _react.useState)(_objectSpread({}, props.sxChild));
-  var [sxImageWrapper, setImageWrapper] = (0, _react.useState)({
-    // bg: 'rgba(255,255,255,0.9)',
-    // borderRadius: 9999,
+  var [sxImageWrapper] = (0, _react.useState)({
     display: 'flex',
     alignContent: 'center',
     flexDirection: 'column',
-    // p: '8px',
-    mr: 2,
-    height: 18,
-    width: 18
+    mr: 1,
+    height: 25,
+    width: 25
   });
-  var [sxImageWrapperChild, setImageWrapperChild] = (0, _react.useState)({
-    // bg: 'rgba(255,255,255,0.9)',
-    // borderRadius: 9999,
+  var [sxImageWrapperChild] = (0, _react.useState)({
     display: 'flex',
     alignContent: 'center',
     flexDirection: 'column',
-    // p: '8px',
     width: 28
   });
   (0, _react.useEffect)(() => {
@@ -78,12 +72,14 @@ var MenuItem = (_ref) => {
     alignCenter: true,
     between: true,
     sx: _objectSpread({
-      alignContent: 'center',
+      // alignContent: 'center',
       flex: 1,
       width: '100%'
     }, props.styledWrapper),
     active: props.styledWrapperActive
-  }, props.image && _react.default.createElement(_designSystemAtoms.Span, {
+  }, props.image && _react.default.createElement(_designSystemAtoms.Flex, {
+    center: true,
+    column: true,
     sx: _objectSpread({}, sxImageWrapper)
   }, props.image), _react.default.createElement(_designSystemAtoms.Flex, {
     alignCenter: true,
@@ -148,7 +144,7 @@ MenuItem.defaultProps = {
   expanded: false,
   styledItemDefaults: {
     fontSize: 2,
-    mx: 1,
+    // mx: 1,
     opacity: 0.8
   },
   styledItemDefaultsActive: {
@@ -201,10 +197,11 @@ var WrapperLink = (_ref3) => {
 
 var LabelMenu = props => {
   return props.label ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_designSystemAtoms.Heading, {
-    fontSize: [2],
     as: "h5",
     noMargin: true
   }, props.label), _react.default.createElement(_designSystemAtoms.HorizontalRule, {
-    my: 2
+    sx: {
+      my: 2
+    }
   })) : null;
 };

@@ -33,7 +33,12 @@ var _default = (_ref) => {
   var weight = (0, _effects.useFontWeightEffect)(props);
   var tag = (0, _effects.useTagEffect)(props);
   return (0, _themeUi.jsx)(_router.Link, _extends({
-    sx: _objectSpread({}, tag, {}, size, {}, weight, {}, sx)
+    sx: _objectSpread({
+      // ...tag,
+      // ...size,
+      // ...weight,
+      m: 0
+    }, sx)
   }, props));
 };
 
