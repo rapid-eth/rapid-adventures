@@ -27,11 +27,15 @@ Object.defineProperty(exports, "BoxInject", {
     return _WithContextInjected.default;
   }
 });
-exports.Effects = void 0;
+exports.Selectors = exports.Effects = void 0;
 
 var Effects = _interopRequireWildcard(require("./effects"));
 
 exports.Effects = Effects;
+
+var Selectors = _interopRequireWildcard(require("./selectors"));
+
+exports.Selectors = Selectors;
 
 var _Provider = _interopRequireDefault(require("./Provider"));
 

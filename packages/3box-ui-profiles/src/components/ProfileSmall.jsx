@@ -1,102 +1,78 @@
 /* --- Global Dependencies --- */
 import idx from 'idx';
-import React, { useEffect, useState } from 'react';
-import { BoxInject, Effects } from '3box-ui-state';
-import {
-  Absolute,
-  Box,
-  BackgroundImage,
-  Flex,
-  Image,
-  Heading,
-  Span,
-  Paragraph,
-  Link
-} from '@horizin/design-system-atoms';
+import React from 'react';
+import { BoxInject, Selectors } from '3box-ui-state';
 import { GenerateImage } from '../utilities';
-
 /* ------- Component ------- */
 const ProfileSmallView = ({ box, address, small, styled, ...props }) => {
-  const [profile, setProfile] = useState();
-
-  // const profileRequest = Effects.useGetProfile(box, props);
-
-  useEffect(() => {
-    if (address && !profile) {
-      box.getProfile(address);
-    } else if (idx(box, _ => _.profiles[address])) {
-      // setProfile(idx(box, _=>_.profiles[address]))
-    }
-  }, [address, profile]);
-
-  useEffect(() => {
-    if (!profile) {
-      setProfile(idx(box, _ => _.profiles[address]));
-    }
-  }, [profile, idx(box, _ => _.profiles[address])]);
-
+  const account = Selectors.useGetProfile(box, address.toLowerCase());
+  console.log(account, 'accountaccount');
   return (
-    <ProfileCard small={small} profile={profile} address={address} {...props} />
+    <ProfileCard
+      small={small}
+      profile={account.data.profile}
+      address={address}
+      {...props}
+    />
   );
 };
 
 const ProfileCard = ({ profile, small, ...props }) => {
-  const [isNameDisabled, setIsNameDisabled] = useState(props.disableName);
   return profile ? (
     <>
-      <Flex alignCenter>
-        <Flex
+      <Atom.Flex alignCenter>
+        <Atom.Flex
           circle
           center
           column
-          boxShadow={0}
-          p={2}
-          border="1px solid #FFF"
-          overflow="hidden"
-          m={1}
-          width={24}
-          height={24}
-          maxWidth={26}
-          maxWidth={26}
+          sx={{
+            boxShadow: 0,
+            border: '1px solid #FFF',
+            overflow: 'hidden',
+            width: 32,
+            height: 32
+          }}
         >
           {profile.image ? (
-            <BackgroundImage ratio={0.5} src={GenerateImage(profile.image)} />
+            <Atom.BackgroundImage
+              ratio={0.5}
+              src={GenerateImage(profile.image)}
+            />
           ) : (
-            <BackgroundImage
+            <Atom.BackgroundImage
               ratio={0.5}
               src="https://images.assetsdelivery.com/compings_v2/mingirov/mingirov1904/mingirov190400568.jpg"
             />
           )}
-        </Flex>
+        </Atom.Flex>
 
-        {!isNameDisabled && (
-          <Box ml={10}>
-            <Link to={`/profile/${props.address}`}>
-              <Heading md noMargin>
+        {!props.disableName && (
+          <Atom.Box ml={10}>
+            <Molecule.Link to={`/dashboard/wprofile/${props.address}`}>
+              <Atom.Heading md sx={{ m: 0 }}>
                 {idx(profile, _ => _.name)}
-              </Heading>
-            </Link>
-          </Box>
+              </Atom.Heading>
+            </Molecule.Link>
+          </Atom.Box>
         )}
-      </Flex>
+      </Atom.Flex>
     </>
   ) : (
-    <Flex alignCenter>
-      <Span>
-        <Image
-          card
+    <Atom.Flex alignCenter>
+      <Atom.Span>
+        <Atom.Image
           circle
           src="https://static.thenounproject.com/png/2348501-200.png"
-          border="none"
-          bg="white"
-          p={0}
-          width={20}
+          sx={{
+            width: 32,
+            p: 0
+          }}
         />
-      </Span>
-      <Box ml={10}>
-        <Box borderRadius={40} bg="gray" p={1} width={120} />
-      </Box>
-    </Flex>
+      </Atom.Span>
+      <Atom.Box ml={10}>
+        <Atom.Heading sx={{ m: 0 }}>No Identity ({props.addres})</Atom.Heading>
+      </Atom.Box>
+    </Atom.Flex>
   );
 };
 

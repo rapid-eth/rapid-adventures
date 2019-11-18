@@ -98,7 +98,7 @@ export const useProfileRetrieveEffect = (box, props) => {
    */
   useEffect( () => { 
     if(isAddressValid)
-      box.getProfile(address)
+      box.getProfileRequest(address)
       setRequested(true)
   }, [props.address])
 
@@ -148,7 +148,7 @@ export const useSpaceOpenRequestEffect = (box, props) => {
 
   useEffect(() => {
     if (!box.auth.spaces[props.space] && isRequested && box.address) {
-      box.openSpace(props.space)
+      box.openSpaceRequest(props.space)
       setIsDispatched(true)
     }
   }, [isRequested, box.address])

@@ -17,14 +17,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var _default = (state, action) => {
   switch (action.type) {
-    case 'EXTENSION_ADD_REQUEST':
-      return (0, _dotPropImmutableChain.default)(state).set("store.extensions", [...state.store.extensions, action]).value();
-
-    case 'EXTENSION_ADD_SUCCESS':
-      return _dotPropImmutableChain.default.merge(state, "extensions.".concat(action.id), action.payload);
-
-    case 'EXTENSION_ADD_FAILURE':
-      return (0, _dotPropImmutableChain.default)(state).set("store.extensions", []).value();
+    case 'BOOTSTRAP':
+      return _objectSpread({}, state, {}, action.payload);
 
     case 'LISTENER_ADD_REQUEST':
       return _dotPropImmutableChain.default.merge(state, 'listeners', [action.payload]);
@@ -39,7 +33,7 @@ var _default = (state, action) => {
     /* ======================= */
 
     /* Initilization
-    /* ======================= */
+      /* ======================= */
 
     case 'ENABLE_REQUEST':
       return _dotPropImmutableChain.default.set(state, 'isEnableRequested', true);
@@ -66,13 +60,13 @@ var _default = (state, action) => {
     /* ======================= */
 
     /* Static Requests
-    /* ======================= */
+      /* ======================= */
 
     case 'GET_PROFILE_REQUEST':
       return (0, _dotPropImmutableChain.default)(state).set("store.profiles", [...state.store.profiles, action]).value();
 
     case 'GET_PROFILE_SUCCESS':
-      return (0, _dotPropImmutableChain.default)(state).set("@.".concat(action.address, ".profile"), action.payload).set("@.".concat(action.address, ".spaces"), {
+      return (0, _dotPropImmutableChain.default)(state).set("store.profiles", state.store.profiles.filter(i => i.payload == action.address)).set("@.".concat(action.address, ".profile"), action.payload).set("@.".concat(action.address, ".spaces"), {
         public: {},
         private: {}
       }).value();
@@ -94,10 +88,10 @@ var _default = (state, action) => {
     /* ======================= */
 
     /* AUTHENTICATION
-    /* ======================= */
+      /* ======================= */
 
     /* OPEN
-    /* ------------------ */
+      /* ------------------ */
 
     case 'LOGIN_REQUEST':
       return (0, _dotPropImmutableChain.default)(state).set("isLoggingIn", true).value();
@@ -109,7 +103,7 @@ var _default = (state, action) => {
       return state;
 
     /* LOGOUT
-    /* ------------------ */
+      /* ------------------ */
 
     case 'LOGOUT_REQUEST':
       return _objectSpread({}, state, {
@@ -133,7 +127,7 @@ var _default = (state, action) => {
     /* ------------------ */
 
     /* Get Space
-    /* ------------------ */
+      /* ------------------ */
 
     case 'GET_SPACE_REQUEST':
       return (0, _dotPropImmutableChain.default)(state).set("store.spaces", [...state.store.spaces, action]).value();
@@ -168,7 +162,7 @@ var _default = (state, action) => {
     /* ------------------ */
 
     /* Set
-    /* ------------------ */
+      /* ------------------ */
 
     case 'SET_REQUEST':
       return (0, _dotPropImmutableChain.default)(state).set("store.sets", [...state.store.sets, action]).value();
@@ -213,7 +207,7 @@ var _default = (state, action) => {
     /* ------------------ */
 
     /* Insert
-    /* ------------------ */
+      /* ------------------ */
 
     case 'INSERT_REQUEST':
       return (0, _dotPropImmutableChain.default)(state).set("store.inserts", [...state.store.inserts, action]).value();
@@ -280,7 +274,7 @@ var _default = (state, action) => {
       return (0, _dotPropImmutableChain.default)(state).set("store.threads", []).value();
 
     /* Thread Listen
-    /* ------------------ */
+      /* ------------------ */
 
     case 'THREAD_LISTEN_REQUEST':
       return (0, _dotPropImmutableChain.default)(state).set("store.listens", [...state.store.threads, action]).value();
@@ -292,7 +286,7 @@ var _default = (state, action) => {
       return (0, _dotPropImmutableChain.default)(state).set("store.listens", []).value();
 
     /* Thread Get
-    /* ------------------ */
+      /* ------------------ */
 
     case 'GET_THREAD_REQUEST':
       return (0, _dotPropImmutableChain.default)(state).set("store.threadsGet", [...state.store.threadsGet, action]).value();
@@ -304,7 +298,7 @@ var _default = (state, action) => {
       return (0, _dotPropImmutableChain.default)(state).set("store.threadsGet", []).value();
 
     /* Thread Get by Address
-    /* ------------------ */
+      /* ------------------ */
 
     case 'GET_THREAD_BY_ADDRESS_REQUEST':
       return (0, _dotPropImmutableChain.default)(state).set("store.threads", [...state.store.threads, action]).value();
@@ -317,7 +311,7 @@ var _default = (state, action) => {
       return (0, _dotPropImmutableChain.default)(state).set("store.threads", []).value();
 
     /* Thread Post Publish
-    /* ------------------ */
+      /* ------------------ */
 
     case 'THREAD_POST_PUBLISH_REQUEST':
       return (0, _dotPropImmutableChain.default)(state).set("store.posts", [...state.store.posts, action]).value();
@@ -326,7 +320,7 @@ var _default = (state, action) => {
       return (0, _dotPropImmutableChain.default)(state).set("@.".concat(action.firstModerator, ".threads.").concat(action.space, ".").concat(action.threadName), action.payload).set("auth.threads.".concat(action.threadName, ".posts"), action.payload).set("store.posts", []).value();
 
     /* Thread Post Delete
-    /* ------------------ */
+      /* ------------------ */
 
     case 'THREAD_POST_DELETE_REQUEST':
       return (0, _dotPropImmutableChain.default)(state).set("store.posts", [...state.store.posts, action]).value();

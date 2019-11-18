@@ -14,7 +14,7 @@ const BoxOpenSpace = ({ box, auto, space, styled, styledLoading, componentLoadin
    */
   const actionHandler = () => {
     if(typeof space === 'undefined') throw new Error('space undefined')
-    box.openSpace(space)
+    box.openSpaceRequest(space)
     setLoading(true) 
   }
 
@@ -24,7 +24,7 @@ const BoxOpenSpace = ({ box, auto, space, styled, styledLoading, componentLoadin
    */
   useEffect(() => {
     if(!box.auth.spaces[space] && auto && typeof space !== 'undefined') {
-      box.openSpace(space)
+      box.openSpaceRequest(space)
       setLoading(true)
     }
   }, [auto])

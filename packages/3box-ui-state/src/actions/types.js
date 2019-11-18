@@ -1,3 +1,4 @@
+export const BOOTSTRAP = 'BOOTSTRAP';
 export const SET_PROVIDER = 'SET_PROVIDER';
 export const ENABLE_REQUEST = 'ENABLE_REQUEST';
 export const ENABLE_SUCCESS = 'ENABLE_SUCCESS';

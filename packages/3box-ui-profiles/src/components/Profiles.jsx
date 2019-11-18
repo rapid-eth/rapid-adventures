@@ -30,7 +30,7 @@ const ProfileSelector = ({ box, selector, ...props }) => {
    */
   const GetProfileEffect = () => useEffect( () => { 
     if(address && !dispatched) {
-      box.getProfile(address)
+      box.getProfileRequest(address)
       setDispatched(true)
     }
   }, [address, dispatched])

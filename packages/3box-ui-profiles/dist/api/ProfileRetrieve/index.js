@@ -45,7 +45,7 @@ var BoxProfileRetrieve = function BoxProfileRetrieve(_ref) {
 
   (0, _react.useEffect)(function () {
     if (address && !profile) {
-      box.getProfile(address);
+      box.getProfileRequest(address);
     } else if ((0, _idx["default"])(box, function (_) {
       return _.profiles[address];
     })) {// setProfile(idx(box, _=>_.profiles[address]))

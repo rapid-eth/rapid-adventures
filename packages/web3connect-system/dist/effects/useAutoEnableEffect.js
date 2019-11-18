@@ -20,13 +20,13 @@ var _react = require("react");
 var useAutoEnable = (state, dispatch) => {
   var [dispatched, setDispatched] = (0, _react.useState)();
   (0, _react.useEffect)(() => {
-    if (!dispatched && state.isEnableAuto) {
+    if (!dispatched && state.isAutoEnable) {
       dispatch({
         type: 'ENABLE_REQUEST'
       });
       setDispatched(true);
     }
-  }, [state.isEnableAuto]);
+  }, [state.isAutoEnable]);
   return dispatched;
 };
 /* --- Export --- */

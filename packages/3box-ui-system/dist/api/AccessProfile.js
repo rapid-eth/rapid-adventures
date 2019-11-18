@@ -41,12 +41,12 @@ var AccessLogin = (_ref) => {
 AccessLogin.defaultProps = {
   componentLogin: _react.default.createElement(_Login.default, null),
   componentisLoggedIn: _react.default.createElement(_.Avatar, null),
-  isloginAuto: false,
+  isAutoLogin: false,
   isLoginDisabled: false
 };
 AccessLogin.propTypes = {
   componentLogin: _propTypes.default.func,
-  isloginAuto: _propTypes.default.bool,
+  isAutoLogin: _propTypes.default.bool,
   isLoginDisabled: _propTypes.default.bool
 };
 

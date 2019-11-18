@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.threadDeletePostRequest = exports.threadPostRequest = exports.joinThreadRequest = exports.openSpaceRequest = exports.deleteRequest = exports.removeRequest = exports.mergeRequest = exports.setMultipleRequest = exports.setSingleRequest = exports.setRequest = exports.getRequest = exports.threadListenRequest = exports.getThreadByAddressRequest = exports.getThreadRequest = exports.getSpaceListRequest = exports.getSpaceRequest = exports.getProfileListRequest = exports.getProfileRequest = exports.logoutRequest = exports.loginRequest = exports.enableRequest = exports.setProvider = void 0;
+exports.threadDeletePostRequest = exports.threadPostRequest = exports.joinThreadRequest = exports.openSpaceRequest = exports.deleteRequest = exports.removeRequest = exports.mergeRequest = exports.setMultipleRequest = exports.setSingleRequest = exports.setRequest = exports.getRequest = exports.threadListenRequest = exports.getThreadByAddressRequest = exports.getThreadRequest = exports.getSpaceListRequest = exports.getSpaceRequest = exports.getProfileListRequest = exports.getProfileRequest = exports.logoutRequest = exports.loginRequest = exports.enableRequest = exports.setProvider = exports.bootstrapContext = void 0;
 
 var _types = require("./types");
 
@@ -13,9 +13,21 @@ var _types = require("./types");
 /* -------------------------------- */
 
 /**
+ * @name bootstrap
+ * @param {Object} provider
+ */
+var bootstrapContext = (state, dispatch) => payload => dispatch({
+  type: _types.BOOTSTRAP,
+  payload: payload
+});
+/**
  * @name setProvider
  * @param {Object} provider
  */
+
+
+exports.bootstrapContext = bootstrapContext;
+
 var setProvider = (state, dispatch) => (_ref) => {
   var {
     provider
@@ -73,15 +85,10 @@ var logoutRequest = (state, dispatch) => () => dispatch({
 
 exports.logoutRequest = logoutRequest;
 
-var getProfileRequest = (state, dispatch) => (_ref2) => {
-  var {
-    address
-  } = _ref2;
-  return dispatch({
-    type: _types.GET_PROFILE_REQUEST,
-    payload: address
-  });
-};
+var getProfileRequest = (state, dispatch) => address => dispatch({
+  type: _types.GET_PROFILE_REQUEST,
+  payload: address.toLowerCase()
+});
 /**
  * @name getProfileListRequest
  * @param {Object} provider
@@ -90,10 +97,10 @@ var getProfileRequest = (state, dispatch) => (_ref2) => {
 
 exports.getProfileRequest = getProfileRequest;
 
-var getProfileListRequest = (state, dispatch) => (_ref3) => {
+var getProfileListRequest = (state, dispatch) => (_ref2) => {
   var {
     addresses
-  } = _ref3;
+  } = _ref2;
   return dispatch({
     type: _types.GET_PROFILE_LIST_REQUEST,
     payload: addresses
@@ -109,11 +116,11 @@ var getProfileListRequest = (state, dispatch) => (_ref3) => {
 
 exports.getProfileListRequest = getProfileListRequest;
 
-var getSpaceRequest = (state, dispatch) => (_ref4) => {
+var getSpaceRequest = (state, dispatch) => (_ref3) => {
   var {
     address,
     space
-  } = _ref4;
+  } = _ref3;
   return dispatch({
     type: _types.GET_SPACE_REQUEST,
     payload: {
@@ -130,11 +137,11 @@ var getSpaceRequest = (state, dispatch) => (_ref4) => {
 
 exports.getSpaceRequest = getSpaceRequest;
 
-var getSpaceListRequest = (state, dispatch) => (_ref5) => {
+var getSpaceListRequest = (state, dispatch) => (_ref4) => {
   var {
     address,
     space
-  } = _ref5;
+  } = _ref4;
   return dispatch({
     type: _types.GET_SPACE_LIST_REQUEST,
     payload: {
@@ -153,14 +160,14 @@ var getSpaceListRequest = (state, dispatch) => (_ref5) => {
 
 exports.getSpaceListRequest = getSpaceListRequest;
 
-var getThreadRequest = (state, dispatch) => (_ref6) => {
+var getThreadRequest = (state, dispatch) => (_ref5) => {
   var {
     space,
     threadName,
     firstModerator,
     members,
     options
-  } = _ref6;
+  } = _ref5;
   return dispatch({
     type: _types.GET_THREAD_REQUEST,
     payload: {
@@ -180,10 +187,10 @@ var getThreadRequest = (state, dispatch) => (_ref6) => {
 
 exports.getThreadRequest = getThreadRequest;
 
-var getThreadByAddressRequest = (state, dispatch) => (_ref7) => {
+var getThreadByAddressRequest = (state, dispatch) => (_ref6) => {
   var {
     threadAddress
-  } = _ref7;
+  } = _ref6;
   return dispatch({
     type: _types.GET_THREAD_BY_ADDRESS_REQUEST,
     payload: {
@@ -199,10 +206,10 @@ var getThreadByAddressRequest = (state, dispatch) => (_ref7) => {
 
 exports.getThreadByAddressRequest = getThreadByAddressRequest;
 
-var threadListenRequest = (state, dispatch) => (_ref8) => {
+var threadListenRequest = (state, dispatch) => (_ref7) => {
   var {
     threadAddress
-  } = _ref8;
+  } = _ref7;
   return dispatch({
     type: THREAD_LISTEN_REQUEST,
     payload: {
@@ -225,12 +232,12 @@ var threadListenRequest = (state, dispatch) => (_ref8) => {
 
 exports.threadListenRequest = threadListenRequest;
 
-var getRequest = (state, dispatch) => (_ref9) => {
+var getRequest = (state, dispatch) => (_ref8) => {
   var {
     access,
     key,
     space
-  } = _ref9;
+  } = _ref8;
   return dispatch({
     type: _types.GET_REQUEST,
     payload: {
@@ -248,13 +255,13 @@ var getRequest = (state, dispatch) => (_ref9) => {
 
 exports.getRequest = getRequest;
 
-var setRequest = (state, dispatch) => (_ref10) => {
+var setRequest = (state, dispatch) => (_ref9) => {
   var {
     access,
     space,
     key,
     value
-  } = _ref10;
+  } = _ref9;
   return dispatch({
     type: _types.SET_REQUEST,
     payload: {
@@ -273,13 +280,13 @@ var setRequest = (state, dispatch) => (_ref10) => {
 
 exports.setRequest = setRequest;
 
-var setSingleRequest = (state, dispatch) => (_ref11) => {
+var setSingleRequest = (state, dispatch) => (_ref10) => {
   var {
     access,
     space,
     key,
     value
-  } = _ref11;
+  } = _ref10;
   return dispatch({
     type: _types.SET_SINGLE_REQUEST,
     payload: {
@@ -298,13 +305,13 @@ var setSingleRequest = (state, dispatch) => (_ref11) => {
 
 exports.setSingleRequest = setSingleRequest;
 
-var setMultipleRequest = (state, dispatch) => (_ref12) => {
+var setMultipleRequest = (state, dispatch) => (_ref11) => {
   var {
     access,
     space,
     keys,
     values
-  } = _ref12;
+  } = _ref11;
   return dispatch({
     type: _types.SET_MULTIPLE_REQUEST,
     payload: {
@@ -323,14 +330,14 @@ var setMultipleRequest = (state, dispatch) => (_ref12) => {
 
 exports.setMultipleRequest = setMultipleRequest;
 
-var mergeRequest = (state, dispatch) => (_ref13) => {
+var mergeRequest = (state, dispatch) => (_ref12) => {
   var {
     access,
     space,
     key,
     delta,
     value
-  } = _ref13;
+  } = _ref12;
   return dispatch({
     type: _types.MERGE_REQUEST,
     payload: {
@@ -350,12 +357,12 @@ var mergeRequest = (state, dispatch) => (_ref13) => {
 
 exports.mergeRequest = mergeRequest;
 
-var removeRequest = (state, dispatch) => (_ref14) => {
+var removeRequest = (state, dispatch) => (_ref13) => {
   var {
     access,
     space,
     key
-  } = _ref14;
+  } = _ref13;
   return dispatch({
     type: _types.REMOVE_REQUEST,
     payload: {
@@ -373,13 +380,13 @@ var removeRequest = (state, dispatch) => (_ref14) => {
 
 exports.removeRequest = removeRequest;
 
-var deleteRequest = (state, dispatch) => (_ref15) => {
+var deleteRequest = (state, dispatch) => (_ref14) => {
   var {
     access,
     space,
     key,
     delta
-  } = _ref15;
+  } = _ref14;
   return dispatch({
     type: _types.DELETE_REQUEST,
     payload: {
@@ -403,10 +410,10 @@ var deleteRequest = (state, dispatch) => (_ref15) => {
 
 exports.deleteRequest = deleteRequest;
 
-var openSpaceRequest = (state, dispatch) => (_ref16) => {
+var openSpaceRequest = (state, dispatch) => (_ref15) => {
   var {
     space
-  } = _ref16;
+  } = _ref15;
   return dispatch({
     type: _types.LOGIN_SPACE_REQUEST,
     payload: {
@@ -427,10 +434,10 @@ var openSpaceRequest = (state, dispatch) => (_ref16) => {
 
 exports.openSpaceRequest = openSpaceRequest;
 
-var joinThreadRequest = (state, dispatch) => (_ref17) => {
+var joinThreadRequest = (state, dispatch) => (_ref16) => {
   var {
     space
-  } = _ref17;
+  } = _ref16;
   return dispatch({
     type: _types.JOIN_THREAD_REQUEST,
     payload: {
@@ -446,12 +453,12 @@ var joinThreadRequest = (state, dispatch) => (_ref17) => {
 
 exports.joinThreadRequest = joinThreadRequest;
 
-var threadPostRequest = (state, dispatch) => (_ref18) => {
+var threadPostRequest = (state, dispatch) => (_ref17) => {
   var {
     space,
     threadName,
     post
-  } = _ref18;
+  } = _ref17;
   return dispatch({
     type: _types.THREAD_POST_REQUEST,
     payload: {
@@ -469,12 +476,12 @@ var threadPostRequest = (state, dispatch) => (_ref18) => {
 
 exports.threadPostRequest = threadPostRequest;
 
-var threadDeletePostRequest = (state, dispatch) => (_ref19) => {
+var threadDeletePostRequest = (state, dispatch) => (_ref18) => {
   var {
     space,
     threadName,
     postId
-  } = _ref19;
+  } = _ref18;
   return dispatch({
     type: _types.THREAD_DELETE_POST_REQUEST,
     payload: {

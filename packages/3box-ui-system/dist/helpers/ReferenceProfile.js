@@ -59,7 +59,7 @@ var BoxSelector = (_ref) => {
 
   var GetSpaceEffect = () => (0, _react.useEffect)(() => {
     if ((0, _utilities.isAddress)(address) && !dispatched) {
-      box.getProfile(address);
+      box.getProfileRequest(address);
       setDispatched(true);
     }
   }, [address, dispatched]);

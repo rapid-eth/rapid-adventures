@@ -43,7 +43,7 @@ var useAddExtension = function useAddExtension(state, dispatch) {
       } // setDispatched(extension);
 
     }
-  }, [state.isEnableAuto]);
+  }, [state.isAutoEnable]);
   return dispatched;
 };
 /* --- Export --- */

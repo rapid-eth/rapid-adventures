@@ -135,7 +135,7 @@ var useSpaceOpenRequestEffect = (box, props) => {
   }, [box.auth.spaces[props.space]]);
   (0, _react.useEffect)(() => {
     if (!box.auth.spaces[props.space] && isRequested && box.address) {
-      box.openSpace(props.space);
+      box.openSpaceRequest(props.space);
       setIsDispatched(true);
     }
   }, [isRequested, box.address]);

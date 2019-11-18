@@ -53,7 +53,7 @@ var ProfileSelector = (_ref) => {
 
   var GetProfileEffect = () => (0, _react.useEffect)(() => {
     if (address && !dispatched) {
-      box.getProfile(address);
+      box.getProfileRequest(address);
       setDispatched(true);
     }
   }, [address, dispatched]);

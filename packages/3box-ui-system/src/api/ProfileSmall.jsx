@@ -16,7 +16,7 @@ const BoxProfileRetrieve = ({ box, address, small, styled, ...props }) => {
    */
   useEffect( () => {
     if(address && !profile) {
-      box.getProfile(address)
+      box.getProfileRequest(address)
     } else if(idx(box, _=>_.profiles[address])) {
       // setProfile(idx(box, _=>_.profiles[address]))
     }

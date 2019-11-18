@@ -20,13 +20,13 @@ var _react = require("react");
 var useAutoLogin = (state, dispatch) => {
   var [dispatched, setDispatched] = (0, _react.useState)();
   (0, _react.useEffect)(() => {
-    if (state.isLoginAuto && state.address) {
+    if (state.isAutoLogin && state.address) {
       dispatch({
         type: 'LOGIN_REQUEST'
       });
       setDispatched(true);
     }
-  }, [state.isLoginAuto, state.address]);
+  }, [state.isAutoLogin, state.address]);
   return dispatched;
 };
 /* --- Export --- */

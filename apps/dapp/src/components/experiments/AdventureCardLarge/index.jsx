@@ -75,10 +75,12 @@ export const AdventureCard = ({
               </Modal>
             </Atom.Box>
           </Atom.Box>
-          <Atom.Flex sx={styles.leaderboard}>
+          <Atom.Flex column sx={styles.leaderboard}>
             <Atom.Heading>Leaderboard</Atom.Heading>
-            <ProfileSmall address="0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d" />
-            <ProfileSmall address="0x5AdB8209b5276A23426994298FE9900644F57924" />
+            <Atom.Flex column>
+              <ProfileSmall address="0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d" />
+              <ProfileSmall address="0x5AdB8209b5276A23426994298FE9900644F57924" />
+            </Atom.Flex>
           </Atom.Flex>
         </Atom.Flex>
         <Atom.Flex></Atom.Flex>

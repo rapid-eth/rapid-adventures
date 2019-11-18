@@ -38,7 +38,7 @@ var BoxOpenSpace = (_ref) => {
 
   var actionHandler = () => {
     if (typeof space === 'undefined') throw new Error('space undefined');
-    box.openSpace(space);
+    box.openSpaceRequest(space);
     setLoading(true);
   };
   /**
@@ -49,7 +49,7 @@ var BoxOpenSpace = (_ref) => {
 
   (0, _react.useEffect)(() => {
     if (!box.auth.spaces[space] && auto && typeof space !== 'undefined') {
-      box.openSpace(space);
+      box.openSpaceRequest(space);
       setLoading(true);
     }
   }, [auto]);

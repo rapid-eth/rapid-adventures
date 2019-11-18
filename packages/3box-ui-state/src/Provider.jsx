@@ -8,10 +8,11 @@ import { enhanceActions } from './middleware/actions';
 import { initialize } from './middleware/initialize';
 
 /* --- Effects --- */
-import * as SideEffects from './effects';
+import { useBootstrap } from './effects';
+import * as SideEffects from './requests';
 
 /* --- Provider Component --- */
-const Provider = props => {
+const Provider = ({ config, ...props }) => {
   const initialState = useContext(Context);
   const [state, dispatch] = useReducer(reducers, initialState);
 
@@ -20,7 +21,7 @@ const Provider = props => {
 
   /* --- Enhance Actions --- */
   const actions = enhanceActions(state, dispatch);
-
+  useBootstrap(actions, config);
   console.log(state, 'Box Provider');
   return (
     <Context.Provider

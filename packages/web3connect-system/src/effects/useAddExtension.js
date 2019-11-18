@@ -52,7 +52,7 @@ const useAddExtension = (state, dispatch, extension = {}) => {
 
 			// setDispatched(extension);
 		}
-	}, [state.isEnableAuto]);
+	}, [state.isAutoEnable]);
 
 	return dispatched;
 };

@@ -64,7 +64,7 @@ var ProfileSelector = function ProfileSelector(_ref) {
   var GetProfileEffect = function GetProfileEffect() {
     return (0, _react.useEffect)(function () {
       if (address && !dispatched) {
-        box.getProfile(address);
+        box.getProfileRequest(address);
         setDispatched(true);
       }
     }, [address, dispatched]);

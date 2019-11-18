@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("/Users/admin/Documents/GitHub/rapid/rapid-adventures/node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("/Users/admin/Documents/GitHub/rapid/rapid-adventures/node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
@@ -9,21 +7,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.ProfileSmall = void 0;
 
-var _defineProperty2 = _interopRequireDefault(require("/Users/admin/Documents/GitHub/rapid/rapid-adventures/node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/defineProperty"));
-
 var _extends2 = _interopRequireDefault(require("/Users/admin/Documents/GitHub/rapid/rapid-adventures/node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/extends"));
-
-var _slicedToArray2 = _interopRequireDefault(require("/Users/admin/Documents/GitHub/rapid/rapid-adventures/node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/slicedToArray"));
 
 var _objectWithoutProperties2 = _interopRequireDefault(require("/Users/admin/Documents/GitHub/rapid/rapid-adventures/node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties"));
 
 var _idx = _interopRequireDefault(require("idx"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
 var _boxUiState = require("3box-ui-state");
-
-var _designSystemAtoms = require("@horizin/design-system-atoms");
 
 var _utilities = require("../utilities");
 
@@ -37,32 +29,12 @@ var ProfileSmallView = function ProfileSmallView(_ref) {
       styled = _ref.styled,
       props = (0, _objectWithoutProperties2["default"])(_ref, ["box", "address", "small", "styled"]);
 
-  var _useState = (0, _react.useState)(),
-      _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
-      profile = _useState2[0],
-      setProfile = _useState2[1]; // const profileRequest = Effects.useGetProfile(box, props);
+  var account = _boxUiState.Selectors.useGetProfile(box, address.toLowerCase());
 
-
-  (0, _react.useEffect)(function () {
-    if (address && !profile) {
-      box.getProfile(address);
-    } else if ((0, _idx["default"])(box, function (_) {
-      return _.profiles[address];
-    })) {// setProfile(idx(box, _=>_.profiles[address]))
-    }
-  }, [address, profile]);
-  (0, _react.useEffect)(function () {
-    if (!profile) {
-      setProfile((0, _idx["default"])(box, function (_) {
-        return _.profiles[address];
-      }));
-    }
-  }, [profile, (0, _idx["default"])(box, function (_) {
-    return _.profiles[address];
-  })]);
+  console.log(account, 'accountaccount');
   return _react["default"].createElement(ProfileCard, (0, _extends2["default"])({
     small: small,
-    profile: profile,
+    profile: account.data.profile,
     address: address
   }, props));
 };
@@ -71,59 +43,52 @@ var ProfileCard = function ProfileCard(_ref2) {
   var profile = _ref2.profile,
       small = _ref2.small,
       props = (0, _objectWithoutProperties2["default"])(_ref2, ["profile", "small"]);
-
-  var _useState3 = (0, _react.useState)(props.disableName),
-      _useState4 = (0, _slicedToArray2["default"])(_useState3, 2),
-      isNameDisabled = _useState4[0],
-      setIsNameDisabled = _useState4[1];
-
-  return profile ? _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement(_designSystemAtoms.Flex, {
+  return profile ? _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement(Atom.Flex, {
     alignCenter: true
-  }, _react["default"].createElement(_designSystemAtoms.Flex, (0, _defineProperty2["default"])({
+  }, _react["default"].createElement(Atom.Flex, {
     circle: true,
     center: true,
     column: true,
-    boxShadow: 0,
-    p: 2,
-    border: "1px solid #FFF",
-    overflow: "hidden",
-    m: 1,
-    width: 24,
-    height: 24,
-    maxWidth: 26
-  }, "maxWidth", 26), profile.image ? _react["default"].createElement(_designSystemAtoms.BackgroundImage, {
+    sx: {
+      boxShadow: 0,
+      border: '1px solid #FFF',
+      overflow: 'hidden',
+      width: 32,
+      height: 32
+    }
+  }, profile.image ? _react["default"].createElement(Atom.BackgroundImage, {
     ratio: 0.5,
     src: (0, _utilities.GenerateImage)(profile.image)
-  }) : _react["default"].createElement(_designSystemAtoms.BackgroundImage, {
+  }) : _react["default"].createElement(Atom.BackgroundImage, {
     ratio: 0.5,
     src: "https://images.assetsdelivery.com/compings_v2/mingirov/mingirov1904/mingirov190400568.jpg"
-  })), !isNameDisabled && _react["default"].createElement(_designSystemAtoms.Box, {
+  })), !props.disableName && _react["default"].createElement(Atom.Box, {
     ml: 10
-  }, _react["default"].createElement(_designSystemAtoms.Link, {
-    to: "/profile/".concat(props.address)
-  }, _react["default"].createElement(_designSystemAtoms.Heading, {
+  }, _react["default"].createElement(Molecule.Link, {
+    to: "/dashboard/wprofile/".concat(props.address)
+  }, _react["default"].createElement(Atom.Heading, {
     md: true,
-    noMargin: true
+    sx: {
+      m: 0
+    }
   }, (0, _idx["default"])(profile, function (_) {
     return _.name;
-  })))))) : _react["default"].createElement(_designSystemAtoms.Flex, {
+  })))))) : _react["default"].createElement(Atom.Flex, {
     alignCenter: true
-  }, _react["default"].createElement(_designSystemAtoms.Span, null, _react["default"].createElement(_designSystemAtoms.Image, {
-    card: true,
+  }, _react["default"].createElement(Atom.Span, null, _react["default"].createElement(Atom.Image, {
     circle: true,
     src: "https://static.thenounproject.com/png/2348501-200.png",
-    border: "none",
-    bg: "white",
-    p: 0,
-    width: 20
-  })), _react["default"].createElement(_designSystemAtoms.Box, {
+    sx: {
+      width: 32,
+      p: 0
+    }
+  })), _react["default"].createElement(Atom.Box, {
     ml: 10
-  }, _react["default"].createElement(_designSystemAtoms.Box, {
-    borderRadius: 40,
-    bg: "gray",
-    p: 1,
-    width: 120
-  })));
+  }, _react["default"].createElement(Atom.Heading, {
+    sx: {
+      m: 0
+    }
+  }, "No Identity (", props.addres, ")")));
 };
 
 var ProfileSmall = function ProfileSmall(props) {

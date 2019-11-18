@@ -142,7 +142,7 @@ var useProfileRetrieveEffect = function useProfileRetrieveEffect(box, props) {
    */
 
   (0, _react.useEffect)(function () {
-    if (isAddressValid) box.getProfile(address);
+    if (isAddressValid) box.getProfileRequest(address);
     setRequested(true);
   }, [props.address]);
   /**
@@ -205,7 +205,7 @@ var useSpaceOpenRequestEffect = function useSpaceOpenRequestEffect(box, props) {
   }, [box.auth.spaces[props.space]]);
   (0, _react.useEffect)(function () {
     if (!box.auth.spaces[props.space] && isRequested && box.address) {
-      box.openSpace(props.space);
+      box.openSpaceRequest(props.space);
       setIsDispatched(true);
     }
   }, [isRequested, box.address]);

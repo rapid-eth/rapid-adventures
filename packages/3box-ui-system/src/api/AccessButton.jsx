@@ -83,13 +83,13 @@ AccessButton.defaultProps = {
   componentisLoggedIn: <Avatar />,
   disabledLabel: 'Requires Authentication',
   label: 'Submit',
-  isloginAuto: false,
+  isAutoLogin: false,
   isLoginDisabled: false
 };
 
 AccessButton.propTypes = {
   componentLogin: PropTypes.node,
-  isloginAuto: PropTypes.bool,
+  isAutoLogin: PropTypes.bool,
   isLoginDisabled: PropTypes.bool
 };
 

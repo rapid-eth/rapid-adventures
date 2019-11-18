@@ -93,12 +93,12 @@ AccessButton.defaultProps = {
   componentisLoggedIn: _react.default.createElement(_.Avatar, null),
   disabledLabel: 'Requires Authentication',
   label: 'Submit',
-  isloginAuto: false,
+  isAutoLogin: false,
   isLoginDisabled: false
 };
 AccessButton.propTypes = {
   componentLogin: _propTypes.default.node,
-  isloginAuto: _propTypes.default.bool,
+  isAutoLogin: _propTypes.default.bool,
   isLoginDisabled: _propTypes.default.bool
 };
 

@@ -24,13 +24,13 @@ const login = useOpenRequestEffect(box)
 AccessLogin.defaultProps = {
   componentLogin: <Login />,  
   componentisLoggedIn: <Avatar />,  
-  isloginAuto: false,
+  isAutoLogin: false,
   isLoginDisabled: false,  
 }
 
 AccessLogin.propTypes = {
   componentLogin: PropTypes.func,
-  isloginAuto: PropTypes.bool,
+  isAutoLogin: PropTypes.bool,
   isLoginDisabled: PropTypes.bool,
 }
 

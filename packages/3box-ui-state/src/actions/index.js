@@ -1,4 +1,5 @@
 import {
+	BOOTSTRAP,
 	SET_PROVIDER,
 	ENABLE_REQUEST,
 	LOGIN_REQUEST,
@@ -25,6 +26,15 @@ import {
 /* -------------------------------- */
 /* Connect & Authenticate
 /* -------------------------------- */
+/**
+ * @name bootstrap
+ * @param {Object} provider
+ */
+export const bootstrapContext = (state, dispatch) => payload =>
+	dispatch({
+		type: BOOTSTRAP,
+		payload: payload
+	});
 /**
  * @name setProvider
  * @param {Object} provider
@@ -69,10 +79,10 @@ export const logoutRequest = (state, dispatch) => () =>
  * @name getProfileRequest
  * @param {Object} provider
  */
-export const getProfileRequest = (state, dispatch) => ({ address }) =>
+export const getProfileRequest = (state, dispatch) => address =>
 	dispatch({
 		type: GET_PROFILE_REQUEST,
-		payload: address
+		payload: address.toLowerCase()
 	});
 /**
  * @name getProfileListRequest

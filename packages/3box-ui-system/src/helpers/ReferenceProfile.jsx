@@ -26,7 +26,7 @@ const BoxSelector = ({ box, children, ...props }) => {
    */
   const GetSpaceEffect = () => useEffect( () => { 
     if(isAddress(address) && !dispatched) {
-      box.getProfile(address)
+      box.getProfileRequest(address)
       setDispatched(true)
     }
   }, [address, dispatched])

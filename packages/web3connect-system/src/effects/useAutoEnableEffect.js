@@ -13,11 +13,11 @@ const useAutoEnable = (state, dispatch) => {
   const [dispatched, setDispatched] = useState()
 
   useEffect(() => {
-    if (!dispatched && state.isEnableAuto) {
+    if (!dispatched && state.isAutoEnable) {
       dispatch({ type: 'ENABLE_REQUEST' })
       setDispatched(true)
     }
-  }, [state.isEnableAuto])
+  }, [state.isAutoEnable])
 
   return dispatched
 }

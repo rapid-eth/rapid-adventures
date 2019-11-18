@@ -1,26 +1,31 @@
 /**
  * @name 3BoxContext
- * @description Initialize 3Box context.
  */
 /* --- Global --- */
 import { createContext } from 'react';
 import box from '3box';
+
 /* --- Components --- */
 const Context = createContext({
-  // Authentiation data storage.
   '@': {},
-  extensions: {},
+  static: box,
+  utils: box.idUtils,
+  address: undefined,
+  addressShortened: undefined,
+  addressTrimmed: undefined,
+  isInitialized: false,
+  isRequestOpen: false,
+  isAutoEnable: false,
+  isAutoLogin: false,
+  isLoggedIn: false,
+  isLoggingIn: false,
+  isLoggingOut: false,
+  isDebugging: false,
   auth: {
     instance: undefined,
     spaces: {},
     threads: {}
   },
-  // Register onUpdate (thread listening) requests.
-  listeners: {},
-  listening: {},
-  // Middleware for requests to 3Box.
-  requests: [],
-  // Manage dispatched requests.
   store: {
     add: [], // Add Moderator or Member
     deletes: [], // Delete Item from Storage (Space) index (key)
@@ -37,65 +42,39 @@ const Context = createContext({
     threads: [],
     threadsGet: []
   },
-  profile: {},
 
-  // Library
-  instance: box, // Login initializes instances.
-  static: box,
-  utils: box.idUtils,
+  /* --- Stateless --- */
+  getProfileRequest: () => {},
+  getThreadRequest: () => {},
 
-  // Global Helpers
-  address: undefined,
-  addressShortened: undefined,
-  addressTrimmed: undefined,
+  getThreadByAddressRequest: () => {},
+  getVerifiedAccountsRequest: () => {},
+  /* --- Authentication --- */
+  enableRequest: () => {},
+  loginRequest: () => {},
+  logoutRequest: () => {},
 
-  // Boolean
+  /* --- Statefull --- */
+  openSpaceRequest: () => {},
+  listSpacesRequest: () => {},
+  subscribedThreadsRequest: () => {},
 
-  isInitialized: false,
-  isRequestOpen: false,
-  isEnableAuto: false, // Request ETH Address
-  isLoginAuto: false, // Request 3Box Login
-  isRequestProfileAuto: true, // Request Profile Auto
-  isLoggedIn: false,
-  isLoggingIn: false,
-  isLoggingOut: false,
+  // Storage Stateful
+  getRequest: () => {},
+  setRequest: () => {},
+  setSingleRequest: () => {},
+  setMultipleRequest: () => {},
+  removeRequest: () => {},
+  deleteRequest: () => {},
 
-  isDebugging: false,
-
-  /* --- Functions --- */
-  enable: () => {},
-  login: () => {},
-  logout: () => {},
-  addRequest: () => {},
-  confirmRequest: () => {},
-  confirmAllRequests: () => {},
-  openSpace: () => {},
-  listSpaces: () => {},
-  subscribedThreads: () => {},
-  getThread: () => {},
-  getThreadByAddress: () => {},
-  getConfig: () => {},
-  getVerifiedAccounts: () => {},
-  joinThread: () => {},
-  joinThreadByAddress: () => {},
-  threadPost: () => {},
-  threadPostDelete: () => {},
-  threadListen: () => {},
-  threadAddModerator: () => {},
-  threadAddMember: () => {},
-  getProfile: () => {},
-  lookupProfile: () => {},
-  rejectRequest: () => {},
-  verified: () => {},
-  get: () => {},
-  remove: () => {},
-  removeItem: () => {},
-  set: () => {},
-  setMultiple: () => {},
-  listAddressLinks: () => {},
-  isAddressLinked: () => {},
-  linkAddress: () => {},
-  removeAddressList: () => {}
+  // Thread Stateful
+  joinThreadRequest: () => {},
+  joinThreadByAddressRequest: () => {},
+  threadPostRequest: () => {},
+  threadPostDeleteRequest: () => {},
+  threadListenRequest: () => {},
+  threadAddModeratorRequest: () => {},
+  threadAddMemberRequest: () => {}
 });
 
 export default Context;

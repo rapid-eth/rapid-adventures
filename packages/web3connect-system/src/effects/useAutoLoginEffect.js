@@ -10,16 +10,16 @@ import { useState, useEffect } from 'react';
 
 /* --- Component --- */
 const useAutoLogin = (state, dispatch) => {
-  const [dispatched, setDispatched] = useState();
+	const [dispatched, setDispatched] = useState();
 
-  useEffect(() => {
-    if (state.isLoginAuto && state.address) {
-      dispatch({ type: 'LOGIN_REQUEST' });
-      setDispatched(true);
-    }
-  }, [state.isLoginAuto, state.address]);
+	useEffect(() => {
+		if (state.isAutoLogin && state.address) {
+			dispatch({ type: 'LOGIN_REQUEST' });
+			setDispatched(true);
+		}
+	}, [state.isAutoLogin, state.address]);
 
-  return dispatched;
+	return dispatched;
 };
 
 /* --- Export --- */
