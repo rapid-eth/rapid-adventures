@@ -19,14 +19,12 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 var BackgroundGradient = _react.default.forwardRef((_ref, ref) => {
   var {
-    sx,
     children
   } = _ref,
-      props = _objectWithoutProperties(_ref, ["sx", "children"]);
+      props = _objectWithoutProperties(_ref, ["children"]);
 
   return _react.default.createElement(_Box.default, _extends({
-    ref: ref
-  }, props, {
+    ref: ref,
     __effectKey: "common",
     __variantsKey: "effects.common",
     __css: {
@@ -35,7 +33,7 @@ var BackgroundGradient = _react.default.forwardRef((_ref, ref) => {
       position: 'absolute',
       opacity: props.opacity
     }
-  }));
+  }, props));
 });
 
 exports.BackgroundGradient = BackgroundGradient;

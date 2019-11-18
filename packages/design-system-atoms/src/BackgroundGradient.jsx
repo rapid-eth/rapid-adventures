@@ -1,17 +1,19 @@
-import React from 'react'
-import Box from './Box'
+import React from 'react';
+import Box from './Box';
 
-export const BackgroundGradient = React.forwardRef(({ sx, children, ...props }, ref) => (
-  <Box
-    ref={ref}
-    {...props}
-    __effectKey="common"
-    __variantsKey="effects.common" 
-    __css={{
+export const BackgroundGradient = React.forwardRef(
+  ({children, ...props}, ref) => (
+    <Box
+      ref={ref}
+      __effectKey="common"
+      __variantsKey="effects.common"
+      __css={{
         variant: 'layout.fill',
         overflow: 'hidden',
         position: 'absolute',
         opacity: props.opacity,
-    }}
-  />
-))
+      }}
+      {...props}
+    />
+  ),
+);
