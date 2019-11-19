@@ -22,7 +22,7 @@ const showcase = {
     ratio: 0.4,
   },
   left: {
-    flex: 2,
+    flex: 3,
     p: 5,
     py: 6,
   },

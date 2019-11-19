@@ -63,7 +63,7 @@ const RegionAside = ({sx, ...props}) => {
 
 const menu = [
   {
-    label: 'Dashboard',
+    label: 'Journal',
     to: '/dashboard',
     image: (
       <Atom.Image
@@ -71,6 +71,16 @@ const menu = [
         sx={{mr: 3}}
       />
     ),
+    children: [
+      {
+        label: 'Active Adventures',
+        to: '/dashboard/journal/adventures',
+      },
+      {
+        label: 'Active Quests',
+        to: '/dashboard/journal/quests',
+      },
+    ],
   },
   {
     label: 'Adventures',
@@ -93,11 +103,39 @@ const menu = [
     ),
   },
   {
-    label: 'Team',
-    to: '/dashboard/team',
+    label: 'Admin',
+    to: '/dashboard/admin',
     image: (
       <Atom.Image
-        src="https://image.flaticon.com/icons/svg/1673/1673604.svg"
+        src="https://image.flaticon.com/icons/svg/1673/1673632.svg"
+        sx={{mr: 3}}
+      />
+    ),
+    children: [
+      {
+        label: 'Adventure Create',
+        to: '/dashboard/adventure/create',
+      },
+      {
+        label: 'Adventure Manage',
+        to: '/dashboard/adventure/complete',
+      },
+      {
+        label: 'Quest Create',
+        to: '/dashboard/quest/create',
+      },
+      {
+        label: 'Quest Manage',
+        to: '/dashboard/quest/complete',
+      },
+    ],
+  },
+  {
+    label: 'Content Management',
+    to: '/dashboard/cms',
+    image: (
+      <Atom.Image
+        src="https://image.flaticon.com/icons/svg/1673/1673620.svg"
         sx={{mr: 3}}
       />
     ),

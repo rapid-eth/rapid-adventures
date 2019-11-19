@@ -34,7 +34,7 @@ export default props => (
               label: 'Leaderboard',
               to: '/dashboard/leaderboard',
               image: (
-                <Atom.Image src="https://image.flaticon.com/icons/svg/1673/1673599.svg" />
+                <Atom.Image src="https://image.flaticon.com/icons/svg/1673/1673579.svg" />
               ),
             },
             {

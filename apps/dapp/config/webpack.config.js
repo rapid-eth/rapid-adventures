@@ -322,7 +322,7 @@ module.exports = function(webpackEnv) {
 				),
 				regions: path.resolve(__dirname, '../src/components/regions'),
 				templates: path.resolve(__dirname, '../src/templates'),
-				views: path.resolve(__dirname, '../src/components/views'),
+				views: path.resolve(__dirname, '../src/views'),
 				pages: path.resolve(__dirname, '../src/pages'),
 				global: path.resolve(__dirname, '../src/assets/global'),
 			},

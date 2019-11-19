@@ -50,9 +50,9 @@ const Showase = props => (
       <Atom.Flex sx={{flex: 1}}>
         <Atom.Flex between sx={{boxShadow: 1, flex: 6, px: 5, py: 6}}>
           <Atom.Box>
-            <Atom.Heading xxl>Adventure Title</Atom.Heading>
+            <Atom.Heading xxl>Ethereum Name Registration</Atom.Heading>
             <Atom.Heading lg thin>
-              Adventure Subtitle and Catchy Info
+              Register your personal ENS record. A simple wallet address.
             </Atom.Heading>
           </Atom.Box>
           <Atom.Flex>
