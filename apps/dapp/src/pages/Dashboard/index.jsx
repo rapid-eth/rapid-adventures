@@ -9,6 +9,7 @@ import {
   Leaderboard,
   Collections,
   AdventureCreate,
+  QuestCreate,
 } from 'views';
 
 const DashboardPage = props => (
@@ -20,6 +21,7 @@ const DashboardPage = props => (
       <Collections path="/collections" />
       <AdventureList path="/adventures" />
       <AdventureCreate path="/adventure/create" />
+      <QuestCreate path="/quest/create" />
       <Adventure path="/adventure/:delta" />
     </Router>
   </Dashboard>
