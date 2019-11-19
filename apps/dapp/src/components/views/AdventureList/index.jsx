@@ -2,7 +2,6 @@
 import {ProfileSmall} from '3box-ui-profiles';
 
 /* --- Local --- */
-import {BasicAction} from 'experiments';
 import {SmallStatistic} from 'experiments';
 import {AdventureCardLarge} from 'experiments';
 import {FormSearch} from 'forms';

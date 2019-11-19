@@ -21,6 +21,12 @@ Object.defineProperty(exports, "Avatar", {
     return _Avatar.Avatar;
   }
 });
+Object.defineProperty(exports, "Profile", {
+  enumerable: true,
+  get: function get() {
+    return _Profile.Profile;
+  }
+});
 Object.defineProperty(exports, "ProfileCard", {
   enumerable: true,
   get: function get() {
@@ -69,6 +75,8 @@ var _ProfileCover = require("./components/ProfileCover");
 var _ProfileImage = require("./components/ProfileImage");
 
 var _Avatar = require("./components/Avatar");
+
+var _Profile = require("./components/Profile");
 
 var _ProfileCard = require("./components/ProfileCard");
 

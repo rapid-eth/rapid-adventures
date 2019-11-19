@@ -46,7 +46,7 @@ const Showase = props => (
     }}>
     <Atom.BackgroundGradient gradient="sunset" sx={{opacity: 0.2}} />
 
-    <Atom.Container sx={{mx: 0}}>
+    <Atom.Container sx={{mx: 0, maxWidth: ['100%', '100%', 780, 880]}}>
       <Atom.Flex sx={{flex: 1}}>
         <Atom.Flex between sx={{boxShadow: 1, flex: 6, px: 5, py: 6}}>
           <Atom.Box>
@@ -69,7 +69,8 @@ const Main = props => {
   return (
     <Atom.Flex sx={{zIndex: 1000, ...props.sx}}>
       {/* Left */}
-      <Atom.Container sx={{mx: 0}}>
+      <Atom.Container
+        sx={{mx: 0, maxWidth: ['100%', '100%', 780, 820, 820, 980]}}>
         <Atom.Flex between wrap sx={{flex: 1, p: 3, flexWrap: 'wrap'}}>
           <QuestCard
             title="Quest"

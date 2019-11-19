@@ -4,6 +4,7 @@ export { ProfileImage } from './components/ProfileImage';
 
 // Basics
 export { Avatar } from './components/Avatar';
+export { Profile } from './components/Profile';
 export { ProfileCard } from './components/ProfileCard';
 export { ProfileCardVanity } from './components/ProfileCardVanity';
 export { ProfileCardShowcase } from './components/ProfileCardShowcase';

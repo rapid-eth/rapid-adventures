@@ -70,6 +70,24 @@ export default {
 		pointer: {
 			cursor: 'pointer',
 		},
+		m1: {
+			m: 1,
+		},
+		m2: {
+			m: 1,
+		},
+		m3: {
+			m: 1,
+		},
+		p1: {
+			p: 1,
+		},
+		p2: {
+			p: 1,
+		},
+		p3: {
+			p: 1,
+		},
 
 		// Tag
 		card: {
