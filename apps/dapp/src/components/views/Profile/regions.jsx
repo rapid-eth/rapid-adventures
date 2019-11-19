@@ -1,10 +1,4 @@
 /* --- Global --- */
-import {
-  Avatar,
-  ProfileIdentity,
-  ProfileDetailsOccupation,
-  ProfileCover,
-} from '3box-ui-profiles';
 /* --- Local --- */
 import {
   CollectionList,

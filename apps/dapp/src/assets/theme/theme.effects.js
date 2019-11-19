@@ -70,6 +70,9 @@ export default {
 		pointer: {
 			cursor: 'pointer',
 		},
+		m0: {
+			m: 0,
+		},
 		m1: {
 			m: 1,
 		},

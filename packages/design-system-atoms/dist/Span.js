@@ -16,11 +16,10 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 var Span = _react.default.forwardRef((props, ref) => _react.default.createElement(_Box.default, _extends({
   ref: ref
 }, props, {
-  __effectKey: "common",
-  __variantsKey: "effects.common",
+  __effectKey: "text",
+  __variantsKey: "effects.text",
   __css: {
     display: 'inline-block',
-    fontSize: 'inherit',
     fontWeight: 'inherit'
   }
 })));
