@@ -131,7 +131,7 @@ export default {
 	// Text (Heading, Span, Paragraph)
 	text: {
 		sm: {
-			fontSize: 1,
+			fontSize: 0,
 		},
 		lg: {
 			fontSize: 3,
@@ -192,10 +192,17 @@ export default {
 			borderRadius: 12,
 		},
 		sm: {
+			fontSize: 0,
 			p: 2,
 		},
+		md: {
+			fontSize: 2,
+			p: '10px',
+		},
 		lg: {
-			p: 4,
+			fontSize: 3,
+			p: '12px',
+			px: '16px',
 		},
 		xl: {
 			p: 5,

@@ -25,9 +25,7 @@ var Button = _react.default.forwardRef((props, ref) => _react.default.createElem
     appearance: 'none',
     display: 'inline-block',
     textAlign: 'center',
-    lineHeight: 'inherit',
     textDecoration: 'none',
-    fontSize: 'inherit',
     outline: 'none'
   }
 })));

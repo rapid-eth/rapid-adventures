@@ -17,12 +17,9 @@ var Paragraph = _react.default.forwardRef((props, ref) => _react.default.createE
   as: "p",
   ref: ref
 }, props, {
-  __effectKey: "common",
-  __variantsKey: "effects.common",
+  __effectKey: "text",
   __css: {
     display: 'block',
-    fontSize: 'inherit',
-    fontWeight: 'inherit',
     mb: 10
   }
 })));
