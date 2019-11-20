@@ -56,3 +56,21 @@ Run Frontend: `cd packages/apps/dapp ; yarn start`
 - [ ] Content v0.0.2
   - [ ] General Copyedit Improvements
   - [ ] Project Release Blurb (300 - 500 Words)
+
+### [EXPERIMENTAL] GitHub Package Registry
+
+ethers-react-system releases trigger a npm publish to GitHub Package Registry (rapid-eth)
+
+To logon,
+1. Create an .npmrc at the project root
+  Paste this in:
+
+    `@rapid-eth:registry=https://npm.pkg.github.com/rapid-eth/`
+2. Get a Github Personal Access Token
+  Paste it into the next line:
+    `//npm.pkg.github.com/:_authToken=<YOURTOKENHERE>`
+
+3. package.json with a 'scoped' package dep looks like this:
+    `"@rapid-eth/ethers-react-system": "0.0.1-beta4",`
+
+4. Run `yarn install --verbose `
