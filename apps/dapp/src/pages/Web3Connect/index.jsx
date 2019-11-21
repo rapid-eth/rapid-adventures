@@ -1,16 +1,29 @@
 import React from 'react';
 import Web3Connect from 'web3connect';
-// import { withEthers } from 'ethers-react-system';
+import { withEthers } from 'ethers-react-system';
 
 const IndexPage = ({ ethers }) => {
   console.log('>>> ethers', ethers)
   return (
     <div>
-      {ethers && ethers.toString()}
-      hello world
-  </div>
+      <h5>Ethers Provider</h5>
+      {Object.entries(ethers).map(([key, value]) => {
+        if (key === 'wallet' || key === 'provider') return null;
+        // not sure why but wallet & provider are sometimes circular skip to prevent an JSON.stringify throwing.
+        return (
+          <details key={key}>
+            <summary>
+              {key}
+            </summary>
+            <pre>
+              {JSON.stringify(value, null, 2)}
+            </pre>
+          </details>
+        )
+      })
+      }
+    </div>
   )
 };
 
-// export default withEthers(IndexPage);
-export default IndexPage;
+export default withEthers(IndexPage);

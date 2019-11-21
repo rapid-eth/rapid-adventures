@@ -2,7 +2,7 @@
 import { ThemeProvider } from 'theme-ui';
 import { PortalProvider, PortalTree } from 'react-portal-system';
 import { BoxProvider } from '3box-ui-system';
-// import { EthersProvider } from 'ethers-react-system'
+import { EthersProvider } from 'ethers-react-system'
 
 /* --- Local --- */
 import theme from './assets/theme';
@@ -15,9 +15,9 @@ export default props => {
       <PortalProvider>
         <BoxProvider config={BoxConfig}>
           <PortalTree />
-          {/* <EthersProvider> */}
-          {props.children}
-          {/* </EthersProvider> */}
+          <EthersProvider>
+            {props.children}
+          </EthersProvider>
         </BoxProvider>
       </PortalProvider>
     </ThemeProvider>
