@@ -1,11 +1,13 @@
 import React from 'react';
 import Web3Connect from 'web3connect';
 import { withEthers } from 'ethers-react-system';
+import TokenBalance from '../../components/token';
 
 const IndexPage = ({ ethers }) => {
   console.log('>>> ethers', ethers)
   return (
     <div>
+      <TokenBalance />
       <h5>Ethers Provider</h5>
       {Object.entries(ethers).map(([key, value]) => {
         if (key === 'wallet' || key === 'provider') return null;
