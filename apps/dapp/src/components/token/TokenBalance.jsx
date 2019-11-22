@@ -19,7 +19,6 @@ const styles = {
 const TokenBalance = ({ address, children }) => {
   // const [] = useContractReadSelector(address);
 
-
   if (children) return children;
   return null;
 };
