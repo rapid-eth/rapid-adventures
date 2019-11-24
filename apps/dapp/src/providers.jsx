@@ -7,6 +7,8 @@ import { EthersProvider } from 'ethers-react-system'
 /* --- Local --- */
 import theme from './assets/theme';
 
+import ERC20Certificate from './contracts/ERC20Certificate';
+
 const BoxConfig = { isAutoEnable: false, isAutoLogin: false };
 
 export default props => {
@@ -15,7 +17,7 @@ export default props => {
       <PortalProvider>
         <BoxProvider config={BoxConfig}>
           <PortalTree />
-          <EthersProvider>
+          <EthersProvider contracts={[ERC20Certificate]}>
             {props.children}
           </EthersProvider>
         </BoxProvider>

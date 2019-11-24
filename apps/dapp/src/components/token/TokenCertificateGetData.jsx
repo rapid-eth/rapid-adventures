@@ -8,8 +8,13 @@ import React, { useState } from 'react';
 
 const TokenCertificateGetData = ({ ethers, address, children }) => {
   // const [] = useContractReadSelector(address);
-  const build = (address, name) => new ethers.Contract(address, require(`../../../contracts/${name}.json`), eth)
+  // const [] = 
+  const build = (address, name) =>
+    new ethers.instance.Contract(address, require(`../../contracts/${name}.json`), ethers.instance.providers.InfuraProvider)
 
+  console.log('>>', ethers)
+
+  // build('0x0123', 'ERC20Certificate')
   if (children) return children;
   return null;
 };
