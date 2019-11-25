@@ -12,7 +12,8 @@ const IndexPage = ({ ethers }) => {
       <TokenCertificateGetData ethers={ethers} />
       <h5>Ethers Provider</h5>
       {Object.entries(ethers).map(([key, value]) => {
-        if (key === 'wallet' || key === 'provider') return null;
+        console.log('>', key)
+        if (['contracts', 'provider', 'wallet'].includes(key)) return null;
         // not sure why but wallet & provider are sometimes circular skip to prevent an JSON.stringify throwing.
         return (
           <details key={key}>
