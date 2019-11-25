@@ -1,4 +1,5 @@
 {
+  "contractName": "ERC20Certificate",
   "name": "ERC20Certificate",
   "abi": [
     {

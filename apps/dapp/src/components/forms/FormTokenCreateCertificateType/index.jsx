@@ -3,17 +3,25 @@ import { PropTypes } from 'prop-types'
 import useForm from "react-hook-form";
 
 const FormTokenCertificateCreateType = ({ ethers, styled, ...props }) => {
-  /* --- Form Hook State --- */
   const { handleSubmit, register, errors } = useForm()
-
-  /* --- Component State --- */
   const [isComplete, setComplete] = useState()
+  // ethers.initContract(ERC20Certificate);
 
-  /* --- Submit Handler --- */
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
+    console.log('FormTokenCertificateCreateType ethers', ethers)
+    const { contracts } = ethers;
+    const ERC20Certificate = contracts['ERC20Certificate-Factory']
+    console.log('ERC20Certificate', ERC20Certificate);
+
     if (values) {
-      alert(Object.values(values))
-      setComplete(true) // Validate submission and set complete status to true
+      console.log(values);
+
+      console.log('starting deploy...')
+      const factory = new ethers.instance.ContractFactory(ERC20Certificate.abi, ERC20Certificate.bytecode, ethers.wallet);
+      const contract = await factory.deploy("Dummy", "DUM", 0, 10000000);
+      await contract.deployed()
+      console.log(contract.address)
+      setComplete(true)
     }
   }
 

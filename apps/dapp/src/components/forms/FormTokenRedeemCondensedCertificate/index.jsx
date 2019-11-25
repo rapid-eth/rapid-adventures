@@ -3,13 +3,9 @@ import { PropTypes } from 'prop-types'
 import useForm from "react-hook-form";
 
 const RedeemCondensedCertificate = ({ ethers, styled, ...props }) => {
-  /* --- Form Hook State --- */
   const { handleSubmit, register, errors } = useForm()
-
-  /* --- Component State --- */
   const [isComplete, setComplete] = useState()
 
-  /* --- Submit Handler --- */
   const onSubmit = (values) => {
     if (values) {
       alert(Object.values(values))
@@ -17,6 +13,7 @@ const RedeemCondensedCertificate = ({ ethers, styled, ...props }) => {
     }
   }
 
+  console.log('ethers', ethers)
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>

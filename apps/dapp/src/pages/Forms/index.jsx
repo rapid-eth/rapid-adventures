@@ -1,6 +1,7 @@
 import React from 'react';
 import { withEthers } from 'ethers-react-system';
 
+import ERC20Certificate from '../../contracts/ERC20Certificate';
 import FormTokenCreateCertificateType from '../../components/forms/FormTokenCreateCertificateType'
 import FormTokenCertificateRedeem from '../../components/forms/FormTokenCertificateRedeem'
 import FormTokenRedeemCondensedCertificate from '../../components/forms/FormTokenRedeemCondensedCertificate'
@@ -172,12 +173,14 @@ const EthersDemo = ({ ethers }) =>
   </div>
 
 const IndexPage = ({ ethers }) => {
-  console.log('>>> ethers', ethers)
+  // const result = ethers.initContract(ERC20Certificate);
+  // console.log('result', result)
+
   return (
     <div>
       <Header />
-      <RedeemCondensedCertificateCard ethers={ethers} />
       <CreateCertificateTypeCard ethers={ethers} />
+      <RedeemCondensedCertificateCard ethers={ethers} />
       <CertificateRedeemCard ethers={ethers} />
       <EthersDemo ethers={ethers} />
     </div>
