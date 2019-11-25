@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { PropTypes } from 'prop-types'
 import useForm from "react-hook-form";
 
 const FormTokenCertificateCreateType = ({ ethers, styled, ...props }) => {
@@ -16,11 +15,16 @@ const FormTokenCertificateCreateType = ({ ethers, styled, ...props }) => {
     if (values) {
       console.log(values);
 
-      console.log('starting deploy...')
-      const factory = new ethers.instance.ContractFactory(ERC20Certificate.abi, ERC20Certificate.bytecode, ethers.wallet);
-      const contract = await factory.deploy("Dummy", "DUM", 0, 10000000);
-      await contract.deployed()
-      console.log(contract.address)
+      console.log('calling sendTransaction()')
+      // ethers.sendTransaction(contractID, functionName, params);
+      const params = Object.entries(values).map(([key, value]) => value)
+      console.log('params', params)
+      ethers.sendTransaction('ERC20Certificate', 'createCertificateType', params);
+
+      // const factory = new ethers.instance.ContractFactory(ERC20Certificate.abi, ERC20Certificate.bytecode, ethers.wallet);
+      // const contract = await factory.deploy("Dummy", "DUM", 0, 10000000);
+      // await contract.deployed()
+      // console.log(contract.address)
       setComplete(true)
     }
   }
@@ -63,15 +67,6 @@ const FormTokenCertificateCreateType = ({ ethers, styled, ...props }) => {
       </form>
     </div>
   )
-}
-
-
-FormTokenCertificateCreateType.defaultProps = {
-  styled: {}
-}
-
-FormTokenCertificateCreateType.propTypes = {
-  styled: PropTypes.object
 }
 
 export default FormTokenCertificateCreateType
