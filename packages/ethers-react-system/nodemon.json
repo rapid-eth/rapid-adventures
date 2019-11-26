@@ -1,0 +1,13 @@
+{
+  "name": "@kames/eth-contract-ERC20",
+  "homepage": "http://kamescg.io",
+  "nodemonConfig": {
+    "ignore": ["dist/*", "src/*"],
+    "delay": "2500"
+  },
+  "watch": ["src/"],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "js,json,jsx"
+}
