@@ -19,7 +19,13 @@ const FormTokenCertificateCreateType = ({ ethers, styled, ...props }) => {
       // ethers.sendTransaction(contractID, functionName, params);
       const params = Object.entries(values).map(([key, value]) => value)
       console.log('params', params)
-      ethers.sendTransaction('ERC20Certificate', 'createCertificateType', params);
+      // ERC20Certificate.sendTransaction('ERC20Certificate', 'createCertificateType', params);
+      const response = await ERC20Certificate.interface.functions.balanceOf('0x762920c6eF772cEC2Db85577964156628277eA70')
+      console.log(response);
+
+      // makes an JSON RPC request into Metamask
+      // e.g. ERC20Certificate.redeem
+
 
       // const factory = new ethers.instance.ContractFactory(ERC20Certificate.abi, ERC20Certificate.bytecode, ethers.wallet);
       // const contract = await factory.deploy("Dummy", "DUM", 0, 10000000);
