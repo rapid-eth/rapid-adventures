@@ -7,7 +7,7 @@ exports.default = void 0;
 
 var _utilities = require("../utilities");
 
-var _types = require("../actions/types");
+var _types = require("../types");
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -25,6 +25,21 @@ var reducerActions = (state, action) => {
   } = action;
 
   switch (type) {
+    case _types.ENABLE_REQUEST:
+      return _objectSpread({}, state, {
+        isEnableRequested: true
+      });
+
+    case _types.ENABLE_SUCCESS:
+      return _objectSpread({}, state, {
+        isEnableSuccess: true
+      });
+
+    case _types.ENABLE_FAILURE:
+      return _objectSpread({}, state, {
+        isEnableSuccess: false
+      });
+
     case _types.SET_PROVIDER:
       return _objectSpread({}, state, {
         provider: payload
@@ -41,6 +56,13 @@ var reducerActions = (state, action) => {
       });
 
     case _types.SET_WALLET:
+      return _objectSpread({}, state, {
+        address: payload.address,
+        wallet: payload.wallet,
+        contracts: payload.contracts
+      });
+
+    case _types.SET_WALLET_FAILURE:
       return _objectSpread({}, state, {
         address: payload.address,
         wallet: payload.wallet,
@@ -74,7 +96,7 @@ var reducerActions = (state, action) => {
 
     /* ----------------------- */
 
-    case INIT_CONTRACT:
+    case _types.INIT_CONTRACT_REQUEST:
       var {
         address,
         contract
@@ -115,6 +137,7 @@ var reducerActions = (state, action) => {
       });
 
     default:
+      // return { ...state };
       throw new Error("No Reducer Type Set: ".concat(action.type));
   }
 };

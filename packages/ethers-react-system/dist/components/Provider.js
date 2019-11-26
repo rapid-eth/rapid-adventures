@@ -15,6 +15,8 @@ var _actions = require("../middleware/actions");
 
 var _initialize = require("../middleware/initialize");
 
+var RequestEffects = _interopRequireWildcard(require("../requests"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -39,7 +41,13 @@ var Provider = (_ref) => {
   } = _ref;
   var initialState = (0, _react.useContext)(_Context.default);
   var [state, dispatch] = (0, _react.useReducer)(_reducer.default, initialState, (0, _initialize.initialize)(contracts, provider));
+  /* --- Enhance Actions --- */
+
   var actions = (0, _actions.enhanceActions)(state, dispatch);
+  /* --- Request Effects --- */
+
+  Object.values(RequestEffects).map(effect => effect(state, dispatch));
+  console.log(state, 'Ethers Provider');
   return _react.default.createElement(_Context.default.Provider, {
     value: _objectSpread({}, state, {
       dispatch,

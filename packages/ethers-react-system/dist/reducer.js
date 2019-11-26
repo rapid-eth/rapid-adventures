@@ -30,6 +30,11 @@ var reducerActions = (state, action) => {
   } = action;
 
   switch (action.type) {
+    case ENABLE_PROVIDER:
+      return _objectSpread({}, state, {
+        provider: payload
+      });
+
     case _types.SET_PROVIDER:
       return _objectSpread({}, state, {
         provider: payload
@@ -51,6 +56,9 @@ var reducerActions = (state, action) => {
         wallet: payload.wallet,
         contracts: payload.contracts
       });
+
+    case _types.SET_WALLET_FAILURE:
+      return _objectSpread({}, state);
 
     case _types.SIGN_TRANSACTION_REQUEST:
       return _objectSpread({}, state);

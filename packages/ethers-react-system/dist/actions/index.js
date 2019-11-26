@@ -3,39 +3,38 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.generateWallet = exports.sendTransaction = exports.signMessage = exports.signMessageTyped = exports.deployContractFromBytecode = exports.deployContract = exports.initContractFromLibrary = exports.initContract = exports.loadContractIntoLibrary = exports.setProviderStatus = exports.setProvider = void 0;
+Object.defineProperty(exports, "enableRequest", {
+  enumerable: true,
+  get: function get() {
+    return _enableRequest.enableRequest;
+  }
+});
+Object.defineProperty(exports, "setProvider", {
+  enumerable: true,
+  get: function get() {
+    return _setProvider.setProvider;
+  }
+});
+exports.generateWallet = exports.initContractFromLibrary = exports.initContract = exports.loadContractIntoLibrary = exports.setProviderStatus = void 0;
 
 var _utilities = require("../utilities");
 
 var _ethers = require("ethers");
 
-var _types = require("./types");
+var _types = require("../types");
+
+var _enableRequest = require("./enableRequest");
+
+var _setProvider = require("./setProvider");
 
 /**
  *
  * @param {Object} provider
  */
-var setProvider = (state, dispatch) => (_ref) => {
+var setProviderStatus = (state, dispatch) => (_ref) => {
   var {
     provider
   } = _ref;
-  return dispatch({
-    type: 'SET_PROVIDER',
-    payload: provider
-  });
-};
-/**
- *
- * @param {Object} provider
- */
-
-
-exports.setProvider = setProvider;
-
-var setProviderStatus = (state, dispatch) => (_ref2) => {
-  var {
-    provider
-  } = _ref2;
   return dispatch({
     type: 'SET_PROVIDER_STATUS',
     payload: provider
@@ -46,11 +45,11 @@ var setProviderStatus = (state, dispatch) => (_ref2) => {
 
 exports.setProviderStatus = setProviderStatus;
 
-var loadContractIntoLibrary = (state, dispatch) => (_ref3) => {
+var loadContractIntoLibrary = (state, dispatch) => (_ref2) => {
   var {
     abi,
     contractName
-  } = _ref3;
+  } = _ref2;
   return dispatch({
     type: 'LOAD_CONTRACT_INTO_LIBRARY_REQUEST',
     payload: {
@@ -105,11 +104,11 @@ var initContract = (state, dispatch) => (props, address) => {
 
 exports.initContract = initContract;
 
-var initContractFromLibrary = (state, dispatch) => (_ref4) => {
+var initContractFromLibrary = (state, dispatch) => (_ref3) => {
   var {
     address,
     contractName
-  } = _ref4;
+  } = _ref3;
   return dispatch({
     type: 'INIT_CONTRACT_FROM_LIBRARY_REQUEST',
     payload: {
@@ -120,80 +119,6 @@ var initContractFromLibrary = (state, dispatch) => (_ref4) => {
 };
 
 exports.initContractFromLibrary = initContractFromLibrary;
-
-var deployContract = (state, dispatch) => (_ref5) => {
-  var {
-    contract,
-    delta,
-    values
-  } = _ref5;
-  return dispatch({
-    type: 'DEPLOY_CONTRACT_REQUEST',
-    payload: {
-      contract,
-      values
-    },
-    delta: delta || contract && contract.contractName
-  });
-};
-
-exports.deployContract = deployContract;
-
-var deployContractFromBytecode = (state, dispatch) => (abi, bytecode, delta) => dispatch({
-  type: 'DEPLOY_CONTRACT_FROM_BYTECODE_REQUEST',
-  input: bytecode,
-  delta: delta || (0, _utilities.hashCode)(abi)
-});
-
-exports.deployContractFromBytecode = deployContractFromBytecode;
-
-var signMessageTyped = (state, dispatch) => (_ref6) => {
-  var {
-    message,
-    delta
-  } = _ref6;
-  return dispatch({
-    type: 'SIGN_TYPED_MESSAGE_REQUEST',
-    payload: message,
-    id: delta || (0, _utilities.hashCode)(message.toString())
-  });
-};
-
-exports.signMessageTyped = signMessageTyped;
-
-var signMessage = (state, dispatch) => (_ref7) => {
-  var {
-    message,
-    delta
-  } = _ref7;
-  return dispatch({
-    type: 'SIGN_MESSAGE_REQUEST',
-    payload: message,
-    id: delta || (0, _utilities.hashCode)(message)
-  });
-};
-/**
- *
- * @param {String} contractID
- * @param {String} functionName
- * @param {Array} params
- */
-
-
-exports.signMessage = signMessage;
-
-var sendTransaction = (state, dispatch) => (contractID, functionName, params) => {
-  var contract = state.contracts[contractID];
-  var contractFunction = contract[functionName];
-  contractFunction(...params).then(tx => {
-    dispatch({
-      type: _types.SIGN_TRANSACTION_REQUEST,
-      input: tx
-    });
-  });
-};
-
-exports.sendTransaction = sendTransaction;
 
 var generateWallet = (state, dispatch) => () => {
   if (state.wallet) {

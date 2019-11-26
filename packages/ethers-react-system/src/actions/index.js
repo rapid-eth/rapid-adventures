@@ -1,24 +1,13 @@
-import {
-  hashCode,
-  getLatestDeploymentAddress,
-  generateNewContracts,
-  networkRouting
-} from '../utilities';
+import { hashCode, generateNewContracts, networkRouting } from '../utilities';
 import { ethers } from 'ethers';
 import {
   INIT_CONTRACT_REQUEST,
   SET_WALLET,
   SIGN_TRANSACTION_REQUEST
-} from './types';
-/**
- *
- * @param {Object} provider
- */
-export const setProvider = (state, dispatch) => ({ provider }) =>
-  dispatch({
-    type: 'SET_PROVIDER',
-    payload: provider
-  });
+} from '../types';
+
+export { enableRequest } from './enableRequest';
+export { setProvider } from './setProvider';
 
 /**
  *
@@ -92,66 +81,6 @@ export const initContractFromLibrary = (state, dispatch) => ({
       contractName
     }
   });
-
-export const deployContract = (state, dispatch) => ({
-  contract,
-  delta,
-  values
-}) =>
-  dispatch({
-    type: 'DEPLOY_CONTRACT_REQUEST',
-    payload: {
-      contract,
-      values
-    },
-    delta: delta || (contract && contract.contractName)
-  });
-
-export const deployContractFromBytecode = (state, dispatch) => (
-  abi,
-  bytecode,
-  delta
-) =>
-  dispatch({
-    type: 'DEPLOY_CONTRACT_FROM_BYTECODE_REQUEST',
-    input: bytecode,
-    delta: delta || hashCode(abi)
-  });
-
-export const signMessageTyped = (state, dispatch) => ({ message, delta }) =>
-  dispatch({
-    type: 'SIGN_TYPED_MESSAGE_REQUEST',
-    payload: message,
-    id: delta || hashCode(message.toString())
-  });
-
-export const signMessage = (state, dispatch) => ({ message, delta }) =>
-  dispatch({
-    type: 'SIGN_MESSAGE_REQUEST',
-    payload: message,
-    id: delta || hashCode(message)
-  });
-
-/**
- *
- * @param {String} contractID
- * @param {String} functionName
- * @param {Array} params
- */
-export const sendTransaction = (state, dispatch) => (
-  contractID,
-  functionName,
-  params
-) => {
-  const contract = state.contracts[contractID];
-  const contractFunction = contract[functionName];
-  contractFunction(...params).then(tx => {
-    dispatch({
-      type: SIGN_TRANSACTION_REQUEST,
-      input: tx
-    });
-  });
-};
 
 export const generateWallet = (state, dispatch) => () => {
   if (state.wallet) {

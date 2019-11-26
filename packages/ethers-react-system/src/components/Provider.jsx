@@ -15,7 +15,7 @@ import Context from './Context';
 import reducers from '../reducers/reducer';
 import { enhanceActions } from '../middleware/actions';
 import { initialize } from '../middleware/initialize';
-
+import * as RequestEffects from '../requests';
 /* --- Developer Messages --- */
 console.warn(
   'EthersProvider is not ready for production. Use at your discretion'
@@ -29,8 +29,14 @@ const Provider = ({ children, contracts = [], provider = 'metamask' }) => {
     initialState,
     initialize(contracts, provider)
   );
-
+  /* --- Enhance Actions --- */
   const actions = enhanceActions(state, dispatch);
+
+  /* --- Request Effects --- */
+  Object.values(RequestEffects).map(effect => effect(state, dispatch));
+
+  console.log(state, 'Ethers Provider');
+
   return (
     <Context.Provider
       value={{

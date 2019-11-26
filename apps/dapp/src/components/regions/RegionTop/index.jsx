@@ -6,6 +6,7 @@
 import {ColorMode} from 'core';
 import {Authenticate, Login} from '3box-ui-system';
 import {Global} from '@emotion/core';
+import {EnableEthereum} from 'components/ethereum';
 
 export default props => (
   <Atom.Flex alignCenter between sx={{variant: 'regions.header'}}>
@@ -45,7 +46,7 @@ export default props => (
       <Atom.Box sx={{mx: 3}}>
         <ColorMode />
       </Atom.Box>
-      <Authenticate display="avatar" />
+      <EnableEthereum />
     </Atom.Flex>
   </Atom.Flex>
 );

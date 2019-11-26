@@ -1,5 +1,8 @@
 import { hashCode } from '../utilities';
 import {
+  ENABLE_REQUEST,
+  ENABLE_SUCCESS,
+  ENABLE_FAILURE,
   SET_PROVIDER,
   SET_PROVIDER_STATUS,
   SIGN_TYPED_MESSAGE_REQUEST,
@@ -9,12 +12,28 @@ import {
   DEPLOY_CONTRACT_FROM_BYTECODE_REQUEST,
   SEND_TRANSACTION_REQUEST,
   SET_WALLET,
+  SET_WALLET_FAILURE,
   SET_ADDRESS
-} from '../actions/types';
+} from '../types';
 
 const reducerActions = (state, action) => {
   const { input, delta, id, payload, type } = action;
   switch (type) {
+    case ENABLE_REQUEST:
+      return {
+        ...state,
+        isEnableRequested: true
+      };
+    case ENABLE_SUCCESS:
+      return {
+        ...state,
+        isEnableSuccess: true
+      };
+    case ENABLE_FAILURE:
+      return {
+        ...state,
+        isEnableSuccess: false
+      };
     case SET_PROVIDER:
       return {
         ...state,
@@ -31,6 +50,13 @@ const reducerActions = (state, action) => {
         address: input
       };
     case SET_WALLET:
+      return {
+        ...state,
+        address: payload.address,
+        wallet: payload.wallet,
+        contracts: payload.contracts
+      };
+    case SET_WALLET_FAILURE:
       return {
         ...state,
         address: payload.address,
@@ -69,7 +95,7 @@ const reducerActions = (state, action) => {
     /* Contract Initialize     */
     /* ----------------------- */
 
-    case INIT_CONTRACT:
+    case INIT_CONTRACT_REQUEST:
       const { address, contract } = payload;
       return {
         ...state,
@@ -114,6 +140,7 @@ const reducerActions = (state, action) => {
       };
 
     default:
+      // return { ...state };
       throw new Error(`No Reducer Type Set: ${action.type}`);
   }
 };
