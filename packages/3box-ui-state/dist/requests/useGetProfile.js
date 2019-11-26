@@ -23,7 +23,6 @@ var useGetProfile = (state, dispatch) => {
         /*#__PURE__*/
         function () {
           var _ref = _asyncToGenerator(function* () {
-            console.log(selected, 'sdsfasdas');
             var profile = yield state.static.getProfile(selected.payload);
             var verified = yield state.static.getVerifiedAccounts(profile);
             profile.verifications = verified;
