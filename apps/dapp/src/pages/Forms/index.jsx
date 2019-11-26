@@ -187,4 +187,4 @@ const IndexPage = ({ ethers }) => {
   )
 };
 
-export default withEthers(IndexPage);
+export default props => withEthers(IndexPage);

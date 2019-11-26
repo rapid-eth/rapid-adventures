@@ -7,7 +7,7 @@ import { PortalProvider, PortalTree } from 'react-portal-system';
 /* --- Local --- */
 import theme from './assets/theme';
 
-import ERC20Certificate from './contracts/ERC20Certificate';
+import MeshDevCoin from './contracts/MeshDevCoin';
 
 const BoxConfig = { isAutoEnable: false, isAutoLogin: false };
 
@@ -15,12 +15,10 @@ const BoxConfig = { isAutoEnable: false, isAutoLogin: false };
 export default props => {
   return (
     <ThemeProvider theme={theme}>
-      <EthersProvider>
+      <EthersProvider contracts={[MeshDevCoin]}>
         <BoxProvider config={BoxConfig}>
           <PortalTree />
-          <EthersProvider contracts={[ERC20Certificate]}>
-            {props.children}
-          </EthersProvider>
+          {props.children}
         </BoxProvider>
       </EthersProvider>
     </ThemeProvider>
