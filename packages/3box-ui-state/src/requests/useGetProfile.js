@@ -17,7 +17,6 @@ export const useGetProfile = (state, dispatch) => {
 			const selected = state.store.profiles[0];
 			if (selected) {
 				const runEffect = async () => {
-					console.log(selected, 'sdsfasdas');
 					const profile = await state.static.getProfile(
 						selected.payload
 					);

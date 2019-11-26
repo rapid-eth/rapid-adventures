@@ -10,19 +10,28 @@ import {
   Collections,
   AdventureCreate,
   QuestCreate,
+  JournalAdventures,
+  JournalQuests,
+  Quest,
 } from 'views';
 
 const DashboardPage = props => (
   <Dashboard>
     <Router width="100%">
       <Introduction path="/" />
+      <JournalAdventures path="/journal/adventures" />
+      <JournalQuests path="/journal/quests" />
       <Profile path="/profile" />
       <Leaderboard path="/leaderboard" />
       <Collections path="/collections" />
+      {/* Adventures */}
       <AdventureList path="/adventures" />
       <AdventureCreate path="/adventure/create" />
-      <QuestCreate path="/quest/create" />
       <Adventure path="/adventure/:delta" />
+
+      {/* Quests */}
+      <QuestCreate path="/quest/create" />
+      <Quest path="/quest/:delta" />
     </Router>
   </Dashboard>
 );
