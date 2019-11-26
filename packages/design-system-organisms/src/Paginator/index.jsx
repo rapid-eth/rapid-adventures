@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import PaginatorHooked from 'react-hooks-paginator';
- 
+// import PaginatorHooked from 'react-hooks-paginator';
+
 const Paginator = props => {
-  const pageLimit = 10;
- 
-  const [offset, setOffset] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
+  // const pageLimit = 10;
+
+  // const [offset, setOffset] = useState(0);
+  // const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState([]);
-  const [currentData, setCurrentData] = useState([]);
- 
+  const [currentData] = useState([]);
+
   useEffect(() => {
-    if(data.length = 0) {
+    if (data.length === 0) {
       setData([
         'data',
       ])
     }
-  }, [props]);
- 
+  }, [data.length]);
+
   // useEffect(() => {
   //   setCurrentData(data.slice(offset, offset + pageLimit));
   // }, [offset, data]);
- 
+
   return (
     <div>
       <ul>
@@ -39,5 +39,5 @@ const Paginator = props => {
     </div>
   );
 }
- 
+
 export default Paginator

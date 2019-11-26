@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Flex, Span, Absolute, Fixed } from '@horizin/design-system-atoms'
+import { Box, Flex, Span, Fixed } from '@horizin/design-system-atoms'
 import { CSSTransition } from 'react-transition-group';
 
 const PanelActions = ({ portal, label, content, styled, styledLabel, id, ...props }) => {
-  const [ style, setStyle ] = useState({
+  const [style, setStyle] = useState({
     bg: 'white',
     boxShadow: 0,
     p: 10,
@@ -33,7 +33,7 @@ const PanelActions = ({ portal, label, content, styled, styledLabel, id, ...prop
   return (
     <>
       <CSSTransition in={(isAnimating)} timeout={300} classNames="fadeIn">
-        <Fixed sx={{bg: 'night', opacity: 0.2, zIndex: 90}} fillContainer onClick={closeHandler} />
+        <Fixed sx={{ bg: 'night', opacity: 0.2, zIndex: 90 }} fillContainer onClick={closeHandler} />
       </CSSTransition>
 
       <CSSTransition in={(isAnimating)} timeout={300} classNames="fadeInLeft">
@@ -44,7 +44,7 @@ const PanelActions = ({ portal, label, content, styled, styledLabel, id, ...prop
                 label &&
                 <Flex alignCenter between fullWidth gradient='gray' p={10} {...styledLabel}>
                   <Span fontSize={[3]}>{label}</Span>
-                  <Span pointer md heavy pointer onClick={closeHandler}>X</Span>
+                  <Span pointer md heavy onClick={closeHandler}>X</Span>
                 </Flex>
               }
               <Box>

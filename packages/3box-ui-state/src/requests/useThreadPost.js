@@ -44,7 +44,7 @@ export const useThreadPost = (state, dispatch) => {
 								if (postSelected.postId) {
 									const thread =
 										state.auth.threads[
-											postSelected.threadName
+										postSelected.threadName
 										];
 									await state.auth.threads[
 										postSelected.threadName
@@ -64,7 +64,6 @@ export const useThreadPost = (state, dispatch) => {
 										type: 'THREAD_POST_DELETE_FAILURE',
 										threadName: postSelected.threadName,
 										space: postSelected.space,
-										threadName: postSelected.threadName,
 										firstModerator: box.address
 									});
 								}

@@ -71,7 +71,7 @@ const ModalActions = ({
                 {...styledLabel}
               >
                 <Span fontSize={[3]}>{label}</Span>
-                <Span pointer md heavy pointer onClick={() => closeHandler()}>
+                <Span pointer md heavy onClick={() => closeHandler()}>
                   X
                 </Span>
               </Flex>

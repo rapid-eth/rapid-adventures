@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {useRef} from 'react';
+import React, { useEffect, useState } from 'react';
+import { useRef } from 'react';
 import useComponentSize from '@rehooks/component-size';
-import {Component} from '@horizin/ui-compose';
+import { Component } from '@horizin/ui-compose';
 import {
   CarouselProvider,
   Slider,
@@ -13,8 +13,8 @@ import {
   ButtonNext,
 } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import {Flex} from '@horizin/design-system-atoms';
-export const Slides = ({children, ...props}) => {
+import { Flex } from '@horizin/design-system-atoms';
+export const Slides = ({ children, ...props }) => {
   const [width, setWidth] = useState(props.naturalSlideHeight);
   const [height, setHeight] = useState(props.naturalSlideHeight);
 
@@ -37,7 +37,7 @@ export const Slides = ({children, ...props}) => {
             </Slide>
           ))}
       </Slider>
-      <Flex center column sx={{my: 3}}>
+      <Flex center column sx={{ my: 3 }}>
         <Flex>
           <ButtonFirst>First</ButtonFirst>
           <ButtonBack>Back</ButtonBack>
@@ -50,7 +50,7 @@ export const Slides = ({children, ...props}) => {
   );
 };
 
-const ComponentResize = ({item, setHeight, setWidth}) => {
+const ComponentResize = ({ item, setHeight, setWidth }) => {
   let ref = useRef(null);
   let size = useComponentSize(ref);
 
@@ -60,6 +60,6 @@ const ComponentResize = ({item, setHeight, setWidth}) => {
       setWidth(size.width);
     }
     console.log(size, 'sizesize');
-  }, [size]);
-  return <Flex>{Component(item, {ref: ref})}</Flex>;
+  }, [size, setHeight, setWidth]);
+  return <Flex>{Component(item, { ref: ref })}</Flex>;
 };

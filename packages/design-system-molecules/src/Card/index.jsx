@@ -5,7 +5,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import { Flex} from '@horizin/design-system-atoms'
+import { Flex } from '@horizin/design-system-atoms'
 
 import { useCardEffect } from '../effects'
 
@@ -14,8 +14,8 @@ import { useMainRenderEffect } from './effects'
 
 const Card = ({ as, children, ...props }) => {
   const card = useCardEffect(props)
+  const [sx] = useState({ ...props.sx })
 
-  const [sx, setSX] = useState({ ...props.sx })
   let render
   render = useMainRenderEffect(props)
 
@@ -42,7 +42,7 @@ const Card = ({ as, children, ...props }) => {
     <Flex column sx={{
       ...card,
       ...sx
-      }}>
+    }}>
       {/* Main */}
       {render.header}
 
@@ -77,11 +77,11 @@ Card.propTypes = {
   sxHeader: PropTypes.object,        // ui-theme Header
   sxMain: PropTypes.object,          // ui-theme Main
   sxFooter: PropTypes.object,        // ui-theme Footer
-  sxTitle:  PropTypes.object,        // ui-theme Title
-  sxTagline:  PropTypes.object,      // ui-theme Title
-  sxContent:  PropTypes.object,      // ui-theme Title
-  sxSummary:  PropTypes.object,      // ui-theme Title
-  sxTags:  PropTypes.object,         // ui-theme Title
+  sxTitle: PropTypes.object,        // ui-theme Title
+  sxTagline: PropTypes.object,      // ui-theme Title
+  sxContent: PropTypes.object,      // ui-theme Title
+  sxSummary: PropTypes.object,      // ui-theme Title
+  sxTags: PropTypes.object,         // ui-theme Title
 }
 
 Card.defaultProps = {

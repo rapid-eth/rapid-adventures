@@ -1,4 +1,5 @@
 export function isClassComponent(component) {
+    console.log('isClassComponent >>', typeof component)
     return (
         typeof component === 'export function' &&
         !!component.prototype.isReactComponent
@@ -6,6 +7,7 @@ export function isClassComponent(component) {
 }
 
 export function isInlineFunctionComponent(component) {
+    console.log('isInlineFunctionComponent >>', typeof component)
     return (
         typeof component === 'function' &&
         String(component).includes('createElement')
@@ -13,6 +15,7 @@ export function isInlineFunctionComponent(component) {
 }
 
 export function isFunctionComponent(component) {
+    console.log('isFunctionComponent >>', typeof component)
     return (
         typeof component === 'export function' &&
         String(component).includes('return React.createElement')
