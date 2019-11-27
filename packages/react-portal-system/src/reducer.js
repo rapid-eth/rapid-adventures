@@ -15,7 +15,6 @@ const reducerActions = (state, action) => {
               [instance]: toasts,
             }
           }
-          break;
 
         default:
           return {

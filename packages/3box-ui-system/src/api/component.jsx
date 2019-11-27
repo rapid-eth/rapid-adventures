@@ -1,20 +1,20 @@
 export function isClassComponent(component) {
     return (
-        typeof component === 'export function' && 
+        typeof component === 'function' &&
         !!component.prototype.isReactComponent
     ) ? true : false
 }
 
 export function isFunctionComponent(component) {
     return (
-        typeof component === 'export function' && 
+        typeof component === 'function' &&
         String(component).includes('return React.createElement')
     ) ? true : false;
 }
 
 export function isReactComponent(component) {
     return (
-        isClassComponent(component) || 
+        isClassComponent(component) ||
         isFunctionComponent(component)
     ) ? true : false;
 }
@@ -28,12 +28,12 @@ export function isDOMTypeElement(element) {
 }
 
 export function isCompositeTypeElement(element) {
-    return isElement(element) && typeof element.type === 'export function';
+    return isElement(element) && typeof element.type === 'function';
 }
 
 export const Component = component =>
-isReactComponent(component)
-    ? component
-    : isElement(component)
-      ? React.cloneElement(component)
-      : null
+    isReactComponent(component)
+        ? component
+        : isElement(component)
+            ? React.cloneElement(component)
+            : null

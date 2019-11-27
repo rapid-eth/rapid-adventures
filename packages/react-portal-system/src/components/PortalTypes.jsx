@@ -28,14 +28,14 @@ const Component = ({
         <BackgroundGradient bg='black' fixed={true} absolute={false} opacity={.25} onClick={close} />
 
         {
-          position == 'toast'
+          position === 'toast'
           && <Box card noPadding maxWidth={200} layout={positionStyle || layoutDefault || position} {...styledModal}>
             <div>
               {
                 label &&
                 <Flex alignCenter between gradient='blue' color='white' p={10} fullWidth>
                   <Span fontSize={[3]}>{label}</Span>
-                  <Span pointer sm heavy pointer onClick={close}>X</Span>
+                  <Span pointer sm heavy onClick={close}>X</Span>
                 </Flex>
               }
               <Box p={10}>
@@ -49,14 +49,14 @@ const Component = ({
           </Box>
         }
         {
-          position == 'panel'
+          position === 'panel'
           && <Box card noPadding height='100%' layout={positionStyle || position} {...styledModal}>
             <div>
               {
                 label &&
                 <Flex alignCenter between gradient='blue' color='white' p={10} fullWidth>
                   <Span fontSize={[3]}>{label}</Span>
-                  <Span pointer sm heavy pointer onClick={close}>X</Span>
+                  <Span pointer sm heavy onClick={close}>X</Span>
                 </Flex>
               }
               <Box p={20}>
@@ -78,7 +78,7 @@ const Component = ({
               label &&
               <Flex alignCenter borderRoundedTop between gradient='blue' color='white' p={10} fullWidth>
                 <Span fontSize={[3]}>{label}</Span>
-                <Span pointer sm heavy pointer onClick={close}>X</Span>
+                <Span pointer sm heavy onClick={close}>X</Span>
               </Flex>
             }
             <Box bg='white' card borderCurvedBottom>

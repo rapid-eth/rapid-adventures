@@ -1,15 +1,14 @@
-import * as actions from '../actions/';
+import * as actions from '../actions';
+import { Action } from '../actions/types';
 const keys = Object.keys(actions);
 
-/**
- * @summary Insert documentation for enhanceActions middleware
- * @param {Object} state the state object
- * @param {React.Dispatch} dispatch
- */
-export const enhanceActions = (state, dispatch) => {
+const enhanceActions = (state, dispatch) => {
   let enhanced = {};
   keys.forEach(action => {
-    enhanced[action] = actions[action](state, dispatch);
+    const actionCreator = actions[action];
+    enhanced[action] = actionCreator(state, dispatch);
   });
   return enhanced;
 };
+
+export { enhanceActions };

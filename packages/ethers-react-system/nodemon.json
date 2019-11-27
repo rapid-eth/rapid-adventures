@@ -9,9 +9,7 @@
     "delay": "2500"
   },
   "watch": [
-    "src/",
-    "src/Transfer.jsx",
-    "src/FieldAddress.jsx"
+    "src/"
   ],
   "env": {
     "NODE_ENV": "development"

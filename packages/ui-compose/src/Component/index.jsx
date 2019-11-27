@@ -1,8 +1,11 @@
 export function isClassComponent(component) {
-    return (
-        typeof component === 'export function' &&
-        !!component.prototype.isReactComponent
-    ) ? true : false
+    if (component.prototype) {
+        return (
+            typeof component === 'function' &&
+            !!component.prototype.isReactComponent
+        )
+    }
+    return false
 }
 
 export function isInlineFunctionComponent(component) {
@@ -14,7 +17,7 @@ export function isInlineFunctionComponent(component) {
 
 export function isFunctionComponent(component) {
     return (
-        typeof component === 'export function' &&
+        typeof component === 'function' &&
         String(component).includes('return React.createElement')
     ) ? true : false;
 }
@@ -36,7 +39,7 @@ export function isDOMTypeElement(element) {
 }
 
 export function isCompositeTypeElement(element) {
-    return isElement(element) && typeof element.type === 'export function';
+    return isElement(element) && typeof element.type === 'function';
 }
 
 export default (component, props) => (

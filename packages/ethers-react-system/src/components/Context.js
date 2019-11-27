@@ -44,24 +44,18 @@ const Context = createContext({
   deployed: [],
   messages: {},
   signatures: {},
-  store: {
-    deploy: [],
-    transactions: [],
-    signature: [],
-    deploy: []
-  },
   address: undefined,
   wallet: undefined,
-  enable: () => {},
-  loadContractIntoLibrary: () => {},
-  initContract: () => {},
-  deployContract: () => {},
-  deployContractFromBytecode: () => {},
-  setProvider: () => {},
-  setProviderStatus: () => {},
-  signMessage: () => {},
-  signMessageTyped: () => {},
-  sendTransaction: () => {}
+  enable: () => { },
+  loadContractIntoLibrary: () => { },
+  initContract: () => { },
+  deployContract: () => { },
+  deployContractFromBytecode: () => { },
+  setProvider: () => { },
+  setProviderStatus: () => { },
+  signMessage: () => { },
+  signMessageTyped: () => { },
+  sendTransaction: () => { }
 });
 
 export default Context;

@@ -21,7 +21,6 @@
     "nyc": "cross-env NODE_ENV=test nyc ava"
   },
   "peerDependencies": {
-    "@kames/ethers-state": "^1.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-portal-system": "^1.0.0"

@@ -1,39 +1,20 @@
 import { hashCode } from '../utilities';
 import {
-  ENABLE_REQUEST,
-  ENABLE_SUCCESS,
-  ENABLE_FAILURE,
   SET_PROVIDER,
   SET_PROVIDER_STATUS,
-  SIGN_TYPED_MESSAGE_REQUEST,
-  SIGN_MESSAGE_REQUEST,
-  INIT_CONTRACT_REQUEST,
-  DEPLOY_CONTRACT_REQUEST,
+  SIGN_TYPED_MESSAGE,
+  SIGN_MESSAGE,
+  INIT_CONTRACT,
+  DEPLOY_CONTRACT,
   DEPLOY_CONTRACT_FROM_BYTECODE_REQUEST,
-  SEND_TRANSACTION_REQUEST,
   SET_WALLET,
-  SET_WALLET_FAILURE,
+  SEND_TRANSACTION,
   SET_ADDRESS
-} from '../types';
+} from '../actions/types';
 
 const reducerActions = (state, action) => {
   const { input, delta, id, payload, type } = action;
   switch (type) {
-    case ENABLE_REQUEST:
-      return {
-        ...state,
-        isEnableRequested: true
-      };
-    case ENABLE_SUCCESS:
-      return {
-        ...state,
-        isEnableSuccess: true
-      };
-    case ENABLE_FAILURE:
-      return {
-        ...state,
-        isEnableSuccess: false
-      };
     case SET_PROVIDER:
       return {
         ...state,
@@ -56,14 +37,7 @@ const reducerActions = (state, action) => {
         wallet: payload.wallet,
         contracts: payload.contracts
       };
-    case SET_WALLET_FAILURE:
-      return {
-        ...state,
-        address: payload.address,
-        wallet: payload.wallet,
-        contracts: payload.contracts
-      };
-    case SEND_TRANSACTION_REQUEST:
+    case SEND_TRANSACTION:
       return {
         ...state,
         signatures: {
@@ -71,7 +45,7 @@ const reducerActions = (state, action) => {
           [id]: payload
         }
       };
-    case SIGN_TYPED_MESSAGE_REQUEST:
+    case SIGN_TYPED_MESSAGE:
       return {
         ...state,
         store: {
@@ -84,7 +58,7 @@ const reducerActions = (state, action) => {
           ]
         }
       };
-    case SIGN_MESSAGE_REQUEST:
+    case SIGN_MESSAGE:
       return {
         ...state,
         messages: {
@@ -95,7 +69,7 @@ const reducerActions = (state, action) => {
     /* Contract Initialize     */
     /* ----------------------- */
 
-    case INIT_CONTRACT_REQUEST:
+    case INIT_CONTRACT:
       const { address, contract } = payload;
       return {
         ...state,
@@ -116,7 +90,7 @@ const reducerActions = (state, action) => {
     /* ----------------------- */
     /* Contract Deployment     */
     /* ----------------------- */
-    case DEPLOY_CONTRACT_REQUEST:
+    case DEPLOY_CONTRACT:
       return {
         ...state,
         contracts: {
@@ -140,7 +114,6 @@ const reducerActions = (state, action) => {
       };
 
     default:
-      // return { ...state };
       throw new Error(`No Reducer Type Set: ${action.type}`);
   }
 };

@@ -1,7 +1,9 @@
-import { utils, ethers } from 'ethers';
+import { utils, ethers, Contract, ContractFactory, Signer } from 'ethers';
+import { BaseProvider } from 'ethers/providers';
+import { ContractJSON } from './types/contracts';
 
-export const hashCode = function (input) {
-  var hash = 0;
+export const hashCode = function(input: string): number {
+  let hash: number = 0;
   if (input.length == 0) {
     return hash;
   }
@@ -17,17 +19,21 @@ export const hashCode = function (input) {
  * @desc shorten address
  * @param  {String} [address]
  * @param  {Number} [num]
- * @param  {Boolean} [showEnd = true]
+ * @param  {Boolean} [showEnd = false]
  * @return {String}
  */
 
-export function shortenAddress(address, num, showEnd = true) {
+export function shortenAddress(
+  address: string,
+  num = 5,
+  showEnd = false
+): string {
   if (!address) return null;
-  return `${address.slice(0).slice(0, num)}...${
-    showEnd ? address.slice(0).slice(-num) : ''
-    }`;
+  return `${address.slice(0).slice(0, num)}${
+    showEnd ? `...${address.slice(0).slice(-num)}` : ''
+  }`;
 }
-export const trimBalance = balance => {
+export const trimBalance = (balance: string): string => {
   if (!balance) return null;
   return balance.slice(0, 5);
 };
@@ -63,7 +69,7 @@ export const isAddress = address => {
  * @param {String} address the given HEX adress
  * @return {Boolean}
  */
-var isChecksumAddress = function (address) {
+var isChecksumAddress = function(address) {
   // Check each case
   address = address.replace('0x', '');
   var addressHash = utils.keccak256(address.toLowerCase());
@@ -97,23 +103,28 @@ const createStringMessageSignature = msg => {
 
 /**
  *
- * @param {Object} Contract The build results of migrations and compiliation. Includes abi, networks, bytecode, etc
  * @returns {String} returns the ethereum address that is associated with the latest deployment of the smart contract
  */
-export const getLatestDeploymentAddress = Contract => {
+export const getLatestDeploymentAddress = (Contract: ContractJSON): string => {
+  if (Contract.networks === undefined || Contract.networks === null) {
+    return '';
+  }
   const networks = Object.keys(Contract.networks);
-  const latestAddress =
-    Contract.networks[networks[networks.length - 1]].address;
+  if (networks.length <= 0) {
+    return '';
+  }
+
+  const latestNetwork: string = networks[networks.length - 1];
+  const latestAddress: string = Contract.networks[latestNetwork].address;
   return latestAddress;
 };
 
 /**
  * @func networkRouting
  * @desc Select network provider.
- * @param {Object} network
  * @return {Object} provider
  */
-export const networkRouting = network => {
+export const networkRouting = (network: string): BaseProvider => {
   switch (network) {
     case 'json':
       return new ethers.providers.JsonRpcProvider('http://localhost:8545');
@@ -134,38 +145,59 @@ export const networkRouting = network => {
 
 /**
  *
- * @param {JSON} contract
- * @param {String} providerName
  */
-export const getContract = (contract, providerName) => {
-  const provider =
-    networkRouting(providerName) ||
-    networkRouting('metamask') ||
-    networkRouting('json');
-  const address = getLatestDeploymentAddress(contract);
-  const deployedContract = new ethers.Contract(address, contract.abi, provider);
-  return [deployedContract, address];
+export const getContract = (
+  contract: ContractJSON,
+  providerName: string,
+  optionalParams: { givenAddress?: string; givenID?: string }
+) => {
+  const { givenAddress, givenID } = optionalParams;
+  const provider: BaseProvider = networkRouting(providerName);
+  const { abi, bytecode, contractName } = contract;
+  const address = givenAddress || getLatestDeploymentAddress(contract);
+
+  //if the contract does not have any associated deployments
+  //then it will be initialized as a factory
+
+  if (address.length > 0) {
+    const deployedContract: Contract = new Contract(address, abi, provider);
+    const contractID = givenID || getContractID(deployedContract, contractName);
+    return [deployedContract, contractID];
+  } else {
+    const contractID = givenID || `${contractName}-Factory`;
+    const wallet: Signer = provider.getSigner();
+    const factory: ContractFactory = new ContractFactory(abi, bytecode, wallet);
+    return [factory, contractID];
+  }
 };
 
 /**
- *
- * @param {Object} oldContracts
- * @param {ethers.Wallet} wallet
+ * @summary
  */
-export const generateNewContracts = (oldContracts, wallet) => {
+export const generateNewContracts = (
+  oldContracts: Record<string, Contract>,
+  wallet: Signer
+) => {
   let newContracts = {};
   const keys = Object.keys(oldContracts);
   keys.forEach(id => {
+    const current = oldContracts[id];
     const {
       address,
+      bytecode,
       interface: { abi }
-    } = oldContracts[id];
-    const contract = new ethers.Contract(address, abi, wallet);
-    newContracts[id] = {
-      id,
-      address,
-      ...contract
-    };
+    } = current;
+
+    if (id.includes('Factory')) {
+      const factory = new ContractFactory(abi, bytecode, wallet);
+      newContracts[id] = factory;
+    } else {
+      const contract = new Contract(address, abi, wallet);
+      newContracts[id] = {
+        address,
+        contract
+      };
+    }
   });
 
   return newContracts;
@@ -176,13 +208,12 @@ export const generateNewContracts = (oldContracts, wallet) => {
  * @param {Contract} Contract
  * @param {*} contractName
  */
-export const getContractID = (Contract, contractName) => {
-  const shortenedAddress = shortenAddress(Contract.address);
+export const getContractID = (Contract: Contract, contractName: string) => {
+  const shortenedAddress: string = shortenAddress(Contract.address);
   const contractID = `${contractName}-${shortenedAddress}`;
 
   return contractID;
 };
-
 export default {
   createStringhash,
   createStringMessageSignature,

@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+=======
+import React, { useContext, useReducer, useEffect } from 'react';
+import Context from './Context';
+import reducers from '../reducers/reducer';
+import ProviderEffects from '../effects';
+import { enhanceActions } from '../middleware/actions';
+import { initialize } from '../middleware/initialize';
+>>>>>>> dev
 /**
  * @summary A React Context Provider that provides a simple interface to most ethers.js functionality.
  * It allows for easy contract management and querying/transactions of the smart contracts.
@@ -8,20 +17,9 @@
  * @todo Add better error handling
  * @todo Find better way to automatically set the address and wallet
  */
-
-/* --- Global --- */
-import React, { useContext, useReducer } from 'react';
-import Context from './Context';
-import reducers from '../reducers/reducer';
-import { enhanceActions } from '../middleware/actions';
-import { initialize } from '../middleware/initialize';
-import * as RequestEffects from '../requests';
-/* --- Developer Messages --- */
 console.warn(
   'EthersProvider is not ready for production. Use at your discretion'
 );
-
-/* --- Component --- */
 const Provider = ({ children, contracts = [], provider = 'metamask' }) => {
   const initialState = useContext(Context);
   const [state, dispatch] = useReducer(
@@ -29,14 +27,10 @@ const Provider = ({ children, contracts = [], provider = 'metamask' }) => {
     initialState,
     initialize(contracts, provider)
   );
-  /* --- Enhance Actions --- */
+
+  const hey = 'his';
   const actions = enhanceActions(state, dispatch);
-
-  /* --- Request Effects --- */
-  Object.values(RequestEffects).map(effect => effect(state, dispatch));
-
-  console.log(state, 'Ethers Provider');
-
+  ProviderEffects(useEffect, state, dispatch);
   return (
     <Context.Provider
       value={{
