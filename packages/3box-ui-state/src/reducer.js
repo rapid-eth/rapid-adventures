@@ -57,7 +57,7 @@ export default (state, action) => {
 				.set(
 					`store.profiles`,
 					state.store.profiles.filter(
-						i => i.payload == action.address
+						i => i.payload === action.address
 					)
 				)
 				.set(`@.${action.address}.profile`, action.payload)

@@ -4,7 +4,7 @@
  */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
-import { Blockquote, Container, BackgroundGradient, BackgroundImage, Flex, Heading, Span} from '@horizin/design-system-atoms'
+import { BackgroundImage } from '@horizin/design-system-atoms'
 
 const FooterDefault = props => {
 
