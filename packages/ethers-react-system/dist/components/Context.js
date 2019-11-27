@@ -52,12 +52,6 @@ var Context = (0, _react.createContext)({
   deployed: [],
   messages: {},
   signatures: {},
-  store: {
-    deploy: [],
-    transactions: [],
-    signature: [],
-    deploy: []
-  },
   address: undefined,
   wallet: undefined,
   enable: () => {},

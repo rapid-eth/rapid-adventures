@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.shortenAddress = shortenAddress;
-exports.default = exports.generateNewContracts = exports.getContract = exports.networkRouting = exports.getLatestDeploymentAddress = exports.createStringhash = exports.isAddress = exports.trimBalance = exports.hashCode = void 0;
+exports.default = exports.getContractID = exports.generateNewContracts = exports.getContract = exports.networkRouting = exports.getLatestDeploymentAddress = exports.createStringhash = exports.isAddress = exports.trimBalance = exports.hashCode = void 0;
 
 var _ethers = require("ethers");
 
@@ -17,7 +17,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var hashCode = function hashCode(input) {
   var hash = 0;
 
-  if (input.length == 0) {
+  if (input.length === 0) {
     return hash;
   }
 
@@ -149,6 +149,9 @@ var networkRouting = network => {
     case 'test':
       return window.ethers.providers.test;
 
+    case 'rinkeby':
+      return _ethers.ethers.getDefaultProvider('rinkeby');
+
     case 'infura':
       return window.ethers.providers.infura;
 
@@ -156,15 +159,20 @@ var networkRouting = network => {
       return window.web3 ? new _ethers.ethers.providers.Web3Provider(window.web3.currentProvider) : null;
 
     default:
-      return _ethers.ethers.getDefaultProvider('rinkeby');
+      return null;
   }
 };
+/**
+ *
+ * @param {JSON} contract
+ * @param {String} providerName
+ */
+
 
 exports.networkRouting = networkRouting;
 
-var getContract = contract => {
-  var provider = networkRouting('metamask') || networkRouting('json');
-  var wallet = provider.getSigner();
+var getContract = (contract, providerName) => {
+  var provider = networkRouting(providerName) || networkRouting('metamask') || networkRouting('json');
   var address = getLatestDeploymentAddress(contract);
   var deployedContract = new _ethers.ethers.Contract(address, contract.abi, provider);
   return [deployedContract, address];
@@ -196,8 +204,22 @@ var generateNewContracts = (oldContracts, wallet) => {
   });
   return newContracts;
 };
+/**
+ *
+ * @param {Contract} Contract
+ * @param {*} contractName
+ */
+
 
 exports.generateNewContracts = generateNewContracts;
+
+var getContractID = (Contract, contractName) => {
+  var shortenedAddress = shortenAddress(Contract.address);
+  var contractID = "".concat(contractName, "-").concat(shortenedAddress);
+  return contractID;
+};
+
+exports.getContractID = getContractID;
 var _default = {
   createStringhash,
   createStringMessageSignature,

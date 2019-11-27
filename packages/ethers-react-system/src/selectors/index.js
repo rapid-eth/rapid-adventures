@@ -20,3 +20,8 @@ export const useEnableSelector = state => {
     dispatched: isDispatched
   };
 };
+
+const Selectors = {
+  useEnableSelector
+}
+export default Selectors

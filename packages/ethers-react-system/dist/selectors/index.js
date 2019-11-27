@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.useEnableSelector = void 0;
+exports.default = exports.useEnableSelector = void 0;
 
 var _react = require("react");
 
@@ -26,3 +26,8 @@ var useEnableSelector = state => {
 };
 
 exports.useEnableSelector = useEnableSelector;
+var Selectors = {
+  useEnableSelector
+};
+var _default = Selectors;
+exports.default = _default;

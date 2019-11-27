@@ -2,7 +2,7 @@ import { utils, ethers } from 'ethers';
 
 export const hashCode = function (input) {
   var hash = 0;
-  if (input.length == 0) {
+  if (input.length === 0) {
     return hash;
   }
   for (var i = 0; i < input.length; i++) {

@@ -11,11 +11,11 @@ var _Context = _interopRequireDefault(require("./Context"));
 
 var _reducer = _interopRequireDefault(require("../reducers/reducer"));
 
+var _effects = _interopRequireDefault(require("../effects"));
+
 var _actions = require("../middleware/actions");
 
 var _initialize = require("../middleware/initialize");
-
-var RequestEffects = _interopRequireWildcard(require("../requests"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29,9 +29,17 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-/* --- Developer Messages --- */
+/**
+ * @summary A React Context Provider that provides a simple interface to most ethers.js functionality.
+ * It allows for easy contract management and querying/transactions of the smart contracts.
+ * @param {Array<React.Component>} children
+ * @param {Array} contracts
+ * @param {String} provider
+ * @todo Add hooks to query smart contracts
+ * @todo Add better error handling
+ * @todo Find better way to automatically set the address and wallet
+ */
 console.warn('EthersProvider is not ready for production. Use at your discretion');
-/* --- Component --- */
 
 var Provider = (_ref) => {
   var {
@@ -41,13 +49,9 @@ var Provider = (_ref) => {
   } = _ref;
   var initialState = (0, _react.useContext)(_Context.default);
   var [state, dispatch] = (0, _react.useReducer)(_reducer.default, initialState, (0, _initialize.initialize)(contracts, provider));
-  /* --- Enhance Actions --- */
-
+  var hey = 'his';
   var actions = (0, _actions.enhanceActions)(state, dispatch);
-  /* --- Request Effects --- */
-
-  Object.values(RequestEffects).map(effect => effect(state, dispatch));
-  console.log(state, 'Ethers Provider');
+  (0, _effects.default)(_react.useEffect, state, dispatch);
   return _react.default.createElement(_Context.default.Provider, {
     value: _objectSpread({}, state, {
       dispatch,
