@@ -10,11 +10,19 @@ const IndexPage = ({ ethers }) => {
     <div>
       <TokenBalance />
       <TokenCertificateGetData ethers={ethers} />
+      <Web3Connect.Button
+        network="mainnet" // optional
+        onConnect={(provider) => {
+          const web3 = new Web3(provider); // add provider to web3
+        }}
+        onClose={() => {
+          console.log("Web3Connect Modal Closed"); // modal has closed
+        }}
+      />;
       <h5>Ethers Provider</h5>
       {Object.entries(ethers).map(([key, value]) => {
-        console.log('>', key)
         if (['contracts', 'provider', 'wallet'].includes(key)) return null;
-        // not sure why but wallet & provider are sometimes circular skip to prevent an JSON.stringify throwing.
+        // not sure why but wallet & provider are sometimes circular - skip to prevent an JSON.stringify throwing.
         return (
           <details key={key}>
             <summary>
