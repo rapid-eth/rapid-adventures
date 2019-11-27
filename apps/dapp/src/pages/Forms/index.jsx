@@ -1,7 +1,6 @@
 import React from 'react';
 import { withEthers } from 'ethers-react-system';
 
-import ERC20Certificate from '../../contracts/ERC20Certificate';
 import FormTokenCreateCertificateType from '../../components/forms/FormTokenCreateCertificateType'
 import FormTokenCertificateRedeem from '../../components/forms/FormTokenCertificateRedeem'
 import FormTokenRedeemCondensedCertificate from '../../components/forms/FormTokenRedeemCondensedCertificate'
@@ -187,4 +186,4 @@ const IndexPage = ({ ethers }) => {
   )
 };
 
-export default props => withEthers(IndexPage);
+export default withEthers(IndexPage)

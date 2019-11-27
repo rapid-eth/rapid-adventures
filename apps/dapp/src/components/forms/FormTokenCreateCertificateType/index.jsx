@@ -9,7 +9,7 @@ const FormTokenCertificateCreateType = ({ ethers, styled, ...props }) => {
   const onSubmit = async (values) => {
     console.log('FormTokenCertificateCreateType ethers', ethers)
     const { contracts } = ethers;
-    const MeshDevCoin = contracts['MeshDevCoin-Factory']
+    const MeshDevCoin = contracts['0x41b9a6c3E08D5F57cD52230de4966c2eb4fa7909']
     console.log('MeshDevCoin', MeshDevCoin);
 
     if (values) {
@@ -20,7 +20,7 @@ const FormTokenCertificateCreateType = ({ ethers, styled, ...props }) => {
       const params = Object.entries(values).map(([key, value]) => value)
       console.log('params', params)
       // MeshDevCoin.sendTransaction('ERC20Certificate', 'createCertificateType', params);
-      const response = await MeshDevCoin.interface.functions.balanceOf('0x762920c6eF772cEC2Db85577964156628277eA70')
+      const response = await MeshDevCoin.balanceOf('0x762920c6eF772cEC2Db85577964156628277eA70')
       console.log(response);
 
       // makes an JSON RPC request into Metamask

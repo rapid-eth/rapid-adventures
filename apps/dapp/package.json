@@ -31,7 +31,6 @@
     "draft-js": "^0.11.2",
     "draft-js-export-html": "^1.4.1",
     "draftjs-to-markdown": "^0.5.1",
-    "ethers-react-system": "^0.0.1",
     "file-loader": "3.0.1",
     "idx": "^2.5.6",
     "luxon": "^1.19.3",
