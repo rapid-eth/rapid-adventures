@@ -12,11 +12,11 @@ exports.isCompositeTypeElement = isCompositeTypeElement;
 exports.Component = void 0;
 
 function isClassComponent(component) {
-  return typeof component === 'export function' && !!component.prototype.isReactComponent ? true : false;
+  return typeof component === 'function' && !!component.prototype.isReactComponent ? true : false;
 }
 
 function isFunctionComponent(component) {
-  return typeof component === 'export function' && String(component).includes('return React.createElement') ? true : false;
+  return typeof component === 'function' && String(component).includes('return React.createElement') ? true : false;
 }
 
 function isReactComponent(component) {
@@ -32,7 +32,7 @@ function isDOMTypeElement(element) {
 }
 
 function isCompositeTypeElement(element) {
-  return isElement(element) && typeof element.type === 'export function';
+  return isElement(element) && typeof element.type === 'function';
 }
 
 var Component = component => isReactComponent(component) ? component : isElement(component) ? React.cloneElement(component) : null;

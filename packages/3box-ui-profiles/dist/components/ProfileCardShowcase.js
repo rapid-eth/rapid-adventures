@@ -9,8 +9,6 @@ exports.ProfileCardShowcase = void 0;
 
 var _objectWithoutProperties2 = _interopRequireDefault(require("/Users/paws/projects/+ConsenSys/rapid-adventures/node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties"));
 
-var _defineProperty2 = _interopRequireDefault(require("/Users/paws/projects/+ConsenSys/rapid-adventures/node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/defineProperty"));
-
 var _react = _interopRequireDefault(require("react"));
 
 var _boxUiState = require("3box-ui-state");
@@ -25,8 +23,12 @@ var _ProfileIdentity = require("./ProfileIdentity");
 
 var _ProfileDetailsOccupation = require("./ProfileDetailsOccupation");
 
-var _main;
+/**
+ * @function ProfileCard
+ * @description Profile Card
+ */
 
+/* --- Global --- */
 var styles = {
   container: {
     bg: 'night',
@@ -45,14 +47,15 @@ var styles = {
     height: 70,
     width: 70
   },
-  main: (_main = {
+  main: {
     bg: 'neutral',
     borderRadius: '0 0 10px 10px',
     border: '1px solid #e0e0e0',
     borderColor: 'borderShadow',
     boxShadow: 0,
-    color: 'text'
-  }, (0, _defineProperty2["default"])(_main, "color", 'text'), (0, _defineProperty2["default"])(_main, "p", 3), _main)
+    color: 'text',
+    p: 3
+  }
 };
 /* --- Component --- */
 

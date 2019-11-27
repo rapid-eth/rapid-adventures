@@ -77,7 +77,6 @@ var ProfileCard = (_ref2) => {
     overflow: "hidden",
     width: 48,
     height: 48,
-    maxWidth: 48,
     maxWidth: 48
   }, profile.image ? _react.default.createElement(_designSystemAtoms.BackgroundImage, {
     ratio: .5,

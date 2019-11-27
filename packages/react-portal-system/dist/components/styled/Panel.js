@@ -89,7 +89,6 @@ var PanelActions = (_ref) => {
     pointer: true,
     md: true,
     heavy: true,
-    pointer: true,
     onClick: closeHandler
   }, "X")), _react.default.createElement(_designSystemAtoms.Box, null, content && _react.default.isValidElement(content) ? _react.default.cloneElement(content) : content))));
 };

@@ -34,7 +34,7 @@ var useGradientEffect = props => {
   var [gradient, setGradient] = (0, _react.useState)();
   (0, _react.useEffect)(() => {
     if (props.gradient) setGradient("linear-gradient(180deg , ".concat(theme.gradients[props.gradient]));
-  }, [props.gradient]);
+  }, [props.gradient, theme.gradients]);
   return gradient;
 };
 

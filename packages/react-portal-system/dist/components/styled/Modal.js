@@ -85,7 +85,6 @@ var ModalActions = (_ref) => {
     pointer: true,
     md: true,
     heavy: true,
-    pointer: true,
     onClick: () => closeHandler()
   }, "X")), _react.default.createElement(_designSystemAtoms.Flex, {
     column: true,

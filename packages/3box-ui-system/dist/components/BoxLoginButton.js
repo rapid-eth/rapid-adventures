@@ -63,7 +63,8 @@ var BoxLoginButton = (_ref) => {
     src: "https://metamask.io/img/metamask.png"
   })), _react.default.createElement("a", {
     href: "https://metamask.io/",
-    target: "_blank"
+    target: "_blank",
+    rel: "noopener noreferrer"
   }, _react.default.createElement(_designSystemAtoms.Span, null, "Install MetaMask to Enable")))) : _react.default.createElement(_designSystemAtoms.Button, {
     variant: "dark",
     onClick: box.enable

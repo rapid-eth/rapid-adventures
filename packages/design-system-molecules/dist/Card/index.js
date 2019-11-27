@@ -39,7 +39,7 @@ var Card = (_ref) => {
       props = _objectWithoutProperties(_ref, ["as", "children"]);
 
   var card = (0, _effects.useCardEffect)(props);
-  var [sx, setSX] = (0, _react.useState)(_objectSpread({}, props.sx));
+  var [sx] = (0, _react.useState)(_objectSpread({}, props.sx));
   var render;
   render = (0, _effects2.useMainRenderEffect)(props);
   /**

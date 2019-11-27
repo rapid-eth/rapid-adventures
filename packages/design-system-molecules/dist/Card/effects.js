@@ -7,15 +7,11 @@ exports.useMainRenderEffect = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _HeaderDefault = _interopRequireDefault(require("./HeaderDefault"));
 
 var _HeaderShowcase = _interopRequireDefault(require("./HeaderShowcase"));
 
 var _MainDefault = _interopRequireDefault(require("./MainDefault"));
-
-var _MainShowcase = _interopRequireDefault(require("./MainShowcase"));
 
 var _FooterDefault = _interopRequireDefault(require("./FooterDefault"));
 
@@ -31,6 +27,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  */
 
 /* eslint-disable react-hooks/exhaustive-deps */
+// import PropTypes from 'prop-types'
+// import MainShowcase from './MainShowcase'
 var useMainRenderEffect = props => {
   // Sub-Component States
   var [header, setComponentHeader] = (0, _react.useState)(props.componentHeader);

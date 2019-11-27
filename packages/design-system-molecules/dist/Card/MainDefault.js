@@ -7,13 +7,9 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _designSystemAtoms = require("@horizin/design-system-atoms");
 
 var _designSystemMolecules = require("@horizin/design-system-molecules");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
@@ -29,20 +25,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var ComponentMainDefault = props => {
   var [sxMain, setSXMain] = (0, _react.useState)(_objectSpread({}, props.sxMain));
-  var [sxTitle, setSXTitle] = (0, _react.useState)(_objectSpread({
+  var [sxTitle] = (0, _react.useState)(_objectSpread({
     fontSize: 3,
     fontWeight: 500
   }, props.sxTitle));
-  var [sxTagline, setSXTagline] = (0, _react.useState)(_objectSpread({
+  var [sxTagline] = (0, _react.useState)(_objectSpread({
     fontSize: 2,
     fontWeight: 400
   }, props.sxTagline));
   var [sxImage, setSXImage] = (0, _react.useState)(_objectSpread({}, props.sxImage));
   var [sxImageWrap, setSXImageWrap] = (0, _react.useState)(_objectSpread({}, props.sxImageWrap));
-  var [sxContent, setSXContent] = (0, _react.useState)(_objectSpread({
+  var [sxContent] = (0, _react.useState)(_objectSpread({
     fontSize: 1
   }, props.sxContent));
-  var [sxSummary, setSXSummary] = (0, _react.useState)(_objectSpread({
+  var [sxSummary] = (0, _react.useState)(_objectSpread({
     fontSize: 1
   }, props.sxSummary));
   /**

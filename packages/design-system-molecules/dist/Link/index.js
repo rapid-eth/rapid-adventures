@@ -9,8 +9,6 @@ var _themeUi = require("theme-ui");
 
 var _router = require("@reach/router");
 
-var _effects = require("../effects");
-
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -23,15 +21,16 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
+// import { useFontSizeEffect, useFontWeightEffect, useTagEffect } from '../effects';
 var _default = (_ref) => {
   var {
     sx
   } = _ref,
       props = _objectWithoutProperties(_ref, ["sx"]);
 
-  var size = (0, _effects.useFontSizeEffect)(props);
-  var weight = (0, _effects.useFontWeightEffect)(props);
-  var tag = (0, _effects.useTagEffect)(props);
+  // const size = useFontSizeEffect(props);
+  // const weight = useFontWeightEffect(props);
+  // const tag = useTagEffect(props);
   return (0, _themeUi.jsx)(_router.Link, _extends({
     sx: _objectSpread({
       // ...tag,

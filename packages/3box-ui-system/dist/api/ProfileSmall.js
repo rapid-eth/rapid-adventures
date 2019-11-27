@@ -82,7 +82,6 @@ var ProfileCard = (_ref2) => {
     m: 1,
     width: 24,
     height: 24,
-    maxWidth: 26,
     maxWidth: 26
   }, profile.image ? _react.default.createElement(_designSystemAtoms.BackgroundImage, {
     ratio: .5,

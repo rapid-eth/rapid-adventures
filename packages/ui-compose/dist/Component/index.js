@@ -13,7 +13,11 @@ exports.isCompositeTypeElement = isCompositeTypeElement;
 exports["default"] = void 0;
 
 function isClassComponent(component) {
-  return typeof component === 'export function' && !!component.prototype.isReactComponent ? true : false;
+  if (component.prototype) {
+    return typeof component === 'function' && !!component.prototype.isReactComponent;
+  }
+
+  return false;
 }
 
 function isInlineFunctionComponent(component) {
@@ -21,7 +25,7 @@ function isInlineFunctionComponent(component) {
 }
 
 function isFunctionComponent(component) {
-  return typeof component === 'export function' && String(component).includes('return React.createElement') ? true : false;
+  return typeof component === 'function' && String(component).includes('return React.createElement') ? true : false;
 }
 
 function isReactComponent(component) {
@@ -37,7 +41,7 @@ function isDOMTypeElement(element) {
 }
 
 function isCompositeTypeElement(element) {
-  return isElement(element) && typeof element.type === 'export function';
+  return isElement(element) && typeof element.type === 'function';
 }
 
 var _default = function _default(component, props) {

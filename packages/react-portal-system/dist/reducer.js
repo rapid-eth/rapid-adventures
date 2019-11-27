@@ -32,7 +32,6 @@ var reducerActions = (state, action) => {
               [instance]: toasts
             })
           });
-          break;
 
         default:
           return _objectSpread({}, state, {

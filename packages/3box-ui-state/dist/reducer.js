@@ -66,7 +66,7 @@ var _default = (state, action) => {
       return (0, _dotPropImmutableChain.default)(state).set("store.profiles", [...state.store.profiles, action]).value();
 
     case 'GET_PROFILE_SUCCESS':
-      return (0, _dotPropImmutableChain.default)(state).set("store.profiles", state.store.profiles.filter(i => i.payload == action.address)).set("@.".concat(action.address, ".profile"), action.payload).set("@.".concat(action.address, ".spaces"), {
+      return (0, _dotPropImmutableChain.default)(state).set("store.profiles", state.store.profiles.filter(i => i.payload === action.address)).set("@.".concat(action.address, ".profile"), action.payload).set("@.".concat(action.address, ".spaces"), {
         public: {},
         private: {}
       }).value();
