@@ -15,7 +15,7 @@ var signMessageTyped = (state, dispatch) => (_ref) => {
     delta
   } = _ref;
   return dispatch({
-    type: _types.SIGN_TYPED_MESSAGE_REQUEST,
+    type: _types.WALLET_SIGN_TYPED_MESSAGE_REQUEST,
     payload: message,
     id: delta || (0, _utilities.hashCode)(message.toString())
   });

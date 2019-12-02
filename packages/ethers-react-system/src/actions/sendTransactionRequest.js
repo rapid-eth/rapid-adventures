@@ -1,5 +1,5 @@
-import { SIGN_TRANSACTION_REQUEST } from '../types';
-export const sendTransactionRequest = (state, dispatch) => (
+import { WALLET_SIGN_TRANSACTION_REQUEST } from '../types';
+export const sendTRANSACTION_REQUEST = (state, dispatch) => (
   contractID,
   functionName,
   params
@@ -8,7 +8,7 @@ export const sendTransactionRequest = (state, dispatch) => (
   const contractFunction = contract[functionName];
   contractFunction(...params).then(tx => {
     dispatch({
-      type: SIGN_TRANSACTION_REQUEST,
+      type: WALLET_SIGN_TRANSACTION_REQUEST,
       input: tx
     });
   });

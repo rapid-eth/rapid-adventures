@@ -5,12 +5,12 @@ import {
   ENABLE_FAILURE,
   SET_PROVIDER,
   SET_PROVIDER_STATUS,
-  SIGN_TYPED_MESSAGE_REQUEST,
-  SIGN_MESSAGE_REQUEST,
+  WALLET_SIGN_TYPED_MESSAGE_REQUEST,
+  WALLET_SIGN_MESSAGE_REQUEST,
   INIT_CONTRACT_REQUEST,
   DEPLOY_CONTRACT_REQUEST,
   DEPLOY_CONTRACT_FROM_BYTECODE_REQUEST,
-  SEND_TRANSACTION_REQUEST,
+  WALLET_SEND_TRANSACTION_REQUEST,
   SET_WALLET,
   SET_WALLET_FAILURE,
   SET_ADDRESS
@@ -63,7 +63,7 @@ const reducerActions = (state, action) => {
         wallet: payload.wallet,
         contracts: payload.contracts
       };
-    case SEND_TRANSACTION_REQUEST:
+    case WALLET_SEND_TRANSACTION_REQUEST:
       return {
         ...state,
         signatures: {
@@ -71,7 +71,7 @@ const reducerActions = (state, action) => {
           [id]: payload
         }
       };
-    case SIGN_TYPED_MESSAGE_REQUEST:
+    case WALLET_SIGN_TYPED_MESSAGE_REQUEST:
       return {
         ...state,
         store: {
@@ -84,7 +84,7 @@ const reducerActions = (state, action) => {
           ]
         }
       };
-    case SIGN_MESSAGE_REQUEST:
+    case WALLET_SIGN_MESSAGE_REQUEST:
       return {
         ...state,
         messages: {

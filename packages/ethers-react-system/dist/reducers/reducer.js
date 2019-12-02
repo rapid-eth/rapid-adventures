@@ -69,21 +69,21 @@ var reducerActions = (state, action) => {
         contracts: payload.contracts
       });
 
-    case _types.SEND_TRANSACTION_REQUEST:
+    case _types.WALLET_SEND_TRANSACTION_REQUEST:
       return _objectSpread({}, state, {
         signatures: _objectSpread({}, state.signatures, {
           [id]: payload
         })
       });
 
-    case _types.SIGN_TYPED_MESSAGE_REQUEST:
+    case _types.WALLET_SIGN_TYPED_MESSAGE_REQUEST:
       return _objectSpread({}, state, {
         store: _objectSpread({}, state.store, {
           messages: [...state.store.messages, _objectSpread({}, action)]
         })
       });
 
-    case _types.SIGN_MESSAGE_REQUEST:
+    case _types.WALLET_SIGN_MESSAGE_REQUEST:
       return _objectSpread({}, state, {
         messages: {
           [id]: payload

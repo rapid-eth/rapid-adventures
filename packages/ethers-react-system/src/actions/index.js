@@ -3,7 +3,7 @@ import { ethers } from 'ethers';
 import {
   INIT_CONTRACT_REQUEST,
   SET_WALLET,
-  SIGN_TRANSACTION_REQUEST
+  WALLET_SIGN_TRANSACTION_REQUEST
 } from '../types';
 
 export { enableRequest } from './enableRequest';

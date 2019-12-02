@@ -26,7 +26,7 @@ export const useSignMessage = (state, dispatch) => {
           let signature;
           switch (messageRequest.type) {
             // Signed Typed Data
-            case 'SIGN_TYPED_MESSAGE_REQUEST':
+            case 'WALLET_SIGN_TYPED_MESSAGE_REQUEST':
               signature = await state.provider.injected.send(
                 'eth_signTypedData',
                 [messageRequest.payload, state.address]
@@ -42,7 +42,7 @@ export const useSignMessage = (state, dispatch) => {
           }
           if (signature) {
             dispatch({
-              type: 'SIGN_MESSAGE_SUCCESS',
+              type: 'WALLET_SIGN_MESSAGE_SUCCESS',
               id: messageRequest.id,
               payload: signature
             });
@@ -50,7 +50,7 @@ export const useSignMessage = (state, dispatch) => {
           }
         } catch (error) {
           dispatch({
-            type: 'SIGN_MESSAGE_FAILURE',
+            type: 'WALLET_SIGN_MESSAGE_FAILURE',
             id: messageRequest.id,
             payload: error
           });
