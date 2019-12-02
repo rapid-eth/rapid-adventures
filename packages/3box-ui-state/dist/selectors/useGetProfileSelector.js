@@ -24,7 +24,6 @@ var useGetProfile = (state, addressPassed) => {
   var [profile, setProfile] = (0, _react.useState)(false);
   (0, _react.useEffect)(() => {
     var requests = state.store.profiles.filter(item => item.payload === address.toLowerCase());
-    console.log(requests, 'wffd');
     if (requests.length === 0) setDispatchInit(true);
   }, [state.store]);
   (0, _react.useEffect)(() => {

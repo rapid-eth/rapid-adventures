@@ -20,7 +20,6 @@ export const useGetProfile = (state, addressPassed) => {
 		const requests = state.store.profiles.filter(
 			item => item.payload === address.toLowerCase()
 		);
-		console.log(requests, 'wffd');
 		if (requests.length === 0) setDispatchInit(true);
 	}, [state.store]);
 
