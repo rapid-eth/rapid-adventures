@@ -42,6 +42,7 @@ p {
   font-family: Ubuntu;
   font-weight: normal;
   line-height: 1.5em;
+  word-break: break-all;
   width: auto;
 }
 

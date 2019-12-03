@@ -140,6 +140,16 @@ const menu = [
       />
     ),
   },
+  {
+    label: 'Testing',
+    to: '/dashboard/testing',
+    image: (
+      <Atom.Image
+        src="https://image.flaticon.com/icons/svg/1673/1673636.svg"
+        sx={{mr: 3}}
+      />
+    ),
+  },
 ];
 
 export default RegionAside;

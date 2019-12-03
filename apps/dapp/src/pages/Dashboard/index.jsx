@@ -12,6 +12,7 @@ import {
   QuestCreate,
   JournalAdventures,
   JournalQuests,
+  Testing,
   Quest,
 } from 'views';
 
@@ -32,6 +33,7 @@ const DashboardPage = props => (
       {/* Quests */}
       <QuestCreate path="/quest/create" />
       <Quest path="/quest/:delta" />
+      <Testing path="/testing" />
     </Router>
   </Dashboard>
 );
