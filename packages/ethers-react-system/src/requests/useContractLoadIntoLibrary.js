@@ -1,5 +1,5 @@
 /**
- * @function useLoadContractIntoLibraryEffect
+ * @function useContractLoadIntoLibrary
  * @description Load smart contract abi into applicaiton library to initialize for multiple addresses.
  * @param {Object} state
  * @param {Object} dispatch
@@ -9,7 +9,7 @@
 import { useState, useEffect } from 'react';
 
 /* --- Component --- */
-export const useLoadContractIntoLibrary = (state, dispatch) => {
+export const useContractLoadIntoLibrary = (state, dispatch) => {
   const [isLoadedIntoLibrary, setLoadedIntoLibrary] = useState();
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 /**
- * @function useSetAddressFromSelectedEffect
+ * @function useCommonSetAddressFromSelected
  * @description Watch Browser window object for Etheruem selected address.
  * @param {Object} state
  * @param {Object} dispatch
@@ -9,7 +9,7 @@
 import { useState, useEffect } from 'react';
 
 /* --- Component --- */
-export const useSetAddressFromSelected = (state, dispatch) => {
+export const useCommonSetAddressFromSelected = (state, dispatch) => {
   const [isAddressSelected, setAddressSelected] = useState();
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 /**
- * @function useInitializeContractEffect
+ * @function useContractInitialize
  * @description Deploy Ethereum Smart Contract
  * @param {Object} state
  * @param {Object} dispatch
@@ -10,7 +10,7 @@ import { ethers } from 'ethers';
 import { useState, useEffect } from 'react';
 
 /* --- Component --- */
-export const useInitializeContract = (state, dispatch) => {
+export const useContractInitialize = (state, dispatch) => {
   const [isInitialized, setInitialize] = useState();
 
   useEffect(() => {

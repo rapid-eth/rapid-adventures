@@ -1,5 +1,5 @@
 import { SET_PROVIDER } from '../types';
-export const setProvider = (state, dispatch) => ({ provider }) =>
+export const commonSetProvider = (state, dispatch) => ({ provider }) =>
   dispatch({
     type: SET_PROVIDER,
     payload: provider

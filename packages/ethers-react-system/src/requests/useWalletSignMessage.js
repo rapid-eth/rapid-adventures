@@ -1,5 +1,5 @@
 /**
- * @function useSignMessageEffect
+ * @function useWalletSignMessage
  * @description Watch Browser window object for Etheruem selected address.
  * @param {Object} state
  * @param {Object} dispatch
@@ -8,11 +8,15 @@
 /* --- Global --- */
 import { useState, useEffect } from 'react';
 
-/* --- Component --- */
-export const useSignMessage = (state, dispatch) => {
-  const [isRequested, setRequested] = useState();
-  const [isResponse, setResponse] = useState();
+/* --- Local --- */
+import {
+  WALLET_SIGN_TYPED_MESSAGE_REQUEST,
+  WALLET_SIGN_MESSAGE_SUCCESS,
+  WALLET_SIGN_MESSAGE_FAILURE
+} from '../types';
 
+/* --- Component --- */
+export const useWalletSignMessage = (state, dispatch) => {
   useEffect(() => {
     if (
       state.provider &&
@@ -21,36 +25,32 @@ export const useSignMessage = (state, dispatch) => {
       state.store.messages.length > 0
     ) {
       const runEffect = async () => {
+        let signature;
         const messageRequest = state.store.messages[0];
         try {
-          let signature;
           switch (messageRequest.type) {
-            // Signed Typed Data
-            case 'WALLET_SIGN_TYPED_MESSAGE_REQUEST':
+            case WALLET_SIGN_TYPED_MESSAGE_REQUEST:
               signature = await state.provider.injected.send(
                 'eth_signTypedData',
                 [messageRequest.payload, state.address]
               );
               setRequested(true);
               break;
-            // Normal Signed Data
             default:
               signature = await state.wallet.signMessage(
                 messageRequest.payload
               );
               break;
           }
-          if (signature) {
-            dispatch({
-              type: 'WALLET_SIGN_MESSAGE_SUCCESS',
-              id: messageRequest.id,
-              payload: signature
-            });
-            setResponse(true);
-          }
+          dispatch({
+            type: WALLET_SIGN_MESSAGE_SUCCESS,
+            id: messageRequest.id,
+            payload: signature
+          });
+          setResponse(true);
         } catch (error) {
           dispatch({
-            type: 'WALLET_SIGN_MESSAGE_FAILURE',
+            type: WALLET_SIGN_MESSAGE_FAILURE,
             id: messageRequest.id,
             payload: error
           });
@@ -60,9 +60,4 @@ export const useSignMessage = (state, dispatch) => {
       runEffect();
     }
   }, [state.store.messages, state.provider, state.wallet]);
-
-  return {
-    requested: isRequested,
-    response: isResponse
-  };
 };

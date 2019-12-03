@@ -1,13 +1,14 @@
-import { hashCode, generateNewContracts, networkRouting } from '../utilities';
+import { generateNewContracts, networkRouting } from '../utilities';
 import { ethers } from 'ethers';
-import {
-  INIT_CONTRACT_REQUEST,
-  SET_WALLET,
-  WALLET_SIGN_TRANSACTION_REQUEST
-} from '../types';
+import { INIT_CONTRACT_REQUEST, SET_WALLET } from '../types';
 
-export { enableRequest } from './enableRequest';
-export { setProvider } from './setProvider';
+export { commonEnableRequest } from './commonEnableRequest';
+export { commonSetProvider } from './commonSetProvider';
+export { contractDeployRequest } from './contractDeployRequest';
+export { contractDeployFromBytecodeRequest } from './contractDeployFromBytecodeRequest';
+export { walletSendTransactionRequest } from './walletSendTransactionRequest';
+export { walletSignMessageRequest } from './walletSignMessageRequest';
+export { walletSignMessageTypedRequest } from './walletSignMessageTypedRequest';
 
 /**
  *

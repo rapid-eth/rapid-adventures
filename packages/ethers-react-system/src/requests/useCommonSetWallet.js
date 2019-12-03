@@ -1,5 +1,5 @@
 /**
- * @function useSetWalletEffect
+ * @function useCommonSetWallet
  * @description Watch Browser window object for Etheruem selected address.
  * @param {Object} state
  * @param {Object} dispatch
@@ -9,7 +9,7 @@
 import { useState, useEffect } from 'react';
 
 /* --- Component --- */
-export const useSetWallet = (state, dispatch) => {
+export const useCommonSetWallet = (state, dispatch) => {
   const [isWalletReady, setWalletReady] = useState();
 
   useEffect(() => {

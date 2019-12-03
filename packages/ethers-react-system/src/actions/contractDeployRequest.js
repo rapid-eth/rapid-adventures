@@ -1,5 +1,5 @@
 import { DEPLOY_CONTRACT_REQUEST } from '../types';
-export const deployContractRequest = (state, dispatch) => ({
+export const contractDeployRequest = (state, dispatch) => ({
   contract,
   delta,
   values

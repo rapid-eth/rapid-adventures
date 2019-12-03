@@ -1,5 +1,5 @@
 /**
- * @function useDeployContract
+ * @function useContractDeploy
  * @description Deploy Ethereum Smart Contract
  * @param {Object} state
  * @param {Object} dispatch
@@ -10,7 +10,7 @@ import { ethers } from 'ethers';
 import { useState, useEffect } from 'react';
 
 /* --- Component --- */
-export const useDeployContract = (state, dispatch) => {
+export const useContractDeploy = (state, dispatch) => {
   const [isRequested, setRequested] = useState();
   const [isResponse, setResponse] = useState();
 

@@ -1,5 +1,5 @@
 /**
- * @function useEnableEffect
+ * @function useCommonEnableEffect
  * @description Handle the Ethereum wallet enable request.
  * @param {Object} state
  * @param {Object} dispatch
@@ -14,7 +14,7 @@ import { ENABLE_SUCCESS, ENABLE_FAILURE, SET_ADDRESS } from '../types';
 import { shortenAddress } from './../utilities';
 
 /* --- Component --- */
-export const useEnable = (state, dispatch) => {
+export const useCommonEnable = (state, dispatch) => {
   const [enabled, setEnabled] = useState();
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import { ethers } from 'ethers';
 /**
- * @function useWindowProviderEffect
+ * @function useCommonSetWallet
  * @description Watch the Browser ethereum object.
  * @param {Object} state
  * @param {Object} dispatch
@@ -10,7 +10,7 @@ import { ethers } from 'ethers';
 import { useState, useEffect } from 'react';
 
 /* --- Component --- */
-export const useWindowProvider = (state, dispatch) => {
+export const useCommonWindowProvider = (state, dispatch) => {
   const [isProviderReady, setProviderReady] = useState();
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import { hashCode } from '../utilities';
 import { DEPLOY_CONTRACT_FROM_BYTECODE_REQUEST } from '../types';
-export const deployContractFromBytecode = (state, dispatch) => (
+export const contractDeployFromBytecodeRequest = (state, dispatch) => (
   abi,
   bytecode,
   delta
