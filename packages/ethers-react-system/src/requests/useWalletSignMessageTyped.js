@@ -7,7 +7,6 @@
 
 /* --- Global --- */
 import { useState, useEffect } from 'react';
-import { calculateRequestStream } from '../memoization';
 
 /* --- Local --- */
 import {
@@ -60,5 +59,5 @@ export const useWalletSignMessageTyped = (state, dispatch) => {
       };
       runEffect();
     }
-  }, [calculateRequestStream(state.requests, 'messages')]);
+  }, [state.store.messages]);
 };
