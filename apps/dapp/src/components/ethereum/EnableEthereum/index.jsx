@@ -1,4 +1,4 @@
-import {withEthers, Selectors} from 'ethers-react-system';
+import {EthersInject, Selectors} from 'ethers-react-system';
 import {Span} from '@horizin/design-system-atoms';
 import {Component} from '@horizin/ui-compose';
 const Tag = ({label, ...props}) => <Span {...props}>{label}</Span>;
@@ -79,4 +79,4 @@ EnableEthereum.propTypes = {
   ]),
 };
 
-export default props => withEthers(EnableEthereum);
+export default props => EthersInject(EnableEthereum);

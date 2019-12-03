@@ -1,6 +1,6 @@
 import React from 'react';
-import Context from '../Context';
 import { Component } from '@horizin/ui-compose';
+import Context from '../Context';
 
 /**
  * @summary A higher order component which returns the given React Component with the ethers object as a prop.

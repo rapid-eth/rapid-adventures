@@ -11,7 +11,7 @@
 
 /* --- Global --- */
 import React, { useContext, useReducer } from 'react';
-import Context from './Context';
+import Context from '../Context';
 import reducers from '../reducers/reducer';
 import { enhanceActions } from '../middleware/actions';
 import { initialize } from '../middleware/initialize';
