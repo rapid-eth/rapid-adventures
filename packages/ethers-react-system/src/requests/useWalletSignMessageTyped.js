@@ -1,5 +1,5 @@
 /**
- * @function useWalletSignMessage
+ * @function useWalletSignMessageTyped
  * @description Watch Browser window object for Etheruem selected address.
  * @param {Object} state
  * @param {Object} dispatch
@@ -7,6 +7,7 @@
 
 /* --- Global --- */
 import { useState, useEffect } from 'react';
+import { calculateRequestStream } from '../memoization';
 
 /* --- Local --- */
 import {
@@ -16,7 +17,7 @@ import {
 } from '../types';
 
 /* --- Component --- */
-export const useWalletSignMessage = (state, dispatch) => {
+export const useWalletSignMessageTyped = (state, dispatch) => {
   useEffect(() => {
     if (
       state.provider &&
@@ -43,14 +44,14 @@ export const useWalletSignMessage = (state, dispatch) => {
               break;
           }
           dispatch({
-            type: WALLET_SIGN_MESSAGE_SUCCESS,
+            type: WALLET_SIGN_MESSAGE_TYPED_SUCCESS,
             id: messageRequest.id,
             payload: signature
           });
           setResponse(true);
         } catch (error) {
           dispatch({
-            type: WALLET_SIGN_MESSAGE_FAILURE,
+            type: WALLET_SIGN_MESSAGE_TYPED_FAILURE,
             id: messageRequest.id,
             payload: error
           });
@@ -59,5 +60,5 @@ export const useWalletSignMessage = (state, dispatch) => {
       };
       runEffect();
     }
-  }, [state.store.messages, state.provider, state.wallet]);
+  }, [calculateRequestStream(state.requests, 'messages')]);
 };

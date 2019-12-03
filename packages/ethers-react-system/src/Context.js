@@ -62,9 +62,10 @@ const Context = createContext({
   deployContractFromBytecode: () => {},
   setProvider: () => {},
   setProviderStatus: () => {},
+  sendTransaction: () => {},
   signMessage: () => {},
   signMessageTyped: () => {},
-  sendTransaction: () => {}
+  signTransaction: () => {}
 });
 
 export default Context;

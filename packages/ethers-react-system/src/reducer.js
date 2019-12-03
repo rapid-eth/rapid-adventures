@@ -1,4 +1,4 @@
-import { hashCode } from '../utilities';
+import { hashCode } from './utilities';
 import {
   ENABLE_REQUEST,
   ENABLE_SUCCESS,
@@ -14,7 +14,7 @@ import {
   SET_WALLET,
   SET_WALLET_FAILURE,
   SET_ADDRESS
-} from '../types';
+} from './types';
 
 const reducerActions = (state, action) => {
   const { input, delta, id, payload, type } = action;

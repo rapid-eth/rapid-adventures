@@ -43,5 +43,5 @@ export const useWalletSendTransaction = (state, dispatch) => {
       };
       runEffect();
     }
-  }, [state.store.transactions]);
+  }, [calculateRequestStream(state.requests, 'transactions')]);
 };
