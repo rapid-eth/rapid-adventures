@@ -1,6 +1,10 @@
 /* --- Local --- */
-import {AdventureCardLarge} from 'experiments';
-import {FormVerifyEvent} from 'forms';
+import {
+  FormVerifyEvent,
+  FormVerifyEventArray,
+  FormVerifyTransaction,
+  FormVerifyTransactionArray,
+} from 'forms';
 /* --- Component --- */
 const View = props => {
   return (
@@ -35,6 +39,21 @@ const FormVerifications = props => {
         title="Verify Event"
         subtitle="Verify an event occured on-chain."
         form={<FormVerifyEvent />}
+      />
+      <FormDemo
+        title="Verify Multiple Events"
+        subtitle="Verify 1 of N events that occured on-chain."
+        form={<FormVerifyEventArray />}
+      />
+      <FormDemo
+        title="Verify Transaction"
+        subtitle="Verify a transaction occured on-chain."
+        form={<FormVerifyTransaction />}
+      />
+      <FormDemo
+        title="Verify Multiple Transactions"
+        subtitle="Verify 1 of N transactions that occured on-chain."
+        form={<FormVerifyTransactionArray />}
       />
     </>
   );

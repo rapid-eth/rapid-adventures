@@ -10,26 +10,8 @@ import {PropTypes} from 'prop-types';
 import useForm from 'react-hook-form';
 
 import {postData} from '../fetch';
-import {async} from 'q';
-
 const mock_url =
-  'https://cwa95xpep8.execute-api.us-east-1.amazonaws.com/dev/rapid-verify-event';
-const mock_data = {
-  userAddress: '0x5AdB8209b5276A23426994298FE9900644F57924',
-  config: {
-    type: 'event',
-    networkId: 1,
-    contractAddress: '0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359',
-    event: 'Transfer(address,address,uint256)',
-    index: 0,
-  },
-  certificate: {
-    networkId: 4,
-    type: 'erc20',
-    address: '0xDa0E7a56Bc25b12797206d0768aa51F6fE829B93',
-    id: '0x511539f3af56f3f4aa25f107466c09f9668f3d98d951f5bffee0618a4c92d0dc',
-  },
-};
+  'https://cwa95xpep8.execute-api.us-east-1.amazonaws.com/dev/rapid-verify-tx';
 
 /* --- Component --- */
 const FormFeedback = ({styled, ...props}) => {
@@ -43,15 +25,14 @@ const FormFeedback = ({styled, ...props}) => {
   /* --- Submit Handler --- */
   const onSubmit = async values => {
     if (values) {
-      console.log(values, 'values');
       const data = await postData(mock_url, {
+        transactionHash: values.transactionHash,
         userAddress: values.userAddress,
         config: {
-          type: 'event',
           networkId: Number(values.networkId),
-          contractAddress: values.contractAddress,
-          event: values.event,
-          index: values.index,
+          functionSignature: values.functionSignature,
+          toAddress: [values.addressOne, values.addressTwo],
+          value: false,
         },
         certificate: {
           networkId: Number(4),
@@ -60,8 +41,6 @@ const FormFeedback = ({styled, ...props}) => {
           id: values.id,
         },
       });
-      console.log(data, 'datadata');
-
       if (data.cert) {
         setCertificate(data.cert);
       }
@@ -74,18 +53,29 @@ const FormFeedback = ({styled, ...props}) => {
       <Molecule.Field
         name="userAddress"
         label="User Address"
-        defaultValue="0x5AdB8209b5276A23426994298FE9900644F57924"
+        defaultValue="0x342fe81f80ad854a3aa3c1dc2937999a49d9a8bd"
         variants={['text']}
         disabled={isComplete}
         register={register}
         errors={errors}
         sx={{}}
       />
+      <Molecule.Field
+        name="transactionHash"
+        label="Transaction Hash"
+        defaultValue="0x60991e9181f9e289c6cd658b18e2e89f6648eb86951ac3839a96fd55eaedf148"
+        variants={['text']}
+        disabled={isComplete}
+        register={register}
+        errors={errors}
+        sx={{}}
+      />
+
       <Atom.Heading xl>Configuration</Atom.Heading>
       <Molecule.Field
         name="networkId"
         label="Network ID"
-        defaultValue={1}
+        defaultValue="4"
         as="input"
         type="number"
         variants={['text']}
@@ -95,9 +85,9 @@ const FormFeedback = ({styled, ...props}) => {
         sx={{}}
       />
       <Molecule.Field
-        name="contractAddress"
-        label="Contract Address"
-        defaultValue="0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359"
+        name="functionSignature"
+        label="Function Signature"
+        defaultValue="0xc4b794aa"
         variants={['text']}
         disabled={isComplete}
         register={register}
@@ -105,9 +95,9 @@ const FormFeedback = ({styled, ...props}) => {
         sx={{}}
       />
       <Molecule.Field
-        name="event"
-        label="Event"
-        defaultValue="Transfer(address,address,uint256)"
+        name="addressOne"
+        label="Address One"
+        defaultValue="0x4b001411186583fd65b8c0b92a57ff028a459f9f"
         variants={['text']}
         disabled={isComplete}
         register={register}
@@ -115,9 +105,9 @@ const FormFeedback = ({styled, ...props}) => {
         sx={{}}
       />
       <Molecule.Field
-        name="index"
-        label="Index"
-        defaultValue="0"
+        name="addressTwo"
+        label="Address Two"
+        defaultValue="0xb68CDa5e9327461Bfe63704e68c2a33b9c077cdf"
         variants={['text']}
         disabled={isComplete}
         register={register}
@@ -125,16 +115,6 @@ const FormFeedback = ({styled, ...props}) => {
         sx={{}}
       />
       <Atom.Heading xl>Certificate</Atom.Heading>
-      {/* <Molecule.Field
-        name="type"
-        label="certificateNetworkId"
-        defaultValue="erc20"
-        variants={['text']}
-        disabled={isComplete}
-        register={register}
-        errors={errors}
-        sx={{}}
-      /> */}
       <Molecule.Field
         name="type"
         label="Type"
@@ -193,11 +173,11 @@ const FormFeedback = ({styled, ...props}) => {
 };
 
 FormFeedback.defaultProps = {
-  styled: {},
+  sx: {},
 };
 
 FormFeedback.propTypes = {
-  styled: PropTypes.object,
+  sx: PropTypes.object,
 };
 
 export default FormFeedback;
