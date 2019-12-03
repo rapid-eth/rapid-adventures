@@ -5,7 +5,7 @@
  */
 
 /* --- Global --- */
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 
 /* --- Local --- */
 import {
@@ -43,5 +43,5 @@ export const useWalletSendTransaction = (state, dispatch) => {
       };
       runEffect();
     }
-  }, [useMemo(state.store.transactions, [state.store.transactions])]);
+  }, [state.store.transactions]);
 };
