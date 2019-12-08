@@ -11,7 +11,6 @@ export default props => (
     {/* Left */}
     <Atom.Flex alignCenter>
       <Atom.Flex>
-        {/* <Atom.Heading sx={{mr: 3, mb: 0}}>RapidAdventures</Atom.Heading> */}
         <ColorMode />
       </Atom.Flex>
 
@@ -19,7 +18,6 @@ export default props => (
       <Atom.Flex alignCenter ml={4}>
         <Molecule.Menu
           sx={{
-            // m: 2,
             mx: 2,
           }}
           items={[

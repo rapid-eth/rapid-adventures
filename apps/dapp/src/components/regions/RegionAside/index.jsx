@@ -25,22 +25,6 @@ const RegionAside = ({sx, ...props}) => {
             my: 3,
           }}
         />
-        <TokenBalance
-          img="https://instadapp.io/dashboard/img/icons/tokens/eth.svg"
-          label="ETH"
-          value="22"
-        />
-        <TokenBalance
-          img="https://pbs.twimg.com/profile_images/1056673888556351489/ymMwpnN5.jpg"
-          label="MESH"
-          value="425"
-        />
-        <Atom.HorizontalRule
-          sx={{
-            width: '100%',
-            my: 3,
-          }}
-        />
       </Atom.Flex>
       <Molecule.Menu
         expanded

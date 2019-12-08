@@ -16,7 +16,7 @@ export default IndexPage;
 /* --- Sub-Components --- */
 const Showcase = props => {
   return (
-    <Atom.Flex sx={{color: 'white', pt: 6, pb: 3, py: 7}}>
+    <Atom.Flex center column sx={{color: 'white', height: '100%'}}>
       <Atom.Container sx={{maxWidth: ['100%', '100%', 880, 1080]}}>
         <Atom.Flex column>
           <Atom.Flex center column>
