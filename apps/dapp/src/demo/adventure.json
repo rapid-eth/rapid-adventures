@@ -1,0 +1,54 @@
+{
+  "version": "0.0.1",
+  "type": "adventure",
+  "data": {
+    "name": "Exploring DeFi",
+    "tagline": "Discover What Makes Decentralized Finance Revolutionary",
+    "summary": "The Ethereum ecosystem is booming with new decentralized finance protocols and products. Discover all greatest, and latest technology with the Exploring DeFi adventure.",
+    "content": "The Ethereum ecosystem is booming with new decentralized finance protocols and products. Discover all greatest, and latest technology with the Exploring DeFi adventure.",
+    "tags": ["defi"],
+    "category": "DeFi",
+    "quests": [
+      {
+        "id": 1,
+        "alias": "makerdao-example",
+        "properties": {
+          "name": "MakerDAO CDP",
+          "tagline": "Open a MakerDAO CDP to explore the world of DeFi",
+          "summary": "",
+          "content": "MakerDAO's CDP portal allows you to easily enter the world of DeFi and open a Collateralized Debt Position with your Ether - allowing you to borrow DAI against it. Use this DAI to buy more Eth and gain a leveraged long exposure, or to cash out to USD to buy real things! Just make sure you don't get liquidated. To complete this quest, open a MakerDAO CDP at https://cdp.makerdao.com/",
+          "quote": "",
+          "tags": "",
+          "category": "",
+          "image": "https://avatars3.githubusercontent.com/u/12523025?s=200&v=4",
+          "imageFeatured": "",
+          "imageCover": "",
+          "instructionalImage": ""
+        },
+        "configuration": {
+          "networkId": "4",
+          "functionSignature": "0xc4b794aa",
+          "address": "0x4b001411186583fd65b8c0b92a57ff028a459f9f",
+          "value": "3"
+        },
+        "certificate": {
+          "networkId": "4",
+          "type": "erc20",
+          "address": "0xDa0E7a56Bc25b12797206d0768aa51F6fE829B93",
+          "id": "0x511539f3af56f3f4aa25f107466c09f9668f3d98d951f5bffee0618a4c92d0dc"
+        },
+        "metadata": {
+          "completionCriteria": "1. User opens a MakerDAO CDP",
+          "prereqs": "N/A",
+          "tokenCert": "test",
+          "emblemCert": "test",
+          "reward": 25,
+          "group": "Community",
+          "category": "DeFi",
+          "platform": "MakerDAO",
+          "transaction": true
+        }
+      }
+    ]
+  }
+}

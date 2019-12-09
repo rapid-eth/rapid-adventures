@@ -1,6 +1,5 @@
 {
-  "type": "content",
-  "ref": "quest",
+  "type": "questList",
   "data": [
     {
       "id": 1,
