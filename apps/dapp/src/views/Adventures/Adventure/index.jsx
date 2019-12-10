@@ -2,36 +2,21 @@
 import {ProfileSmall} from '3box-ui-profiles';
 import {QuestCard} from 'experiments';
 /* --- Local --- */
-import {SmallStatistic} from 'experiments';
-const addressList = [
-  '0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d',
-  '0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d',
-  '0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d',
-  '0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d',
-  '0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d',
-  '0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d',
-  '0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d',
-  '0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d',
-];
+import {addressList} from './demo';
+import {styles} from './styles';
 
-const styles = {
-  profileCard: {
-    my: 1,
-  },
-  quest: {
-    // flex: 1,
-    width: ['100%', '100%', '33%'],
-    p: 3,
-  },
-};
+import adventures from 'demo/adventureList.json';
 
 /* --- Component --- */
 const ViewAdventure = props => {
+  console.log(props, 'VIEW ADVENTURE');
+
+  const adventure = adventures.data.filter(adv => adv.alias === props.alias)[0];
+  console.log(adventure, 'adventureadventureadventure');
   return (
     <>
-      <Showase />
-      <Main />
-      {/* <SearchResult /> */}
+      <Showase {...adventure} />
+      <Main {...adventure} />
     </>
   );
 };
@@ -50,15 +35,12 @@ const Showase = props => (
       <Atom.Flex sx={{flex: 1}}>
         <Atom.Flex between sx={{boxShadow: 1, flex: 6, px: 5, py: 6}}>
           <Atom.Box>
-            <Atom.Heading xxl>Ethereum Name Registration</Atom.Heading>
+            <Atom.Heading xxl>{props.title}</Atom.Heading>
             <Atom.Heading lg thin>
-              Register your personal ENS record. A simple wallet address.
+              {props.subtitle}
             </Atom.Heading>
+            <Atom.Paragraph>{props.summary}</Atom.Paragraph>
           </Atom.Box>
-          <Atom.Flex>
-            <SmallStatistic label="Reward" value="600" />
-            <SmallStatistic label="Completed" value="420" />
-          </Atom.Flex>
         </Atom.Flex>
       </Atom.Flex>
     </Atom.Container>
@@ -71,35 +53,15 @@ const Main = props => {
       {/* Left */}
       <Atom.Container
         sx={{mx: 0, maxWidth: ['100%', '100%', 780, 820, 820, 980]}}>
+        <Atom.Box sx={{p: 3}}>
+          <Atom.Heading>Category: {props.category}</Atom.Heading>
+          <Atom.Paragraph>{props.content}</Atom.Paragraph>
+        </Atom.Box>
+
         <Atom.Flex between wrap sx={{flex: 1, p: 3, flexWrap: 'wrap'}}>
-          <QuestCard
-            title="Quest"
-            subtitle="New Quest"
-            summary="Sed ac leo condimentum mauris condimentum consectetur et a odio. Integer finibus elementum nulla, in sagittis risus ornare sed."
-            label="View Quest"
-            sx={styles.quest}
-          />
-          <QuestCard
-            title="Quest"
-            subtitle="New Quest"
-            summary="Sed ac leo condimentum mauris condimentum consectetur et a odio. Integer finibus elementum nulla, in sagittis risus ornare sed."
-            label="View Quest"
-            sx={styles.quest}
-          />
-          <QuestCard
-            title="Quest"
-            subtitle="New Quest"
-            summary="Sed ac leo condimentum mauris condimentum consectetur et a odio. Integer finibus elementum nulla, in sagittis risus ornare sed."
-            label="View Quest"
-            sx={styles.quest}
-          />
-          <QuestCard
-            title="Quest"
-            subtitle="New Quest"
-            summary="Sed ac leo condimentum mauris condimentum consectetur et a odio. Integer finibus elementum nulla, in sagittis risus ornare sed."
-            label="View Quest"
-            sx={styles.quest}
-          />
+          {props.quests.map(qst => (
+            <QuestCard {...qst.properties} sx={styles.quest} />
+          ))}
         </Atom.Flex>
       </Atom.Container>
 

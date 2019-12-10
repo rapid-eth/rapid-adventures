@@ -6,6 +6,8 @@ import {SmallStatistic} from 'experiments';
 import {AdventureCardLarge} from 'experiments';
 import {FormSearch} from 'forms';
 
+import adventures from 'demo/adventureList.json';
+
 const addressList = [
   '0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d',
   '0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d',
@@ -90,36 +92,9 @@ const SearchResult = props => (
       py: 4,
     }}>
     <Atom.Flex column sx={{p: 5}}>
-      <AdventureCardLarge
-        title="Register ETH Domain"
-        subtitle="Get your decentralized identity started!"
-        summary="Donec ipsum libero, tempus nec risus ut, iaculis gravida mi. Morbi sed lacinia dui. Duis id malesuada eros. Proin a sem sit amet sem tempus aliquam."
-        label="Create"
-        image="https://miro.medium.com/max/1200/1*phqy7EzRlH6J2iU9_8vL0g.png"
-        content={<ProfileCreateModal />}
-        sx={actions.dev}
-        gradient="blue"
-      />
-      <AdventureCardLarge
-        title="DeFi Investment"
-        subtitle="Take Advantage of DeFi"
-        summary="Donec ipsum libero, tempus nec risus ut, iaculis gravida mi. Morbi sed lacinia dui. Duis id malesuada eros. Proin a sem sit amet sem tempus aliquam."
-        label="Launch"
-        image="https://pbs.twimg.com/profile_images/1152363392595714048/OVJu6nwQ_400x400.png"
-        content={<ProfileCreateModal />}
-        sx={actions.dev}
-        gradient="purple"
-      />
-      <AdventureCardLarge
-        title="Complete Bounties"
-        subtitle="Contribute to Ethereum!"
-        image="https://everipedia-storage.s3.amazonaws.com/ProfilePics/gitcoin__26162.jpeg"
-        summary="Donec ipsum libero, tempus nec risus ut, iaculis gravida mi. Morbi sed lacinia dui. Duis id malesuada eros. Proin a sem sit amet sem tempus aliquam."
-        label="Start"
-        content={<ProfileCreateModal />}
-        sx={actions.dev}
-        gradient="green"
-      />
+      {adventures.data.map(adv => (
+        <AdventureCardLarge {...adv} sx={actions.dev} />
+      ))}
     </Atom.Flex>
   </Atom.Box>
 );

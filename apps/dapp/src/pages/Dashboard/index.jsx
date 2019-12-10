@@ -25,14 +25,15 @@ const DashboardPage = props => (
       <Profile path="/profile" />
       <Leaderboard path="/leaderboard" />
       <Collections path="/collections" />
+
       {/* Adventures */}
       <AdventureList path="/adventures" />
       <AdventureCreate path="/adventure/create" />
-      <Adventure path="/adventure/:delta" />
+      <Adventure path="/adventure/:alias" />
 
       {/* Quests */}
       <QuestCreate path="/quest/create" />
-      <Quest path="/quest/:delta" />
+      <Quest path="/quest/:alias" />
       <Testing path="/testing" />
     </Router>
   </Dashboard>

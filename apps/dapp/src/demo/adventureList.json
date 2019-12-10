@@ -1,0 +1,60 @@
+{
+  "version": "0.0.1",
+  "type": "adventureList",
+  "data": [
+    {
+      "alias": "exploring-defi",
+      "title": "Exploring DeFi",
+      "subtitle": "Discover What Makes Decentralized Finance Great",
+      "summary": "The Ethereum ecosystem is booming with new decentralized finance protocols and products. Discover all greatest, and latest technology with the Exploring DeFi adventure.",
+      "content": "The Ethereum ecosystem is booming with new decentralized finance protocols and products. Discover all greatest, and latest technology with the Exploring DeFi adventure.",
+      "image": "data:image/png;base64,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",
+      "tags": ["defi"],
+      "label": "Complete Adventure",
+      "category": "DeFi",
+      "quests": [
+        {
+          "id": 1,
+          "alias": "makerdao-example",
+          "properties": {
+            "title": "MakerDAO CDP",
+            "subtitle": "Open a MakerDAO CDP to explore the world of DeFi",
+            "summary": "MakerDAO's CDP portal allows you to easily enter the world of DeFi and open a Collateralized Debt Position with your Ether - allowing you to borrow DAI against it.",
+            "content": "MakerDAO's CDP portal allows you to easily enter the world of DeFi and open a Collateralized Debt Position with your Ether - allowing you to borrow DAI against it. Use this DAI to buy more Eth and gain a leveraged long exposure, or to cash out to USD to buy real things! Just make sure you don't get liquidated. To complete this quest, open a MakerDAO CDP at https://cdp.makerdao.com/",
+            "label": "Complete",
+            "quote": "",
+            "tags": "",
+            "category": "",
+            "image": "https://avatars3.githubusercontent.com/u/12523025?s=200&v=4",
+            "imageFeatured": "",
+            "imageCover": "",
+            "instructionalImage": ""
+          },
+          "configuration": {
+            "networkId": "4",
+            "functionSignature": "0xc4b794aa",
+            "address": "0x4b001411186583fd65b8c0b92a57ff028a459f9f",
+            "value": "3"
+          },
+          "certificate": {
+            "networkId": "4",
+            "type": "erc20",
+            "address": "0xDa0E7a56Bc25b12797206d0768aa51F6fE829B93",
+            "id": "0x511539f3af56f3f4aa25f107466c09f9668f3d98d951f5bffee0618a4c92d0dc"
+          },
+          "metadata": {
+            "completionCriteria": "1. User opens a MakerDAO CDP",
+            "prereqs": "N/A",
+            "tokenCert": "test",
+            "emblemCert": "test",
+            "reward": 25,
+            "group": "Community",
+            "category": "DeFi",
+            "platform": "MakerDAO",
+            "transaction": true
+          }
+        }
+      ]
+    }
+  ]
+}

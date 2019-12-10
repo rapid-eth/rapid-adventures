@@ -8,7 +8,7 @@
 import './assets/index.css';
 import './assets/App.css';
 import {Router} from '@reach/router';
-import Providers from './providers';
+import Providers from './providersWithLocation';
 
 import {Account, CMS, Home, Dashboard} from './pages';
 import Content from './content';

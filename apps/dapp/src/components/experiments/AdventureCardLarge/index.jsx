@@ -71,18 +71,20 @@ export const AdventureCard = ({
             <Atom.Paragraph>{subtitle}</Atom.Paragraph>
             <Atom.Paragraph>{summary}</Atom.Paragraph>
             <Atom.Box sx={styles.buttonContainer}>
-              <Modal content={props.content}>
+              {/* <Modal content={props.content}> */}
+              <Molecule.Link to={`/dashboard/adventure/${props.alias}`}>
                 <Atom.Button sx={styles.button}>{label}</Atom.Button>
-              </Modal>
+              </Molecule.Link>
+              {/* </Modal> */}
             </Atom.Box>
           </Atom.Box>
-          <Atom.Flex column sx={styles.leaderboard}>
+          {/* <Atom.Flex column sx={styles.leaderboard}>
             <Atom.Heading>Leaderboard</Atom.Heading>
             <Atom.Flex column>
               <ProfileSmall address="0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d" />
               <ProfileSmall address="0x5AdB8209b5276A23426994298FE9900644F57924" />
             </Atom.Flex>
-          </Atom.Flex>
+          </Atom.Flex> */}
         </Atom.Flex>
         <Atom.Flex></Atom.Flex>
       </Atom.Flex>

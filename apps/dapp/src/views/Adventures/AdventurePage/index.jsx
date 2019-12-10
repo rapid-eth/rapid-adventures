@@ -134,12 +134,7 @@ const AdventureLeaderboards = props => {
     <A.Box width="100%" {...props.styled}>
       <A.Heading heavy>Leaderboards</A.Heading>
       <A.HorizontalRule my={2} />
-      <A.Flex column flex={1} mt={2}>
-        {/* <ProfileLineItem address={props.address} />
-        <ProfileLineItem address={props.address} />
-        <ProfileLineItem address={props.address} />
-        <ProfileLineItem address={props.address} /> */}
-      </A.Flex>
+      <A.Flex column flex={1} mt={2}></A.Flex>
     </A.Box>
   );
 };

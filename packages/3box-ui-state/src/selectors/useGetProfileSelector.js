@@ -12,6 +12,7 @@ import { useState, useEffect } from 'react';
 export const useGetProfile = (state, addressPassed) => {
 	const [address] = useState(addressPassed);
 	const [dispatchInit, setDispatchInit] = useState(false);
+	const [isLoaded, setIsLoaded] = useState(false);
 
 	const [isDispatched, setDispatched] = useState(false);
 	const [profile, setProfile] = useState(false);
@@ -31,9 +32,9 @@ export const useGetProfile = (state, addressPassed) => {
 	}, [dispatchInit, address]);
 
 	useEffect(() => {
-		if (state['@'][address]) {
-			console.log(state['@'][address], 'profileGot');
+		if (state['@'][address] && !isLoaded) {
 			setProfile(state['@'][address]);
+			setIsLoaded(true);
 		}
 	}, [state['@'][address]]);
 
