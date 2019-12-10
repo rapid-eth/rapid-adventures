@@ -27,6 +27,19 @@
         "category": "DeFi",
         "platform": "MakerDAO",
         "transaction": true
+      },
+      "config": {
+        "type": "event",
+        "networkId": 1,
+        "contractAddress": "0x448a5065aebb8e423f0896e6c5d525c040f59af3",
+        "event": "LogNewCup(address,bytes32)",
+        "index": 0
+      },
+      "certificate": {
+        "networkId": 4,
+        "type": "erc20",
+        "address": "0x670261b2841a8101697C1336Ab17Af8864915a3d",
+        "id": "0x13f093a714160351478565aaf833a10ad56eee51cc2c5fcc1f031e32a7f6bb90"
       }
     },
     {
@@ -55,6 +68,26 @@
         "category": "DeFi",
         "platform": "Compound",
         "transaction": true
+      },
+      "config": {
+        "type": "transaction",
+        "networkId": 1,
+        "functionSignature": "0xa0712d68",
+        "value": null,
+        "toAddress": [
+          "0x6c8c6b02e7b2be14d4fa6022dfd6d75921d90e4e",
+          "0xf5dce57282a584d2746faf1593d3121fcac444dc",
+          "0x158079ee67fce2f58472a96584a73c7ab9ac95c1",
+          "0x39aa39c021dfbae8fac545936693ac917d5e7563",
+          "0xc11b1268c1a384e55c48c2391d8d480264a3a7f4",
+          "0xb3319f5d18bc0d84dd1b4825dcde5d5f7266d407"
+        ]
+      },
+      "certificate": {
+        "networkId": 4,
+        "type": "erc20",
+        "address": "0x670261b2841a8101697C1336Ab17Af8864915a3d",
+        "id": "0xa35f3c086cb61a4ec999ced58c68296d590ea0477b3e1c1f57f4ac1848b77b77"
       }
     },
     {
@@ -111,6 +144,19 @@
         "category": "Gaming",
         "platform": "Gods Unchained",
         "transaction": true
+      },
+      "config": {
+        "type": "event",
+        "networkId": 1,
+        "contractAddress": "0x6ebeaf8e8e946f0716e6533a6f2cefc83f60e8ab",
+        "event": "Transfer(address,address,uint256)",
+        "index": 1
+      },
+      "certificate": {
+        "networkId": 4,
+        "type": "erc20",
+        "address": "0x670261b2841a8101697C1336Ab17Af8864915a3d",
+        "id": "0xfb1c67de528e0996ffc2a6e4bd7cd3ef5091da9ceff92a242da73ea1adf1493d"
       }
     },
     {
@@ -195,6 +241,19 @@
         "category": "Collectibles",
         "platform": "Cryptokitties",
         "transaction": true
+      },
+      "config": {
+        "type": "transaction",
+        "networkId": 1,
+        "functionSignature": "0xed74de9d",
+        "value": null,
+        "toAddress": "0x2aEa4Add166EBf38b63d09a75dE1a7b94Aa24163"
+      },
+      "certificate": {
+        "networkId": 4,
+        "type": "erc20",
+        "address": "0x670261b2841a8101697C1336Ab17Af8864915a3d",
+        "id": "0x4c1020c2ffca983b4aee204951b14e9e996b0c91f1e6a25e1983c6d4e111e301"
       }
     },
     {
@@ -223,6 +282,19 @@
         "category": "Collectibles",
         "platform": "Gitcoin Kudos",
         "transaction": true
+      },
+      "config": {
+        "type": "transaction",
+        "networkId": 1,
+        "functionSignature": "0xed74de9d",
+        "value": null,
+        "toAddress": "0x2aEa4Add166EBf38b63d09a75dE1a7b94Aa24163"
+      },
+      "certificate": {
+        "networkId": 4,
+        "type": "erc20",
+        "address": "0x670261b2841a8101697C1336Ab17Af8864915a3d",
+        "id": "0xb2ff300bc140ace94a2b4e0db7166074b8d3523129de2cb72fe1a36c382a6f4c"
       }
     },
     {
@@ -251,6 +323,19 @@
         "category": "Future of Work",
         "platform": "Gitcoin",
         "transaction": true
+      },
+      "config": {
+        "type": "event",
+        "networkId": 1,
+        "contractAddress": "0x2af47a65da8cd66729b4209c22017d6a5c2d2400",
+        "event": "ContributionAdded(uint256,address,uint256)",
+        "index": 0
+      },
+      "certificate": {
+        "networkId": 4,
+        "type": "erc20",
+        "address": "0x670261b2841a8101697C1336Ab17Af8864915a3d",
+        "id": "0xdf811ca3a67fb73db62640df823153ff249d782c5d2df6e85cf20d070cc06ff5"
       }
     },
     {
@@ -279,6 +364,19 @@
         "category": "Future of Work",
         "platform": "Gitcoin",
         "transaction": true
+      },
+      "config": {
+        "type": "event",
+        "networkId": 1,
+        "contractAddress": "",
+        "event": "ExecuteSubscription(address,address,address,uint256,uint256,uint256,uint256)",
+        "index": 0
+      },
+      "certificate": {
+        "networkId": 4,
+        "type": "erc20",
+        "address": "0x670261b2841a8101697C1336Ab17Af8864915a3d",
+        "id": "0x06583f4f236e4330f41757b36cde2fc404856708fd3bb7fb634a7c5d45169532"
       }
     },
     {
@@ -307,6 +405,19 @@
         "category": "Future of Work",
         "platform": "Bounties Network",
         "transaction": true
+      },
+      "config": {
+        "type": "transaction",
+        "networkId": 1,
+        "functionSignature": "0xfdafa365",
+        "value": true,
+        "toAddress": "0xa7135d0a62939501b5304a04bf00d1a9a22f6623"
+      },
+      "certificate": {
+        "networkId": 4,
+        "type": "erc20",
+        "address": "0x670261b2841a8101697C1336Ab17Af8864915a3d",
+        "id": "0xa3febd376e2de3eb97141a617af8077136fa697be709a4c8169483c947cfbbc8"
       }
     },
     {
@@ -363,6 +474,19 @@
         "category": "Education",
         "platform": "Gitcoin",
         "transaction": true
+      },
+      "config": {
+        "type": "event",
+        "networkId": 1,
+        "contractAddress": "0xB22c1C159d12461EA124b0deb4b5b93020E6Ad16",
+        "event": "NameRegistered(string,bytes32,address,uint256,uint256)",
+        "index": 1
+      },
+      "certificate": {
+        "networkId": 4,
+        "type": "erc20",
+        "address": "0x670261b2841a8101697C1336Ab17Af8864915a3d",
+        "id": "0xc57256cc04c9842f919c29908d11e55bacbe2908151d7d0870b76390e152de04"
       }
     }
   ]
