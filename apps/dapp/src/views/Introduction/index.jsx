@@ -1,12 +1,13 @@
 /* --- Local --- */
 import {AdventureCardLarge} from 'experiments';
+import {AdventureList} from 'components/adventures';
 
 /* --- Component --- */
 const View = props => {
   return (
     <Atom.Flex column>
       <Showcase />
-      <IntroductionView />
+      <AdventureList />
     </Atom.Flex>
   );
 };

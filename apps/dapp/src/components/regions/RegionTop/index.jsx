@@ -1,11 +1,10 @@
 /**
  * @name RegionTop
- * @description Default top region for application.
+ * @description Default top region for site template.
  */
 /* --- Global --- */
 import {ColorMode} from 'core';
-import {Authenticate, Login} from '3box-ui-system';
-import {EnableEthereum} from 'components/ethereum';
+import {Authenticate} from '3box-ui-system';
 
 export default props => (
   <Atom.Flex alignCenter between sx={{variant: 'regions.header'}}>
@@ -26,10 +25,6 @@ export default props => (
             {
               label: 'About',
               to: '/about',
-            },
-            {
-              label: 'Account',
-              to: '/account',
             },
             {
               label: 'Dashboard',

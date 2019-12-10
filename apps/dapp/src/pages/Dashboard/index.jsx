@@ -15,7 +15,6 @@ const DashboardPage = props => (
   <Dashboard>
     <Router width="100%" primary={false}>
       <Introduction path="/" />
-
       {/* Adventures */}
       <AdventureList path="/adventures" />
       <AdventureCreate path="/adventure/create" />

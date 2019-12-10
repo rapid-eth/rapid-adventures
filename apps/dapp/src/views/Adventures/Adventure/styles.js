@@ -4,7 +4,7 @@ export const styles = {
 	},
 	quest: {
 		// flex: 1,
-		width: ['100%', '100%', '33%'],
+		width: ['100%', '100%', '50%'],
 		p: 3,
 	},
 };

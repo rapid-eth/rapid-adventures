@@ -2,17 +2,10 @@
 import {ProfileSmall} from '3box-ui-profiles';
 
 /* --- Local --- */
-import {SmallStatistic} from 'experiments';
 import {AdventureCardLarge} from 'experiments';
 import {FormSearch} from 'forms';
-
+import {AdventureList} from 'components/adventures';
 import adventures from 'demo/adventureList.json';
-
-const addressList = [
-  '0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d',
-  '0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d',
-  '0xaE11042b07C0B8F01Faa1915Df8167e5650FBc4d',
-];
 
 const styles = {
   profileCard: {
@@ -55,28 +48,6 @@ const Showase = props => (
   </Atom.Box>
 );
 
-const ViewSettings = props => {
-  return (
-    <Atom.Flex
-      alignCenter
-      between
-      sx={{bg: 'blue', boxShadow: 1, color: 'white', p: 3}}>
-      <Atom.Flex>
-        <SmallStatistic label="Adventures" value="12" />
-        <SmallStatistic label="Users" value="365" />
-        <SmallStatistic label="Rewards" value="5,402" />
-      </Atom.Flex>
-
-      <Atom.Flex alignCenter>
-        <Atom.Span tag sx={{mx: 2}}>
-          List
-        </Atom.Span>
-        <Atom.Span sx={{mx: 2}}>Card</Atom.Span>
-      </Atom.Flex>
-    </Atom.Flex>
-  );
-};
-
 const SearchResult = props => (
   <Atom.Box
     sx={{
@@ -84,29 +55,9 @@ const SearchResult = props => (
       color: 'text',
       py: 4,
     }}>
-    <Atom.Flex column sx={{p: 4}}>
-      {adventures.data.map(adv => (
-        <AdventureCardLarge {...adv} sx={actions.dev} />
-      ))}
-    </Atom.Flex>
+    <AdventureList />
   </Atom.Box>
 );
-
-/* --- Sub-Components --- */
-const ProfileCreateModal = props => {
-  return (
-    <Atom.Box card sx={{maxWidth: 550}}>
-      <Atom.Heading xxl heavy>
-        Create Developer Profile
-      </Atom.Heading>
-      <Atom.Paragraph>
-        Create your decentralized developer profile today. Start earning
-        reputation, build your ecosystem credability and share your favorite
-        projects with followers.
-      </Atom.Paragraph>
-    </Atom.Box>
-  );
-};
 
 const actions = {
   container: {
