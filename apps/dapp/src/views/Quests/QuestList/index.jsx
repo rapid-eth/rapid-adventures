@@ -1,17 +1,8 @@
 /* --- Global --- */
-import {ProfileSmall} from '3box-ui-profiles';
 
 /* --- Local --- */
-import {AdventureCardLarge} from 'experiments';
 import {FormSearch} from 'forms';
 import {AdventureList} from 'components/adventures';
-import adventures from 'demo/adventureList.json';
-
-const styles = {
-  profileCard: {
-    my: 1,
-  },
-};
 
 /* --- Component --- */
 const ViewAdventureList = props => {

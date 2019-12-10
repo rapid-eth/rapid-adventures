@@ -72,10 +72,6 @@ const Main = props => {
             <Atom.Heading>Category: {props.category}</Atom.Heading>
             <Atom.Paragraph>{props.content}</Atom.Paragraph>
           </Atom.Box>
-
-          <Atom.Heading xl thin>
-            Leaderboards
-          </Atom.Heading>
           <Atom.HorizontalRule sx={{mb: 2}} />
           <Atom.Flex column></Atom.Flex>
         </Atom.Box>
