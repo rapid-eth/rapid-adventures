@@ -1,10 +1,10 @@
 /**
- * @name RegionTop
- * @description Default top region for application.
+ * @name RegionTopDashboard
+ * @description Default top region for dashboard template.
  */
 /* --- Global --- */
 import {ColorMode} from 'core';
-import {Authenticate, Login} from '3box-ui-system';
+import {Authenticate} from '3box-ui-system';
 
 export default props => (
   <Atom.Flex alignCenter between sx={{variant: 'regions.header'}}>
@@ -16,7 +16,7 @@ export default props => (
 
       {/* Menu */}
       <Atom.Flex alignCenter ml={4}>
-        <Molecule.Menu
+        {/* <Molecule.Menu
           sx={{
             mx: 2,
           }}
@@ -35,22 +35,8 @@ export default props => (
                 <Atom.Image src="https://image.flaticon.com/icons/svg/1673/1673579.svg" />
               ),
             },
-            {
-              label: 'Collections',
-              to: '/dashboard/collections',
-              image: (
-                <Atom.Image src="https://image.flaticon.com/icons/svg/1673/1673599.svg" />
-              ),
-            },
-            {
-              label: 'Team',
-              to: '/dashboard/team',
-              image: (
-                <Atom.Image src="https://image.flaticon.com/icons/svg/1673/1673561.svg" />
-              ),
-            },
           ]}
-        />
+        /> */}
       </Atom.Flex>
     </Atom.Flex>
 

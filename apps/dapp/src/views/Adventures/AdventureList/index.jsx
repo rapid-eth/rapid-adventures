@@ -25,7 +25,6 @@ const ViewAdventureList = props => {
   return (
     <>
       <Showase />
-      <ViewSettings />
       <SearchResult />
     </>
   );
@@ -38,10 +37,8 @@ const Showase = props => (
       width: '100%',
       zIndex: 100,
     }}>
-    {/* <Atom.BackgroundGradient gradient="blue" /> */}
-
     <Atom.Flex sx={{flex: 1}}>
-      <Atom.Flex column sx={{boxShadow: 1, flex: 6, px: 5, py: 6}}>
+      <Atom.Flex column sx={{boxShadow: 1, flex: 6, px: 5, py: 4}}>
         <Atom.Heading xxl>Adventure Search</Atom.Heading>
         <FormSearch />
       </Atom.Flex>
@@ -52,11 +49,7 @@ const Showase = props => (
           Leaderboards
         </Atom.Heading>
         <Atom.HorizontalRule sx={{mb: 2}} />
-        <Atom.Flex column>
-          {addressList.map(i => (
-            <ProfileSmall address={i} sx={styles.profileCard} />
-          ))}
-        </Atom.Flex>
+        <Atom.Flex column></Atom.Flex>
       </Atom.Flex>
     </Atom.Flex>
   </Atom.Box>
@@ -91,7 +84,7 @@ const SearchResult = props => (
       color: 'text',
       py: 4,
     }}>
-    <Atom.Flex column sx={{p: 5}}>
+    <Atom.Flex column sx={{p: 4}}>
       {adventures.data.map(adv => (
         <AdventureCardLarge {...adv} sx={actions.dev} />
       ))}

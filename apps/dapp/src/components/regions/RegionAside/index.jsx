@@ -11,14 +11,7 @@ const RegionAside = ({sx, ...props}) => {
             Rapid Adventures
           </Atom.Heading>
         </Molecule.Link>
-        <Atom.Heading sm thin>
-          Activate Your Life
-        </Atom.Heading>
-        <Atom.Box>
-          <Atom.Span tag sx={{fontSize: 0}}>
-            earn crypto while adventuring
-          </Atom.Span>
-        </Atom.Box>
+
         <Atom.HorizontalRule
           sx={{
             width: '100%',
@@ -47,26 +40,6 @@ const RegionAside = ({sx, ...props}) => {
 
 const menu = [
   {
-    label: 'Journal',
-    to: '/dashboard',
-    image: (
-      <Atom.Image
-        src="https://image.flaticon.com/icons/svg/1673/1673630.svg"
-        sx={{mr: 3}}
-      />
-    ),
-    children: [
-      {
-        label: 'Active Adventures',
-        to: '/dashboard/journal/adventures',
-      },
-      {
-        label: 'Active Quests',
-        to: '/dashboard/journal/quests',
-      },
-    ],
-  },
-  {
     label: 'Adventures',
     to: '/dashboard/adventures',
     image: (
@@ -87,39 +60,11 @@ const menu = [
     ),
   },
   {
-    label: 'Admin',
-    to: '/dashboard/admin',
+    label: 'Catalog',
+    to: '/dashboard/catalog',
     image: (
       <Atom.Image
-        src="https://image.flaticon.com/icons/svg/1673/1673632.svg"
-        sx={{mr: 3}}
-      />
-    ),
-    children: [
-      {
-        label: 'Adventure Create',
-        to: '/dashboard/adventure/create',
-      },
-      {
-        label: 'Adventure Manage',
-        to: '/dashboard/adventure/complete',
-      },
-      {
-        label: 'Quest Create',
-        to: '/dashboard/quest/create',
-      },
-      {
-        label: 'Quest Manage',
-        to: '/dashboard/quest/complete',
-      },
-    ],
-  },
-  {
-    label: 'Content Management',
-    to: '/dashboard/cms',
-    image: (
-      <Atom.Image
-        src="https://image.flaticon.com/icons/svg/1673/1673620.svg"
+        src="https://image.flaticon.com/icons/svg/1673/1673630.svg"
         sx={{mr: 3}}
       />
     ),
@@ -129,7 +74,7 @@ const menu = [
     to: '/dashboard/testing',
     image: (
       <Atom.Image
-        src="https://image.flaticon.com/icons/svg/1673/1673636.svg"
+        src="https://image.flaticon.com/icons/svg/1673/1673643.svg"
         sx={{mr: 3}}
       />
     ),

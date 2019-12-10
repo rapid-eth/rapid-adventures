@@ -14,14 +14,18 @@ import {createHistory, LocationProvider} from '@reach/router';
 let source = createHashSource();
 let history = createHistory(source);
 
+const BoxConfig = {isAutoEnable: false, isAutoLogin: false};
+
 export default props => {
   return (
     <LocationProvider history={history}>
       <ThemeProvider theme={theme}>
-        <PortalProvider>
-          <PortalTree />
-          {props.children}
-        </PortalProvider>
+        <BoxProvider config={BoxConfig}>
+          <PortalProvider>
+            <PortalTree />
+            {props.children}
+          </PortalProvider>
+        </BoxProvider>
       </ThemeProvider>
     </LocationProvider>
   );
