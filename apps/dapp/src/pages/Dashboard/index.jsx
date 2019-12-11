@@ -9,6 +9,7 @@ import {
   QuestCreate,
   Testing,
   Quest,
+  QuestList,
 } from 'views';
 
 const DashboardPage = props => (
@@ -21,6 +22,7 @@ const DashboardPage = props => (
       <Adventure path="/adventure/:alias" />
 
       {/* Quests */}
+      <QuestList path="/quests" />
       <QuestCreate path="/quest/create" />
       <Quest path="/quest/:alias" />
       <Testing path="/testing" />
