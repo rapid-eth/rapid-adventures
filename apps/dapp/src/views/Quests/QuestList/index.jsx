@@ -2,13 +2,13 @@
 
 /* --- Local --- */
 import {FormSearch} from 'forms';
-import {AdventureList} from 'components/adventures';
+import {QuestList} from 'components';
 
 /* --- Component --- */
-const ViewAdventureList = props => {
+const ViewQuestList = props => {
   return (
     <>
-      <Showase />
+      {/* <Showase /> */}
       <SearchResult />
     </>
   );
@@ -23,7 +23,7 @@ const Showase = props => (
     }}>
     <Atom.Flex sx={{flex: 1}}>
       <Atom.Flex column sx={{boxShadow: 1, flex: 6, px: 5, py: 4}}>
-        <Atom.Heading xxl>Adventure Search</Atom.Heading>
+        <Atom.Heading xxl>Quest Search</Atom.Heading>
         <FormSearch />
       </Atom.Flex>
       <Atom.Flex
@@ -46,21 +46,8 @@ const SearchResult = props => (
       color: 'text',
       py: 4,
     }}>
-    <AdventureList />
+    <QuestList />
   </Atom.Box>
 );
 
-const actions = {
-  container: {
-    px: [3, 3, 5],
-    pb: [5],
-    flexDirection: ['row'],
-    flexWrap: 'wrap',
-  },
-  dev: {
-    // width: '30%',
-    p: 3,
-  },
-};
-
-export default ViewAdventureList;
+export default ViewQuestList;
