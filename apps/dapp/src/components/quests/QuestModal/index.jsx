@@ -15,7 +15,8 @@ const QuestModal = props => (
 
     <Atom.Flex between>
       <Atom.Button>Claim Certificate</Atom.Button>
-      <Atom.Button>Redeem Certificate</Atom.Button>
+      <Atom.Button sx={{mx: 3}}>Redeem Certificate</Atom.Button>
+      <Atom.Button>Save Certificate</Atom.Button>
     </Atom.Flex>
   </Atom.Box>
 );
