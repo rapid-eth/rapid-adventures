@@ -2,7 +2,7 @@ const ethers = require("ethers");
 const fs = require('fs');
 
 const contractJSON = require("../artifacts/MeshDevCoin.json");
-const questsList = require("../quests.json")
+const questsList = require("../quest.json")
 const provider = ethers.getDefaultProvider('rinkeby');
 // 0x342fe81f80ad854a3aa3c1dc2937999a49d9a8bd
 let signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider)
