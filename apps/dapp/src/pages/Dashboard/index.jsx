@@ -1,5 +1,5 @@
-import {Dashboard} from 'templates';
-import {Router} from '@reach/router';
+import { Dashboard } from 'templates';
+import { Router } from '@reach/router';
 
 import {
   Introduction,
@@ -10,6 +10,7 @@ import {
   Testing,
   Quest,
   QuestList,
+  Playground
 } from 'views';
 
 const DashboardPage = props => (
@@ -26,6 +27,7 @@ const DashboardPage = props => (
       <QuestCreate path="/quest/create" />
       <Quest path="/quest/:alias" />
       <Testing path="/testing" />
+      <Playground path="/playground" />
     </Router>
   </Dashboard>
 );
