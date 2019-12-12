@@ -2,44 +2,44 @@
   "version": "0.0.1",
   "type": "quest",
   "data": {
-    "id": 13,
-    "alias": "ethereum-name-service",
+    "id": 1,
+    "alias": "makerdao-example",
     "properties": {
-      "title": "ENS",
-      "subtitle": "Get started with the Ethereum Name Service",
-      "summary": "ENS offers a secure & decentralised way to address resources both on and off the blockchain using simple, human-readable names. To complete this quest, grab a human readable name, and have it resolve to your Eth address!",
-      "content": "",
+      "name": "MakerDAO CDP",
+      "tagline": "Open a MakerDAO CDP to explore the world of DeFi",
+      "summary": "",
+      "content": "MakerDAO's CDP portal allows you to easily enter the world of DeFi and open a Collateralized Debt Position with your Ether - allowing you to borrow DAI against it. Use this DAI to buy more Eth and gain a leveraged long exposure, or to cash out to USD to buy real things! Just make sure you don't get liquidated. To complete this quest, open a MakerDAO CDP at https://cdp.makerdao.com/",
       "quote": "",
       "tags": "",
       "category": "",
-      "image": "https://cdn-images-1.medium.com/max/1200/1*VoWiKzKRNPfr3QixEehe0w.png",
+      "image": "https://avatars3.githubusercontent.com/u/12523025?s=200&v=4",
       "imageFeatured": "",
       "imageCover": "",
       "instructionalImage": ""
     },
     "metadata": {
-      "completionCriteria": "1. User registers and ENS address; 2. User sets a resolver for that ENS address",
+      "completionCriteria": "1. User opens a MakerDAO CDP",
       "prereqs": "N/A",
       "tokenCert": "test",
       "emblemCert": "test",
       "reward": 25,
       "group": "Community",
-      "category": "Education",
-      "platform": "Gitcoin",
+      "category": "DeFi",
+      "platform": "MakerDAO",
       "transaction": true
     },
     "config": {
       "type": "event",
       "networkId": 1,
-      "contractAddress": "0xB22c1C159d12461EA124b0deb4b5b93020E6Ad16",
-      "event": "NameRegistered(string,bytes32,address,uint256,uint256)",
-      "index": 1
+      "contractAddress": "0x448a5065aebb8e423f0896e6c5d525c040f59af3",
+      "event": "LogNewCup(address,bytes32)",
+      "index": 0
     },
     "certificate": {
       "networkId": 4,
       "type": "erc20",
       "address": "0x670261b2841a8101697C1336Ab17Af8864915a3d",
-      "id": "0xc57256cc04c9842f919c29908d11e55bacbe2908151d7d0870b76390e152de04"
+      "id": "0x13f093a714160351478565aaf833a10ad56eee51cc2c5fcc1f031e32a7f6bb90"
     }
   }
 }
