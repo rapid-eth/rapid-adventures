@@ -1,20 +1,16 @@
-import { useState, useEffect } from 'react';
-import { prequalifierCheckTx, prequalifierCheckEvent} from 'quest-prequalifier';
+import React from 'react';
+import usePrequalifierCheck from "./usePrequalifier";
 
-import quests from '../../demo/questList.json';
+const View = () => {
+    const isQualified = usePrequalifierCheck();
 
-const usePrequalifierCheck = () => {
-    const [isQualified, setIsQualified] = useState(false);
-
-    useEffect(() => {
-        if (window.ethereum && !!window.ethereum.selectedAddress) {
-            const response = prequalifierCheckTx(window.ethereum.selectedAddress, quests);
-            console.log('reaponse', response);
-            setIsQualified(true);
-        }
-    }, [window.ethereum.selectedAddress]);
-
-    return isQualified;
-};
-
-export default usePrequalifierCheck
+    return (
+        <div>
+            <p>
+                Are you qualified?
+            </p>
+            { isQualified ? 'yes' : 'no'}
+        </div>
+    )
+}
+export default View
