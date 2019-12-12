@@ -79,6 +79,10 @@ const menu = [
       />
     ),
   },
+  {
+    label: 'Playground',
+    to: '/dashboard/playground'
+  },
 ];
 
 export default RegionAside;
