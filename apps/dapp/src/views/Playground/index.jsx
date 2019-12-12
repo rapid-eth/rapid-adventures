@@ -8,8 +8,8 @@ const { networks, abi } = MeshDevCoin;
 const { data: { certificate: { id: certificateId }, config, certificate } } = quest;
 let contractAddress = "";
 if (Object.values(networks).length) {
-  const data = Object.values(networks)[0];
-  contractAddress = data.address;
+    const data = Object.values(networks)[0];
+    contractAddress = data.address;
 }
 const VERIFY_EVENT_ENDPOINT = 'https://cwa95xpep8.execute-api.us-east-1.amazonaws.com/dev/rapid-verify-event';
 
@@ -25,7 +25,7 @@ const View = () => {
         const response = await postData(VERIFY_EVENT_ENDPOINT, payload);
 
         const contractResponse = await contract.redeemCertificate(response.cert, certificateId);
-        setResponse(response);
+        setResponse(contractResponse);
     };
 
     return (
