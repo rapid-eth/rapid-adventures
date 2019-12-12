@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react';
-// import joesObject from 'quest-prequalifier';
+import { prequalifierCheckTx, prequalifierCheckEvent} from 'quest-prequalifier';
+
+import quests from '../../demo/questList.json';
 
 const usePrequalifierCheck = () => {
     const [isQualified, setIsQualified] = useState(false);
+
     useEffect(() => {
-        // TODO import joe's code
-        // if (joesObject.callTheFunction(window.ethereum.selectedAddress)) {
-        setIsQualified(true);
+        if (window.ethereum && !!window.ethereum.selectedAddress) {
+            const response = prequalifierCheckTx(window.ethereum.selectedAddress, quests);
+            console.log('reaponse', response);
+            setIsQualified(true);
+        }
     }, [window.ethereum.selectedAddress]);
 
     return isQualified;

@@ -40,6 +40,7 @@
     "react-dom": "^16.10.2",
     "react-portal-system": "^1.0.0",
     "resolve": "1.10.0",
+    "quest-prequalifier": "rapid-eth/quest-prequalifier",
     "web3connect-system": "^0.0.1"
   },
   "devDependencies": {
