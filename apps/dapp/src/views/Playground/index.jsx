@@ -24,7 +24,7 @@ const View = () => {
         const payload = { userAddress, config, certificate };
         const response = await postData(VERIFY_EVENT_ENDPOINT, payload);
 
-        const contractResponse = await contract.redeemCertificate(response.certificate, certificateId);
+        const contractResponse = await contract.redeemCertificate(response.cert, certificateId);
         setResponse(response);
     };
 
