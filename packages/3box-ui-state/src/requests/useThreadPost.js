@@ -62,7 +62,6 @@ export const useThreadPost = (state, dispatch) => {
 								} else {
 									dispatch({
 										type: 'THREAD_POST_DELETE_FAILURE',
-										threadName: postSelected.threadName,
 										space: postSelected.space,
 										threadName: postSelected.threadName,
 										firstModerator: box.address

@@ -38,13 +38,13 @@ const PanelActions = ({ portal, label, content, styled, styledLabel, id, ...prop
 
       <CSSTransition in={(isAnimating)} timeout={300} classNames="fadeInLeft">
         {
-          !isOpening ? <div></div> :
+          !isOpening ? <div /> :
             <Box sx={style}>
               {
                 label &&
                 <Flex alignCenter between fullWidth gradient='gray' p={10} {...styledLabel}>
                   <Span fontSize={[3]}>{label}</Span>
-                  <Span pointer md heavy pointer onClick={closeHandler}>X</Span>
+                  <Span pointer md heavy onClick={closeHandler}>X</Span>
                 </Flex>
               }
               <Box>

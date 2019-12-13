@@ -14,7 +14,7 @@ export const useGradientEffect = props => {
       setGradient(
         `linear-gradient(180deg , ${theme.gradients[props.gradient]}`,
       );
-  }, [props.gradient]);
+  }, [props.gradient, theme.gradients]);
 
   return gradient;
 };

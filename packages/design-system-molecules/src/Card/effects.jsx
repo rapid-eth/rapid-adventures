@@ -4,7 +4,6 @@
  */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
 
 /* --- Module --- */
@@ -12,7 +11,6 @@ import HeaderDefault from './HeaderDefault'
 import HeaderShowcase from './HeaderShowcase'
 
 import MainDefault from './MainDefault'
-import MainShowcase from './MainShowcase'
 import FooterDefault from './FooterDefault'
 
 export const useMainRenderEffect = (props) => {

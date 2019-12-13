@@ -15,7 +15,7 @@ import { useMainRenderEffect } from './effects'
 const Card = ({ as, children, ...props }) => {
   const card = useCardEffect(props)
 
-  const [sx, setSX] = useState({ ...props.sx })
+  const [sx] = useState({ ...props.sx })
   let render
   render = useMainRenderEffect(props)
 

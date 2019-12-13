@@ -3,7 +3,7 @@
 import idx from 'idx'
 import React, { useEffect, useState } from "react";
 import { BoxInject } from '3box-ui-state'
-import { Absolute, Box, BackgroundImage, Flex, Image, Heading, Span, Paragraph, Link } from '@horizin/design-system-atoms'
+import { Box, BackgroundImage, Flex, Image, Heading, Span, Link } from '@horizin/design-system-atoms'
 import { GenerateImage } from './utilities'
 
 /* ------- Component ------- */
@@ -41,8 +41,8 @@ const ProfileCard = ({ profile, small, ...props}) => {
           circle center column boxShadow={0} p={2}
           border="2px solid #FFF"
           overflow='hidden'
-          width={48} height={48} maxWidth={48} maxWidth={48}
-          >
+          width={48} height={48} maxWidth={48}
+        >
             {
               profile.image
               ? <BackgroundImage
