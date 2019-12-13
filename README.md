@@ -8,7 +8,7 @@ Watch: `yarn watch`
 
 Run Frontend: `cd packages/apps/dapp ; yarn start`
 
-# Sprint Overview 
+# Sprint Overview
 
 ## Pre-Sprint Planning
 
