@@ -10,7 +10,7 @@ import {PropTypes} from 'prop-types';
 import useForm from 'react-hook-form';
 
 import {postData} from '../fetch';
-import {async} from 'q';
+import {QuestButton} from 'components';
 
 const mock_url =
   'https://cwa95xpep8.execute-api.us-east-1.amazonaws.com/dev/rapid-verify-event';
@@ -45,7 +45,6 @@ const FormFeedback = ({styled, ...props}) => {
   /* --- Submit Handler --- */
   const onSubmit = async values => {
     if (values) {
-      console.log(values, 'values');
       const data = await postData(mock_url, {
         userAddress: values.userAddress,
         config: {
@@ -62,7 +61,6 @@ const FormFeedback = ({styled, ...props}) => {
           id: values.id,
         },
       });
-      console.log(data, 'datadata');
 
       if (data.cert) {
         setCertificate(data.cert);
@@ -161,13 +159,15 @@ const FormFeedback = ({styled, ...props}) => {
 
       <Atom.Flex sx={{mt: 3}}>
         <Atom.Box>
-          <Atom.Button bg="blue" color="white" sx={{}}>
-            {isComplete ? (
-              <Atom.Span>Complete!</Atom.Span>
-            ) : (
+          {isComplete ? (
+            <>
+              <QuestButton certificate={certificate} />
+            </>
+          ) : (
+            <Atom.Button bg="blue" color="white" sx={{}}>
               <Atom.Span>Submit</Atom.Span>
-            )}
-          </Atom.Button>
+            </Atom.Button>
+          )}
         </Atom.Box>
         <Atom.Box sx={{ml: 4}}>
           {certificate && (

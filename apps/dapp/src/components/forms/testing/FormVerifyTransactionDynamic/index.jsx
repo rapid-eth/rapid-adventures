@@ -9,6 +9,8 @@ import React, {useState} from 'react';
 import {PropTypes} from 'prop-types';
 import useForm from 'react-hook-form';
 
+/* --- Global --- */
+import {QuestButton} from 'components';
 import {postData} from '../fetch';
 const mock_url =
   'https://cwa95xpep8.execute-api.us-east-1.amazonaws.com/dev/rapid-verify-tx';
@@ -117,13 +119,15 @@ const FormFeedback = ({styled, ...props}) => {
 
       <Atom.Flex sx={{mt: 3}}>
         <Atom.Box>
-          <Atom.Button bg="blue" color="white" sx={{}}>
-            {isComplete ? (
-              <Atom.Span>Complete!</Atom.Span>
-            ) : (
+          {isComplete ? (
+            <>
+              <QuestButton certificate={certificate} />
+            </>
+          ) : (
+            <Atom.Button bg="blue" color="white" sx={{}}>
               <Atom.Span>Submit</Atom.Span>
-            )}
-          </Atom.Button>
+            </Atom.Button>
+          )}
         </Atom.Box>
         <Atom.Box sx={{ml: 4}}>
           {certificate && (
