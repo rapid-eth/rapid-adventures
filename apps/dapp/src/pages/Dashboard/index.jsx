@@ -10,7 +10,8 @@ import {
   Testing,
   Quest,
   QuestList,
-  Playground
+  Playground,
+  Prequalifier
 } from 'views';
 
 const DashboardPage = props => (
@@ -28,6 +29,7 @@ const DashboardPage = props => (
       <Quest path="/quest/:alias" />
       <Testing path="/testing" />
       <Playground path="/playground" />
+      <Prequalifier path="/prequalifier" />
     </Router>
   </Dashboard>
 );

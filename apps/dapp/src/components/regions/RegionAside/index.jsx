@@ -1,13 +1,13 @@
 /* --- Global --- */
-import {TokenBalance} from 'experiments';
+import { TokenBalance } from 'experiments';
 
 /* --- Component --- */
-const RegionAside = ({sx, ...props}) => {
+const RegionAside = ({ sx, ...props }) => {
   return (
     <Atom.Flex column sx={sx}>
       <Atom.Flex center column>
         <Molecule.Link to="/">
-          <Atom.Heading lg heavy sx={{mb: 0}}>
+          <Atom.Heading lg heavy sx={{ mb: 0 }}>
             Rapid Adventures
           </Atom.Heading>
         </Molecule.Link>
@@ -45,7 +45,7 @@ const menu = [
     image: (
       <Atom.Image
         src="https://image.flaticon.com/icons/svg/1673/1673636.svg"
-        sx={{mr: 3}}
+        sx={{ mr: 3 }}
       />
     ),
   },
@@ -55,7 +55,7 @@ const menu = [
     image: (
       <Atom.Image
         src="https://image.flaticon.com/icons/svg/1673/1673641.svg"
-        sx={{mr: 3}}
+        sx={{ mr: 3 }}
       />
     ),
   },
@@ -65,7 +65,7 @@ const menu = [
     image: (
       <Atom.Image
         src="https://image.flaticon.com/icons/svg/1673/1673630.svg"
-        sx={{mr: 3}}
+        sx={{ mr: 3 }}
       />
     ),
   },
@@ -75,13 +75,17 @@ const menu = [
     image: (
       <Atom.Image
         src="https://image.flaticon.com/icons/svg/1673/1673643.svg"
-        sx={{mr: 3}}
+        sx={{ mr: 3 }}
       />
     ),
   },
   {
     label: 'Playground',
     to: '/dashboard/playground'
+  },
+  {
+    label: 'Prequalifier',
+    to: '/dashboard/prequalifier'
   },
 ];
 
