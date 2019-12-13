@@ -366,13 +366,6 @@
         "platform": "Gitcoin",
         "transaction": true
       },
-      "config": {
-        "type": "event",
-        "networkId": 1,
-        "contractAddress": "",
-        "event": "ExecuteSubscription(address,address,address,uint256,uint256,uint256,uint256)",
-        "index": 0
-      },
       "certificate": {
         "networkId": 4,
         "type": "erc20",
