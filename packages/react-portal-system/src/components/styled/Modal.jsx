@@ -23,8 +23,6 @@ const ModalActions = ({
   const [isAnimating, setIsAnimating] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
 
-  console.log(variant, 'variantInner');
-
   const closeHandler = () => {
     setIsAnimating(false);
     if (closeCallback) closeCallback();

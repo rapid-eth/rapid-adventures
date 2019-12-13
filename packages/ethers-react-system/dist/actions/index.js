@@ -3,16 +3,46 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "enableRequest", {
+Object.defineProperty(exports, "commonEnableRequest", {
   enumerable: true,
   get: function get() {
-    return _enableRequest.enableRequest;
+    return _commonEnableRequest.commonEnableRequest;
   }
 });
-Object.defineProperty(exports, "setProvider", {
+Object.defineProperty(exports, "commonSetProvider", {
   enumerable: true,
   get: function get() {
-    return _setProvider.setProvider;
+    return _commonSetProvider.commonSetProvider;
+  }
+});
+Object.defineProperty(exports, "contractDeployRequest", {
+  enumerable: true,
+  get: function get() {
+    return _contractDeployRequest.contractDeployRequest;
+  }
+});
+Object.defineProperty(exports, "contractDeployFromBytecodeRequest", {
+  enumerable: true,
+  get: function get() {
+    return _contractDeployFromBytecodeRequest.contractDeployFromBytecodeRequest;
+  }
+});
+Object.defineProperty(exports, "walletSendTransactionRequest", {
+  enumerable: true,
+  get: function get() {
+    return _walletSendTransactionRequest.walletSendTransactionRequest;
+  }
+});
+Object.defineProperty(exports, "walletSignMessageRequest", {
+  enumerable: true,
+  get: function get() {
+    return _walletSignMessageRequest.walletSignMessageRequest;
+  }
+});
+Object.defineProperty(exports, "walletSignMessageTypedRequest", {
+  enumerable: true,
+  get: function get() {
+    return _walletSignMessageTypedRequest.walletSignMessageTypedRequest;
   }
 });
 exports.generateWallet = exports.initContractFromLibrary = exports.initContract = exports.loadContractIntoLibrary = exports.setProviderStatus = void 0;
@@ -23,9 +53,19 @@ var _ethers = require("ethers");
 
 var _types = require("../types");
 
-var _enableRequest = require("./enableRequest");
+var _commonEnableRequest = require("./commonEnableRequest");
 
-var _setProvider = require("./setProvider");
+var _commonSetProvider = require("./commonSetProvider");
+
+var _contractDeployRequest = require("./contractDeployRequest");
+
+var _contractDeployFromBytecodeRequest = require("./contractDeployFromBytecodeRequest");
+
+var _walletSendTransactionRequest = require("./walletSendTransactionRequest");
+
+var _walletSignMessageRequest = require("./walletSignMessageRequest");
+
+var _walletSignMessageTypedRequest = require("./walletSignMessageTypedRequest");
 
 /**
  *

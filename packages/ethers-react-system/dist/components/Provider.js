@@ -7,9 +7,9 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _Context = _interopRequireDefault(require("./Context"));
+var _Context = _interopRequireDefault(require("../Context"));
 
-var _reducer = _interopRequireDefault(require("../reducers/reducer"));
+var _reducer = _interopRequireDefault(require("../reducer"));
 
 var _actions = require("../middleware/actions");
 

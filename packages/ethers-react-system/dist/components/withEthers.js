@@ -7,7 +7,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _Context = _interopRequireDefault(require("./Context"));
+var _Context = _interopRequireDefault(require("../Context"));
 
 var _uiCompose = require("@horizin/ui-compose");
 

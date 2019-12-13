@@ -33,8 +33,6 @@ const mock_data = {
 
 /* --- Component --- */
 const FormFeedback = ({styled, ...props}) => {
-  console.log(props, 'FormVerifyEventDynamic');
-
   /* --- Form Hook State --- */
   const {handleSubmit, register, errors} = useForm();
 

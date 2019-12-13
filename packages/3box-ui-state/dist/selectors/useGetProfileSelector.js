@@ -20,6 +20,7 @@ var _react = require("react");
 var useGetProfile = (state, addressPassed) => {
   var [address] = (0, _react.useState)(addressPassed);
   var [dispatchInit, setDispatchInit] = (0, _react.useState)(false);
+  var [isLoaded, setIsLoaded] = (0, _react.useState)(false);
   var [isDispatched, setDispatched] = (0, _react.useState)(false);
   var [profile, setProfile] = (0, _react.useState)(false);
   (0, _react.useEffect)(() => {
@@ -33,9 +34,9 @@ var useGetProfile = (state, addressPassed) => {
     }
   }, [dispatchInit, address]);
   (0, _react.useEffect)(() => {
-    if (state['@'][address]) {
-      console.log(state['@'][address], 'profileGot');
+    if (state['@'][address] && !isLoaded) {
       setProfile(state['@'][address]);
+      setIsLoaded(true);
     }
   }, [state['@'][address]]);
   return {
