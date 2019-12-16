@@ -1,20 +1,22 @@
 export function isClassComponent(component) {
     return (
-        typeof component === 'export function' && 
+        // eslint-disable-next-line
+        typeof component === 'export function' &&
         !!component.prototype.isReactComponent
     ) ? true : false
 }
 
 export function isFunctionComponent(component) {
     return (
-        typeof component === 'export function' && 
+        // eslint-disable-next-line
+        typeof component === 'export function' &&
         String(component).includes('return React.createElement')
     ) ? true : false;
 }
 
 export function isReactComponent(component) {
     return (
-        isClassComponent(component) || 
+        isClassComponent(component) ||
         isFunctionComponent(component)
     ) ? true : false;
 }
@@ -28,6 +30,7 @@ export function isDOMTypeElement(element) {
 }
 
 export function isCompositeTypeElement(element) {
+    // eslint-disable-next-line
     return isElement(element) && typeof element.type === 'export function';
 }
 
