@@ -1,5 +1,6 @@
 export function isClassComponent(component) {
     return (
+        // eslint-disable-next-line
         typeof component === 'export function' &&
         !!component.prototype.isReactComponent
     ) ? true : false
@@ -14,6 +15,7 @@ export function isInlineFunctionComponent(component) {
 
 export function isFunctionComponent(component) {
     return (
+        // eslint-disable-next-line
         typeof component === 'export function' &&
         String(component).includes('return React.createElement')
     ) ? true : false;
@@ -36,6 +38,7 @@ export function isDOMTypeElement(element) {
 }
 
 export function isCompositeTypeElement(element) {
+    // eslint-disable-next-line
     return isElement(element) && typeof element.type === 'export function';
 }
 
