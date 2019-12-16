@@ -36,7 +36,6 @@ const styles = {
     borderColor: 'borderShadow',
     boxShadow: 0,
     color: 'text',
-    color: 'text',
     p: 3
   }
 }

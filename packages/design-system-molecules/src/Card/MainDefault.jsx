@@ -4,20 +4,19 @@
  */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import { Image, Box, Text, Flex, Heading, Span} from '@horizin/design-system-atoms'
 import { Link } from '@horizin/design-system-molecules'
 
 const ComponentMainDefault = props => {
   const [sxMain, setSXMain] = useState({ ...props.sxMain })
 
-  const [sxTitle, setSXTitle] = useState({ fontSize: 3, fontWeight: 500, ...props.sxTitle })
-  const [sxTagline, setSXTagline] = useState({ fontSize: 2, fontWeight: 400, ...props.sxTagline })
+  const [sxTitle] = useState({ fontSize: 3, fontWeight: 500, ...props.sxTitle })
+  const [sxTagline] = useState({ fontSize: 2, fontWeight: 400, ...props.sxTagline })
   const [sxImage, setSXImage] = useState({ ...props.sxImage })
 
   const [sxImageWrap, setSXImageWrap] = useState({ ...props.sxImageWrap })
-  const [sxContent, setSXContent] = useState({ fontSize: 1, ...props.sxContent })
-  const [sxSummary, setSXSummary] = useState({ fontSize: 1, ...props.sxSummary })
+  const [sxContent] = useState({ fontSize: 1, ...props.sxContent })
+  const [sxSummary] = useState({ fontSize: 1, ...props.sxSummary })
 
   /**
    * @name Global

@@ -70,9 +70,10 @@ var Context = (0, _react.createContext)({
   deployContractFromBytecode: () => {},
   setProvider: () => {},
   setProviderStatus: () => {},
+  sendTransaction: () => {},
   signMessage: () => {},
   signMessageTyped: () => {},
-  sendTransaction: () => {}
+  signTransaction: () => {}
 });
 var _default = Context;
 exports.default = _default;

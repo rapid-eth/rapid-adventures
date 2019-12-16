@@ -44,8 +44,8 @@ const ProfileCard = ({ profile, small, ...props}) => {
           border="1px solid #FFF"
           overflow='hidden'
           m={1}
-          width={24} height={24} maxWidth={26} maxWidth={26}
-          >
+          width={24} height={24} maxWidth={26}
+        >
             {
               profile.image
               ? <BackgroundImage

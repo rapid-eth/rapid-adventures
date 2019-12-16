@@ -31,7 +31,7 @@ const BoxLoginButton = ({ box, isMenuAvailable, styled, children, ...props }) =>
           <Box>
             <Image maxWidth={36} mx={2} src='https://metamask.io/img/metamask.png' />
           </Box>
-          <a href='https://metamask.io/' target='_blank'>
+          <a href='https://metamask.io/' target='_blank' rel="noopener noreferrer">
             <Span>Install MetaMask to Enable</Span>
           </a>
         </Flex>

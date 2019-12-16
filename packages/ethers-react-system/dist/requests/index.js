@@ -3,67 +3,91 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "useDeployContract", {
+Object.defineProperty(exports, "useCommonEnable", {
   enumerable: true,
   get: function get() {
-    return _useDeployContract.useDeployContract;
+    return _useCommonEnable.useCommonEnable;
   }
 });
-Object.defineProperty(exports, "useEnable", {
+Object.defineProperty(exports, "useCommonSetAddressFromSelected", {
   enumerable: true,
   get: function get() {
-    return _useEnable.useEnable;
+    return _useCommonSetAddressFromSelected.useCommonSetAddressFromSelected;
   }
 });
-Object.defineProperty(exports, "useInitializeContract", {
+Object.defineProperty(exports, "useCommonSetWallet", {
   enumerable: true,
   get: function get() {
-    return _useInitializeContract.useInitializeContract;
+    return _useCommonSetWallet.useCommonSetWallet;
   }
 });
-Object.defineProperty(exports, "useLoadContractIntoLibrary", {
+Object.defineProperty(exports, "useCommonWindowProvider", {
   enumerable: true,
   get: function get() {
-    return _useLoadContractIntoLibrary.useLoadContractIntoLibrary;
+    return _useCommonWindowProvider.useCommonWindowProvider;
   }
 });
-Object.defineProperty(exports, "useSetAddressFromSelected", {
+Object.defineProperty(exports, "useContractDeploy", {
   enumerable: true,
   get: function get() {
-    return _useSetAddressFromSelected.useSetAddressFromSelected;
+    return _useContractDeploy.useContractDeploy;
   }
 });
-Object.defineProperty(exports, "useSetWallet", {
+Object.defineProperty(exports, "useContractInitialize", {
   enumerable: true,
   get: function get() {
-    return _useSetWallet.useSetWallet;
+    return _useContractInitialize.useContractInitialize;
   }
 });
-Object.defineProperty(exports, "useSignMessage", {
+Object.defineProperty(exports, "useContractLoadIntoLibrary", {
   enumerable: true,
   get: function get() {
-    return _useSignMessage.useSignMessage;
+    return _useContractLoadIntoLibrary.useContractLoadIntoLibrary;
   }
 });
-Object.defineProperty(exports, "useWindowProvider", {
+Object.defineProperty(exports, "useWalletSendTransaction", {
   enumerable: true,
   get: function get() {
-    return _useWindowProvider.useWindowProvider;
+    return _useWalletSendTransaction.useWalletSendTransaction;
+  }
+});
+Object.defineProperty(exports, "useWalletSignMessage", {
+  enumerable: true,
+  get: function get() {
+    return _useWalletSignMessage.useWalletSignMessage;
+  }
+});
+Object.defineProperty(exports, "useWalletSignMessageTyped", {
+  enumerable: true,
+  get: function get() {
+    return _useWalletSignMessageTyped.useWalletSignMessageTyped;
+  }
+});
+Object.defineProperty(exports, "useWalletSignTransaction", {
+  enumerable: true,
+  get: function get() {
+    return _useWalletSignTransaction.useWalletSignTransaction;
   }
 });
 
-var _useDeployContract = require("./useDeployContract");
+var _useCommonEnable = require("./useCommonEnable");
 
-var _useEnable = require("./useEnable");
+var _useCommonSetAddressFromSelected = require("./useCommonSetAddressFromSelected");
 
-var _useInitializeContract = require("./useInitializeContract");
+var _useCommonSetWallet = require("./useCommonSetWallet");
 
-var _useLoadContractIntoLibrary = require("./useLoadContractIntoLibrary");
+var _useCommonWindowProvider = require("./useCommonWindowProvider");
 
-var _useSetAddressFromSelected = require("./useSetAddressFromSelected");
+var _useContractDeploy = require("./useContractDeploy");
 
-var _useSetWallet = require("./useSetWallet");
+var _useContractInitialize = require("./useContractInitialize");
 
-var _useSignMessage = require("./useSignMessage");
+var _useContractLoadIntoLibrary = require("./useContractLoadIntoLibrary");
 
-var _useWindowProvider = require("./useWindowProvider");
+var _useWalletSendTransaction = require("./useWalletSendTransaction");
+
+var _useWalletSignMessage = require("./useWalletSignMessage");
+
+var _useWalletSignMessageTyped = require("./useWalletSignMessageTyped");
+
+var _useWalletSignTransaction = require("./useWalletSignTransaction");

@@ -14,8 +14,7 @@ const reducerActions = (state, action) => {
               ...state.store,
               [instance]: toasts,
             }
-          }
-          break;
+          };
 
         default:
           return {
@@ -44,7 +43,7 @@ const reducerActions = (state, action) => {
             },
           ],
         }
-      }
+      };
     default:
       console.log(action)
     // throw new Error(`No Reducer Type Set`);

@@ -3,17 +3,18 @@ import React, { useEffect, useState } from "react";
 import { PortalContext } from 'react-portal-system'
 
 const ToastOpen = ({ portal, content, closeTimer, closeOnClick, label, id, sx, ...props}) => { 
-  const [ isOpen, setOpen ] = useState(props.open)
+  const [ isOpen, setOpen ] = useState(props.open);
   useEffect( () => { 
     if(isOpen) 
       portal.openToast({ content, closeTimer, closeOnClick, label, id, sx })
-  }, [isOpen])
+  }, [isOpen, portal, content, closeTimer, closeOnClick, label, id, sx]);
 
   useEffect( () => { 
     setOpen(props.open)
-  }, props.open)
+  }, [props.open]);
 
-  return(null)}
+  return null
+};
 
 export default ({
   ...props

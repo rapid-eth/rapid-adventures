@@ -4,9 +4,7 @@ import {
   Box,
   Flex,
   Span,
-  Absolute
 } from '@horizin/design-system-atoms';
-import { CSSTransition } from 'react-transition-group';
 
 const ModalActions = ({
   closeCallback,
@@ -22,8 +20,6 @@ const ModalActions = ({
 }) => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
-
-  console.log(variant, 'variantInner');
 
   const closeHandler = () => {
     setIsAnimating(false);
@@ -71,7 +67,7 @@ const ModalActions = ({
                 {...styledLabel}
               >
                 <Span fontSize={[3]}>{label}</Span>
-                <Span pointer md heavy pointer onClick={() => closeHandler()}>
+                <Span pointer md heavy onClick={() => closeHandler()}>
                   X
                 </Span>
               </Flex>

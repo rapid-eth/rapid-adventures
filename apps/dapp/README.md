@@ -2,7 +2,7 @@
 
 Activate your life.
 
-### Major Dependencies
+### Major Dependencies 
 
 - 3Box.js
 - Ethers.js
