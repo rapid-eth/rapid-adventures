@@ -60,7 +60,7 @@ const FormFeedback = ({styled, ...props}) => {
         },
       });
 
-      if (data.cert) {
+      if (data && data.cert) {
         setCertificate(data.cert);
       }
       setComplete(true); // Validate submission and set complete status to true

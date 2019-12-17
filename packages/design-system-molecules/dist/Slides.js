@@ -74,7 +74,7 @@ var ComponentResize = (_ref2) => {
     }
 
     console.log(size, 'sizesize');
-  }, [size]);
+  }, [size, setHeight, setWidth]);
   return _react.default.createElement(_designSystemAtoms.Flex, null, (0, _uiCompose.Component)(item, {
     ref: ref
   }));

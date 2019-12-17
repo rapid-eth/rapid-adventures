@@ -14,11 +14,15 @@ exports.isStringRender = isStringRender;
 exports["default"] = void 0;
 
 function isClassComponent(component) {
-  return typeof component === 'export function' && !!component.prototype.isReactComponent ? true : false;
+  return (// eslint-disable-next-line
+    typeof component === 'export function' && !!component.prototype.isReactComponent ? true : false
+  );
 }
 
 function isFunctionComponent(component) {
-  return typeof component === 'export function' && String(component).includes('return React.createElement') ? true : false;
+  return (// eslint-disable-next-line
+    typeof component === 'export function' && String(component).includes('return React.createElement') ? true : false
+  );
 }
 
 function isReactComponent(component) {
@@ -34,6 +38,7 @@ function isDOMTypeElement(element) {
 }
 
 function isCompositeTypeElement(element) {
+  // eslint-disable-next-line
   return isElement(element) && typeof element.type === 'export function';
 }
 

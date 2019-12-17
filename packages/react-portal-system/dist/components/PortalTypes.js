@@ -48,7 +48,7 @@ var Component = (_ref) => {
     absolute: false,
     opacity: .25,
     onClick: close
-  }), position == 'toast' && _react.default.createElement(_designSystemAtoms.Box, _extends({
+  }), position === 'toast' && _react.default.createElement(_designSystemAtoms.Box, _extends({
     card: true,
     noPadding: true,
     maxWidth: 200,
@@ -66,11 +66,10 @@ var Component = (_ref) => {
     pointer: true,
     sm: true,
     heavy: true,
-    pointer: true,
     onClick: close
   }, "X")), _react.default.createElement(_designSystemAtoms.Box, {
     p: 10
-  }, Content && _react.default.isValidElement(Content) ? _react.default.cloneElement(Content) : Content))), position == 'panel' && _react.default.createElement(_designSystemAtoms.Box, _extends({
+  }, Content && _react.default.isValidElement(Content) ? _react.default.cloneElement(Content) : Content))), position === 'panel' && _react.default.createElement(_designSystemAtoms.Box, _extends({
     card: true,
     noPadding: true,
     height: "100%",
@@ -88,7 +87,6 @@ var Component = (_ref) => {
     pointer: true,
     sm: true,
     heavy: true,
-    pointer: true,
     onClick: close
   }, "X")), _react.default.createElement(_designSystemAtoms.Box, {
     p: 20
@@ -110,7 +108,6 @@ var Component = (_ref) => {
     pointer: true,
     sm: true,
     heavy: true,
-    pointer: true,
     onClick: close
   }, "X")), _react.default.createElement(_designSystemAtoms.Box, {
     bg: "white",

@@ -41,10 +41,10 @@ var ToastOpen = (_ref) => {
       id,
       sx
     });
-  }, [isOpen]);
+  }, [isOpen, portal, content, closeTimer, closeOnClick, label, id, sx]);
   (0, _react.useEffect)(() => {
     setOpen(props.open);
-  }, props.open);
+  }, [props.open]);
   return null;
 };
 

@@ -17,7 +17,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var hashCode = function hashCode(input) {
   var hash = 0;
 
-  if (input.length == 0) {
+  if (input.length === 0) {
     return hash;
   }
 

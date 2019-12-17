@@ -7,15 +7,11 @@ exports.useMainRenderEffect = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _HeaderDefault = _interopRequireDefault(require("./HeaderDefault"));
 
 var _HeaderShowcase = _interopRequireDefault(require("./HeaderShowcase"));
 
 var _MainDefault = _interopRequireDefault(require("./MainDefault"));
-
-var _MainShowcase = _interopRequireDefault(require("./MainShowcase"));
 
 var _FooterDefault = _interopRequireDefault(require("./FooterDefault"));
 
