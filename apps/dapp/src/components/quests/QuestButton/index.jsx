@@ -1,19 +1,4 @@
-import React from 'react';
 import {ethers} from 'ethers';
-import quest from 'demo/quest.json';
-import MeshDevCoin from 'demo/artifacts/MeshDevCoin.json';
-
-const {networks, abi} = MeshDevCoin;
-const {
-  data: {
-    certificate: {id: certificateId},
-  },
-} = quest;
-let contractAddress = '';
-if (Object.values(networks).length) {
-  const data = Object.values(networks)[0];
-  contractAddress = data.address;
-}
 
 const QuestButton = props => {
   const invokeEthers = async () => {
@@ -21,10 +6,14 @@ const QuestButton = props => {
       window.web3.currentProvider,
     );
     const signer = provider.getSigner();
-    const contract = await new ethers.Contract(contractAddress, abi, signer);
+    const contract = await new ethers.Contract(
+      process.env.REACT_APP_MESH_TOKEN,
+      abi,
+      signer,
+    );
 
-    contract.redeemCertificate(props.certificate, certificateId, {
-      gasPrice: 10000,
+    contract.redeemCertificate(props.certificate, props.certificateId, {
+      gasPrice: 1000000,
       gasLimit: 1000000,
     });
   };

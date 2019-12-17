@@ -24,6 +24,7 @@ const FormFeedback = ({styled, ...props}) => {
   const [isComplete, setComplete] = useState();
   const [certificate, setCertificate] = useState();
 
+  console.log(props, 'contract transaction');
   /* --- Submit Handler --- */
   const onSubmit = async values => {
     if (values) {
@@ -31,13 +32,13 @@ const FormFeedback = ({styled, ...props}) => {
         transactionHash: values.transactionHash,
         userAddress: values.userAddress,
         config: {
-          networkId: 4,
-          functionSignature: '0xc4b794aa',
-          toAddress: '0x4b001411186583fd65b8c0b92a57ff028a459f9f',
+          networkId: Number(props.config.networkId),
+          functionSignature: props.config.functionSignature,
+          toAddress: props.config.toAddress,
           value: false,
         },
         certificate: {
-          networkId: Number(4),
+          networkId: Number(props.certificate.networkId),
           type: values.type,
           address: values.address,
           id: values.id,
@@ -121,7 +122,10 @@ const FormFeedback = ({styled, ...props}) => {
         <Atom.Box>
           {isComplete ? (
             <>
-              <QuestButton certificate={certificate} />
+              <QuestButton
+                certificate={certificate}
+                certificateId={props.certificate.certificateId}
+              />
             </>
           ) : (
             <Atom.Button bg="blue" color="white" sx={{}}>

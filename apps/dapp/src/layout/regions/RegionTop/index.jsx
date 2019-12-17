@@ -3,7 +3,7 @@
  * @description Default top region for site template.
  */
 /* --- Global --- */
-import {ColorMode} from 'core';
+import {ColorMode} from 'common';
 import {Authenticate} from '3box-ui-system';
 
 export default props => (

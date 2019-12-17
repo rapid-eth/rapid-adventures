@@ -40,6 +40,7 @@ const FormFeedback = ({styled, ...props}) => {
   const [isComplete, setComplete] = useState();
   const [certificate, setCertificate] = useState();
 
+  console.log(props, 'contract event');
   /* --- Submit Handler --- */
   const onSubmit = async values => {
     if (values) {
@@ -159,7 +160,10 @@ const FormFeedback = ({styled, ...props}) => {
         <Atom.Box>
           {isComplete ? (
             <>
-              <QuestButton certificate={certificate} />
+              <QuestButton
+                certificate={certificate}
+                certificateId={props.certificate.id}
+              />
             </>
           ) : (
             <Atom.Button bg="blue" color="white" sx={{}}>

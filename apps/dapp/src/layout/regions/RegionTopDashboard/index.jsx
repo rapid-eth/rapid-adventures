@@ -3,7 +3,7 @@
  * @description Default top region for dashboard template.
  */
 /* --- Global --- */
-import {ColorMode} from 'core';
+import {ColorMode} from 'common';
 import {Authenticate} from '3box-ui-system';
 
 export default props => (
@@ -16,27 +16,29 @@ export default props => (
 
       {/* Menu */}
       <Atom.Flex alignCenter ml={4}>
-        {/* <Molecule.Menu
+        <Molecule.Menu
           sx={{
-            mx: 2,
+            mx: 1,
           }}
           items={[
             {
               label: 'Profile',
               to: '/dashboard/profile',
-              image: (
-                <Atom.Image src="https://image.flaticon.com/icons/svg/1673/1673568.svg" />
-              ),
             },
             {
               label: 'Leaderboard',
               to: '/dashboard/leaderboard',
-              image: (
-                <Atom.Image src="https://image.flaticon.com/icons/svg/1673/1673579.svg" />
-              ),
+            },
+            {
+              label: 'Collections',
+              to: '/dashboard/collections',
+            },
+            {
+              label: 'Team',
+              to: '/dashboard/team',
             },
           ]}
-        /> */}
+        />
       </Atom.Flex>
     </Atom.Flex>
 

@@ -298,34 +298,31 @@ module.exports = function(webpackEnv) {
 			alias: {
 				react: 'react',
 				'react-native': 'react-native-web',
-				'prop-types': 'prop-types',
-				'design-system': '@horizin/design-system-atoms',
-				'3box-system': '3box-system',
-				'profiles-components': '3box-react-profiles',
-				profiles: '3box-react-profiles',
-				did: '3box-ui-state',
-				cms: '3box-ui-system',
+				// Assets
 				assets: path.resolve(__dirname, '../src/assets'),
-				content: path.resolve(__dirname, '../src/content'),
-				contracts: path.resolve(__dirname, '../src/contracts'),
 				demo: path.resolve(__dirname, '../src/demo'),
-				helpers: path.resolve(__dirname, '../src/helpers'),
-				schema: path.resolve(__dirname, '../src/schema'),
-				foundry: path.resolve(__dirname, '../src/foundry'),
-				scaffold: path.resolve(__dirname, '../src/components/scaffold'),
-				forms: path.resolve(__dirname, '../src/components/forms'),
-				menus: path.resolve(__dirname, '../src/static/menus'),
+				data: path.resolve(__dirname, '../src/data'),
+				helpers: path.resolve(__dirname, '../src/assets/helpers'),
+				global: path.resolve(__dirname, '../src/assets/global'),
+				schema: path.resolve(__dirname, '../src/assets/schema'),
+				// Application
+				contracts: path.resolve(__dirname, '../src/contracts'),
+				pages: path.resolve(__dirname, '../src/pages'),
+				views: path.resolve(__dirname, '../src/views'),
+				// Components
 				components: path.resolve(__dirname, '../src/components'),
-				core: path.resolve(__dirname, '../src/components/core'),
+				common: path.resolve(__dirname, '../src/components/common'),
+				forms: path.resolve(__dirname, '../src/components/forms'),
+				foundry: path.resolve(__dirname, '../src/components/foundry'),
 				experiments: path.resolve(
 					__dirname,
 					'../src/components/experiments',
 				),
-				regions: path.resolve(__dirname, '../src/components/regions'),
-				templates: path.resolve(__dirname, '../src/templates'),
-				views: path.resolve(__dirname, '../src/views'),
-				pages: path.resolve(__dirname, '../src/pages'),
-				global: path.resolve(__dirname, '../src/assets/global'),
+				// Layout
+				layout: path.resolve(__dirname, '../src/layout'),
+				regions: path.resolve(__dirname, '../src/layout/regions'),
+				routes: path.resolve(__dirname, '../src/layout/routes'),
+				templates: path.resolve(__dirname, '../src/layout/templates'),
 			},
 			plugins: [
 				// Adds support for installing with Plug'n'Play, leading to faster installs and adding
@@ -555,11 +552,6 @@ module.exports = function(webpackEnv) {
 			],
 		},
 		plugins: [
-			new webpack.DefinePlugin({
-				ROOT: JSON.stringify(
-					'0xfA67ddE98346d6033f3Da0b157b70fe8434a48cE',
-				),
-			}),
 			new webpack.ProvidePlugin({
 				GLOBAL: 'global',
 			}),
@@ -587,10 +579,6 @@ module.exports = function(webpackEnv) {
 			new webpack.ProvidePlugin({
 				CMS: '3box-ui-system',
 			}),
-			new webpack.ProvidePlugin({
-				Three: '3box-ui-system',
-			}),
-
 			// Generates an `index.html` file with the <script> injected.
 			new HtmlWebpackPlugin(
 				Object.assign(
