@@ -1,11 +1,11 @@
 const ethers = require("ethers");
 const fs = require('fs');
 
-const contractJSON = require("../artifacts/MeshDevCoin.json");
-const questsList = require("../quests.json")
+const contractJSON = require("../artifacts/MeshDevCoinTest.json");
+const questsList = require("../old_questList.json")
 const provider = ethers.getDefaultProvider('rinkeby');
 // 0x342fe81f80ad854a3aa3c1dc2937999a49d9a8bd
-let signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider)
+let signer = new ethers.Wallet(process.env.PK, provider)
 const delegateAddress = "0x81fb5AFdaC43d45b2f8eDB01F6D99972502B37c0"
 const main = async () => {
 
@@ -21,9 +21,9 @@ const main = async () => {
         }
         let reward = quest.metadata.reward
         reward += id
-        let metaString = "Dummy"+ id
+        let metaString = "test_Dummy"+ id
         let certParams = [reward, [delegateAddress], metaString]
-        //let tx = await contract.createCertificateType(...certParams)
+        let tx = await contract.createCertificateType(...certParams)
         let cid = await contract.getCertificateID(...certParams)
         console.log(cid)
         let certificate = {
@@ -35,12 +35,9 @@ const main = async () => {
         questsList.data[i].certificate = certificate
 
     }
-    console.log(questsList)
+    //console.log(questsList)
 
-    fs.writeFileSync("questCertificates.json", JSON.stringify(questsList))
-    // createCertificateType(uint256 _amount, address[] calldata _delegates, string calldata _metadata) external onlyOwner {
-
-    // getCertificateID
+    fs.writeFileSync("questList.json", JSON.stringify(questsList, null, 4))
 
 
 
