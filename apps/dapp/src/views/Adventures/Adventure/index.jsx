@@ -1,5 +1,6 @@
 /* --- Global --- */
 import {QuestCard} from 'components';
+import {QuestCardSmall} from 'components';
 
 /* --- Local --- */
 import {styles} from './styles';
@@ -55,7 +56,7 @@ const Main = props => {
       <Atom.Container sx={{mx: 0, maxWidth: ['100%', '100%', 780]}}>
         <Atom.Flex between wrap sx={{flex: 1, p: 3, flexWrap: 'wrap'}}>
           {props.quests.map(qst => (
-            <QuestCard {...qst.properties} sx={styles.quest} />
+            <QuestCardSmall {...qst} sx={styles.quest} />
           ))}
         </Atom.Flex>
       </Atom.Container>

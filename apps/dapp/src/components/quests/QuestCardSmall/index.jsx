@@ -53,7 +53,7 @@ export const QuestCard = props => {
         </Atom.Paragraph>
         <Atom.Box sx={styles.buttonContainer}>
           <Modal content={<QuestModal {...props} />}>
-            <Atom.Button sx={styles.button}>Quest Deatails</Atom.Button>
+            <Atom.Button sx={styles.button}>Quest Details</Atom.Button>
           </Modal>
         </Atom.Box>
       </Atom.Flex>

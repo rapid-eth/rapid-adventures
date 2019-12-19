@@ -1,5 +1,7 @@
 import {ethers} from 'ethers';
 
+import MeshToken from 'contracts/MeshDevCoinTest';
+
 const QuestButton = props => {
   const invokeEthers = async () => {
     const provider = new ethers.providers.Web3Provider(
@@ -8,7 +10,7 @@ const QuestButton = props => {
     const signer = provider.getSigner();
     const contract = await new ethers.Contract(
       process.env.REACT_APP_MESH_TOKEN,
-      abi,
+      MeshToken.abi,
       signer,
     );
 

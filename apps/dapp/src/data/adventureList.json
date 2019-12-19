@@ -3,107 +3,193 @@
   "type": "adventureList",
   "data": [
     {
-      "alias": "exploring-defi",
-      "title": "Exploring DeFi",
-      "subtitle": "Discover What Makes Decentralized Finance Great",
-      "summary": "The Ethereum ecosystem is booming with new decentralized finance protocols and products. Discover all greatest, and latest technology with the Exploring DeFi adventure.",
-      "content": "The Ethereum ecosystem is booming with new decentralized finance protocols and products. Discover all greatest, and latest technology with the Exploring DeFi adventure.",
-      "image": "data:image/png;base64,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",
+      "alias": "open-source-warrier",
+      "title": "Open Source Warrior",
+      "subtitle": "Contribute to the Growth of Ethereum through Open Source Software",
+      "summary": "Suspendisse bibendum turpis vitae velit vestibulum, quis efficitur nulla accumsan. Nunc varius sagittis quam eget euismod. Suspendisse facilisis erat finibus, sagittis diam sit amet, lobortis ipsum. Etiam eleifend turpis in risus lobortis porta.",
+      "content": "Suspendisse bibendum turpis vitae velit vestibulum, quis efficitur nulla accumsan. Nunc varius sagittis quam eget euismod. Suspendisse facilisis erat finibus, sagittis diam sit amet, lobortis ipsum. Etiam eleifend turpis in risus lobortis porta.",
+      "image": "https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/htxm2nlnhwleqyipruth",
       "tags": ["defi"],
       "label": "Complete Adventure",
-      "category": "DeFi",
+      "category": "OpenSource",
       "quests": [
         {
-          "id": 1,
-          "alias": "makerdao-example",
+          "id": 9,
+          "alias": "gitcoin-bounty-example",
           "properties": {
-            "title": "MakerDAO CDP",
-            "subtitle": "Open a MakerDAO CDP to explore the world of DeFi",
-            "summary": "MakerDAO's CDP portal allows you to easily enter the world of DeFi and open a Collateralized Debt Position with your Ether - allowing you to borrow DAI against it.",
-            "content": "MakerDAO's CDP portal allows you to easily enter the world of DeFi and open a Collateralized Debt Position with your Ether - allowing you to borrow DAI against it. Use this DAI to buy more Eth and gain a leveraged long exposure, or to cash out to USD to buy real things! Just make sure you don't get liquidated. To complete this quest, open a MakerDAO CDP at https://cdp.makerdao.com/",
-            "label": "Complete",
+            "title": "Gitcoin Bounties",
+            "subtitle": "Grow the open-source ecosystem by bountying a piece of work!",
+            "summary": "",
+            "content": "Gitcoin's core product offering is a platform which enables developers to get paid for contributing to software development projects. Builders/Project managers can post and bounty issues, leveraging a global, on-demand workforce. Freelance developers can easily find places to contribute, and get rewarded for their work. To complete this quest, fund an issue on Gitcoin at https://gitcoin.co/",
             "quote": "",
             "tags": "",
             "category": "",
-            "image": "https://avatars3.githubusercontent.com/u/12523025?s=200&v=4",
+            "image": "https://s.gitcoin.co/static/v2/images/loading_v2.f27849139c28.gif",
             "imageFeatured": "",
             "imageCover": "",
             "instructionalImage": ""
           },
-          "configuration": {
-            "networkId": "4",
-            "functionSignature": "0xc4b794aa",
-            "address": "0x4b001411186583fd65b8c0b92a57ff028a459f9f",
-            "value": "3"
-          },
-          "certificate": {
-            "networkId": "4",
-            "type": "erc20",
-            "address": "0xDa0E7a56Bc25b12797206d0768aa51F6fE829B93",
-            "id": "0x511539f3af56f3f4aa25f107466c09f9668f3d98d951f5bffee0618a4c92d0dc"
+          "reward": {
+            "amount": 25,
+            "token": "MESH",
+            "collectible": "Sword of DeFi-ance",
+            "collection": "DeFi"
           },
           "metadata": {
-            "completionCriteria": "1. User opens a MakerDAO CDP",
+            "completionCriteria": "1. User submits a Gitcoin Bounty (sends crypto to the bounty contract).",
             "prereqs": "N/A",
             "tokenCert": "test",
             "emblemCert": "test",
             "reward": 25,
             "group": "Community",
-            "category": "DeFi",
-            "platform": "MakerDAO",
+            "category": "Future of Work",
+            "platform": "Gitcoin",
             "transaction": true
+          },
+          "config": {
+            "type": "event",
+            "networkId": 1,
+            "contractAddress": "0x2af47a65da8cd66729b4209c22017d6a5c2d2400",
+            "event": "ContributionAdded(uint256,address,uint256)",
+            "index": 0
+          },
+          "certificate": {
+            "networkId": 4,
+            "type": "erc20",
+            "address": "0x290B03254fbB409145F7F51a7CBEfeD7539AE1C4",
+            "id": "0x1a27f4ea504d5621f72ec20f1b9b6f8abdd5a9452a615a4a68d0f8d787d0b593"
           }
         },
         {
-          "id": 1,
-          "alias": "makerdao-example",
+          "id": 10,
+          "alias": "gitcoin-grants-example",
           "properties": {
-            "title": "MakerDAO CDP",
-            "subtitle": "Open a MakerDAO CDP to explore the world of DeFi",
-            "summary": "MakerDAO's CDP portal allows you to easily enter the world of DeFi and open a Collateralized Debt Position with your Ether - allowing you to borrow DAI against it.",
-            "content": "MakerDAO's CDP portal allows you to easily enter the world of DeFi and open a Collateralized Debt Position with your Ether - allowing you to borrow DAI against it. Use this DAI to buy more Eth and gain a leveraged long exposure, or to cash out to USD to buy real things! Just make sure you don't get liquidated. To complete this quest, open a MakerDAO CDP at https://cdp.makerdao.com/",
-            "label": "Complete",
+            "title": "Gitcoin Grants",
+            "subtitle": "Provide sustainable funding for Open Source with Gitcoin Grants",
+            "summary": "",
+            "content": "Gitcoin Grants, powered by the EIP 1337 standard , are a fast, easy and secure way to provide recurring token contributions to your favorite OSS maintainers. To complete this quest, show your support by visiting https://gitcoin.co/grants/ and contribute to a grant!",
             "quote": "",
             "tags": "",
             "category": "",
-            "image": "https://avatars3.githubusercontent.com/u/12523025?s=200&v=4",
+            "image": "https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/htxm2nlnhwleqyipruth",
             "imageFeatured": "",
             "imageCover": "",
             "instructionalImage": ""
           },
-          "configuration": {
-            "networkId": "4",
-            "functionSignature": "0xc4b794aa",
-            "address": "0x4b001411186583fd65b8c0b92a57ff028a459f9f",
-            "value": "3"
-          },
-          "certificate": {
-            "networkId": "4",
-            "type": "erc20",
-            "address": "0xDa0E7a56Bc25b12797206d0768aa51F6fE829B93",
-            "id": "0x511539f3af56f3f4aa25f107466c09f9668f3d98d951f5bffee0618a4c92d0dc"
+          "reward": {
+            "amount": 25,
+            "token": "MESH",
+            "collectible": "Sword of DeFi-ance",
+            "collection": "DeFi"
           },
           "metadata": {
-            "completionCriteria": "1. User opens a MakerDAO CDP",
+            "completionCriteria": "1. User contributes to a Gitcoin Grant",
             "prereqs": "N/A",
             "tokenCert": "test",
             "emblemCert": "test",
             "reward": 25,
             "group": "Community",
-            "category": "DeFi",
-            "platform": "MakerDAO",
+            "category": "Future of Work",
+            "platform": "Gitcoin",
+            "transaction": true
+          },
+          "certificate": {
+            "networkId": 4,
+            "type": "erc20",
+            "address": "0x670261b2841a8101697C1336Ab17Af8864915a3d",
+            "id": "0x06583f4f236e4330f41757b36cde2fc404856708fd3bb7fb634a7c5d45169532"
+          }
+        },
+        {
+          "id": 11,
+          "alias": "bounties-example",
+          "properties": {
+            "title": "Bounties Network Bounties",
+            "subtitle": "Create a bounty on the Bounties Network",
+            "summary": "",
+            "content": "The Bounties Network empowers humans to incentivize and self-organize, from freelancing to grassroots social action, and anything in between. Whether it's for research, content translation, or video production, The Bounties Network lets you create projects, collaborate, and get paid for doing great work in any domain. To complete this quest, create a bounty on https://bounties.network/.",
+            "quote": "",
+            "tags": "",
+            "category": "",
+            "image": "https://dappimg.com/media/image/app/98fd3502-4fa9-4abe-9611-711c747b6242.png",
+            "imageFeatured": "",
+            "imageCover": "",
+            "instructionalImage": ""
+          },
+          "metadata": {
+            "completionCriteria": "1. User creates bounty on the bounties network (sends crypto to the bounties contract).",
+            "prereqs": "N/A",
+            "tokenCert": "test",
+            "emblemCert": "test",
+            "reward": 25,
+            "group": "Community",
+            "category": "Future of Work",
+            "platform": "Bounties Network",
+            "transaction": true
+          },
+          "reward": {
+            "amount": 25,
+            "token": "MESH",
+            "collectible": "Sword of DeFi-ance",
+            "collection": "DeFi"
+          },
+          "config": {
+            "type": "transaction",
+            "networkId": 1,
+            "functionSignature": "0xfdafa365",
+            "value": true,
+            "toAddress": "0xa7135d0a62939501b5304a04bf00d1a9a22f6623"
+          },
+          "certificate": {
+            "networkId": 4,
+            "type": "erc20",
+            "address": "0x290B03254fbB409145F7F51a7CBEfeD7539AE1C4",
+            "id": "0x7493453b4d26b9f90ff9b7a3e21479411e00f4c1e8e3ff4e76c8a19e6aff4007"
+          }
+        },
+        {
+          "id": 12,
+          "alias": "gitcoin-quests-example",
+          "properties": {
+            "title": "Gitcoin Quests",
+            "subtitle": "Battle enemies with your knowledge in a fast-paced area to earn Kudos",
+            "summary": "",
+            "content": "Gitcoin Quests is a fun, gamified way to learn about the web3 ecosystem, compete with your friends, earn rewards, and level up your decentralization-fu! Pitch your Ethereum Killer to the VC-Bro at https://gitcoin.co/quests/ to complete this quest!",
+            "quote": "",
+            "tags": "",
+            "category": "",
+            "image": "https://s.gitcoin.co/static/v2/images/grants/robots.6540afc3b99c.png",
+            "imageFeatured": "",
+            "imageCover": "",
+            "instructionalImage": ""
+          },
+          "reward": {
+            "amount": 25,
+            "token": "MESH",
+            "collectible": "Sword of DeFi-ance",
+            "collection": "DeFi"
+          },
+          "metadata": {
+            "completionCriteria": "1. User receives the Kudos from the Pitch your Ethereum Killer to the VC-Bro quest",
+            "prereqs": "N/A",
+            "tokenCert": "test",
+            "emblemCert": "test",
+            "reward": 25,
+            "group": "Community",
+            "category": "Education",
+            "platform": "Gitcoin",
             "transaction": true
           }
         }
       ]
     },
     {
-      "alias": "open-source-warrier",
-      "title": "Open Source Warrior",
+      "alias": "exploring-defi",
+      "title": "Exploring DeFi",
       "subtitle": "Discover What Makes Decentralized Finance Great",
       "summary": "The Ethereum ecosystem is booming with new decentralized finance protocols and products. Discover all greatest, and latest technology with the Exploring DeFi adventure.",
       "content": "The Ethereum ecosystem is booming with new decentralized finance protocols and products. Discover all greatest, and latest technology with the Exploring DeFi adventure.",
-      "image": "https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/htxm2nlnhwleqyipruth",
+      "image": "data:image/png;base64,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",
       "tags": ["defi"],
       "label": "Complete Adventure",
       "category": "DeFi",
