@@ -1,92 +1,66 @@
 /* --- Global --- */
-import { TokenBalance } from 'experiments';
+import menuDev from 'data/menu-dev';
+import menuPrd from 'data/menu-prd';
 
 /* --- Component --- */
-const RegionAside = ({ sx, ...props }) => {
+const RegionAside = ({sx, ...props}) => {
   return (
     <Atom.Flex column sx={sx}>
-      <Atom.Flex center column>
-        <Molecule.Link to="/">
-          <Atom.Heading lg heavy sx={{ mb: 0 }}>
-            Rapid Adventures
-          </Atom.Heading>
-        </Molecule.Link>
+      <Atom.Flex column>
+        <Atom.Box sx={{bg: '#172692', p: [3, 3, 3]}}>
+          <Atom.Heading>Space</Atom.Heading>
+          <Molecule.Link to="/">
+            <Atom.Heading lg heavy sx={{mb: 0}}>
+              Rapid Adventures
+            </Atom.Heading>
+          </Molecule.Link>
+        </Atom.Box>
 
         <Atom.HorizontalRule
           sx={{
             width: '100%',
-            my: 3,
           }}
         />
       </Atom.Flex>
-      <Molecule.Menu
-        expanded
-        direction="column"
-        sx={{
-          fontSize: 2,
-          my: 1,
-          flexDirection: 'column',
-        }}
-        sxChildren={{
-          fontSize: 1,
-          my: 1,
-          flexDirection: 'column',
-        }}
-        items={menu}
-      />
+
+      <Atom.Box sx={{p: [3, 3, 4]}}>
+        <Molecule.Menu
+          expanded
+          items={menuPrd}
+          direction="column"
+          sx={{
+            fontSize: 2,
+            my: 1,
+            flexDirection: 'column',
+          }}
+          sxChildren={{
+            fontSize: 1,
+            my: 1,
+            flexDirection: 'column',
+          }}
+        />
+
+        <Atom.Heading md sx={{mt: 4}}>
+          Developer Menu
+        </Atom.Heading>
+        <Molecule.Menu
+          expanded
+          direction="column"
+          sx={{
+            fontSize: 2,
+            my: 1,
+            flexDirection: 'column',
+          }}
+          sxChildren={{
+            fontSize: 1,
+            my: 1,
+            flexDirection: 'column',
+          }}
+          items={menuDev}
+        />
+      </Atom.Box>
     </Atom.Flex>
   );
 };
-
-const menu = [
-  {
-    label: 'Adventures',
-    to: '/dashboard/adventures',
-    image: (
-      <Atom.Image
-        src="https://image.flaticon.com/icons/svg/1673/1673636.svg"
-        sx={{ mr: 3 }}
-      />
-    ),
-  },
-  {
-    label: 'Quests',
-    to: '/dashboard/quests',
-    image: (
-      <Atom.Image
-        src="https://image.flaticon.com/icons/svg/1673/1673641.svg"
-        sx={{ mr: 3 }}
-      />
-    ),
-  },
-  {
-    label: 'Catalog',
-    to: '/dashboard/catalog',
-    image: (
-      <Atom.Image
-        src="https://image.flaticon.com/icons/svg/1673/1673630.svg"
-        sx={{ mr: 3 }}
-      />
-    ),
-  },
-  {
-    label: 'Testing',
-    to: '/dashboard/testing',
-    image: (
-      <Atom.Image
-        src="https://image.flaticon.com/icons/svg/1673/1673643.svg"
-        sx={{ mr: 3 }}
-      />
-    ),
-  },
-  {
-    label: 'Playground',
-    to: '/dashboard/playground'
-  },
-  {
-    label: 'Prequalifier',
-    to: '/dashboard/prequalifier'
-  },
-];
 
 export default RegionAside;

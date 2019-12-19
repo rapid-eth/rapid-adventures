@@ -2,7 +2,7 @@
 
 /* --- Local --- */
 import {QuestCardSmall} from 'components';
-import questList from 'demo/questList.json';
+import questList from 'data/questList.json';
 
 /* --- Styles & Settings --- */
 const styles = {

@@ -42,7 +42,7 @@ p {
   font-family: Ubuntu;
   font-weight: normal;
   line-height: 1.5em;
-  word-break: break-all;
+  /* word-break: break-all; */
   width: auto;
 }
 
@@ -60,4 +60,13 @@ a {
 a:hover {
   text-decoration: none;
   cursor: pointer;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+li {
+  font-size: 12px;
+  margin-top: 10px;
 }

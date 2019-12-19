@@ -16,7 +16,7 @@ export default props => (
 
       {/* Menu */}
       <Atom.Flex alignCenter ml={4}>
-        <Molecule.Menu
+        {/* <Molecule.Menu
           sx={{
             mx: 1,
           }}
@@ -38,7 +38,7 @@ export default props => (
               to: '/dashboard/team',
             },
           ]}
-        />
+        /> */}
       </Atom.Flex>
     </Atom.Flex>
 

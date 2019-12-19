@@ -1,9 +1,5 @@
 import React from 'react';
 import {Canvas} from 'templates';
-
-import {FormJobCreate} from 'forms';
-import {Global} from '@emotion/core';
-
 const styles = {
   container: {
     p: [3, 3, 4],

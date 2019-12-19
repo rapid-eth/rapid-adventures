@@ -11,7 +11,9 @@ export default props => (
     {/* Left */}
     <Atom.Flex alignCenter>
       <Atom.Flex>
-        <Atom.Heading sx={{mr: 3, mb: 0}}>{GLOBAL.siteName}</Atom.Heading>
+        <Molecule.Link to="/">
+          <Atom.Heading sx={{mr: 3, mb: 0}}>{GLOBAL.siteName}</Atom.Heading>
+        </Molecule.Link>
       </Atom.Flex>
 
       {/* Menu */}
@@ -23,8 +25,8 @@ export default props => (
           }}
           items={[
             {
-              label: 'About',
-              to: '/about',
+              label: 'Account',
+              to: '/account',
             },
             {
               label: 'Dashboard',

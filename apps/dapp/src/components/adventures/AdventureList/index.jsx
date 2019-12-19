@@ -1,8 +1,8 @@
 /* --- Global --- */
 
 /* --- Local --- */
-import {AdventureCardLarge} from 'experiments';
-import adventures from 'demo/adventureList.json';
+import {AdventureCardLarge} from 'components';
+import adventures from 'data/adventureList.json';
 
 /* --- Styles & Settings --- */
 const styles = {

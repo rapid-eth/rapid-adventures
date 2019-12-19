@@ -1,5 +1,5 @@
 /* --- Local --- */
-import {AdventureCardActiveLarge} from 'experiments';
+import {AdventureCardActiveLarge} from 'components';
 
 /* --- Component --- */
 const View = props => {

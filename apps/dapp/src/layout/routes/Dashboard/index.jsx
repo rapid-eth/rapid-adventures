@@ -1,8 +1,7 @@
-import { Dashboard } from 'templates';
-import { Router } from '@reach/router';
+import {Dashboard} from 'templates';
+import {Router} from '@reach/router';
 
 import {
-  Introduction,
   Adventure,
   AdventureList,
   AdventureCreate,
@@ -11,8 +10,17 @@ import {
   Quest,
   QuestList,
   Playground,
-  Prequalifier
+  Prequalifier,
 } from 'views';
+
+import {
+  Adventures,
+  Collections,
+  Introduction,
+  Leaderboard,
+  Quests,
+  Profile,
+} from 'pages';
 
 const DashboardPage = props => (
   <Dashboard>
@@ -22,6 +30,10 @@ const DashboardPage = props => (
       <AdventureList path="/adventures" />
       <AdventureCreate path="/adventure/create" />
       <Adventure path="/adventure/:alias" />
+
+      <Profile path="/profile" />
+      <Leaderboard path="/leaderboard" />
+      <Collections path="/collections" />
 
       {/* Quests */}
       <QuestList path="/quests" />

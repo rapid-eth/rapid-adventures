@@ -7,11 +7,11 @@ export default {
 		flex: 1,
 	},
 	aside: {
-		bg: 'neutral',
+		bg: '#27359e',
 		boxShadow: 2,
-		color: 'text',
+		color: 'white',
 		flex: [3, 3, 4, 2],
-		p: [3, 3, 4, 4],
+		// p: [3, 3, 4, 4],
 		zIndex: 1000,
 	},
 	hr: {

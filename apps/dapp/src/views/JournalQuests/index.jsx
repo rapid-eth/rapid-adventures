@@ -1,5 +1,5 @@
 /* --- Local --- */
-import {JournalQuestCard} from 'experiments';
+import {JournalQuestCard} from 'components';
 
 /* --- Component --- */
 const View = props => {

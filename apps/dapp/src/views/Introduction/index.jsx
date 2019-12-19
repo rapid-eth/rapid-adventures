@@ -1,11 +1,12 @@
 /* --- Local --- */
-import {AdventureCardLarge} from 'experiments';
-import {AdventureList} from 'components/adventures';
+import {AdventureCardLarge} from 'components';
+import {AdventureList, QuestListFeatured, QuestListSuggested} from 'components';
 
 /* --- Component --- */
 const View = props => {
   return (
     <Atom.Flex column>
+      <Featured />
       <Showcase />
       <AdventureList />
     </Atom.Flex>
@@ -23,7 +24,7 @@ const showcase = {
     ratio: 0.4,
   },
   left: {
-    flex: 3,
+    flex: 5,
     p: 5,
     py: 6,
   },
@@ -33,18 +34,47 @@ const showcase = {
   actions: {mx: 2},
 };
 
+const Featured = props => {
+  return (
+    <Atom.Flex>
+      <Atom.Box sx={{p: 4, flex: 5}}>
+        <Atom.Heading xl m1>
+          Featured Quests
+        </Atom.Heading>
+        <QuestListFeatured />
+      </Atom.Box>
+      <Atom.Box
+        sx={{
+          borderLeftWidth: 1,
+          borderColor: 'gray',
+          borderStyle: 'solid',
+          p: 4,
+          flex: 2,
+        }}>
+        <Atom.Heading xl m1>
+          Suggested Quests
+        </Atom.Heading>
+        <QuestListSuggested />
+      </Atom.Box>
+    </Atom.Flex>
+  );
+};
+
 const Showcase = props => {
   return (
     <Atom.Flex alignCenter sx={showcase.container}>
       <Atom.BackgroundImage
         ratio={0.3}
-        src="https://images.squarespace-cdn.com/content/v1/5ce6c5ea16bcf700010cf4eb/1569085618224-15UT48EN1VTSFWXOHFA0/ke17ZwdGBToddI8pDm48kKAwwdAfKsTlKsCcElEApLR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UegTYNQkRo-Jk4EWsyBNhwKrKLo5CceA1-Tdpfgyxoog5ck0MD3_q0rY3jFJjjoLbQ/ethereal-ny-home-kevin-owocki.jpg?format=2500w"
+        src="https://images.unsplash.com/photo-1520695287272-b7f8af46d367?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
         sx={showcase.coverImage}
       />
+      <Atom.Absolute sx={{top: 0, left: 0, m: 5}}>
+        <Atom.Heading md>Featured Adventure</Atom.Heading>
+      </Atom.Absolute>
       <Atom.Flex column sx={showcase.left}>
         <Atom.Box card>
-          <Atom.Heading giga heavy>
-            Rapid Adventures
+          <Atom.Heading xxl heavy>
+            Exploring Decentralized Finance
           </Atom.Heading>
           <Atom.Heading xl normal>
             Activate the World Around You
@@ -57,14 +87,11 @@ const Showcase = props => {
             mi. Morbi sed lacinia dui. Duis id malesuada eros. Proin a sem sit
             amet sem tempus aliquam.
           </Atom.Paragraph>
+          <Atom.Button sx={{}}>Start Adventure</Atom.Button>
         </Atom.Box>
       </Atom.Flex>
       <Atom.Flex center column sx={showcase.right}>
-        {/* <Atom.Box>
-          <Atom.Button sx={showcase.actions}>Create Profile</Atom.Button>
-          <Atom.Button sx={showcase.actions}>Pick Quests</Atom.Button>
-          <Atom.Button sx={showcase.actions}>Start Adventure</Atom.Button>
-        </Atom.Box> */}
+        <Atom.Box></Atom.Box>
       </Atom.Flex>
     </Atom.Flex>
   );
