@@ -167,8 +167,7 @@ const Explainer = props => {
             <Atom.Paragraph>
               We've handled the tough parts of gamifying the learning experience
               of your products so that you can focus on building. By simply
-              passing through a few arguments, your Adventures / Quests will be
-              created.
+              passing through a few arguments, you can create Adventures / Quests that will inspire to users to use your products (and Ethereum!).
             </Atom.Paragraph>
           </Atom.Box>
 
