@@ -122,7 +122,7 @@ const Explainer = props => {
                 maxWidth={600}
                 borderRadius="0 70px 70px 0"
                 p={1}
-                src={'https://i.imgur.com/9gtMCVU.png'}
+                src={'https://i.imgur.com/qbd7pDO.png'}
               />
             </Atom.Box>
           </Atom.Flex>
@@ -179,7 +179,7 @@ const Explainer = props => {
                 maxWidth={600}
                 borderRadius="100px 0 0 100px"
                 p={1}
-                src={'https://i.imgur.com/vaTcwti.png'}
+                src={'https://i.imgur.com/ipU7beK.png'}
               />
             </Atom.Box>
           </Atom.Flex>
