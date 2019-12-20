@@ -51,8 +51,8 @@ var Provider = (_ref) => {
   Object.values(SideEffects).map(effect => effect(state, dispatch));
   /* --- Enhance Actions --- */
 
-  var actions = (0, _actions.enhanceActions)(state, dispatch);
-  (0, _effects.useBootstrap)(actions, config);
+  var actions = (0, _actions.enhanceActions)(state, dispatch); // useBootstrap(actions, config);
+
   console.log(state, 'Box Provider');
   return _react.default.createElement(_Context.default.Provider, _extends({
     value: _objectSpread({}, state, {}, actions)

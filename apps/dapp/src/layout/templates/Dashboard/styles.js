@@ -10,7 +10,7 @@ export default {
 		bg: '#27359e',
 		boxShadow: 2,
 		color: 'white',
-		flex: [3, 3, 4, 2],
+		flex: [3, 3, 4, 3],
 		// p: [3, 3, 4, 4],
 		zIndex: 1000,
 	},

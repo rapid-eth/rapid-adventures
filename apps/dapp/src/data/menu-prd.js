@@ -10,14 +10,20 @@ export default [
 		),
 	},
 	{
-		label: 'User',
-		to: '/dashboard/user',
+		label: 'Profile',
+		to: '/dashboard/profile',
 		image: (
 			<Atom.Image
 				src="https://image.flaticon.com/icons/png/512/1673/1673624.png"
 				sx={{mr: 3}}
 			/>
 		),
+		children: [
+			{
+				label: 'Admin',
+				to: '/dashboard/profile/admin',
+			},
+		],
 	},
 	{
 		label: 'Earn',

@@ -21,7 +21,7 @@ const Provider = ({ config, ...props }) => {
 
   /* --- Enhance Actions --- */
   const actions = enhanceActions(state, dispatch);
-  useBootstrap(actions, config);
+  // useBootstrap(actions, config);
   console.log(state, 'Box Provider');
   return (
     <Context.Provider

@@ -5,7 +5,7 @@
 /* --- Global --- */
 import {ColorMode} from 'common';
 import {Authenticate} from '3box-ui-system';
-
+import {MeshBalance} from 'components';
 export default props => (
   <Atom.Flex alignCenter between sx={{variant: 'regions.header'}}>
     {/* Left */}
@@ -16,6 +16,7 @@ export default props => (
 
       {/* Menu */}
       <Atom.Flex alignCenter ml={4}>
+        <MeshBalance />
         {/* <Molecule.Menu
           sx={{
             mx: 1,
