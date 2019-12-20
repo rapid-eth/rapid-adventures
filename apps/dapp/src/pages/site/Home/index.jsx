@@ -112,21 +112,25 @@ const Explainer = props => {
     <Atom.Box py={100}>
       <Atom.Container>
         <Atom.Box>
-          <Atom.Heading xxl>For Users</Atom.Heading>
+          <Atom.Heading xxl sx={{textAlign: 'center'}}>
+            For Users
+          </Atom.Heading>
         </Atom.Box>
+
         <Atom.Flex alignCenter p={4}>
-          <Atom.Flex flex={2}>
-            <Atom.Box width="150%" ml="-45%">
+          <Atom.Flex sx={{flex: 1, p: 3}}>
+            <Atom.Box>
               <Atom.Image
                 boxShadow="sunset"
-                maxWidth={600}
+                // maxWidth={600}
                 borderRadius="0 70px 70px 0"
                 p={1}
                 src={'https://i.imgur.com/qbd7pDO.png'}
               />
             </Atom.Box>
           </Atom.Flex>
-          <Atom.Box flex={3} p={5}>
+
+          <Atom.Box sx={{flex: 1, p: 3}}>
             <Atom.Heading xxl>Learn Through Experience</Atom.Heading>
             <Atom.Heading lg>
               Experience Ethereum like you never have before
@@ -150,12 +154,12 @@ const Explainer = props => {
 
       <Atom.Container>
         <Atom.Box pt={5} alignRight>
-          <Atom.Heading xxl alignRight align="right">
+          <Atom.Heading xxl sx={{textAlign: 'center'}}>
             For Buidlers
           </Atom.Heading>
         </Atom.Box>
         <Atom.Flex alignCenter p={4}>
-          <Atom.Box flex={3} p={5}>
+          <Atom.Box sx={{flex: 1, p: 3}}>
             <Atom.Heading xxl>Create Your Own Adventure</Atom.Heading>
             <Atom.Heading lg>Introduce users to your product(s)</Atom.Heading>
 
@@ -167,11 +171,13 @@ const Explainer = props => {
             <Atom.Paragraph>
               We've handled the tough parts of gamifying the learning experience
               of your products so that you can focus on building. By simply
-              passing through a few arguments, you can create Adventures / Quests that will inspire to users to use your products (and Ethereum!).
+              passing through a few arguments, you can create Adventures /
+              Quests that will inspire to users to use your products (and
+              Ethereum!).
             </Atom.Paragraph>
           </Atom.Box>
 
-          <Atom.Flex flex={2}>
+          <Atom.Flex sx={{flex: 1, p: 3}}>
             <Atom.Box width="150%" mr="-50%">
               <Atom.Image
                 boxShadow="sunset"
