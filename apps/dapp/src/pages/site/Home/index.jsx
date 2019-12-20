@@ -7,6 +7,7 @@ const HomePage = props => {
     <Atom.Box sx={{width: '100%'}}>
       <Showcase />
       <EventList />
+      <Explainer />
       <FeaturedAdventure />
     </Atom.Box>
   );
@@ -44,7 +45,7 @@ const Showcase = props => {
               <Atom.BackgroundGradient gradient="blue" sx={{opacity: 0.65}} />
               <Atom.Heading giga>Rapid Adventures</Atom.Heading>
               <Atom.Heading lg>
-                Activate Your Life. Play the game of games.
+                The Ethereum Experience - Gamified.
               </Atom.Heading>
 
               <Atom.Flex>
@@ -87,37 +88,103 @@ const EventList = props => {
       </Atom.Heading>
       <Atom.Flex between sx={{flexWrap: 'wrap'}}>
         <FeatureCard
-          title="Engaging"
-          image="https://image.flaticon.com/icons/png/512/1673/1673581.png"
-          content="Cras a cursus sem. Fusce porttitor dolor vel elit scelerisque, id efficitur nisl efficitur."
+          title="Easy"
+          image="https://image.flaticon.com/icons/png/512/1374/1374753.png"
+          content="Easily learn about, or educate users on, Ethereum and its applications."
         />
         <FeatureCard
-          title="Engaging"
-          image="https://image.flaticon.com/icons/png/512/1673/1673581.png"
-          content="Cras a cursus sem. Fusce porttitor dolor vel elit scelerisque, id efficitur nisl efficitur."
+          title="Fun"
+          image="https://image.flaticon.com/icons/png/512/975/975821.png"
+          content="Makes the educational experience guided, fun, and immersive, instead of overwhelming and complicated."
         />
         <FeatureCard
-          title="Engaging"
-          image="https://image.flaticon.com/icons/png/512/1673/1673581.png"
-          content="Cras a cursus sem. Fusce porttitor dolor vel elit scelerisque, id efficitur nisl efficitur."
-        />
-        <FeatureCard
-          title="Engaging"
-          image="https://image.flaticon.com/icons/png/512/1673/1673581.png"
-          content="Cras a cursus sem. Fusce porttitor dolor vel elit scelerisque, id efficitur nisl efficitur."
-        />
-        <FeatureCard
-          title="Engaging"
-          image="https://image.flaticon.com/icons/png/512/1673/1673581.png"
-          content="Cras a cursus sem. Fusce porttitor dolor vel elit scelerisque, id efficitur nisl efficitur."
-        />
-        <FeatureCard
-          title="Engaging"
-          image="https://image.flaticon.com/icons/png/512/1673/1673581.png"
-          content="Cras a cursus sem. Fusce porttitor dolor vel elit scelerisque, id efficitur nisl efficitur."
+          title="Impactful"
+          image="https://image.flaticon.com/icons/png/512/817/817737.png"
+          content="The best way to learn is by doing. And 'doing' has never been easier."
         />
       </Atom.Flex>
     </Atom.Container>
+  );
+};
+
+const Explainer = props => {
+  return (
+    <Atom.Box py={100}>
+      <Atom.Container>
+        <Atom.Box>
+          <Atom.Heading xxl>For Users</Atom.Heading>
+        </Atom.Box>
+        <Atom.Flex alignCenter p={4}>
+          <Atom.Flex flex={2}>
+            <Atom.Box width="150%" ml="-45%">
+              <Atom.Image
+                boxShadow="sunset"
+                maxWidth={600}
+                borderRadius="0 70px 70px 0"
+                p={1}
+                src={'https://i.imgur.com/qbd7pDO.png'}
+              />
+            </Atom.Box>
+          </Atom.Flex>
+          <Atom.Box flex={3} p={5}>
+            <Atom.Heading xxl>Learn Through Experience</Atom.Heading>
+            <Atom.Heading lg>
+              Experience Ethereum like you never have before
+            </Atom.Heading>
+
+            <Atom.Paragraph>
+              Often the best way to 'learn' is to 'do'. Discover your "holy
+              shit" Ethereum moment(s) by following embarking on epic Adventures
+              which guide you through hands-on interactions with the latest and
+              greatest Ethereum has to offer.
+            </Atom.Paragraph>
+
+            <Atom.Paragraph>
+              And get rewarded for doing so. Every Adventure and every Quest you
+              complete will grant you loot in the form of tokens (ERC20s) and
+              items (ERC721s).
+            </Atom.Paragraph>
+          </Atom.Box>
+        </Atom.Flex>
+      </Atom.Container>
+
+      <Atom.Container>
+        <Atom.Box pt={5} alignRight>
+          <Atom.Heading xxl alignRight align="right">
+            For Buidlers
+          </Atom.Heading>
+        </Atom.Box>
+        <Atom.Flex alignCenter p={4}>
+          <Atom.Box flex={3} p={5}>
+            <Atom.Heading xxl>Create Your Own Adventure</Atom.Heading>
+            <Atom.Heading lg>Introduce users to your product(s)</Atom.Heading>
+
+            <Atom.Paragraph>
+              Build a new platform? Recently release a few feature? Introduce it
+              to the world through your very own Adventure!
+            </Atom.Paragraph>
+
+            <Atom.Paragraph>
+              We've handled the tough parts of gamifying the learning experience
+              of your products so that you can focus on building. By simply
+              passing through a few arguments, you can create Adventures / Quests that will inspire to users to use your products (and Ethereum!).
+            </Atom.Paragraph>
+          </Atom.Box>
+
+          <Atom.Flex flex={2}>
+            <Atom.Box width="150%" mr="-50%">
+              <Atom.Image
+                boxShadow="sunset"
+                maxWidth={600}
+                borderRadius="100px 0 0 100px"
+                p={1}
+                src={'https://i.imgur.com/ipU7beK.png'}
+              />
+            </Atom.Box>
+          </Atom.Flex>
+        </Atom.Flex>
+      </Atom.Container>
+    </Atom.Box>
   );
 };
 
@@ -142,6 +209,11 @@ const showcase = {
     color: 'white',
     flex: 1,
   },
+  containerWhite: {
+    bg: 'white',
+    color: 'blue',
+    flex: 1,
+  },
   coverImage: {
     opacity: 0.6,
     ratio: 0.4,
@@ -159,7 +231,7 @@ const showcase = {
 
 const FeaturedAdventure = props => {
   return (
-    <Atom.Flex alignCenter sx={showcase.container}>
+    <Atom.Flex alignCenter sx={showcase.containerWhite}>
       <Atom.BackgroundImage
         ratio={0.3}
         src="https://images.unsplash.com/photo-1520695287272-b7f8af46d367?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
@@ -171,10 +243,10 @@ const FeaturedAdventure = props => {
       <Atom.Flex column sx={showcase.left}>
         <Atom.Box card>
           <Atom.Heading xxl heavy>
-            Exploring Decentralized Finance
+            Bankless Level-Up Guide
           </Atom.Heading>
           <Atom.Heading xl normal>
-            Activate the World Around You
+            Explore the world of DeFi
           </Atom.Heading>
           <Atom.Paragraph sx={{fontSize: 0}}>
             Vivamus tincidunt nibh facilisis metus finibus, laoreet aliquet
