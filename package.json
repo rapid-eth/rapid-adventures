@@ -1,6 +1,6 @@
 {
-  "name": "3box-extensions",
-  "desription": "3Box Extensions and Plugins",
+  "name": "rapid-adventures",
+  "desription": "RAPID Adventures",
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
