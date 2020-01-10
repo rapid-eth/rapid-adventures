@@ -11,13 +11,20 @@ import { Router } from '@reach/router';
 import { Account, CMS, Site, Dashboard } from 'routes';
 import Providers from './providersWithLocation';
 import Root from './pages/MUI/Root';
+import Signin from './pages/MUI/Signin';
 import Signup from './pages/MUI/Signup';
+import Default from './pages/MUI/Default';
+import LearnMore from './pages/MUI/LearnMore';
 
 /* --- Component --- */
 export default () => (
 	<Providers>
 		<Router width="100%">
-			<Signup path="/" />
+			<Root path="/" />
+			<Default path="/" />
+			<Signin path="/signin" />
+			<Signup path="/signup" />
+			<LearnMore path="/learnmore" />
 			{/* <Site path="/*" /> */}
 			{/* <Account path="/account/*" /> */}
 			{/* <CMS path="/cms/*" /> */}
