@@ -116,7 +116,7 @@ const FormFeedback = ({styled, ...props}) => {
       <Molecule.Field
         name="index"
         label="Index"
-        defaultValue="0"
+        defaultValue={props.config.index}
         variants={['text']}
         disabled={isComplete}
         register={register}
