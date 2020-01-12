@@ -4,15 +4,99 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.shortenAddress = shortenAddress;
-exports.default = exports.generateNewContracts = exports.getContract = exports.networkRouting = exports.getLatestDeploymentAddress = exports.createStringhash = exports.isAddress = exports.trimBalance = exports.hashCode = void 0;
+exports.default = exports.createStringhash = exports.isAddress = exports.trimBalance = exports.hashCode = exports.networkRouting = exports.generateNewContracts = exports.getContract = exports.getLatestDeploymentAddress = void 0;
+
+var _idx = _interopRequireDefault(require("idx"));
 
 var _ethers = require("ethers");
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/**
+ *
+ * @param {Object} Contract The build results of migrations and compiliation. Includes abi, networks, bytecode, etc
+ * @returns {String} returns the ethereum address that is associated with the latest deployment of the smart contract
+ */
+var getLatestDeploymentAddress = Contract => {
+  var networks = Object.keys(Contract.networks);
+  var latestAddress = (0, _idx.default)(Contract, _ => _.networks[networks[networks.length - 1]].address);
+  return latestAddress;
+};
+
+exports.getLatestDeploymentAddress = getLatestDeploymentAddress;
+
+var getContract = contract => {
+  var provider = networkRouting('metamask') || networkRouting('json');
+  var address = getLatestDeploymentAddress(contract);
+
+  if (address) {}
+
+  var deployedContract = new _ethers.ethers.Contract(address, contract.abi, provider);
+  return [deployedContract, address];
+};
+/**
+ *
+ * @param {Object} oldContracts
+ * @param {ethers.Wallet} wallet
+ */
+
+
+exports.getContract = getContract;
+
+var generateNewContracts = (oldContracts, wallet) => {
+  var newContracts = {};
+  var keys = Object.keys(oldContracts);
+  keys.forEach(id => {
+    var {
+      address,
+      interface: {
+        abi
+      }
+    } = oldContracts[id];
+    var contract = new _ethers.ethers.Contract(address, abi, wallet);
+    newContracts[id] = _objectSpread({
+      id,
+      address
+    }, contract);
+  });
+  return newContracts;
+};
+/**
+ * @func networkRouting
+ * @desc Select network provider.
+ * @param {Object} network
+ * @return {Object} provider
+ */
+
+
+exports.generateNewContracts = generateNewContracts;
+
+var networkRouting = network => {
+  switch (network) {
+    case 'json':
+      return new _ethers.ethers.providers.JsonRpcProvider('http://localhost:8545');
+
+    case 'test':
+      return window.ethers.providers.test;
+
+    case 'infura':
+      return window.ethers.providers.infura;
+
+    case 'metamask':
+      return window.web3 ? new _ethers.ethers.providers.Web3Provider(window.web3.currentProvider) : null;
+
+    default:
+      return _ethers.ethers.getDefaultProvider('rinkeby');
+  }
+};
+
+exports.networkRouting = networkRouting;
 
 var hashCode = function hashCode(input) {
   var hash = 0;
@@ -119,85 +203,7 @@ var createStringMessageSignature = msg => {
 
   return messageHashBytes;
 };
-/**
- *
- * @param {Object} Contract The build results of migrations and compiliation. Includes abi, networks, bytecode, etc
- * @returns {String} returns the ethereum address that is associated with the latest deployment of the smart contract
- */
 
-
-var getLatestDeploymentAddress = Contract => {
-  var networks = Object.keys(Contract.networks);
-  var latestAddress = Contract.networks[networks[networks.length - 1]].address;
-  return latestAddress;
-};
-/**
- * @func networkRouting
- * @desc Select network provider.
- * @param {Object} network
- * @return {Object} provider
- */
-
-
-exports.getLatestDeploymentAddress = getLatestDeploymentAddress;
-
-var networkRouting = network => {
-  switch (network) {
-    case 'json':
-      return new _ethers.ethers.providers.JsonRpcProvider('http://localhost:8545');
-
-    case 'test':
-      return window.ethers.providers.test;
-
-    case 'infura':
-      return window.ethers.providers.infura;
-
-    case 'metamask':
-      return window.web3 ? new _ethers.ethers.providers.Web3Provider(window.web3.currentProvider) : null;
-
-    default:
-      return _ethers.ethers.getDefaultProvider('rinkeby');
-  }
-};
-
-exports.networkRouting = networkRouting;
-
-var getContract = contract => {
-  var provider = networkRouting('metamask') || networkRouting('json');
-  var wallet = provider.getSigner();
-  var address = getLatestDeploymentAddress(contract);
-  var deployedContract = new _ethers.ethers.Contract(address, contract.abi, provider);
-  return [deployedContract, address];
-};
-/**
- *
- * @param {Object} oldContracts
- * @param {ethers.Wallet} wallet
- */
-
-
-exports.getContract = getContract;
-
-var generateNewContracts = (oldContracts, wallet) => {
-  var newContracts = {};
-  var keys = Object.keys(oldContracts);
-  keys.forEach(id => {
-    var {
-      address,
-      interface: {
-        abi
-      }
-    } = oldContracts[id];
-    var contract = new _ethers.ethers.Contract(address, abi, wallet);
-    newContracts[id] = _objectSpread({
-      id,
-      address
-    }, contract);
-  });
-  return newContracts;
-};
-
-exports.generateNewContracts = generateNewContracts;
 var _default = {
   createStringhash,
   createStringMessageSignature,

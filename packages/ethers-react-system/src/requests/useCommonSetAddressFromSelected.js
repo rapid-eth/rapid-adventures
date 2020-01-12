@@ -7,20 +7,20 @@
 
 /* --- Global --- */
 import { useState, useEffect } from 'react';
+import { SET_ADDRESS } from '../types';
 
 /* --- Component --- */
 export const useCommonSetAddressFromSelected = (state, dispatch) => {
   const [isAddressSelected, setAddressSelected] = useState();
-
   useEffect(() => {
     if (window.ethereum && window.ethereum.selectedAddress) {
       dispatch({
-        type: 'SET_ADDRESS',
-        input: window.ethereum.selectedAddress
+        type: SET_ADDRESS,
+        payload: window.ethereum.selectedAddress
       });
       setAddressSelected(true);
     }
-  }, [window.ethereum && window.ethereum.selectedAddress]);
+  }, [window.ethereum]);
 
   return isAddressSelected;
 };

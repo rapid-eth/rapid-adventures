@@ -18,10 +18,9 @@ export const useCommonWindowProvider = (state, dispatch) => {
       dispatch({
         type: 'SET_PROVIDER',
         payload: {
-          injected: window.web3.currentProvider,
-          mainnet: ethers.getDefaultProvider('mainnet') // Add toggle.
-          // gorli: ethers.getDefaultProvider('gorli'), // Add toggle.
-          // rinkeby: ethers.getDefaultProvider('rinkeby') // Add toggle.
+          mainnet: ethers.getDefaultProvider('mainnet'), // Add toggle.
+          kovan: ethers.getDefaultProvider('kovan'), // Add toggle.
+          rinkeby: ethers.getDefaultProvider('rinkeby') // Add toggle.
         }
       });
       setProviderReady(true);

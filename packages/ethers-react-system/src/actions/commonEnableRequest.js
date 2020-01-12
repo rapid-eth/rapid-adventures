@@ -1,6 +1,6 @@
 import { ENABLE_REQUEST } from '../types';
 
-export const commonEnableRequest = (state, dispatch) => () =>
+export const enableRequest = (state, dispatch) => () =>
   dispatch({
     type: ENABLE_REQUEST
   });

@@ -1,6 +1,6 @@
 /**
  * @name EthersContext
- * @description Initialize Ethers contenxt.
+ * @description Initialize Ethers context.
  */
 
 import { createContext } from 'react';
@@ -28,44 +28,34 @@ import { ethers } from 'ethers';
  * @property {Function} setProviderStatus
  * @property {Function} signMessage
  * @property {Function} signMessageTyped
- *
- * @example // value can be consumed via Context.Consumer
- * <Context.Provider value={...}>
- *    <MyApp />
- * </Context.Provider>
- * ...
- * <Context.Consumer>
- *  {value => ...}
- * </Context.Consumer>
  */
+
 const Context = createContext({
   instance: ethers,
+  address: undefined,
+  balance: undefined,
+  network: undefined,
+  nonce: undefined,
+  providers: undefined,
+  wallet: undefined,
+  contracts: {},
+  signatures: {},
+  deployed: [],
   store: {
     contracts: [],
     deploy: [],
     messages: [],
-    library: [],
     transactions: [],
     wallets: []
   },
-  contracts: {},
-  library: {},
-  deployed: [],
-  signatures: {},
-  address: undefined,
-  wallet: undefined,
-  enable: () => {},
-  loadContractIntoLibrary: () => {},
-  initContract: () => {},
-  initContractFromLibrary: () => {},
-  deployContract: () => {},
-  deployContractFromBytecode: () => {},
-  setProvider: () => {},
-  setProviderStatus: () => {},
-  sendTransaction: () => {},
-  signMessage: () => {},
-  signMessageTyped: () => {},
-  signTransaction: () => {}
+  enableRequest: () => {},
+  contractDeployRequest: () => {},
+  contractDeployFromBytecodeRequest: () => {},
+  contractInitializeRequest: () => {},
+  walletSendTransactionRequest: () => {},
+  walletSignMessageRequest: () => {},
+  walletSignMessageTypedRequest: () => {},
+  walletSignTransactionRequest: () => {}
 });
 
 export default Context;

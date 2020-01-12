@@ -1,0 +1,60 @@
+{
+  "name": "ethers-react-ui",
+  "description": "Ethers React User Interface Components",
+  "version": "0.0.1",
+  "author": "Kames <info@kamescg.com> (https://www.kamescg.com)",
+  "homepage": "https://github.com/kamescg/ethers-react-ui",
+  "main": "dist/index.js",
+  "main:src": "src/index.js",
+  "keywords": [
+    "ethers-react-ui"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "cross-env BABEL_ENV=production babel src --out-dir dist",
+    "watch": "nodemon --ignore ./dist --exec cross-env BABEL_ENV=production babel src --out-dir dist"
+  },
+  "peerDependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "ethers-react-system": "0.0.1",
+    "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
+    "cross-env": "latest",
+    "eslint": "latest",
+    "fixpack": "latest",
+    "lint-staged": "latest",
+    "nodemon": "^1.19.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "engines": {
+    "node": ">=8.3"
+  },
+  "bugs": {
+    "url": "https://github.com/kamescg/ethers-react-ui/issues",
+    "email": "info@kamescg.com"
+  },
+  "contributors": [
+    "Kames <info@kamescg.com> (https://www.kamescg.com)"
+  ],
+  "prettier": {
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "trailingComma": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamescg/ethers-react-ui"
+  }
+}

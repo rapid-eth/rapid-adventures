@@ -1,14 +1,14 @@
-import { DEPLOY_CONTRACT_REQUEST } from '../types';
+import { CONTRACT_DEPLOY_REQUEST } from '../types';
 export const contractDeployRequest = (state, dispatch) => ({
   contract,
   delta,
   values
 }) =>
   dispatch({
-    type: DEPLOY_CONTRACT_REQUEST,
+    type: CONTRACT_DEPLOY_REQUEST,
     payload: {
       contract,
       values
     },
-    delta: delta || (contract && contract.contractName)
+    delta: delta
   });

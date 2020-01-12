@@ -10,8 +10,7 @@
 import { useState, useEffect } from 'react';
 
 /* --- Local --- */
-import { ENABLE_SUCCESS, ENABLE_FAILURE, SET_ADDRESS } from '../types';
-import { shortenAddress } from './../utilities';
+import { ENABLE_SUCCESS, ENABLE_FAILURE } from '../types';
 
 /* --- Component --- */
 export const useCommonEnable = (state, dispatch) => {
@@ -26,12 +25,6 @@ export const useCommonEnable = (state, dispatch) => {
           if (address) {
             dispatch({
               type: ENABLE_SUCCESS
-            });
-            dispatch({
-              type: SET_ADDRESS,
-              address,
-              addressShortened: shortenAddress(address, 6),
-              addressTrimmed: address.substring(0, 10)
             });
             setEnabled(true);
           }

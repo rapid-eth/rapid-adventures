@@ -20,6 +20,7 @@ export const useContractDeploy = (state, dispatch) => {
         const request = state.store.deploy[0];
         let contract, deployed, transaction;
         const { payload } = request;
+        const { wallet } = state;
         try {
           contract = new ethers.ContractFactory(
             payload.contract.abi,
@@ -29,14 +30,15 @@ export const useContractDeploy = (state, dispatch) => {
           transaction = contract.getDeployTransaction(...payload.values);
           deployed = await wallet.sendTransaction(transaction);
           dispatch({
-            type: 'DEPLOY_CONTRACT_SUCCESS',
+            type: 'CONTRACT_DEPLOY_SUCCESS',
             id: request.id,
             delta: request.id,
             payload: deployed
           });
         } catch (error) {
+          console.log(error);
           dispatch({
-            type: 'DEPLOY_CONTRACT_FAILURE',
+            type: 'CONTRACT_DEPLOY_FAILURE',
             delta: request.id,
             payload: error
           });
