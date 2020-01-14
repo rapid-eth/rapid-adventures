@@ -4,6 +4,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 
 import { PortalProvider, PortalTree } from 'react-portal-system';
 import { BoxProvider } from '3box-ui-system';
+import { EthersProvider } from 'ethers-react-system';
 
 /* --- Local --- */
 import theme from './assets/theme';
@@ -24,12 +25,14 @@ export default props => {
     <LocationProvider history={history}>
       <ThemeProvider theme={theme}>
         <MuiThemeProvider theme={muiTheme}>
-          <BoxProvider config={BoxConfig}>
-            <PortalProvider>
-              <PortalTree />
-              {props.children}
-            </PortalProvider>
-          </BoxProvider>
+          <EthersProvider>
+            <BoxProvider config={BoxConfig}>
+              <PortalProvider>
+                <PortalTree />
+                {props.children}
+              </PortalProvider>
+            </BoxProvider>
+          </EthersProvider>
         </MuiThemeProvider>
       </ThemeProvider>
     </LocationProvider>

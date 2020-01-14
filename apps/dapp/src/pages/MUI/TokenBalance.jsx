@@ -14,16 +14,16 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Deposits() {
+export default function TokenBalance() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Title>Recent Deposits</Title>
+      <Title>Mesh Token Balance</Title>
       <Typography component="p" variant="h4">
         $3,024.00
       </Typography>
       <Typography color="textSecondary" className={classes.depositContext}>
-        on 15 March, 2019
+        on 15 March, 2020
       </Typography>
       <div>
         <Link color="primary" href="#" onClick={preventDefault}>

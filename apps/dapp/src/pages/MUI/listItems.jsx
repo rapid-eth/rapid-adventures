@@ -9,6 +9,16 @@ import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import SettingsIcon from '@material-ui/icons/Settings';
+import GroupWorkIcon from '@material-ui/icons/GroupWork';
+import GroupIcon from '@material-ui/icons/Group';
+import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import SettingsBackupRestoreIcon from '@material-ui/icons/SettingsBackupRestore';
+import FiberSmartRecordIcon from '@material-ui/icons/FiberSmartRecord';
+import ListIcon from '@material-ui/icons/List';
+import AcUnitIcon from '@material-ui/icons/AcUnit';
+import HelpIcon from '@material-ui/icons/Help';
 
 export const mainListItems = (
   <div>
@@ -38,13 +48,13 @@ export const mainListItems = (
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <LayersIcon />
+        <HelpIcon />
       </ListItemIcon>
       <ListItemText primary="Guide" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <LayersIcon />
+        <SettingsIcon />
       </ListItemIcon>
       <ListItemText primary="Settings" />
     </ListItem>
@@ -53,24 +63,66 @@ export const mainListItems = (
 
 export const secondaryListItems = (
   <div>
-    <ListSubheader inset>Saved reports</ListSubheader>
+    <ListSubheader inset>Developer Tools</ListSubheader>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <AcUnitIcon />
       </ListItemIcon>
-      <ListItemText primary="Current month" />
+      <ListItemText primary="Adventures" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <ListIcon />
+      </ListItemIcon>
+      <ListItemText primary="Quests" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText primary="Last quarter" />
+      <ListItemText primary="Catalog" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <LayersIcon />
       </ListItemIcon>
-      <ListItemText primary="Year-end sale" />
+      <ListItemText primary="Testing" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <FiberSmartRecordIcon />
+      </ListItemIcon>
+      <ListItemText primary="Playground" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <SettingsBackupRestoreIcon />
+      </ListItemIcon>
+      <ListItemText primary="Prequalifier" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <AccountBoxIcon />
+      </ListItemIcon>
+      <ListItemText primary="Profile" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <FormatListNumberedIcon />
+      </ListItemIcon>
+      <ListItemText primary="Leaderboard" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <GroupWorkIcon />
+      </ListItemIcon>
+      <ListItemText primary="Collections" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <GroupIcon />
+      </ListItemIcon>
+      <ListItemText primary="Team" />
     </ListItem>
   </div>
 );

@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from '@reach/router'
+import { Enable } from 'ethers-react-ui';
+import { withEthers } from 'ethers-react-system'
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,21 +17,22 @@ import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
+import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
-import Deposits from './Deposits';
+import TokenBalance from './TokenBalance';
 import Orders from './Orders';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <a color="inherit" href="https://material-ui.com/">
         Your Website
-      </Link>{' '}
+      </a>{' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -117,8 +121,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Dashboard() {
+  const ethers = withEthers();
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  const [address, setAddress] = React.useState('');
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -126,7 +132,7 @@ export default function Dashboard() {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
+  // console.log('ethers', ethers);
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -142,7 +148,7 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
+            Rapid Adventures Dashboard
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -175,13 +181,41 @@ export default function Dashboard() {
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
-                <div />
+                <div>
+                  <Enable />
+                  <br />
+                  <Button variant='contained' onClick={() => {
+                    console.log('hi');
+                    ethers.enableRequest();
+                  }}>
+                    call ethers.enableRequest()
+                  </Button>
+                  <Divider />
+                  ethers.isEnableSuccess: {ethers.isEnableSuccess}
+                  <br />
+                  Address: {address || ethers.address}
+                  <br />
+                  Balance: {address || ethers.balance}
+                </div>
+                <div>
+                  <Divider />
+                  current landing pages... TODO: depending on ethers.enableRequest() these may live on one route.
+                  <Link to="/signup" variant="body2">
+                    Signup
+                  </Link> &nbsp;
+                  <Link to="/signin" variant="body2">
+                    Signin
+                  </Link> &nbsp;
+                  <Link to="/learnmore" variant="body2">
+                    Learn More
+                  </Link>
+                </div>
               </Paper>
             </Grid>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-                <Deposits />
+                <TokenBalance />
               </Paper>
             </Grid>
             {/* Recent Orders */}
