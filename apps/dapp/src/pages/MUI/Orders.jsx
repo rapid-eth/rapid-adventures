@@ -63,6 +63,6 @@ export default function Orders() {
           See more orders
         </Link>
       </div>
-    </React.Fragment>
+    </React.Fragment >
   );
 }

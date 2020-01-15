@@ -35,7 +35,7 @@ function Copyright() {
       </a>{' '}
       {new Date().getFullYear()}
       {'.'}
-    </Typography>
+    </Typography >
   );
 }
 

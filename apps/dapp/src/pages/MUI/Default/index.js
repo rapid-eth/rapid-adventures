@@ -97,6 +97,7 @@ const Default = () => {
       </div>
     </div >
   );
+<<<<<<< HEAD
 }
 
 export default Default
@@ -176,4 +177,6 @@ const Step2 = () => {
       </CardActions>
     </Card>
   )
+=======
+>>>>>>> 8d6be9e87acb26a09ed8d49cd5e7ce6387850710
 }
