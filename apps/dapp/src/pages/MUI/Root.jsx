@@ -192,14 +192,21 @@ export default function Dashboard() {
                   </Button>
                   <Divider />
                   ethers.isEnableSuccess: {ethers.isEnableSuccess}
+                  {/* 3box.isConnected: {3box.isConnected} */}
+                  {/* https://github.com/3box/3box-profile-edit-react consider using this module */}
+                  {/* 3box.isConnected set to true for now */}
+                  {/* 
+                      
+                  */}
                   <br />
-                  Address: {address || ethers.address}
+                  Address: {address || ethers.address && ethers.address}
                   <br />
-                  Balance: {address || ethers.balance}
+                  Balance: {address || ethers.balance && ethers.balance.trimmed}
                 </div>
                 <div>
                   <Divider />
                   current landing pages... TODO: depending on ethers.enableRequest() these may live on one route.
+                  <br />
                   <Link to="/signup" variant="body2">
                     Signup
                   </Link> &nbsp;

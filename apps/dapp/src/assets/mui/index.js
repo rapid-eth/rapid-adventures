@@ -15,6 +15,17 @@ const theme = createMuiTheme({
       contrastText: '#fff',
     },
   },
+  typography: {
+    fontFamily: 'Source Sans Pro, -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif'
+  },
+  overrides: {
+    MuiButton: {
+      root: {
+        textTransform: 'inherit',
+        padding: '9px 20px'
+      }
+    }
+  }
 });
 
 export default theme;

@@ -9,7 +9,7 @@ import { Router } from '@reach/router';
 
 /* --- Local --- */
 import { Account, CMS, Site, Dashboard } from 'routes';
-import Providers from './providersWithLocation';
+import Providers from './providers';
 import Root from './pages/MUI/Root';
 import Signin from './pages/MUI/Signin';
 import Signup from './pages/MUI/Signup';
@@ -21,7 +21,7 @@ export default () => (
 	<Providers>
 		<Router width="100%">
 			<Root path="/" />
-			<Default path="/" />
+			<Default path="/joinus" />
 			<Signin path="/signin" />
 			<Signup path="/signup" />
 			<LearnMore path="/learnmore" />
