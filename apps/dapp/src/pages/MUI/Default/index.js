@@ -15,7 +15,6 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../../../assets/darkBackgroundLogo.png';
-import SlideDemo from './SlideDemo';
 import StepperDemo from './StepperDemo';
 
 const useStyles = makeStyles(theme => ({
@@ -54,7 +53,7 @@ const Default = () => {
       <CssBaseline />
       <div style={{ position: 'absolute', left: 100, top: 100, textAlign: 'center', color: 'white' }}>
         <Typography variant="h5">
-          MESH HUB
+          RAPID ADVENTURES
         </Typography>
         <Typography variant="h6">
           activate your life
@@ -117,22 +116,21 @@ const Step1 = ({ setPageIndex }) => {
             <div style={{ backgroundColor: '#F2F2F2', height: 400, marginRight: 10 }}>&nbsp;</div>
           </Grid>
           <Grid item md={8} className={classes.rightContainer}>
-            <Typography variant="h5" w>
+            <Typography variant="h5">
               Activate your life
                   </Typography>
             <br /><br />
             <Typography variant="h5">
-              Mesh Hub is (High level overview explanation)
+              Rapid Adventures is... (High level overview explanation)
                   </Typography>
             <br /><br />
-            <Typography variant="body">
+            <Typography variant="body1">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vulputate pellentesque adipiscing pellentesque ut euismod mattis malesuada turpis eget. Donec tellus in eu scelerisque. Nec lacus sed aenean adipiscing rhoncus. Faucibus sit augue aliquet arcu.
                   </Typography>
             <br /><br />
             <Typography variant="body2" style={{ textAlign: 'center' }}>
-              So let’s get you set up to join the MESH HUB!
+              So let’s get you set up to join the Rapid Adventures!
             </Typography>
-            <SlideDemo />
           </Grid>
         </Grid>
       </CardContent>
