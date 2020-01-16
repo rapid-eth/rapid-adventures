@@ -12,6 +12,7 @@ import threeBoxLogo from '../../../assets/3box-logo.svg';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import loading from '../../../assets/3box-logo.svg';
+import Threebox from './ThreeBox';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -105,6 +106,7 @@ export default function VerticalLinearStepper() {
             }}>
               Check 3box
             </Button>
+            <Threebox />
           </div>
         );
       case 2:
