@@ -87,6 +87,8 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    backgroundColor: '#1E1A5E',
+    color: theme.palette.primary.contrastText
   },
   drawerPaperClose: {
     overflowX: 'hidden',
@@ -125,12 +127,14 @@ export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const [address, setAddress] = React.useState('');
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   // console.log('ethers', ethers);
   return (

@@ -3,6 +3,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
+import { grey } from '@material-ui/core/colors';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
@@ -24,37 +25,37 @@ export const mainListItems = (
   <div>
     <ListItem button>
       <ListItemIcon>
-        <DashboardIcon />
+        <DashboardIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AccountCircleIcon />
+        <AccountCircleIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="User" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <ArrowUpwardIcon />
+        <ArrowUpwardIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Earn" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <ArrowDownwardIcon />
+        <ArrowDownwardIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Give" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <HelpIcon />
+        <HelpIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Guide" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <SettingsIcon />
+        <SettingsIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Settings" />
     </ListItem>
@@ -63,64 +64,64 @@ export const mainListItems = (
 
 export const secondaryListItems = (
   <div>
-    <ListSubheader inset>Developer Tools</ListSubheader>
+    <ListSubheader style={{ color: grey[500] }} inset>Developer Tools</ListSubheader>
     <ListItem button>
       <ListItemIcon>
-        <AcUnitIcon />
+        <AcUnitIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Adventures" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <ListIcon />
+        <ListIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Quests" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <AssignmentIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Catalog" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <LayersIcon />
+        <LayersIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Testing" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <FiberSmartRecordIcon />
+        <FiberSmartRecordIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Playground" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <SettingsBackupRestoreIcon />
+        <SettingsBackupRestoreIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Prequalifier" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AccountBoxIcon />
+        <AccountBoxIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Profile" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <FormatListNumberedIcon />
+        <FormatListNumberedIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Leaderboard" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <GroupWorkIcon />
+        <GroupWorkIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Collections" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <GroupIcon />
+        <GroupIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Team" />
     </ListItem>
