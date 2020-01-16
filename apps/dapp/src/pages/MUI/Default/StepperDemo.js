@@ -67,7 +67,7 @@ export default function VerticalLinearStepper() {
       case 0:
         return (
           <div>
-            <img src={metamaskLogo} className={classes.logo} />
+            <img src={metamaskLogo} className={classes.logo} alt="metamask logo" />
             <Typography variant="body2">
               Metamask is how the app knows who you are.
             </Typography>
@@ -87,7 +87,7 @@ export default function VerticalLinearStepper() {
             {/* <CheckCircleIcon /> */}
             {/* </Slide> */}
             {checks.metamask === false && <HelpOutlineIcon />}
-            {checks.metamask === 'loading' && <img src={loading} />}
+            {checks.metamask === 'loading' && <img src={loading} alt="loading animation" />}
             {checks.metamask === true && <CheckCircleIcon />}
 
           </div>
@@ -95,7 +95,7 @@ export default function VerticalLinearStepper() {
       case 1:
         return (
           <div>
-            <img src={threeBoxLogo} className={classes.threeBoxLogo} />
+            <img src={threeBoxLogo} className={classes.threeBoxLogo} alt="threebox logo" />
             <Typography variant="body2">
               3box is how the app knows data about you.
             </Typography>

@@ -199,9 +199,9 @@ export default function Dashboard() {
                       
                   */}
                   <br />
-                  Address: {address || ethers.address && ethers.address}
+                  Address: {address || ethers.address}
                   <br />
-                  Balance: {address || ethers.balance && ethers.balance.trimmed}
+                  Balance: {address || (ethers.balance && ethers.balance.trimmed)}
                 </div>
                 <div>
                   <Divider />

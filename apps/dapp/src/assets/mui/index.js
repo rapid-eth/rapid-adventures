@@ -19,6 +19,13 @@ const theme = createMuiTheme({
     fontFamily: 'Source Sans Pro, -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif'
   },
   overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        body: {
+          backgroundColor: '#3F446D',
+        },
+      },
+    },
     MuiButton: {
       root: {
         textTransform: 'inherit',
