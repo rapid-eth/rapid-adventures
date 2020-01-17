@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
 import { Link } from '@reach/router';
-import Slide from '@material-ui/core/Slide';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../../../assets/darkBackgroundLogo.png';
-import StepperDemo from './StepperDemo';
+import OnboardingStepper from './OnboardingStepper';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -51,7 +47,7 @@ const Default = () => {
   return (
     <div className={clsx(classes.root, classes.image)}>
       <CssBaseline />
-      <div style={{ position: 'absolute', left: 100, top: 100, textAlign: 'center', color: 'white' }}>
+      <div style={{ position: 'absolute', left: 100, top: 100, textAlign: 'center', color: 'white', zIndex: -1 }}>
         <Typography variant="h5">
           RAPID ADVENTURES
         </Typography>
@@ -163,7 +159,7 @@ const Step2 = ({ setPageIndex }) => {
   return (
     <Card>
       <CardContent className={classes.content}>
-        <StepperDemo />
+        <OnboardingStepper />
       </CardContent>
       <CardActions className={classes.actions}>
         <Button variant="contained" color="primary" onClick={() => {

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from '@reach/router'
+import React, { useEffect } from 'react';
+import { Link, navigate } from '@reach/router'
 import { Enable } from 'ethers-react-ui';
 import { withEthers } from 'ethers-react-system'
 import clsx from 'clsx';
@@ -31,7 +31,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <a color="inherit" href="https://material-ui.com/">
-        Your Website
+        RAPID Team
       </a>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -127,6 +127,13 @@ export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const [address, setAddress] = React.useState('');
+
+  useEffect(() => {
+    const isOnboarded = localStorage.getItem('onboarded')
+    if (!isOnboarded) {
+      navigate('/joinus')
+    }
+  }, [])
 
   const handleDrawerOpen = () => {
     setOpen(true);

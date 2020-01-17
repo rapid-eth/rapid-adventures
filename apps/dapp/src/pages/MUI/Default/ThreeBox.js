@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import EditProfile from '3box-profile-edit-react';
 import Box from '3box';
+import EditProfile from '3box-profile-edit-react';
+import { makeStyles } from '@material-ui/core/styles';
+import Dialog from '@material-ui/core/Dialog';
+import Button from '@material-ui/core/Button';
+import Slide from '@material-ui/core/Slide';
 import loading from '../../../assets/loading.svg';
 
 const defaultState = {
@@ -10,63 +14,17 @@ const defaultState = {
   space: undefined
 }
 
-const spaceName = '3boxtest';
-
-const customFields = [
-  {
-    key: 'preferredCoin',
-    field: 'Preferred Coin',
-    inputType: 'dropdown',
-    options: [{
-      value: 'eth',
-      display: 'Ethereum'
-    }, {
-      value: 'MESH',
-      display: 'MeshToken'
-    }]
-  }, {
-    key: 'backupAddress',
-    field: 'Backup Address',
-    inputType: 'text'
-  }
-];
+const spaceName = 'rapid-adventures';
 
 const ThreeBox = () => {
-  const [threebox, setThreebox] = useState(defaultState);
-
-  useEffect(() => {
-    handleLogin()
-  }, [])
-
-  const handleLogin = async () => {
-    const addresses = await window.ethereum.enable();
-    const myAddress = addresses[0];
-
-    const box = await Box.openBox(myAddress, window.ethereum, {});
-    const myProfile = await Box.getProfile(myAddress);
-    const space = await box.openSpace(spaceName);
-
-    setThreebox({ box, myProfile, myAddress, space });
-    box.onSyncDone(() => console.log('syncdone'));
-  }
-
   return (
-    threebox.box ?
-      <EditProfile
-        // required
-        box={threebox.box}
-        space={threebox.space}
-        currentUserAddr={threebox.myAddress}
-
-        // optional
-        customFields={customFields}
-        currentUser3BoxProfile={threebox.myProfile}
-      // redirectFn
-      />
-      : <div>Loading ThreeBox profile... <br />
-        <img src={loading} alt="loading icon" />
-      </div>
-
+    <div>
+      Success!
+        <Button size="small" variant="contained" color="primary" onClick={() => setShowProfile(true)}>
+        3box Profile
+        </Button>
+      <ProfileModal threebox={threebox} open={showProfile} handleClose={() => setShowProfile(false)} />
+    </div>
   )
 }
 
