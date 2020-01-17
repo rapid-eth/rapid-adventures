@@ -157,7 +157,7 @@ const Step1 = ({ setPageIndex }) => {
 }
 
 
-const Step2 = () => {
+const Step2 = ({ setPageIndex }) => {
   const classes = useStyles();
 
   return (
@@ -167,9 +167,9 @@ const Step2 = () => {
       </CardContent>
       <CardActions className={classes.actions}>
         <Button variant="contained" color="primary" onClick={() => {
-          console.log('show the learn more page')
+          setPageIndex(0)
         }}>
-          Learn More
+          Back
       </Button>
       </CardActions>
     </Card>

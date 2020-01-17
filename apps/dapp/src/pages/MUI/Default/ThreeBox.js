@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import EditProfile from '3box-profile-edit-react';
 import Box from '3box';
+import loading from '../../../assets/loading.svg';
 
 const defaultState = {
   box: undefined,
@@ -59,10 +60,12 @@ const ThreeBox = () => {
 
         // optional
         customFields={customFields}
-      // currentUser3BoxProfile={myProfile}
+        currentUser3BoxProfile={threebox.myProfile}
       // redirectFn
       />
-      : <div>ThreeBox</div>
+      : <div>Loading ThreeBox profile... <br />
+        <img src={loading} alt="loading icon" />
+      </div>
 
   )
 }

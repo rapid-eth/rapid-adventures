@@ -1,4 +1,5 @@
 import React from 'react';
+import { navigate } from "@reach/router"
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -11,7 +12,7 @@ import metamaskLogo from '../../../assets/metamask-fox-wordmark-horizontal.svg';
 import threeBoxLogo from '../../../assets/3box-logo.svg';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import loading from '../../../assets/3box-logo.svg';
+import loading from '../../../assets/loading.svg';
 import Threebox from './ThreeBox';
 
 const useStyles = makeStyles(theme => ({
@@ -23,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1),
   },
   actionsContainer: {
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(1),
   },
   resetContainer: {
     padding: theme.spacing(3),
@@ -49,6 +50,8 @@ export default function VerticalLinearStepper() {
     metamask: false,
     threebox: false,
   });
+  const [metamaskLoading, setMetamaskLoading] = React.useState(false);
+
   const steps = getSteps();
 
   const handleNext = () => {
@@ -73,24 +76,27 @@ export default function VerticalLinearStepper() {
               Metamask is how the app knows who you are.
             </Typography>
 
-            <Button variant="contained" secondary="" size="small" onClick={() => {
-              // setLoading()
-              if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
-                // Web3 browser user detected. 
-
-                setChecks({ ...checks, metamask: true })
-              }
-              // unsetLoading()
-            }}>
-              Check Metamask
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Button variant="contained" secondary="" size="small" onClick={async () => {
+                setChecks({ ...checks, metamask: 'loading' })
+                function sleep(ms = 0) {
+                  return new Promise(r => setTimeout(r, ms));
+                }
+                await sleep(400);
+                if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
+                  // Web3 browser user detected. 
+                  setChecks({ ...checks, metamask: true })
+                  return;
+                }
+                setChecks({ ...checks, metamask: false })
+              }}>
+                Check Metamask
             </Button>
-            {/* <Slide direction="up" in={checks.metamask === true} mountOnEnter unmountOnExit> */}
-            {/* <CheckCircleIcon /> */}
-            {/* </Slide> */}
-            {checks.metamask === false && <HelpOutlineIcon />}
-            {checks.metamask === 'loading' && <img src={loading} alt="loading animation" />}
-            {checks.metamask === true && <CheckCircleIcon />}
-
+              &nbsp;
+              {checks.metamask === false && <HelpOutlineIcon />}
+              {checks.metamask === 'loading' && <img src={loading} alt="loading animation" style={{ width: 30 }} />}
+              {checks.metamask === true && <CheckCircleIcon />}
+            </div>
           </div>
         );
       case 1:
@@ -123,7 +129,7 @@ export default function VerticalLinearStepper() {
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
             <StepContent>
-              <Typography>{getStepContent(index)}</Typography>
+              <div>{getStepContent(index)}</div>
               <div className={classes.actionsContainer}>
                 <div>
                   <Button
@@ -151,7 +157,8 @@ export default function VerticalLinearStepper() {
         <Paper square elevation={0} className={classes.resetContainer}>
           <Typography>All steps completed - you&apos;re finished</Typography>
           <Button variant="contained" color="primary" onClick={() => {
-            localStorage.setItem('onboarded', true)
+            localStorage.setItem('onboarded', true);
+            navigate('/');
           }}>
             Sign Up
           </Button>
