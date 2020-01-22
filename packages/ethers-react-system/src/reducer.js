@@ -115,6 +115,11 @@ const reducerActions = (state, action) => {
         ...state,
         injected: payload
       };
+    case WALLET_PROVIDER_GET_FAILURE:
+      return {
+        ...state,
+        wallet: false
+      };
     case SET_WALLET:
       return {
         ...state
