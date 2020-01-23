@@ -47,14 +47,14 @@ const Default = () => {
   return (
     <div className={clsx(classes.root, classes.image)}>
       <CssBaseline />
-      <div style={{ position: 'absolute', left: 100, top: 100, textAlign: 'center', color: 'white', zIndex: -1 }}>
+      {/* <div style={{ position: 'absolute', left: 100, top: 100, textAlign: 'center', color: 'white', zIndex: -1 }}>
         <Typography variant="h5">
           RAPID ADVENTURES
         </Typography>
         <Typography variant="h6">
           activate your life
         </Typography>
-      </div>
+      </div> */}
       <Grid container component="main">
         <Grid item xs={false} sm={2} md={2} />
         <Grid item xs={12} sm={8} md={8} component={Paper} elevation={6} square>
@@ -63,7 +63,7 @@ const Default = () => {
         </Grid>
         <Grid item xs={false} sm={2} md={2} />
       </Grid>
-      <div style={{ position: 'absolute', bottom: 50, right: 50, display: 'flex', justifyContent: 'space-between', width: 500, color: 'white', textAlign: 'center' }}>
+      {/* <div style={{ position: 'absolute', bottom: 50, right: 50, display: 'flex', justifyContent: 'space-between', width: 500, color: 'white', textAlign: 'center' }}>
         <div>
           <Typography variant="h5">
             Main
@@ -89,7 +89,7 @@ const Default = () => {
           </Typography>
         </div>
 
-      </div>
+      </div> */}
     </div >
   );
 }
@@ -133,17 +133,17 @@ const Step1 = ({ setPageIndex }) => {
       <CardActions className={classes.actions}>
         <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
           <div style={{ display: 'flex' }}>
-            <Button component={Link} to={'/signup'} variant="contained" color="primary">Sign in</Button>
+            {/* <Button component={Link} to={'/signup'} variant="contained" color="primary">Sign in</Button> */}
             &nbsp;&nbsp;&nbsp;
-                  <Button component={Link} to={'/signin'} variant="contained">
+                  {/* <Button component={Link} to={'/signin'} variant="contained">
               Sign up
-                  </Button>
+                  </Button> */}
           </div>
           <div style={{}}>
             <Button variant="contained" color="primary" onClick={() => {
               setPageIndex(1)
             }}>
-              Learn More
+              Next
             </Button>
           </div>
         </div>
