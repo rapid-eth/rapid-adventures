@@ -1,6 +1,5 @@
-import React from 'react';
-import { Link } from '@reach/router'
-import { Enable } from 'ethers-react-ui';
+import React, { useEffect } from 'react';
+import { Link, navigate } from '@reach/router'
 import { withEthers } from 'ethers-react-system'
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -31,7 +30,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <a color="inherit" href="https://material-ui.com/">
-        Your Website
+        RAPID Team
       </a>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -87,6 +86,8 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    backgroundColor: '#1E1A5E',
+    color: theme.palette.primary.contrastText
   },
   drawerPaperClose: {
     overflowX: 'hidden',
@@ -125,12 +126,21 @@ export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const [address, setAddress] = React.useState('');
+
+  useEffect(() => {
+    const isOnboarded = localStorage.getItem('onboarded')
+    if (!isOnboarded) {
+      navigate('/joinus')
+    }
+  }, [])
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   // console.log('ethers', ethers);
   return (
@@ -182,22 +192,14 @@ export default function Dashboard() {
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
                 <div>
-                  <Enable />
                   <br />
                   <Button variant='contained' onClick={() => {
-                    console.log('hi');
                     ethers.enableRequest();
                   }}>
                     call ethers.enableRequest()
                   </Button>
                   <Divider />
                   ethers.isEnableSuccess: {ethers.isEnableSuccess}
-                  {/* 3box.isConnected: {3box.isConnected} */}
-                  {/* https://github.com/3box/3box-profile-edit-react consider using this module */}
-                  {/* 3box.isConnected set to true for now */}
-                  {/* 
-                      
-                  */}
                   <br />
                   Address: {address || ethers.address}
                   <br />

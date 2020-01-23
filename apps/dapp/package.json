@@ -14,6 +14,7 @@
     "deploy": "gh-pages -d build -b build"
   },
   "dependencies": {
+    "3box-profile-edit-react": "^0.0.4",
     "3box-ui-profiles": "^0.0.1",
     "3box-ui-state": "^0.0.1",
     "3box-ui-system": "^0.0.1",
