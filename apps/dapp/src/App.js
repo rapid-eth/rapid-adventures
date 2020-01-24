@@ -18,7 +18,7 @@ import LearnMore from './pages/MUI/LearnMore';
 import PrivateLayout from './pages/MUI/PrivateLayout';
 import Playground from './views/Playground'
 import Prequalifier from './views/Prequalifier'
-import Adventure from './views/Adventures/AdventurePage'
+import Adventure from './pages/MUI/Adventure';
 
 /* --- Component --- */
 export default () => (
@@ -37,13 +37,13 @@ export default () => (
 				<PrivateLayout path="/playground" title="Playground" component={Playground} />
 				<PrivateLayout path="/prequalifier" title="Prequalifier" component={Prequalifier} />
 
-				{/* 404-style catch all when the route doesn't match */}
-				<PrivateLayout component={NotFound} />
-
 				<Default path="/joinus" />
 				<Signin path="/signin" />
 				<Signup path="/signup" />
 				<LearnMore path="/learnmore" />
+
+				{/* 404-style catch all when the route doesn't match */}
+				<PrivateLayout component={NotFound} />
 			</Switch>
 			{/* <Site path="/*" /> */}
 			{/* <Account path="/account/*" /> */}
