@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import {ethers} from 'ethers';
-import {postData} from '../../components/forms/testing/fetch';
+import React, { useState, useEffect } from 'react';
+import { ethers } from 'ethers';
+import { postData } from '../../components/forms/testing/fetch';
 import quest from 'data/quest.json';
 import MeshDevCoin from 'contracts/MeshDevCoin.json';
 
-const {networks, abi} = MeshDevCoin;
+const { networks, abi } = MeshDevCoin;
 const {
   data: {
-    certificate: {id: certificateId},
+    certificate: { id: certificateId },
     config,
     certificate,
   },
@@ -30,7 +30,7 @@ const View = () => {
     const signer = provider.getSigner();
     const contract = await new ethers.Contract(contractAddress, abi, signer);
     const userAddress = window.ethereum.selectedAddress; // only works for metamask
-    const payload = {userAddress, config, certificate};
+    const payload = { userAddress, config, certificate };
     const response = await postData(VERIFY_EVENT_ENDPOINT, payload);
 
     const contractResponse = await contract.redeemCertificate(

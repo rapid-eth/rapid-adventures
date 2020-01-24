@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -23,103 +24,103 @@ import HelpIcon from '@material-ui/icons/Help';
 
 export const mainListItems = (
   <div>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/">
       <ListItemIcon>
         <DashboardIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/user">
       <ListItemIcon>
         <AccountCircleIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="User" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/earn">
       <ListItemIcon>
         <ArrowUpwardIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Earn" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/give">
       <ListItemIcon>
         <ArrowDownwardIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Give" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/guide">
       <ListItemIcon>
         <HelpIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Guide" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/settings">
       <ListItemIcon>
         <SettingsIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Settings" />
     </ListItem>
-  </div>
+  </div >
 );
 
 export const secondaryListItems = (
   <div>
     <ListSubheader style={{ color: grey[500] }} inset>Developer Tools</ListSubheader>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/adventures">
       <ListItemIcon>
         <AcUnitIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Adventures" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/quests">
       <ListItemIcon>
         <ListIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Quests" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/catalog">
       <ListItemIcon>
         <AssignmentIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Catalog" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/testing">
       <ListItemIcon>
         <LayersIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Testing" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/playground">
       <ListItemIcon>
         <FiberSmartRecordIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Playground" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/prequalifier">
       <ListItemIcon>
         <SettingsBackupRestoreIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Prequalifier" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/prequalifier">
       <ListItemIcon>
         <AccountBoxIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Profile" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/leaderboard">
       <ListItemIcon>
         <FormatListNumberedIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Leaderboard" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/collections">
       <ListItemIcon>
         <GroupWorkIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Collections" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={RouterLink} to="/team">
       <ListItemIcon>
         <GroupIcon style={{ color: grey[500] }} />
       </ListItemIcon>
