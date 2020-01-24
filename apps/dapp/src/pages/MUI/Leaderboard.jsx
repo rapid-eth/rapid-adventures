@@ -6,7 +6,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import LinearProgress from '@material-ui/core/CircularProgress';
 import Title from './Title';
 
 function preventDefault(event) {
@@ -49,7 +49,7 @@ const Leaderboard = () => {
           </TableRow>
         </TableHead>
         {loading
-          ? <CircularProgress />
+          ? <LinearProgress />
           : <TableBody>
             {leaders && leaders.map(row => (
               <TableRow key={row.id}>

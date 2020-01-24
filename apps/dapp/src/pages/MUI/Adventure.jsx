@@ -44,6 +44,11 @@ export default function Dashboard() {
     <Grid container spacing={3}>
       <Grid item xs={12} md={12} lg={12}>
         <Paper>
+          {adventures.data.map(({ alias, title, subtitle, summary, content, image, quests }) =>
+            <div>
+
+            </div>
+          )}
           <AdventureExpansionPanels />
         </Paper>
       </Grid>

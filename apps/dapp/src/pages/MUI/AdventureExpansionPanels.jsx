@@ -55,6 +55,9 @@ const useStyles = makeStyles(theme => ({
         height: 0,
         paddingTop: '56.25%', // 16:9
     },
+    card: {
+        marginBottom: theme.spacing(2)
+    }
 }));
 const AdventureExpansionPanels = () => {
     const classes = useStyles()
@@ -74,15 +77,15 @@ const AdventureExpansionPanels = () => {
                             <Typography variant="h5" component="h2">{title}</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
-                            <img src={image} alt={title} />
+                            <img src={image} alt={title} style={{ height: 200 }} />
                             <Typography variant="subtitle1">
                                 {subtitle}
                             </Typography>
-                            <Paper>
+                            <div>
                                 {quests.length && quests.map((quest) => {
                                     const { properties: { title, subtitle, image, content }, reward, metadata } = quest;
                                     return (
-                                        <Card>
+                                        <Card className={classes.card}>
                                             <CardHeader title={title} subheader={subtitle} />
                                             <CardMedia
                                                 className={classes.media}
@@ -95,12 +98,12 @@ const AdventureExpansionPanels = () => {
                                                 </Typography>
                                             </CardContent>
                                             <CardActions>
-                                                <Button>Go</Button>
+                                                <Button variant="contained">Go</Button>
                                             </CardActions>
                                         </Card>
                                     )
                                 })}
-                            </Paper>
+                            </div>
 
                         </ExpansionPanelDetails>
                     </ExpansionPanel>

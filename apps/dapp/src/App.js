@@ -53,30 +53,29 @@ export default () => (
 	</Providers>
 );
 
-
 const User = () =>
 	<div>
-		<div>Users page goes here</div>
+		<h1>Users page goes here</h1>
 	</div>
 
 const Earn = () =>
 	<div>
-		<div>Earn page goes here</div>
+		<h1>Earn page goes here</h1>
 	</div>
 
 const Give = () =>
 	<div>
-		<div>Give page goes here</div>
+		<h1>Give page goes here</h1>
 	</div>
 
 const Guide = () =>
 	<div>
-		<div>Guide page goes here</div>
+		<h1>Guide page goes here</h1>
 	</div>
 
 const Settings = () =>
 	<div>
-		<div>Settings page goes here</div>
+		<h1>Settings page goes here</h1>
 	</div>
 
 const NotFound = () =>
