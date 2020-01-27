@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -6,6 +6,7 @@ import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import { Grid, Button, Typography } from '@material-ui/core';
 import adventures from '../../data/adventureList.json';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import QuestModal from './QuestModal';
 
 const ExpansionPanel = withStyles({
   root: {
@@ -72,6 +73,7 @@ const useStyles = makeStyles(theme => ({
 
 const QuestExpansionPanels = ({ questId }) => {
   const classes = useStyles()
+  const [showQuestModal, setShowQuestModal] = useState(false)
   const adventure = adventures.data.find((adv) => adv.alias === questId)
 
   const { id: defaultPanel } = adventure.quests.length && adventure.quests[0];
@@ -80,7 +82,11 @@ const QuestExpansionPanels = ({ questId }) => {
   const handleChange = panel => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
-  console.log('aq', adventure.quests)
+
+  const handleQuestModalClose = () => {
+    setShowQuestModal(false)
+  }
+
   return (
     <div className={classes.root}>
       {adventure.quests.map(({ id, properties: { title, subtitle, summary, content, image } }, index) =>
@@ -99,13 +105,12 @@ const QuestExpansionPanels = ({ questId }) => {
                   <Typography variant="subtitle1">
                     {content}
                   </Typography>
-                  <Button variant="contained">Go</Button>
+                  <Button variant="contained" onClick={() => {
+                    setShowQuestModal(true)
+                  }}>Go</Button>
                 </Grid>
               </Grid>
-              <div>
-
-
-              </div>
+              <QuestModal open={showQuestModal} handleClose={handleQuestModalClose} />
             </ExpansionPanelDetails>
           </ExpansionPanel>
         </div>
