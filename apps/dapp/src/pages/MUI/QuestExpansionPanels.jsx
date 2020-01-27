@@ -93,7 +93,7 @@ const QuestExpansionPanels = ({ questId }) => {
             <ExpansionPanelDetails>
               <Grid container spacing={2}>
                 <Grid item xs={4}>
-                  <img src={image} style={{ height: 200 }} />
+                  <img src={image} style={{ height: 200 }} alt={`${title} logo`} />
                 </Grid>
                 <Grid item xs={8}>
                   <Typography variant="subtitle1">
