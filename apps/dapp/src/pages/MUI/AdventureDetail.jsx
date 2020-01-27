@@ -16,7 +16,6 @@ const useStyles = makeStyles(theme => ({
 export default function AdventureDetail() {
   const classes = useStyles();
   const { id } = useParams();
-  console.log('useParams', id)
 
   return (
     <Grid container spacing={3}>

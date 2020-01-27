@@ -55,7 +55,7 @@ export default function CustomizedDialogs({ open, handleClose }) {
 
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Quest details
+          Quest Details
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
