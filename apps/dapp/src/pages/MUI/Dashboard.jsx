@@ -1,31 +1,15 @@
-import React from 'react';
-import { Link } from '@reach/router'
+import React, { useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom'
 import { withEthers } from 'ethers-react-system'
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import TokenBalance from './TokenBalance';
-import Leaderboard from './Leaderboard';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <a color="inherit" href="https://material-ui.com/">
-        RAPID Team
-      </a>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography >
-  );
-}
-
-const drawerWidth = 240;
+import EmblemLeaderboard from './EmblemLeaderboard';
+import BalancesLeaderboard from './BalancesLeaderboard';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -42,8 +26,16 @@ const useStyles = makeStyles(theme => ({
 export default function Dashboard() {
   const ethers = withEthers();
   const classes = useStyles();
+  const history = useHistory();
   const [address, setAddress] = React.useState('');
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+
+  // useEffect(() => {
+  //   if (!localStorage.getItem('onboarding')) {
+  //     history.push('/joinus')
+  //   }
+  // }, [])
 
   return (
     <Grid container spacing={3}>
@@ -87,9 +79,14 @@ export default function Dashboard() {
         </Paper>
       </Grid>
       {/* Recent Orders */}
-      <Grid item xs={12}>
+      <Grid item xs={6}>
         <Paper className={classes.paper}>
-          <Leaderboard />
+          <BalancesLeaderboard />
+        </Paper>
+      </Grid>
+      <Grid item xs={6}>
+        <Paper className={classes.paper}>
+          <EmblemLeaderboard />
         </Paper>
       </Grid>
     </Grid>

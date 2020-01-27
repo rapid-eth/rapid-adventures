@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { navigate } from "@reach/router"
+import { useHistory } from "react-router-dom";
 import Box from '3box';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
@@ -70,6 +70,7 @@ export default function OnboardingStepper() {
   const [showProfile, setShowProfile] = useState(false);
   const [rememberMeCheckbox, setRememberMeCheckbox] = useState(false);
   const [syncDone, setSyncDone] = useState(false);
+  const history = useHistory();
 
   const handleLogin = async () => {
     const addresses = await window.ethereum.enable();
@@ -207,7 +208,7 @@ export default function OnboardingStepper() {
               <Button
                 variant="contained"
                 color="primary"
-                onClick={() => { navigate('/') }}
+                onClick={() => { history.push('/') }}
                 className={classes.button}
               >
                 Dashboard

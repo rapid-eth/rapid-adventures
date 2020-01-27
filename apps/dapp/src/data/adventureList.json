@@ -240,10 +240,10 @@
           }
         },
         {
-          "id": 1,
-          "alias": "makerdao-example",
+          "id": 2,
+          "alias": "makerdao-example-2",
           "properties": {
-            "title": "MakerDAO CDP",
+            "title": "MakerDAO CDP 2",
             "subtitle": "Open a MakerDAO CDP to explore the world of DeFi",
             "summary": "MakerDAO's CDP portal allows you to easily enter the world of DeFi and open a Collateralized Debt Position with your Ether - allowing you to borrow DAI against it.",
             "content": "MakerDAO's CDP portal allows you to easily enter the world of DeFi and open a Collateralized Debt Position with your Ether - allowing you to borrow DAI against it. Use this DAI to buy more Eth and gain a leveraged long exposure, or to cash out to USD to buy real things! Just make sure you don't get liquidated. To complete this quest, open a MakerDAO CDP at https://cdp.makerdao.com/",

@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
-import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
@@ -17,12 +16,13 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 import ErrorBoundary from '../../ErrorBoundary'
+import ProfileMenu from './ProfileMenu';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <a color="inherit" href="https://material-ui.com/">
+      <a color="inherit" href="https://rapidteam.io/">
         RAPID Team
       </a>{' '}
       {new Date().getFullYear()}
@@ -90,7 +90,7 @@ const useStyles = makeStyles(theme => ({
     }),
     width: theme.spacing(7),
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing(9),
+      width: theme.spacing(7),
     },
   },
   appBarSpacer: theme.mixins.toolbar,
@@ -111,6 +111,10 @@ const useStyles = makeStyles(theme => ({
   },
   fixedHeight: {
     height: 240,
+  },
+  footer: {
+    padding: theme.spacing(3, 2),
+    marginTop: 'auto'
   },
 }));
 
@@ -143,6 +147,7 @@ const AppDrawer = () => {
               <NotificationsIcon />
             </Badge>
           </IconButton>
+          <ProfileMenu />
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}
@@ -175,9 +180,9 @@ const PrivateLayout = ({ component: Component, title, ...rest }) => {
           <ErrorBoundary>
             <Component {...rest} />
           </ErrorBoundary>
-          <Box pt={4}>
+          <footer className={classes.footer}>
             <Copyright />
-          </Box>
+          </footer>
         </Container>
       </main>
     </div>
