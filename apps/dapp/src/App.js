@@ -35,8 +35,8 @@ export default () => (
 				<PrivateLayout path="/settings" title="Settings" component={Settings} />
 
 				<PrivateLayout exact path="/adventures" title="Adventures" component={Adventures} />
-				<Route path="/adventures/:id" render={() => {
-					return <PrivateLayout exact path="/adventures/:id" title="Adventure Detail" component={AdventureDetail} />
+				<Route path="/adventure/:id" render={() => {
+					return <PrivateLayout exact path="/adventure/:id" title="Adventure Detail" component={AdventureDetail} />
 				}} />
 
 				<PrivateLayout path="/playground" title="Playground" component={Playground} />

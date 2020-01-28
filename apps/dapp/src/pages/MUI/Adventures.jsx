@@ -5,7 +5,6 @@ import { Card, CardHeader, CardMedia, CardActions, Button } from '@material-ui/c
 import Grid from '@material-ui/core/Grid';
 
 import adventures from 'data/adventureList.json';
-import { useEffect } from 'react';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -41,7 +40,7 @@ export default function Dashboard() {
                 </CardMedia>
                 <CardActions className={classes.right}>
                   <Button variant="contained" color="primary" onClick={() => {
-                    history.push(`/adventures/${alias}`)
+                    history.push(`/adventure/${alias}`)
                   }}>
                     Let's go!
                 </Button>

@@ -1,18 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import Box from '3box';
 import { makeStyles } from '@material-ui/core/styles';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import StepContent from '@material-ui/core/StepContent';
-import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import metamaskLogo from '../../../assets/metamask-fox-wordmark-horizontal.svg';
-import threeBoxLogo from '../../../assets/3box-logo.svg';
+import clsx from 'clsx';
+import { Grid, Button, Paper, Stepper, Step, StepLabel, StepContent, Card, CardActions, CardContent, Typography, FormControlLabel, Checkbox } from '@material-ui/core';
+import metamaskLogo from '../../../assets/metamask.svg';
+import threeBoxLogo from '../../../assets/threebox.svg';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import loading from '../../../assets/loading.svg';
 import ThreeboxProfileModal from './ThreeboxProfileModal';
@@ -29,6 +22,26 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
   },
+  content: {
+    padding: theme.spacing(5, 4, 1, 5),
+  },
+  copyPushDown: {
+    [theme.breakpoints.down('sm')]: {
+      marginTop: theme.spacing(1),
+    },
+    [theme.breakpoints.up('md')]: {
+      marginTop: theme.spacing(2),
+    },
+    [theme.breakpoints.up('lg')]: {
+      marginTop: theme.spacing(3),
+    },
+  },
+  actions: {
+    borderTop: '1px solid #DDDDDD',
+    padding: theme.spacing(3, 2),
+    display: 'flex',
+    flexDirection: 'row-reverse'
+  },
   button: {
     marginTop: theme.spacing(1),
     marginRight: theme.spacing(1),
@@ -37,16 +50,15 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3),
   },
   logo: {
-    height: 100,
+    width: '100%',
   },
   threeBoxLogo: {
-    height: 50,
-    marginRight: 25,
+    // height: 50,
+    // marginRight: 25,
   },
   threeboxDiv: {
     display: 'flex',
     alignItems: 'center',
-    marginBottom: 25
   }
 }));
 
@@ -58,7 +70,7 @@ const sleep = (ms = 0) => {
   return new Promise(r => setTimeout(r, ms));
 }
 
-export default function OnboardingStepper() {
+const OnboardingStepper = ({ setPageIndex }) => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [checks, setChecks] = React.useState({
@@ -112,81 +124,41 @@ export default function OnboardingStepper() {
     switch (step) {
       case 0:
         return (
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+          <Grid container spacing={2}>
+            <Grid item xs={4}>
               <img src={metamaskLogo} className={classes.logo} alt="metamask logo" />
+            </Grid>
+            <Grid item xs={8} className={classes.copyPushDown}>
+              <Typography variant="h6">
+                Metamask is how the app knows who you are.
+              </Typography>
+              <br />
+              <Typography variant="body2">
+                Once you’ve got everything set up you’re all set and join us at Rapid Adventures.
+                <br />
+                After that, we will help set up your profile along with show you around!
+              </Typography>
+              <br />
               {checks.metamask === 'loading' && <img src={loading} alt="loading animation" style={{ width: 30 }} />}
               {checks.metamask === true && <CheckCircleIcon style={{ color: 'green' }} />}
-            </div>
-            <Typography variant="body2">
-              Metamask is how the app knows who you are.
-            </Typography>
-
-            {checks.metamask === true
-              ? <div>
-                <Button variant="contained" color="primary" onClick={handleNext} className={classes.button}>
-                  Next
-                </Button>
-              </div>
-              : <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Button variant="contained" size="small" onClick={async () => {
-                  setChecks({ ...checks, metamask: 'loading' })
-                  await sleep(500);
-                  if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
-                    // Web3 browser user detected. 
-                    setChecks({ ...checks, metamask: true })
-                    return;
-                  }
-                  setChecks({ ...checks, metamask: false })
-                }}>
-                  Check Metamask
-                </Button>
-              </div>
-            }
-          </div>
+            </Grid>
+          </Grid>
         );
       case 1:
         return (
-          <div>
-            <div className={classes.threeboxDiv} style={{}}>
-              <img src={threeBoxLogo} className={classes.threeBoxLogo} alt="threebox logo" />
+          <Grid container spacing={2}>
+            <Grid item xs={4}>
+              <img src={threeBoxLogo} className={classes.logo} alt="threebox logo" />
+            </Grid>
+            <Grid item xs={8} className={classes.copyPushDown}>
+              <Typography variant="h6">
+                3box provides decentralized profiles to save your progress.
+              </Typography>
+              <br />
               {checks.threebox === 'loading' && <img src={loading} alt="loading animation" style={{ width: 30 }} />}
-              {checks.threebox === true && <CheckCircleIcon style={{ color: 'green' }} onClick={() => {
-                if (threeboxLoaded) setShowProfile(true)
-              }} />}
-            </div>
-            <Typography variant="body2">
-              3box provides decentralized profiles to save your progress.
-            </Typography>
-
-            {!checks.threebox &&
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Button variant="contained" size="small" onClick={async () => {
-                  setChecks({ ...checks, threebox: 'loading' })
-                  await handleLogin()
-                  setChecks({ ...checks, threebox: true })
-                }}>
-                  Check 3box
-                </Button>
-              </div>
-            }
-            {(checks.threebox === 'loading' || checks.threebox) &&
-              <div>
-                <Button onClick={handleBack} className={classes.button}>
-                  Back
-                </Button>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={handleNext}
-                  className={classes.button}
-                  disabled={!threeboxLoaded}
-                >
-                  Next
-                </Button>
-              </div>
-            }
-          </div >
+              {checks.threebox === true && <CheckCircleIcon style={{ color: 'green' }} />}
+            </Grid>
+          </Grid>
         );
       case 2:
         return (
@@ -200,20 +172,6 @@ export default function OnboardingStepper() {
               }
               label="Remember me"
             />
-
-            <div>
-              <Button onClick={handleBack} className={classes.button}>
-                Back
-              </Button>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => { history.push('/') }}
-                className={classes.button}
-              >
-                Dashboard
-              </Button>
-            </div>
           </div>
         );
       default:
@@ -221,33 +179,144 @@ export default function OnboardingStepper() {
     }
   }
 
-  return (
-    <div className={classes.root}>
-      <Stepper activeStep={activeStep} orientation="vertical">
-        {steps.map((label, index) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-            <StepContent>
-              <div>{getStepContent(index, handleBack, handleNext)}</div>
-            </StepContent>
-          </Step>
-        ))}
-      </Stepper>
-      {activeStep === steps.length && (
-        <Paper square elevation={0} className={classes.resetContainer}>
-          <Typography>All steps completed - you&apos;re finished</Typography>
-          <Button variant="contained" color="primary" onClick={() => {
+  const renderActionButtons = () => {
+    switch (activeStep) {
+      case 0: {
+        // Metamask
+        return checks.metamask === true
+          ? (
+            <Button variant="contained" color="primary" onClick={handleNext}>
+              Next
+            </Button>
+          )
+          : (
+            <Button variant="contained" onClick={async () => {
+              setChecks({ ...checks, metamask: 'loading' })
+              await sleep(500);
+              if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
+                // Web3 browser user detected. 
+                setChecks({ ...checks, metamask: true })
+                return;
+              }
+              setChecks({ ...checks, metamask: false })
+            }}>
+              Check Metamask
+            </Button>
+          )
+      }
+      case 1: {
+        // 3box
+        return checks.threebox === true
+          ? (
+            <Button variant="contained" color="primary" onClick={handleNext}>
+              Next
+            </Button>
+          )
+          : (
+            <Button variant="contained" onClick={async () => {
+              setChecks({ ...checks, threebox: 'loading' })
+              await handleLogin()
+              setChecks({ ...checks, threebox: true })
+            }}>
+              Check 3box
+          </Button>
+          )
+      }
+      case 2: {
+        return (
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => { history.push('/') }}
+            className={classes.button}
+          >
+            Dashboard
+          </Button>
+        )
+      }
+      default:
+        return null
+    }
+  }
 
-            navigate('/');
-          }}>
-            Sign Up
+  return (
+    <Card>
+      <CardContent className={classes.content}>
+        <div className={classes.root}>
+          <Stepper activeStep={activeStep} orientation="vertical">
+            {steps.map((label, index) => (
+              <Step key={label}>
+                <StepLabel StepIconComponent={ColorlibStepIcon} loading={'asdf'}>{label}</StepLabel>
+                <StepContent>
+                  <div>{getStepContent(index, handleBack, handleNext)}</div>
+                </StepContent>
+              </Step>
+            ))}
+          </Stepper>
+          {activeStep === steps.length && (
+            <Paper square elevation={0} className={classes.resetContainer}>
+              <Typography>All steps completed - you&apos;re finished</Typography>
+              <Button variant="contained" color="primary" onClick={() => {
+                navigate('/');
+              }}>
+                Sign Up
           </Button>
-          <Button onClick={handleReset} className={classes.button}>
-            Reset
+              <Button onClick={handleReset} className={classes.button}>
+                Reset
           </Button>
-        </Paper>
-      )}
-      {threeboxLoaded && <ThreeboxProfileModal threebox={threebox} open={showProfile} handleClose={() => setShowProfile(false)} />}
+            </Paper>
+          )}
+          {threeboxLoaded && <ThreeboxProfileModal threebox={threebox} open={showProfile} handleClose={() => setShowProfile(false)} />}
+        </div>
+      </CardContent>
+      <CardActions className={classes.actions}>
+        {renderActionButtons()}
+      </CardActions>
+    </Card>
+
+  );
+}
+
+export default OnboardingStepper
+
+const useColorlibStepIconStyles = makeStyles({
+  root: {
+    zIndex: 1,
+    color: '#fff',
+    width: 25,
+    height: 25,
+    display: 'flex',
+    borderRadius: '50%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'gray'
+  },
+  active: {
+    backgroundColor: '#FCAB40',
+    boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
+  },
+  completed: {
+    backgroundColor: '#FFF'
+  }
+});
+
+const ColorlibStepIcon = ({ active, completed, icon }) => {
+  const classes = useColorlibStepIconStyles();
+
+  return (
+    <div
+      className={clsx(classes.root, {
+        [classes.active]: active,
+        [classes.completed]: completed,
+      })}
+    >
+      {completed ? <CheckCircleIcon style={{ color: 'green' }} /> : <div>{icon}</div>}
     </div>
   );
 }
+
+ColorlibStepIcon.propTypes = {
+  active: PropTypes.bool,
+  completed: PropTypes.bool,
+  icon: PropTypes.node,
+};

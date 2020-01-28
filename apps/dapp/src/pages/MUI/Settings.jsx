@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography, FormControlLabel, Paper } from '@material-ui/core';
+import { Grid, FormControlLabel, Paper } from '@material-ui/core';
 import IOSSwitch from './IOSSwitch'
 
 const useStyles = makeStyles(theme => ({
