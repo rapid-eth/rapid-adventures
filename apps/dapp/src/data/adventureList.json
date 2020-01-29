@@ -3,6 +3,7 @@
   "type": "adventureList",
   "data": [
     {
+      "id": 1,
       "alias": "open-source-warrior",
       "title": "Open Source Warrior",
       "subtitle": "Contribute to the Growth of Ethereum through Open Source Software",
@@ -186,6 +187,7 @@
       ]
     },
     {
+      "id": 2,
       "alias": "exploring-defi",
       "title": "Exploring DeFi",
       "subtitle": "Discover What Makes Decentralized Finance Great",

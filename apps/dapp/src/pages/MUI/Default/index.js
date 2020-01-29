@@ -27,6 +27,9 @@ const useStyles = makeStyles(theme => ({
     //   theme.palette.type === 'dark' ? theme.palette.grey[900] : null,
     backgroundPosition: 'center',
   },
+  card: {
+    width: 800,
+  },
   content: {
     padding: theme.spacing(5, 4, 1, 5),
   },
@@ -46,14 +49,10 @@ const Default = () => {
   return (
     <div className={clsx(classes.root, classes.image)}>
       <CssBaseline />
-      <Grid container component="main">
-        <Grid item xs={false} sm={2} md={2} />
-        <Grid item xs={12} sm={8} md={8} component={Paper} elevation={6} square>
-          {pageIndex === 0 && <Step1 setPageIndex={setPageIndex} />}
-          {pageIndex === 1 && <Step2 setPageIndex={setPageIndex} />}
-        </Grid>
-        <Grid item xs={false} sm={2} md={2} />
-      </Grid>
+      <Paper className={classes.card}>
+        {pageIndex === 0 && <Step1 setPageIndex={setPageIndex} />}
+        {pageIndex === 1 && <Step2 setPageIndex={setPageIndex} />}
+      </Paper>
     </div >
   );
 }
