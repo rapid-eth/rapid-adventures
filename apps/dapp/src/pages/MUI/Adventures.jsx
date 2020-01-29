@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import { useHistory } from 'react-router';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -6,7 +6,7 @@ import { Typography, Button, AppBar, Toolbar, InputBase } from '@material-ui/cor
 import SearchIcon from '@material-ui/icons/Search';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import rapidLogo from '../../assets/rapid.svg'
-
+import DataContext from '../../DataContext'
 import adventures from 'data/adventureList.json';
 
 const useStyles = makeStyles(theme => ({
@@ -124,6 +124,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const AdventuresPage = () => {
+  const data = useContext(DataContext);
+  console.log('data', data);
   const history = useHistory();
   const classes = useStyles();
   const [selectedAdventureId, selectAdventure] = useState()
