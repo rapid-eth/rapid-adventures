@@ -17,6 +17,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 import ErrorBoundary from '../../ErrorBoundary'
 import ProfileMenu from './ProfileMenu';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 function Copyright() {
   return (
@@ -38,7 +39,10 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
   },
   toolbar: {
+    paddingLeft: 65, // keep right padding when drawer closed
     paddingRight: 24, // keep right padding when drawer closed
+    display: 'flex',
+    justifyContent: 'center',
   },
   toolbarIcon: {
     display: 'flex',
@@ -68,7 +72,7 @@ const useStyles = makeStyles(theme => ({
   menuButtonHidden: {
     display: 'none',
   },
-  title: {
+  flexGrow: {
     flexGrow: 1,
   },
   drawerPaper: {
@@ -116,6 +120,29 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3, 2),
     marginTop: 'auto'
   },
+  currentNetwork: {
+    fontSize: 10,
+    color: '#666',
+    paddingRight: theme.spacing(2),
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+    borderRight: '1px solid #DFE0EB'
+  },
+  centered: {
+    display: 'flex',
+    // justifyContent: 'center',
+    alignItems: 'center'
+  },
+  balances: {
+    // outline: '1px solid yellow'
+  },
+  amountGroup: {
+    paddingRight: theme.spacing(3),
+  },
+  amount: {
+    color: theme.palette.primary.main,
+    fontWeight: 'bold',
+  }
 }));
 
 const AppDrawer = () => {
@@ -131,7 +158,7 @@ const AppDrawer = () => {
 
   return (
     <>
-      <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+      <AppBar color="inherit" position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
         <Toolbar className={classes.toolbar}>
           <IconButton edge="start" color="inherit" aria-label="open drawer"
             onClick={handleDrawerOpen}
@@ -139,9 +166,31 @@ const AppDrawer = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+          <div className={classes.flexGrow}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div className={classes.currentNetwork}>
+                <Typography>CURRENT NETWORK</Typography>
+                <div className={classes.centered}>
+                  <Typography>Rinkeby&nbsp;</Typography>
+                  <CheckCircleIcon style={{ color: "green", height: '.75em' }} />
+                </div>
+              </div>
+              <div className={classes.balances}>
+                <span className={classes.amountGroup}>
+                  <Typography className={classes.amount} component="span">0</Typography> ETH
+                </span>
+                <span className={classes.amountGroup}>
+                  <Typography className={classes.amount} component="span">0</Typography> MESH
+                </span>
+                <span className={classes.amountGroup}>
+                  <Typography className={classes.amount} component="span">0</Typography> TIPBOT
+                </span>
+              </div>
+            </div>
+          </div>
+          {/* <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Rapid Adventures Dashboard
-          </Typography>
+          </Typography> */}
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />

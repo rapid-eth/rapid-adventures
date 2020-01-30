@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import { Typography, Button, AppBar, Toolbar, InputBase } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import QuestCard from './QuestCard';
 import rapidLogo from '../../assets/rapid.svg'
 import DataContext from '../../DataContext'
 import adventures from 'data/adventureList.json';
@@ -95,37 +96,10 @@ const useStyles = makeStyles(theme => ({
       },
     },
   },
-  questCard: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    position: 'relative',
-    padding: theme.spacing(2),
-    backgroundColor: theme.palette.common.white,
-    borderRadius: 4,
-    marginBottom: theme.spacing(4),
-    marginTop: theme.spacing(15)
-  },
-  questCardHeader: {
-    position: 'absolute',
-    top: -41,
-    right: 25,
-    width: '50%',
-    display: 'flex',
-    backgroundColor: theme.palette.common.white,
-    padding: theme.spacing(1),
-    borderBottom: '1px solid gray',
-    borderRadius: '4px 4px 0 0'
-  },
-  questCardButtonContainer: {
-    position: 'absolute',
-    bottom: -18,
-    right: 25,
-  }
 }));
 
 const AdventuresPage = () => {
   const data = useContext(DataContext);
-  console.log('data', data);
   const history = useHistory();
   const classes = useStyles();
   const [selectedAdventureId, selectAdventure] = useState()
@@ -184,33 +158,16 @@ const AdventuresPage = () => {
         </Toolbar>
         {selectedAdventureId &&
           <div className={classes.quests}>
-            {adventure.quests.map(({ id, properties: { title, subtitle } }) =>
-              <div key={id} className={classes.questCard}>
-                <header className={classes.questCardHeader}>
-                  <Typography>Difficulty: 1</Typography>
-                  &nbsp;&nbsp;
-                  <Typography>Estimated time: 123</Typography>
-                  &nbsp;&nbsp;
-                  <Typography>Reward: 5 ETH</Typography>
-                </header>
-                <Typography>{title}</Typography>
-                <Typography>{subtitle}</Typography>
-                <div className={classes.questCardButtonContainer}>
-                  <Button size="small" variant="contained" color="primary">
-                    More Info
-                  </Button>
-                  &nbsp; &nbsp;
-                  <Button size="small" variant="contained" color="primary">
-                    Start Quest
-                  </Button>
-                </div>
-              </div>
+            {adventure.quests.map(({ id, properties }) =>
+              <QuestCard key={id} {...properties} />
             )}
           </div>
         }
       </div>
-    </div>
+    </div >
   );
 }
 
 export default AdventuresPage
+
+

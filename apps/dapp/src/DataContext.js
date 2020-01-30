@@ -12,6 +12,8 @@ const reducer = (state, action) => {
     case 'INIT': {
       return { ...state }
     }
+    default:
+      return state
   }
 }
 export default DataContext
