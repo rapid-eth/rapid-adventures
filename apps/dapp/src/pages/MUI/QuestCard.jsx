@@ -1,23 +1,18 @@
 import React, { useState } from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { ExpansionPanel, ExpansionPanelDetails, Button, Typography } from '@material-ui/core';
-import Grow from '@material-ui/core/Grow';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { useHistory } from 'react-router';
+import { makeStyles } from '@material-ui/core/styles';
+import { Button, Typography, Collapse } from '@material-ui/core';
+import QuestCardDifficulty from './QuestCardDifficulty';
+import QuestCardReward from './QuestCardReward';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import ExpandLessIcon from '@material-ui/icons/ExpandLess'
 
+import lowLevelLogo from '../../assets/lowLevelLogo.svg'
 
 const useStyles = makeStyles(theme => {
-  const transition = {
-    duration: theme.transitions.duration.shortest,
-  };
-
   return {
     root: {
       width: '100%',
-      transition: theme.transitions.create(['min-height', 'background-color'], transition),
-      '&$expanded': {
-        minHeight: 64,
-      },
     },
     questCard: {
       display: 'flex',
@@ -29,18 +24,18 @@ const useStyles = makeStyles(theme => {
       marginBottom: theme.spacing(4),
       marginTop: theme.spacing(15)
     },
-    questCardExpanded: {
-    },
     questCardHeader: {
       position: 'absolute',
-      top: -41,
+      top: -45,
       right: 25,
       width: '50%',
-      display: 'flex',
       backgroundColor: theme.palette.common.white,
       padding: theme.spacing(1),
       borderBottom: '1px solid gray',
-      borderRadius: '4px 4px 0 0'
+      borderRadius: '4px 4px 0 0',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center'
     },
     questCardButtonContainer: {
       position: 'absolute',
@@ -50,8 +45,9 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-const QuestCard = ({ title, subtitle, ...rest }) => {
+const QuestCard = ({ properties: { title, subtitle }, difficulty, reward, estimatedTime, ...rest }) => {
   const classes = useStyles();
+  const history = useHistory();
   const [expanded, toggleExpanded] = useState(false);
 
   const handleClick = () => {
@@ -60,40 +56,31 @@ const QuestCard = ({ title, subtitle, ...rest }) => {
 
   return (
     <div className={classes.root}>
-      <ExpansionPanel>
-        <ExpansionPanelSummary aria-controls="panel1a-content" id="panel1a-header">
-          <Typography className={classes.heading}>{title}</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            {subtitle}
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-
       <div className={classes.questCard}>
         <header className={classes.questCardHeader}>
-          <Typography>Difficulty: 1</Typography>
+          <QuestCardDifficulty difficulty={3} />
           &nbsp;&nbsp;
-        <Typography>Estimated time: 123</Typography>
+        <Typography>Estimated Time: 123</Typography>
           &nbsp;&nbsp;
-        <Typography>Reward: 5 ETH</Typography>
+          <QuestCardReward reward={1} />
         </header>
         <Typography>{title}</Typography>
-        <Grow in={expanded}>
+        <Collapse in={expanded}>
           <Expander subtitle={subtitle} />
-        </Grow>
+        </Collapse>
         <div className={classes.questCardButtonContainer}>
           <Button size="small" variant="contained" color="primary" onClick={handleClick}>
-            More Info
-        </Button>
+            {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          </Button>
           &nbsp; &nbsp;
-        <Button size="small" variant="contained" color="primary">
+        <Button size="small" variant="contained" color="primary" onClick={
+            () => history.push('/adventure/1')
+          }>
             Start Quest
         </Button>
         </div>
       </div>
-    </div>
+    </div >
 
   )
 }
@@ -104,4 +91,3 @@ export default QuestCard
 const Expander = (props) => {
   return <Typography {...props} style={{ minHeight: 400 }}>{props.subtitle}</Typography>
 }
-

@@ -21,7 +21,6 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 36,
     backgroundColor: '#E9E9E9',
     padding: 18,
-    marginRight: theme.spacing(2)
   },
   wide: {
     width: '100%',
@@ -99,17 +98,18 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const AdventuresPage = () => {
-  const data = useContext(DataContext);
+  const { state, dispatch } = useContext(DataContext);
   const history = useHistory();
   const classes = useStyles();
   const [selectedAdventureId, selectAdventure] = useState()
-  const adventure = adventures.data.find(({ id }) => id === selectedAdventureId)
+  const adventure = state.data.adventures.find(({ id }) => id === selectedAdventureId)
+  debugger
   const inputEl = useRef(null);
 
-  // const { quests: theQuests } = adventure;
-  // const filteredQuests = theQuests.length && theQuests.filter((quest) => {
-  //   return quest.match(/ /)
-  // })
+  const { quests: theQuests } = adventure;
+  const filteredQuests = theQuests.length && theQuests.filter((quest) => {
+    return quest.match(/ /)
+  })
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -158,8 +158,8 @@ const AdventuresPage = () => {
         </Toolbar>
         {selectedAdventureId &&
           <div className={classes.quests}>
-            {adventure.quests.map(({ id, properties }) =>
-              <QuestCard key={id} {...properties} />
+            {adventure.quests.map(({ id, ...rest }) =>
+              <QuestCard key={id} {...rest} />
             )}
           </div>
         }
