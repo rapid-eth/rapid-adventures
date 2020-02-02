@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Typography, Collapse, Divider } from '@material-ui/core';
+import { Button, Typography, Collapse, Divider, Checkbox, Grid } from '@material-ui/core';
 import QuestCardDifficulty from './QuestCardDifficulty';
 import QuestCardReward from './QuestCardReward';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
@@ -13,37 +13,60 @@ const useStyles = makeStyles(theme => {
   return {
     root: {
       width: '100%',
+      background: 'transparent',
     },
     questCard: {
       position: 'relative',
+      display: 'flex',
+      flexDirection: 'column',
       padding: theme.spacing(2),
-      backgroundColor: '#E9E9E9',
       borderRadius: 4,
       marginBottom: theme.spacing(4),
-      marginTop: theme.spacing(15),
+      marginTop: theme.spacing(4),
     },
     questCardHeader: {
-      position: 'absolute',
-      top: -49,
-      right: 25,
-      width: '50%',
+      minWidth: 400,
+      marginLeft: 'auto',
       backgroundColor: '#E9E9E9',
       padding: theme.spacing(1),
       borderBottom: '1px solid gray',
       borderRadius: '4px 4px 0 0',
       display: 'flex',
       justifyContent: 'space-between',
-      alignItems: 'center'
+      alignItems: 'center',
+      '&> *': {
+        marginRight: '1em'
+      }
+    },
+    questCardContent: {
+      backgroundColor: '#E9E9E9',
+      padding: theme.spacing(4),
+      borderRadius: 4,
+    },
+    questCardExpandedContent: {
+      backgroundColor: '#E9E9E9',
+      paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(2),
+      paddingBottom: theme.spacing(4),
+    },
+    questCardExpandedContentHidden: {
+      paddingLeft: 0,
+      paddingRight: 0,
+      paddingBottom: 0
     },
     questCardButtonContainer: {
-      position: 'absolute',
-      bottom: -18,
+      marginLeft: 'auto',
+      position: 'relative',
+      top: -18,
       right: 25,
+    },
+    expandButton: {
+      minWidth: 'inherit',
     }
   }
 })
 
-const QuestCard = ({ properties: { title, subtitle, summary, content }, difficulty, reward, estimatedTime, ...rest }) => {
+const QuestCard = ({ properties: { title, subtitle, summary, content }, difficulty, reward, estimatedTime, selectedAdventureId, ...rest }) => {
   const classes = useStyles();
   const history = useHistory();
   const [expanded, toggleExpanded] = useState(false);
@@ -56,26 +79,31 @@ const QuestCard = ({ properties: { title, subtitle, summary, content }, difficul
     <div className={classes.root}>
       <div className={classes.questCard}>
         <header className={classes.questCardHeader}>
+          <Checkbox color="green" />
           <QuestCardDifficulty difficulty={difficulty} />
-          &nbsp;&nbsp;
           <Typography>Estimated Time: {estimatedTime}</Typography>
-          &nbsp;&nbsp;
           <QuestCardReward reward={reward} />
         </header>
-        <div>
-          <Typography component="span" style={{ marginRight: '3em' }}>{title}</Typography>
-          <Typography component="span">{subtitle}</Typography>
+        <div className={classes.questCardContent}>
+          <Grid container>
+            <Grid item xs={3}>
+              <Typography component="span">{title}</Typography>
+            </Grid>
+            <Grid item xs={9}>
+              <Typography component="span" style={{ marginLeft: '3em' }}>{subtitle}</Typography>
+            </Grid>
+          </Grid>
         </div>
-        <Collapse in={expanded}>
+        <Collapse in={expanded} className={classes.questCardExpandedContent} classes={{ hidden: classes.questCardExpandedContentHidden }}>
           <Expander subtitle={subtitle} content={content} />
         </Collapse>
         <div className={classes.questCardButtonContainer}>
-          <Button size="small" variant="contained" color="primary" onClick={handleClick}>
+          <Button size="small" variant="contained" color="primary" onClick={handleClick} classes={{ root: classes.expandButton }}>
             {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
           </Button>
           &nbsp; &nbsp;
-        <Button size="small" variant="contained" color="primary" onClick={
-            () => history.push(`/adventure/${adventureId}`)
+        <Button variant="contained" color="primary" onClick={
+            () => history.push(`/adventure/${selectedAdventureId}`)
           }>
             Start Quest
         </Button>

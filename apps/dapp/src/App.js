@@ -21,6 +21,7 @@ import Prequalifier from './views/Prequalifier'
 import Adventures from './pages/MUI/Adventures';
 import AdventureDetail from './pages/MUI/AdventureDetail';
 import Settings from './pages/MUI/Settings';
+import NotFound from './pages/MUI/NotFound';
 
 /* --- Component --- */
 export default () => (
@@ -77,6 +78,3 @@ const Guide = () =>
 	<div>
 		<h1>Guide page goes here</h1>
 	</div>
-
-const NotFound = () =>
-	<h1>Coming soon...</h1>

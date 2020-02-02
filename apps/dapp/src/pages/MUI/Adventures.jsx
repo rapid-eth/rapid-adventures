@@ -1,10 +1,9 @@
-import React, { useState, useRef, useContext } from 'react';
-import { useHistory } from 'react-router';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import React, { useState, useContext } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import { Typography, Button, AppBar, Toolbar, InputBase } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
+import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import useLocalStorage from '../../util/useLocalStorage';
 import QuestCard from './QuestCard';
 import rapidLogo from '../../assets/rapid.svg'
@@ -16,6 +15,8 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'row',
     height: '100%',
+    paddingTop: theme.spacing(2),
+    backgroundColor: theme.palette.common.white
   },
   adventureCards: {
     flexBasis: '30%',
@@ -29,8 +30,8 @@ const useStyles = makeStyles(theme => ({
   questCards: {
     flexBasis: '70%',
     borderRadius: 36,
-    backgroundColor: '#FFFFFF',
-    padding: 18,
+    backgroundColor: '#F8F8F8',
+    padding: theme.spacing(4),
     marginTop: 10,
   },
   adventureCard: {
@@ -57,15 +58,19 @@ const useStyles = makeStyles(theme => ({
   right: {
     flexDirection: 'row-reverse'
   },
+  adventureToolbar: {
+    flexGrow: 1,
+    marginBottom: 72
+  },
   questToolbar: {
     flexGrow: 1,
   },
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    backgroundColor: '#E8E8E8',
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+      backgroundColor: '#EFEFEF',
     },
     marginLeft: 0,
     width: '100%',
@@ -82,6 +87,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    color: "#4E3FCE",
   },
   inputRoot: {
     color: 'inherit',
@@ -119,8 +125,6 @@ const AdventuresPage = () => {
     const matchMe = (title + ' ' + alias + ' ' + token + ' ' + content + ' ' + subtitle + ' ' + summary).toLocaleLowerCase()
     return matchMe.includes(searchFilter.trim())
   })
-  console.log('>', searchFilter)
-  console.log('>fq', filteredQuests)
 
   const handleStartAdventureModalClose = () => {
     setShowStartAdventureModal(false)
@@ -133,7 +137,7 @@ const AdventuresPage = () => {
   return (
     <div className={classes.root}>
       <div className={classes.adventureCards}>
-        <Typography variant="h6" className={classes.questToolbar}>
+        <Typography variant="h6" className={classes.adventureToolbar}>
           Adventure Catalog
         </Typography>
         <div className={classes.wide}>
@@ -144,7 +148,7 @@ const AdventuresPage = () => {
                 <br />
                 {title}
                 <Button size="small" variant="contained" color="primary" className={classes.adventureCardButton}>
-                  <AddCircleIcon />&nbsp; Explore
+                  <AddCircleOutlineOutlinedIcon />&nbsp; Explore
                 </Button>
               </div>
             )
@@ -179,10 +183,10 @@ const AdventuresPage = () => {
           <div className={classes.quests}>
             {filteredQuests.length
               ? filteredQuests.map(({ id, ...rest }) => {
-                return <QuestCard key={id} {...rest} />
+                return <QuestCard key={id} selectedAdventureId={selectedAdventureId} {...rest} />
               })
               : selectedQuests.map(({ id, ...rest }) => {
-                return <QuestCard key={id} {...rest} />
+                return <QuestCard key={id} selectedAdventureId={selectedAdventureId} {...rest} />
               }
               )}
           </div>

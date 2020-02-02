@@ -76,7 +76,6 @@ const QuestExpansionPanels = ({ questId }) => {
   const { state } = useContext(DataContext);
   const [showQuestModal, setShowQuestModal] = useState(false)
   const adventure = state.adventures.data.find((adv) => adv.alias === questId)
-  debugger
 
   const { id: defaultPanel } = adventure.quests.length && adventure.quests[0];
   const [expanded, setExpanded] = React.useState(defaultPanel);
