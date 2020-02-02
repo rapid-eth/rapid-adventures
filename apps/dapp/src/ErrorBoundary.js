@@ -28,8 +28,9 @@ class ErrorBoundary extends React.Component {
             {process.env.NODE_ENV === 'development' && (
               <details style={{ whiteSpace: 'pre-wrap', marginTop: '2em' }}>
                 {this.state.error && this.state.error.toString()}
-                <br />
-                {this.state.errorInfo.componentStack}
+                <pre>
+                  {this.state.errorInfo.componentStack}
+                </pre>
               </details>
             )}
           </div>

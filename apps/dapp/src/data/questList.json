@@ -5,6 +5,9 @@
     {
       "id": 1,
       "alias": "makerdao-example",
+      "adventures": [
+        1
+      ],
       "properties": {
         "title": "MakerDAO CDP",
         "subtitle": "Open a MakerDAO CDP to explore the world of DeFi",
@@ -28,6 +31,8 @@
         "collectible": "Sword of DeFi-ance",
         "collection": "DeFi"
       },
+      "difficulty": 1,
+      "estimatedTime": "30 minutes",
       "metadata": {
         "completionCriteria": "1. User opens a MakerDAO CDP",
         "prereqs": "N/A",
@@ -57,6 +62,9 @@
     {
       "id": 2,
       "alias": "compound-example",
+      "adventures": [
+        1
+      ],
       "properties": {
         "title": "Compound Lending",
         "subtitle": "Earn interest on your crypto!",
@@ -71,11 +79,13 @@
         "instructionalImage": ""
       },
       "reward": {
-        "amount": 25,
+        "amount": 3,
         "token": "MESH",
         "collectible": "Sword of DeFi-ance",
         "collection": "DeFi"
       },
+      "difficulty": 1,
+      "estimatedTime": "1 hour",
       "metadata": {
         "completionCriteria": "1. User deposits crypto into Compound.Finance",
         "prereqs": "N/A",
@@ -111,6 +121,9 @@
     {
       "id": 3,
       "alias": "decentraland-example",
+      "adventures": [
+        1
+      ],
       "properties": {
         "title": "Decentraland LAND Grab",
         "subtitle": "Buy some land in Decentraland",
@@ -125,11 +138,13 @@
         "instructionalImage": ""
       },
       "reward": {
-        "amount": 25,
-        "token": "MESH",
+        "amount": 1,
+        "token": "TIPBOT",
         "collectible": "Sword of DeFi-ance",
         "collection": "DeFi"
       },
+      "difficulty": 1,
+      "estimatedTime": "30 minutes",
       "metadata": {
         "completionCriteria": "1. User buys LAND",
         "prereqs": "N/A",
@@ -145,6 +160,9 @@
     {
       "id": 4,
       "alias": "gods-unchained-example",
+      "adventures": [
+        1
+      ],
       "properties": {
         "title": "Gods Unchained",
         "subtitle": "Collect unique digital trading cards and battle with opponents!",
@@ -159,11 +177,13 @@
         "instructionalImage": ""
       },
       "reward": {
-        "amount": 25,
+        "amount": 5,
         "token": "MESH",
         "collectible": "Sword of DeFi-ance",
         "collection": "DeFi"
       },
+      "difficulty": 3,
+      "estimatedTime": "1 hour",
       "metadata": {
         "completionCriteria": "1. User buys Gods Unchained pack / obtains a Gods Unchained card",
         "prereqs": "N/A",
@@ -192,6 +212,9 @@
     {
       "id": 5,
       "alias": "helena-example",
+      "adventures": [
+        1
+      ],
       "properties": {
         "title": "Helena Prediction Markets",
         "subtitle": "Vote on your predictions for the future and earn rewards!",
@@ -211,6 +234,8 @@
         "collectible": "Sword of DeFi-ance",
         "collection": "DeFi"
       },
+      "difficulty": 2,
+      "estimatedTime": "1 hour",
       "metadata": {
         "completionCriteria": "1. User votes on a prediction market in Helena",
         "prereqs": "N/A",
@@ -226,6 +251,9 @@
     {
       "id": 6,
       "alias": "augur-example",
+      "adventures": [
+        1
+      ],
       "properties": {
         "title": "Augur Prediction Markets",
         "subtitle": "Bet on the outcome of custom events in real-time!",
@@ -245,6 +273,8 @@
         "collectible": "Sword of DeFi-ance",
         "collection": "DeFi"
       },
+      "difficulty": 1,
+      "estimatedTime": "30 minutes",
       "metadata": {
         "completionCriteria": "1. User votes on a prediction market in Augur.",
         "prereqs": "N/A",
@@ -260,6 +290,9 @@
     {
       "id": 7,
       "alias": "cryptokitties-example",
+      "adventures": [
+        1
+      ],
       "properties": {
         "title": "Cryptokitties",
         "subtitle": "Obtain, breed, and trade unique digital collectibles!",
@@ -279,6 +312,8 @@
         "collectible": "Sword of DeFi-ance",
         "collection": "DeFi"
       },
+      "difficulty": 3,
+      "estimatedTime": "90 minutes",
       "metadata": {
         "completionCriteria": "1. User obtains a Cryptokitty.",
         "prereqs": "N/A",
@@ -297,7 +332,6 @@
         "value": null,
         "toAddress": "0x2aEa4Add166EBf38b63d09a75dE1a7b94Aa24163"
       },
-
       "certificate": {
         "networkId": 4,
         "type": "erc20",
@@ -308,6 +342,9 @@
     {
       "id": 8,
       "alias": "gitcoin-kudos-example",
+      "adventures": [
+        2
+      ],
       "properties": {
         "title": "Gitcoin Kudos",
         "subtitle": "Show your appreciation for someone by giving them a Gitcoin Kudos!",
@@ -327,6 +364,8 @@
         "collectible": "Sword of DeFi-ance",
         "collection": "DeFi"
       },
+      "difficulty": 1,
+      "estimatedTime": "1 hour",
       "metadata": {
         "completionCriteria": "1. User sends a Kudos.",
         "prereqs": "N/A",
@@ -355,6 +394,9 @@
     {
       "id": 9,
       "alias": "gitcoin-bounty-example",
+      "adventures": [
+        2
+      ],
       "properties": {
         "title": "Gitcoin Bounties",
         "subtitle": "Grow the open-source ecosystem by bountying a piece of work!",
@@ -374,6 +416,8 @@
         "collectible": "Sword of DeFi-ance",
         "collection": "DeFi"
       },
+      "difficulty": 1,
+      "estimatedTime": "30 minutes",
       "metadata": {
         "completionCriteria": "1. User submits a Gitcoin Bounty (sends crypto to the bounty contract).",
         "prereqs": "N/A",
@@ -402,6 +446,9 @@
     {
       "id": 10,
       "alias": "gitcoin-grants-example",
+      "adventures": [
+        2
+      ],
       "properties": {
         "title": "Gitcoin Grants",
         "subtitle": "Provide sustainable funding for Open Source with Gitcoin Grants",
@@ -421,6 +468,8 @@
         "collectible": "Sword of DeFi-ance",
         "collection": "DeFi"
       },
+      "difficulty": 1,
+      "estimatedTime": "30 minutes",
       "metadata": {
         "completionCriteria": "1. User contributes to a Gitcoin Grant",
         "prereqs": "N/A",
@@ -442,6 +491,9 @@
     {
       "id": 11,
       "alias": "bounties-example",
+      "adventures": [
+        2
+      ],
       "properties": {
         "title": "Bounties Network Bounties",
         "subtitle": "Create a bounty on the Bounties Network",
@@ -472,6 +524,8 @@
         "collectible": "Sword of DeFi-ance",
         "collection": "DeFi"
       },
+      "difficulty": 1,
+      "estimatedTime": "30 minutes",
       "config": {
         "type": "transaction",
         "networkId": 1,
@@ -489,6 +543,9 @@
     {
       "id": 12,
       "alias": "gitcoin-quests-example",
+      "adventures": [
+        2
+      ],
       "properties": {
         "title": "Gitcoin Quests",
         "subtitle": "Battle enemies with your knowledge in a fast-paced area to earn Kudos",
@@ -508,6 +565,8 @@
         "collectible": "Sword of DeFi-ance",
         "collection": "DeFi"
       },
+      "difficulty": 1,
+      "estimatedTime": "30 minutes",
       "metadata": {
         "completionCriteria": "1. User receives the Kudos from the Pitch your Ethereum Killer to the VC-Bro quest",
         "prereqs": "N/A",
@@ -523,6 +582,9 @@
     {
       "id": 13,
       "alias": "ethereum-name-service",
+      "adventures": [
+        2
+      ],
       "properties": {
         "title": "ENS",
         "subtitle": "Get started with the Ethereum Name Service",
@@ -542,6 +604,8 @@
         "collectible": "Sword of DeFi-ance",
         "collection": "DeFi"
       },
+      "difficulty": 1,
+      "estimatedTime": "30 minutes",
       "metadata": {
         "completionCriteria": "1. User registers and ENS address; 2. User sets a resolver for that ENS address",
         "prereqs": "N/A",

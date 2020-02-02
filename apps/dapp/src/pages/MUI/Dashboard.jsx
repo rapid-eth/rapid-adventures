@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { withEthers } from 'ethers-react-system'
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -21,6 +22,10 @@ const useStyles = makeStyles(theme => ({
   fixedHeight: {
     height: 240,
   },
+  container: {
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
+  },
 }));
 
 export default function Dashboard() {
@@ -37,58 +42,61 @@ export default function Dashboard() {
   //   }
   // }, [])
 
+
   return (
-    <Grid container spacing={3}>
-      {/* Chart */}
-      <Grid item xs={12} md={8} lg={9}>
-        <Paper className={fixedHeightPaper}>
-          <div>
-            <br />
-            <Button variant='contained' onClick={() => {
-              ethers.enableRequest();
-            }}>
-              call ethers.enableRequest()
+    <Container maxWidth='lg' className={classes.container}>
+      <Grid container spacing={3}>
+        {/* Chart */}
+        <Grid item xs={12} md={8} lg={9}>
+          <Paper className={fixedHeightPaper}>
+            <div>
+              <br />
+              <Button variant='contained' onClick={() => {
+                ethers.enableRequest();
+              }}>
+                call ethers.enableRequest()
             </Button>
-            <Divider />
-            ethers.isEnableSuccess: {ethers.isEnableSuccess}
-            <br />
-            Address: {address || ethers.address}
-            <br />
-            Balance: {address || (ethers.balance && ethers.balance.trimmed)}
-          </div>
-          <div>
-            <Divider />
-            current landing pages... TODO: depending on ethers.enableRequest() these may live on one route.
+              <Divider />
+              ethers.isEnableSuccess: {ethers.isEnableSuccess}
+              <br />
+              Address: {address || ethers.address}
+              <br />
+              Balance: {address || (ethers.balance && ethers.balance.trimmed)}
+            </div>
+            <div>
+              <Divider />
+              current landing pages... TODO: depending on ethers.enableRequest() these may live on one route.
                   <br />
-            <Link to="/signup" variant="body2">
-              Signup
+              <Link to="/signup" variant="body2">
+                Signup
                   </Link> <br />
-            <Link to="/signin" variant="body2">
-              Signin
+              <Link to="/signin" variant="body2">
+                Signin
                   </Link> <br />
-            <Link to="/learnmore" variant="body2">
-              Learn More
+              <Link to="/learnmore" variant="body2">
+                Learn More
                   </Link>
-          </div>
-        </Paper>
+            </div>
+          </Paper>
+        </Grid>
+        {/* Recent Deposits */}
+        <Grid item xs={12} md={4} lg={3}>
+          <Paper className={fixedHeightPaper}>
+            <TokenBalance />
+          </Paper>
+        </Grid>
+        {/* Recent Orders */}
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>
+            <BalancesLeaderboard />
+          </Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>
+            <EmblemLeaderboard />
+          </Paper>
+        </Grid>
       </Grid>
-      {/* Recent Deposits */}
-      <Grid item xs={12} md={4} lg={3}>
-        <Paper className={fixedHeightPaper}>
-          <TokenBalance />
-        </Paper>
-      </Grid>
-      {/* Recent Orders */}
-      <Grid item xs={6}>
-        <Paper className={classes.paper}>
-          <BalancesLeaderboard />
-        </Paper>
-      </Grid>
-      <Grid item xs={6}>
-        <Paper className={classes.paper}>
-          <EmblemLeaderboard />
-        </Paper>
-      </Grid>
-    </Grid>
+    </Container>
   );
 }

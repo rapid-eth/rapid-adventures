@@ -17,6 +17,9 @@
       "imageCover": "",
       "instructionalImage": ""
     },
+    "adventures": [
+      1
+    ],
     "metadata": {
       "completionCriteria": "1. User opens a MakerDAO CDP",
       "prereqs": "N/A",

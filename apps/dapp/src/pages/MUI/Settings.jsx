@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, FormControlLabel, Paper } from '@material-ui/core';
+import { Grid, FormControlLabel, Paper, Button } from '@material-ui/core';
 import IOSSwitch from './IOSSwitch'
+import ConfirmResetIntroModal from './ConfirmResetIntroSettingModal';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,6 +15,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function SpacingGrid() {
   const classes = useStyles();
+  const [showResetIntroModal, setShowResetIntroModal] = useState(false);
+
+  const handleResetIntroModalClose = () => {
+    setShowResetIntroModal(false)
+  }
 
   return (
     <Paper>
@@ -46,6 +52,11 @@ export default function SpacingGrid() {
             }
             label="Remember me?"
           />
+        </Grid>
+        <Grid item xs={1}></Grid>
+        <Grid item xs={11}>
+          <Button variant="contained" onClick={() => { setShowResetIntroModal(true) }}>Reset intro UI</Button>
+          <ConfirmResetIntroModal open={showResetIntroModal} handleClose={handleResetIntroModalClose} />
         </Grid>
       </Grid>
     </Paper>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Typography, Collapse } from '@material-ui/core';
+import { Button, Typography, Collapse, Divider } from '@material-ui/core';
 import QuestCardDifficulty from './QuestCardDifficulty';
 import QuestCardReward from './QuestCardReward';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
@@ -15,21 +15,19 @@ const useStyles = makeStyles(theme => {
       width: '100%',
     },
     questCard: {
-      display: 'flex',
-      justifyContent: 'space-between',
       position: 'relative',
       padding: theme.spacing(2),
-      backgroundColor: theme.palette.common.white,
+      backgroundColor: '#E9E9E9',
       borderRadius: 4,
       marginBottom: theme.spacing(4),
-      marginTop: theme.spacing(15)
+      marginTop: theme.spacing(15),
     },
     questCardHeader: {
       position: 'absolute',
-      top: -45,
+      top: -49,
       right: 25,
       width: '50%',
-      backgroundColor: theme.palette.common.white,
+      backgroundColor: '#E9E9E9',
       padding: theme.spacing(1),
       borderBottom: '1px solid gray',
       borderRadius: '4px 4px 0 0',
@@ -45,7 +43,7 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-const QuestCard = ({ properties: { title, subtitle }, difficulty, reward, estimatedTime, ...rest }) => {
+const QuestCard = ({ properties: { title, subtitle, summary, content }, difficulty, reward, estimatedTime, ...rest }) => {
   const classes = useStyles();
   const history = useHistory();
   const [expanded, toggleExpanded] = useState(false);
@@ -58,15 +56,18 @@ const QuestCard = ({ properties: { title, subtitle }, difficulty, reward, estima
     <div className={classes.root}>
       <div className={classes.questCard}>
         <header className={classes.questCardHeader}>
-          <QuestCardDifficulty difficulty={3} />
+          <QuestCardDifficulty difficulty={difficulty} />
           &nbsp;&nbsp;
-        <Typography>Estimated Time: 123</Typography>
+          <Typography>Estimated Time: {estimatedTime}</Typography>
           &nbsp;&nbsp;
-          <QuestCardReward reward={1} />
+          <QuestCardReward reward={reward} />
         </header>
-        <Typography>{title}</Typography>
+        <div>
+          <Typography component="span" style={{ marginRight: '3em' }}>{title}</Typography>
+          <Typography component="span">{subtitle}</Typography>
+        </div>
         <Collapse in={expanded}>
-          <Expander subtitle={subtitle} />
+          <Expander subtitle={subtitle} content={content} />
         </Collapse>
         <div className={classes.questCardButtonContainer}>
           <Button size="small" variant="contained" color="primary" onClick={handleClick}>
@@ -74,7 +75,7 @@ const QuestCard = ({ properties: { title, subtitle }, difficulty, reward, estima
           </Button>
           &nbsp; &nbsp;
         <Button size="small" variant="contained" color="primary" onClick={
-            () => history.push('/adventure/1')
+            () => history.push(`/adventure/${adventureId}`)
           }>
             Start Quest
         </Button>
@@ -89,5 +90,10 @@ export default QuestCard
 
 
 const Expander = (props) => {
-  return <Typography {...props} style={{ minHeight: 400 }}>{props.subtitle}</Typography>
+  return (
+    <div>
+      <Divider style={{ margin: '1em 0' }} />
+      <Typography >{props.content}</Typography>
+    </div>
+  )
 }

@@ -8,11 +8,13 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
+import startAdventure from '../../assets/start-adventure.svg'
 
 const styles = theme => ({
   root: {
     margin: 0,
     padding: theme.spacing(2),
+    textAlign: 'center'
   },
   closeButton: {
     position: 'absolute',
@@ -40,6 +42,9 @@ const DialogContent = withStyles(theme => ({
   root: {
     padding: theme.spacing(2),
   },
+  dividers: {
+    borderTop: 'inherit'
+  }
 }))(MuiDialogContent);
 
 const DialogActions = withStyles(theme => ({
@@ -49,35 +54,32 @@ const DialogActions = withStyles(theme => ({
   },
 }))(MuiDialogActions);
 
-export default function CustomizedDialogs({ open, handleClose }) {
+export default function ConfirmResetIntroSettingModal({ open, handleClose }) {
   return (
     <div>
-
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Quest Details
+        <DialogTitle id="start-adventure-dialog-title" onClose={handleClose}>
+          Are you sure?
         </DialogTitle>
         <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-            in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-            lacus vel augue laoreet rutrum faucibus dolor auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-            scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-            auctor fringilla.
-          </Typography>
+          Clicking OK will reset all the onboarding elements of your app.
+          <br />
+          <br />
+          Useful if you want to start fresh with a clean slate.
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose} color="primary">
-            Let's go
+          <Button autoFocus variant="contained" onClick={handleClose} color="primary">
+            No
+          </Button>
+          <Button autoFocus variant="contained" onClick={() => {
+            localStorage.removeItem('startAdventureModal');
+            handleClose();
+          }} color="primary"
+          >
+            Yes
           </Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </div >
   );
 }

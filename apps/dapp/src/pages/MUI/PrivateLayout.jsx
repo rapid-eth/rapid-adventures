@@ -10,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
-import Container from '@material-ui/core/Container';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -103,10 +102,6 @@ const useStyles = makeStyles(theme => ({
     height: '100vh',
     overflow: 'auto',
   },
-  container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
   paper: {
     padding: theme.spacing(2),
     display: 'flex',
@@ -142,6 +137,10 @@ const useStyles = makeStyles(theme => ({
   amount: {
     color: theme.palette.primary.main,
     fontWeight: 'bold',
+  },
+  noPadding: {
+    paddingLeft: 0,
+    paddingRight: 0
   }
 }));
 
@@ -225,14 +224,14 @@ const PrivateLayout = ({ component: Component, title, ...rest }) => {
       <AppDrawer />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
+        <div >
           <ErrorBoundary>
             <Component {...rest} />
           </ErrorBoundary>
           <footer className={classes.footer}>
             <Copyright />
           </footer>
-        </Container>
+        </div>
       </main>
     </div>
   );

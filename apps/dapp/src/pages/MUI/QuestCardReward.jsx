@@ -4,23 +4,23 @@ import lowRewardLogo from '../../assets/lowRewardLogo.svg'
 import midRewardLogo from '../../assets/midRewardLogo.svg'
 import highRewardLogo from '../../assets/highRewardLogo.svg'
 
-const QuestCardReward = ({ reward }) => {
+const QuestCardReward = ({ reward: { token = "", amount = 0 } }) => {
   const renderIcon = () => {
-    switch (reward) {
-      case 1:
-        return <img src={lowRewardLogo} alt="low reward" style={{ height: '2em' }} />
-      case 2:
-        return <img src={midRewardLogo} alt="medium reward" style={{ height: '2em' }} />
-      case 3:
-        return <img src={highRewardLogo} alt="high reward" style={{ height: '2em' }} />
-      default:
-        return <div />
+    if (amount <= 1) {
+      return <img src={lowRewardLogo} alt="low reward" style={{ height: '2em' }} />
+    } else if (amount > 1 && amount <= 30) {
+      return <img src={midRewardLogo} alt="medium reward" style={{ height: '2em' }} />
+    } else if (amount > 30) {
+      return <img src={midRewardLogo} alt="medium reward" style={{ height: '2em' }} />
     }
+    return <div />;     //failsafe
   }
 
   return (
-    <Tooltip title={`Reward: ${reward}`}>
-      {renderIcon()}
+    <Tooltip title={`Reward: ${amount} ${token}`}>
+      <div>
+        {token}&nbsp;{renderIcon()}
+      </div>
     </Tooltip >
   )
 }

@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import { Grid, Button, Typography } from '@material-ui/core';
-import adventures from '../../data/adventureList.json';
+import DataContext from '../../DataContext'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import QuestModal from './QuestModal';
+import QuestModal from './StartAdventureModal';
 
 const ExpansionPanel = withStyles({
   root: {
@@ -73,8 +73,10 @@ const useStyles = makeStyles(theme => ({
 
 const QuestExpansionPanels = ({ questId }) => {
   const classes = useStyles()
+  const { state } = useContext(DataContext);
   const [showQuestModal, setShowQuestModal] = useState(false)
-  const adventure = adventures.data.find((adv) => adv.alias === questId)
+  const adventure = state.adventures.data.find((adv) => adv.alias === questId)
+  debugger
 
   const { id: defaultPanel } = adventure.quests.length && adventure.quests[0];
   const [expanded, setExpanded] = React.useState(defaultPanel);

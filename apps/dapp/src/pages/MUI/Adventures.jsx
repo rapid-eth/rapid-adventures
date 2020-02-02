@@ -5,10 +5,11 @@ import clsx from 'clsx';
 import { Typography, Button, AppBar, Toolbar, InputBase } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import useLocalStorage from '../../util/useLocalStorage';
 import QuestCard from './QuestCard';
 import rapidLogo from '../../assets/rapid.svg'
 import DataContext from '../../DataContext'
-import adventures from 'data/adventureList.json';
+import StartAdventureModal from './StartAdventureModal'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,9 +19,9 @@ const useStyles = makeStyles(theme => ({
   },
   adventureCards: {
     flexBasis: '30%',
-    borderRadius: 36,
+    borderRadius: '0 36px 36px 0',
     backgroundColor: '#E9E9E9',
-    padding: 18,
+    padding: '18px 0 18px 18px',
   },
   wide: {
     width: '100%',
@@ -28,15 +29,16 @@ const useStyles = makeStyles(theme => ({
   questCards: {
     flexBasis: '70%',
     borderRadius: 36,
-    backgroundColor: '#E9E9E9',
+    backgroundColor: '#FFFFFF',
     padding: 18,
+    marginTop: 10,
   },
   adventureCard: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#DADADA',
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
@@ -49,8 +51,8 @@ const useStyles = makeStyles(theme => ({
     right: 25
   },
   selected: {
-    outline: '4px solid #5436D6',
-    transition: 'outline 0.2s linear',
+    backgroundColor: '#FFFFFF',
+    transition: 'background 0.2s linear',
   },
   right: {
     flexDirection: 'row-reverse'
@@ -98,18 +100,31 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const AdventuresPage = () => {
-  const { state, dispatch } = useContext(DataContext);
-  const history = useHistory();
+  const { state: { adventures, quests } } = useContext(DataContext);
+  const [selectedAdventureId, selectAdventure] = useState(1);
+  const [showStartAdventureModal, setShowStartAdventureModal] = useLocalStorage("startAdventureModal", true)
   const classes = useStyles();
-  const [selectedAdventureId, selectAdventure] = useState()
-  const adventure = state.data.adventures.find(({ id }) => id === selectedAdventureId)
-  debugger
-  const inputEl = useRef(null);
 
-  const { quests: theQuests } = adventure;
-  const filteredQuests = theQuests.length && theQuests.filter((quest) => {
-    return quest.match(/ /)
+  const selectedQuests = quests.data.filter(quest => quest.adventures.includes(selectedAdventureId))
+  const [searchFilter, setSearchFilter] = useState('');
+
+  const handleChange = (e) => {
+    setSearchFilter(e.target.value);
+  }
+
+  const filteredQuests = selectedQuests && selectedQuests.filter((quest) => {
+    const { properties: { title, subtitle, summary, content }, reward: { token }, alias } = quest;
+
+    // greedy search. global and case insensitive
+    const matchMe = (title + ' ' + alias + ' ' + token + ' ' + content + ' ' + subtitle + ' ' + summary).toLocaleLowerCase()
+    return matchMe.includes(searchFilter.trim())
   })
+  console.log('>', searchFilter)
+  console.log('>fq', filteredQuests)
+
+  const handleStartAdventureModalClose = () => {
+    setShowStartAdventureModal(false)
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -118,7 +133,9 @@ const AdventuresPage = () => {
   return (
     <div className={classes.root}>
       <div className={classes.adventureCards}>
-        <Typography>Adventure Catalog</Typography>
+        <Typography variant="h6" className={classes.questToolbar}>
+          Adventure Catalog
+        </Typography>
         <div className={classes.wide}>
           {
             adventures.data.map(({ id, title, subtitle, image, alias }) =>
@@ -145,7 +162,8 @@ const AdventuresPage = () => {
                 <SearchIcon />
               </div>
               <InputBase
-                inputRef={inputEl}
+                value={searchFilter}
+                onChange={handleChange}
                 placeholder="Search…"
                 classes={{
                   root: classes.inputRoot,
@@ -156,15 +174,22 @@ const AdventuresPage = () => {
             </form>
           </div>
         </Toolbar>
+
         {selectedAdventureId &&
           <div className={classes.quests}>
-            {adventure.quests.map(({ id, ...rest }) =>
-              <QuestCard key={id} {...rest} />
-            )}
+            {filteredQuests.length
+              ? filteredQuests.map(({ id, ...rest }) => {
+                return <QuestCard key={id} {...rest} />
+              })
+              : selectedQuests.map(({ id, ...rest }) => {
+                return <QuestCard key={id} {...rest} />
+              }
+              )}
           </div>
         }
       </div>
-    </div >
+      <StartAdventureModal open={showStartAdventureModal} handleClose={handleStartAdventureModalClose} />
+    </div>
   );
 }
 
