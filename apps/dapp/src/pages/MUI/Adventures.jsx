@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import { Typography, Button, AppBar, Toolbar, InputBase } from '@material-ui/core';
+import { Typography, Button, Toolbar, InputBase, Chip } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import useLocalStorage from '../../util/useLocalStorage';
@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   questCards: {
     flexBasis: '70%',
     borderRadius: 36,
-    backgroundColor: '#F8F8F8',
+    backgroundColor: theme.palette.common.white,
     padding: theme.spacing(4),
     marginTop: 10,
   },
@@ -44,7 +44,8 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
     marginBottom: theme.spacing(10),
-    position: 'relative'
+    position: 'relative',
+    cursor: 'pointer'
   },
   adventureCardButton: {
     position: 'absolute',
@@ -113,6 +114,10 @@ const AdventuresPage = () => {
 
   const selectedQuests = quests.data.filter(quest => quest.adventures.includes(selectedAdventureId))
   const [searchFilter, setSearchFilter] = useState('');
+  const adventureQuestCounts = adventures.data.map(adv => {
+    return quests.data.filter(quest => quest.adventures.includes(adv.id)).length
+  })
+  console.log('aaa', adventureQuestCounts)
 
   const handleChange = (e) => {
     setSearchFilter(e.target.value);
@@ -142,15 +147,25 @@ const AdventuresPage = () => {
         </Typography>
         <div className={classes.wide}>
           {
-            adventures.data.map(({ id, title, subtitle, image, alias }) =>
-              <div key={id} className={clsx(classes.adventureCard, selectedAdventureId === id && classes.selected)} onClick={() => selectAdventure(id)}>
-                <img src={rapidLogo} alt="rapid logo" />
-                <br />
-                {title}
-                <Button size="small" variant="contained" color="primary" className={classes.adventureCardButton}>
-                  <AddCircleOutlineOutlinedIcon />&nbsp; Explore
-                </Button>
-              </div>
+            adventures.data.map(({ id, title, subtitle, image, alias }, index) => {
+              return (
+                <div key={id} className={clsx(classes.adventureCard, selectedAdventureId === id && classes.selected)} onClick={() => selectAdventure(id)}>
+                  <div>
+                    <img src={rapidLogo} alt="rapid logo" style={{ marginRight: '1em', marginBottom: '1em' }} />
+                    <Chip label={`${adventureQuestCounts[index]} Quests`} />
+                  </div>
+                  <br />
+                  <div>
+                    <Typography variant="h5">{title}</Typography>
+                    <br />
+                    <Typography variant="body2">{subtitle}</Typography>
+                  </div>
+                  <Button size="small" variant="contained" color="primary" className={classes.adventureCardButton}>
+                    <AddCircleOutlineOutlinedIcon />&nbsp; Explore
+                  </Button>
+                </div>
+              )
+            }
             )
           }
         </div>

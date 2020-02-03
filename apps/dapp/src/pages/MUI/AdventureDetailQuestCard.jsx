@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import { Typography, Button, Checkbox, Grid } from '@material-ui/core';
+import { Typography, Button, Checkbox, Grid, LinearProgress } from '@material-ui/core';
 import lottie from 'lottie-web';
 import QuestCardDifficulty from './QuestCardDifficulty';
 import QuestCardReward from './QuestCardReward';
@@ -10,7 +10,7 @@ import cardBg2 from '../../assets/card-bg-2.svg';
 import sadDay from '../../assets/sad-day.svg';
 import boxOpen from '../../assets/box-open.svg';
 import highRewardLogo from '../../assets/highRewardLogo.svg'
-import finishConfetti from '../../assets/10949-confetti-long-video.json';
+import finishConfetti from '../../assets/10952-confetti-3.json';
 
 const ColorCheckbox = withStyles({
   root: {
@@ -66,6 +66,9 @@ const useCardStyles = makeStyles(theme => ({
     textAlign: 'center',
     listStylePosition: 'inside',
   },
+  step4Left: {
+    color: theme.palette.common.white,
+  },
   step4Right: {
     textAlign: 'center',
     display: 'flex',
@@ -78,28 +81,38 @@ const useCardStyles = makeStyles(theme => ({
   },
   finishBackground: {
     background: 'linear-gradient(180deg, #B4AF3B 0%, rgba(255, 255, 255, 0) 100%), #86208E'
+  },
+  questLogo: {
+    width: '100%'
+  },
+  rightSide: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    height: '100%'
   }
 }));
 
 const QuestCard = (props) => {
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(1);
 
   return (
     <div>
-      {activeStep === 0 && <Step0 setActiveStep={setActiveStep} {...props} />}
-      {activeStep === 1 && <Step1 setActiveStep={setActiveStep} {...props} />}
-      {activeStep === 2 && <Step2 setActiveStep={setActiveStep} {...props} />}
-      {activeStep === 3 && <Step3 setActiveStep={setActiveStep} {...props} />}
-      {activeStep === 4 && <Step4 setActiveStep={setActiveStep} {...props} />}
+      {activeStep === 1 && <Step1 setActiveStep={setActiveStep} activeStep={activeStep} {...props} />}
+      {activeStep === 2 && <Step2 setActiveStep={setActiveStep} activeStep={activeStep} {...props} />}
+      {activeStep === 3 && <Step3 setActiveStep={setActiveStep} activeStep={activeStep} {...props} />}
+      {activeStep === 4 && <Step4 setActiveStep={setActiveStep} activeStep={activeStep} {...props} />}
+      {activeStep === 5 && <Step5 setActiveStep={setActiveStep} activeStep={activeStep} {...props} />}
     </div>
   )
 }
 
 export default QuestCard
 
-const Step0 = ({ setActiveStep, ...rest }) => {
+const Step1 = ({ setActiveStep, ...rest }) => {
   const classes = useCardStyles();
-  const { properties: { title } } = rest;
+  const { properties: { title, image } } = rest;
+  console.log('rest', rest)
   return (
     <div>
       <header className={classes.header}>
@@ -114,19 +127,26 @@ const Step0 = ({ setActiveStep, ...rest }) => {
         </div>
       </header>
       <div className={classes.content}>
-        <Typography>
-          Info to understand cards <br />
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam proin donec nibh vestibulum, fusce velit. Dictum ornare a id feugiat dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam proin donec nibh vestibulum, fusce velit. Dictum ornare a id feugiat dictumst.
-      </Typography>
+        <Grid container spacing={3}>
+          <Grid item xs={3}>
+            <img src={image} alt={title} className={classes.questLogo} />
+          </Grid>
+          <Grid item xs={9} className={classes.rightSide}>
+            <Typography>
+              Info to understand cards <br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam proin donec nibh vestibulum, fusce velit. Dictum ornare a id feugiat dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam proin donec nibh vestibulum, fusce velit. Dictum ornare a id feugiat dictumst.
+            </Typography>
+          </Grid>
+        </Grid>
       </div>
-      <Button variant="contained" color="primary" className={classes.startQuestButton} onClick={() => setActiveStep(1)}>
+      <Button variant="contained" color="primary" className={classes.startQuestButton} onClick={() => setActiveStep(2)}>
         Start Quest
     </Button>
     </div>
   )
 }
 
-const Step1 = ({ setActiveStep, ...rest }) => {
+const Step2 = ({ setActiveStep, activeStep, ...rest }) => {
   const classes = useCardStyles();
   const { properties: { title } } = rest;
   return (
@@ -136,7 +156,7 @@ const Step1 = ({ setActiveStep, ...rest }) => {
           {title || "Quest"} Step 1
         </Typography>
         <div className={classes.headerStats}>
-
+          <HeaderLinearProgress progress={activeStep} />
         </div>
       </header>
       <div className={clsx(classes.content, classes.step1)}>
@@ -162,14 +182,14 @@ const Step1 = ({ setActiveStep, ...rest }) => {
       <Button variant="contained" color="primary" className={classes.startQuestButton} onClick={() => window.alert('check callback fired. prequalifier goes here')}>
         Check
       </Button>
-      <Button variant="contained" color="primary" className={classes.startQuestButton} onClick={() => setActiveStep(2)}>
+      <Button variant="contained" color="primary" className={classes.startQuestButton} onClick={() => setActiveStep(3)}>
         Next
       </Button>
     </div>
   )
 }
 
-const Step2 = ({ setActiveStep, ...rest }) => {
+const Step3 = ({ setActiveStep, activeStep, ...rest }) => {
   const classes = useCardStyles();
   const { properties: { title } } = rest;
   return (
@@ -179,7 +199,7 @@ const Step2 = ({ setActiveStep, ...rest }) => {
           {title || "Quest"} Step 2
         </Typography>
         <div className={classes.headerStats}>
-
+          <HeaderLinearProgress progress={activeStep} />
         </div>
       </header>
       <div className={clsx(classes.content, classes.step2)}>
@@ -205,14 +225,14 @@ const Step2 = ({ setActiveStep, ...rest }) => {
       <Button variant="contained" color="primary" className={classes.startQuestButton} onClick={() => window.alert('check callback fired. another prequalifier goes here')}>
         Check
       </Button>
-      <Button variant="contained" color="primary" className={classes.startQuestButton} onClick={() => setActiveStep(3)}>
+      <Button variant="contained" color="primary" className={classes.startQuestButton} onClick={() => setActiveStep(4)}>
         Next
       </Button>
     </div >
   )
 }
 
-const Step3 = ({ setActiveStep, ...rest }) => {
+const Step4 = ({ setActiveStep, activeStep, ...rest }) => {
   const classes = useCardStyles();
   const { properties: { title } } = rest;
   return (
@@ -222,7 +242,7 @@ const Step3 = ({ setActiveStep, ...rest }) => {
           {title || "Quest"} Prequalifier Check is Sad
         </Typography>
         <div className={classes.headerStats}>
-
+          <HeaderLinearProgress progress={activeStep} />
         </div>
       </header>
       <div className={classes.content}>
@@ -251,14 +271,14 @@ const Step3 = ({ setActiveStep, ...rest }) => {
       <Button variant="contained" color="primary" className={classes.startQuestButton} onClick={() => window.alert('check callback fired. another prequalifier goes here')}>
         Check
       </Button>
-      <Button variant="contained" color="primary" className={classes.startQuestButton} onClick={() => setActiveStep(4)}>
+      <Button variant="contained" color="primary" className={classes.startQuestButton} onClick={() => setActiveStep(5)}>
         Next
       </Button>
     </div>
   )
 }
 
-const Step4 = ({ setActiveStep, ...rest }) => {
+const Step5 = ({ setActiveStep, activeStep, ...rest }) => {
   const classes = useCardStyles();
   const { properties: { title } } = rest;
   const element = useRef();
@@ -268,7 +288,6 @@ const Step4 = ({ setActiveStep, ...rest }) => {
       lottie.loadAnimation({
         animationData: finishConfetti,
         container: element.current,
-        loop: true,
         renderer: 'svg',
         autoplay: true,
       });
@@ -282,22 +301,24 @@ const Step4 = ({ setActiveStep, ...rest }) => {
           {title || "Quest"}
         </Typography>
         <div className={classes.headerStats}>
-
+          <HeaderLinearProgress progress={activeStep} />
         </div>
       </header>
       <div className={clsx(classes.content, classes.finishBackground)}>
         <Grid container spacing={5}>
           <Grid item xs={7}>
-            <Typography variant="h4">
-              Congrats!
+            <div className={classes.step4Left}>
+              <Typography variant="h4">
+                Congrats!
             </Typography>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam proin donec nibh vestibulum, fusce velit. Dictum ornare a id feugiat dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam proin donec nibh vestibulum, fusce velit. Dictum ornare a id feugiat dictumst.
+              <Typography>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam proin donec nibh vestibulum, fusce velit. Dictum ornare a id feugiat dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam proin donec nibh vestibulum, fusce velit. Dictum ornare a id feugiat dictumst.
             </Typography>
-            <br /><br />
-            <Typography>
-              Transaction ID: <a href="https://etherscan.io/tx/0xb325c0494036dc580c90f0c38687dc7015bde972e9414474c84e49422877b51d" target="_new">0xb325c0494036dc580c90f0c38687dc7015bde972e9414474c84e49422877b51d</a>
-            </Typography>
+              <br /><br />
+              <Typography>
+                Transaction ID: <a href="https://etherscan.io/tx/0xb325c0494036dc580c90f0c38687dc7015bde972e9414474c84e49422877b51d" target="_new">0xb325c0494036dc580c90f0c38687dc7015bde972e9414474c84e49422877b51d</a>
+              </Typography>
+            </div>
           </Grid>
           <Grid item xs={5}>
             <div className={classes.step4Right}>
@@ -315,5 +336,32 @@ const Step4 = ({ setActiveStep, ...rest }) => {
       </div>
       <div className={classes.finish} />
     </div >
+  )
+}
+
+const useProgressBarStyles = makeStyles(theme => ({
+  root: {
+    width: '15em',
+    height: '3em',
+    borderRadius: 4,
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+  colorPrimary: {
+    backgroundColor: '#C4C4C4',
+  },
+  barColorPrimary: {
+    backgroundColor: '#60BEA3',
+  },
+}));
+
+const HeaderLinearProgress = ({ progress }) => {
+  const classes = useProgressBarStyles();
+
+  return (
+    <LinearProgress variant="determinate" value={progress * 20}
+      classes={{ root: classes.root, colorPrimary: classes.colorPrimary, barColorPrimary: classes.barColorPrimary }}
+    />
   )
 }
