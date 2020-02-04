@@ -14,6 +14,7 @@ import DataContext from '../../DataContext';
 import TokenBalance from './TokenBalance';
 import EmblemLeaderboard from './EmblemLeaderboard';
 import BalancesLeaderboard from './BalancesLeaderboard';
+import Leaderboards from './Leaderboards';
 import zombie from '../../assets/zombie.png';
 import boxesImage from '../../assets/boxes.svg';
 import digitalBox from '../../assets/digitalbox.svg';
@@ -165,9 +166,8 @@ export default function Dashboard() {
             <div>
               <DashboardPieChart />
             </div>
-            <div>
-              leaderboard goes here
-            </div>
+            <Leaderboards />
+
           </Grid>
         </Grid>
       </Container>
@@ -176,7 +176,7 @@ export default function Dashboard() {
 }
 
 
-{/* <Grid container spacing={3}>
+/* <Grid container spacing={3}>
         <Grid item xs={12} md={8} lg={9}>
           <Paper className={fixedHeightPaper}>
             <div>
@@ -224,4 +224,4 @@ export default function Dashboard() {
             <EmblemLeaderboard />
           </Paper>
         </Grid>
-      </Grid> */}
+      </Grid> */

@@ -30,7 +30,7 @@ const Provider = ({ children, contracts = [], provider }) => {
   Object.values(RequestEffects).map(effect => effect(state, dispatch));
 
   /* --- Developer Messages --- */
-  console.log(state, 'Ethers Provider');
+  // console.log(state, 'Ethers Provider');
 
   return (
     <Context.Provider

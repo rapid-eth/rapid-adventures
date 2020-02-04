@@ -1,4 +1,5 @@
 import React from 'react';
+import ProfileHover from 'profile-hover';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -40,7 +41,7 @@ const BalancesLeaderboard = () => {
           {error && <tr><td colSpan="3">Sorry, something went wrong</td></tr>}
           {emblemsData && emblemsData.map(row => (
             <TableRow key={row.address}>
-              <TableCell>{row.address}</TableCell>
+              <TableCell><ProfileHover address={row.address} /></TableCell>
               <TableCell>{row.balance}</TableCell>
               <TableCell>{row.emblemCount}</TableCell>
             </TableRow>
