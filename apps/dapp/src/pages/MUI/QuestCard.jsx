@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx'
 import { Button, Typography, Collapse, Divider, Checkbox, Grid } from '@material-ui/core';
 import QuestCardDifficulty from './QuestCardDifficulty';
 import QuestCardReward from './QuestCardReward';
@@ -19,10 +20,12 @@ const useStyles = makeStyles(theme => {
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
-      padding: theme.spacing(2),
       borderRadius: 4,
+    },
+    questCardMargin: {
       marginBottom: theme.spacing(4),
       marginTop: theme.spacing(4),
+      padding: theme.spacing(2),
     },
     questCardHeader: {
       minWidth: 400,
@@ -62,11 +65,11 @@ const useStyles = makeStyles(theme => {
     },
     expandButton: {
       minWidth: 'inherit',
-    }
+    },
   }
 })
 
-const QuestCard = ({ properties: { title, subtitle, summary, content }, difficulty, reward, estimatedTime, selectedAdventureId, ...rest }) => {
+const QuestCard = ({ properties: { title, subtitle, summary, content }, difficulty, reward, estimatedTime, selectedAdventureId, noMargin, ...rest }) => {
   const classes = useStyles();
   const history = useHistory();
   const [expanded, toggleExpanded] = useState(false);
@@ -77,9 +80,9 @@ const QuestCard = ({ properties: { title, subtitle, summary, content }, difficul
 
   return (
     <div className={classes.root}>
-      <div className={classes.questCard}>
+      <div className={clsx(classes.questCard, noMargin ? null : classes.questCardMargin)}>
         <header className={classes.questCardHeader}>
-          <Checkbox color="green" />
+          <Checkbox />
           <QuestCardDifficulty difficulty={difficulty} />
           <Typography>Estimated Time: {estimatedTime}</Typography>
           <QuestCardReward reward={reward} />
@@ -87,15 +90,15 @@ const QuestCard = ({ properties: { title, subtitle, summary, content }, difficul
         <div className={classes.questCardContent}>
           <Grid container>
             <Grid item xs={3}>
-              <Typography component="span">{title}</Typography>
+              <Typography component="span">{title || ''}</Typography>
             </Grid>
             <Grid item xs={9}>
-              <Typography component="span" style={{ marginLeft: '3em' }}>{subtitle}</Typography>
+              <Typography component="span" style={{ marginLeft: '3em' }}>{subtitle || ''}</Typography>
             </Grid>
           </Grid>
         </div>
         <Collapse in={expanded} className={classes.questCardExpandedContent} classes={{ hidden: classes.questCardExpandedContentHidden }}>
-          <Expander subtitle={subtitle} content={content} />
+          <Expander subtitle={subtitle || ''} content={content} />
         </Collapse>
         <div className={classes.questCardButtonContainer}>
           <Button size="small" variant="contained" color="primary" onClick={handleClick} classes={{ root: classes.expandButton }}>

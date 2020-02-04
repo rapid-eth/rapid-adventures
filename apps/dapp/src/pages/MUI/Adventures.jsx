@@ -117,7 +117,6 @@ const AdventuresPage = () => {
   const adventureQuestCounts = adventures.data.map(adv => {
     return quests.data.filter(quest => quest.adventures.includes(adv.id)).length
   })
-  console.log('aaa', adventureQuestCounts)
 
   const handleChange = (e) => {
     setSearchFilter(e.target.value);

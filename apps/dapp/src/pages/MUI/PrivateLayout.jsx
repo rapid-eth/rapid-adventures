@@ -225,7 +225,7 @@ const PrivateLayout = ({ component: Component, title, ...rest }) => {
       <AppDrawer />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <div >
+        <div>
           <ErrorBoundary>
             <Component {...rest} />
           </ErrorBoundary>
