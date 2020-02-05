@@ -7,6 +7,7 @@ import QuestCardDifficulty from './QuestCardDifficulty';
 import QuestCardReward from './QuestCardReward';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ExpandLessIcon from '@material-ui/icons/ExpandLess'
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 
 import lowLevelLogo from '../../assets/lowLevelLogo.svg'
 
@@ -43,7 +44,7 @@ const useStyles = makeStyles(theme => {
     },
     questCardContent: {
       backgroundColor: '#E9E9E9',
-      padding: theme.spacing(4),
+      padding: theme.spacing(5),
       borderRadius: 4,
     },
     questCardExpandedContent: {
@@ -69,7 +70,7 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-const QuestCard = ({ properties: { title, subtitle, summary, content }, difficulty, reward, estimatedTime, selectedAdventureId, noMargin, ...rest }) => {
+const QuestCard = ({ properties: { title, subtitle, summary, content, image }, difficulty, reward, estimatedTime, selectedAdventureId, noMargin, ...rest }) => {
   const classes = useStyles();
   const history = useHistory();
   const [expanded, toggleExpanded] = useState(false);
@@ -98,7 +99,7 @@ const QuestCard = ({ properties: { title, subtitle, summary, content }, difficul
           </Grid>
         </div>
         <Collapse in={expanded} className={classes.questCardExpandedContent} classes={{ hidden: classes.questCardExpandedContentHidden }}>
-          <Expander subtitle={subtitle || ''} content={content} />
+          <Expander subtitle={subtitle || ''} content={content} image={image} />
         </Collapse>
         <div className={classes.questCardButtonContainer}>
           <Button size="small" variant="contained" color="primary" onClick={handleClick} classes={{ root: classes.expandButton }}>
@@ -113,7 +114,6 @@ const QuestCard = ({ properties: { title, subtitle, summary, content }, difficul
         </div>
       </div>
     </div >
-
   )
 }
 
@@ -124,7 +124,18 @@ const Expander = (props) => {
   return (
     <div>
       <Divider style={{ margin: '1em 0' }} />
-      <Typography >{props.content}</Typography>
+      <Grid container>
+        <Grid item xs={3} style={{ padding: '1em' }}>
+          <img src={props.image} style={{ width: '100%' }} />
+        </Grid>
+        <Grid item xs={9} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingLeft: '2em' }}>
+          <Typography style={{ marginTop: '1em' }}>{props.content}</Typography>
+          <Button color="primary" variant="contained" style={{ marginTop: '2em' }}>
+            <PlaylistAddIcon /> &nbsp;
+            Add To Quest Log
+          </Button>
+        </Grid>
+      </Grid>
     </div>
   )
 }
