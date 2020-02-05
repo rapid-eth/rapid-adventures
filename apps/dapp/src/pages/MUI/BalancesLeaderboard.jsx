@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 const BalancesLeaderboard = () => {
   const classes = useStyles();
-  const { data: emblemsData, loading, error } = useAPI('https://api.rapid-mesh.com/v1/leaderboard/balance?n=10')
+  const { data: emblemsData, loading, error } = useAPI('https://api.rapid-mesh.com/v1/leaderboard/balance?n=6')
 
   return (
     <React.Fragment>

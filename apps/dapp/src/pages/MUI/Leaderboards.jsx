@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';
 import ProfileHover from 'profile-hover';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -86,27 +85,21 @@ export default function FullWidthTabs() {
           <Tab label="Other" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
-        <TabPanel value={value} index={0} dir={theme.direction}>
-          <BalancesLeaderboard />
-        </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          <EmblemLeaderboard />
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {ADDRESSES.map((addr, index) =>
-              <div className={classes.profileRows}>
-                <ProfileHover address={addr} />
-              </div>
-            )}
-          </div>
-        </TabPanel>
-      </SwipeableViews>
+      <TabPanel value={value} index={0} dir={theme.direction}>
+        <BalancesLeaderboard />
+      </TabPanel>
+      <TabPanel value={value} index={1} dir={theme.direction}>
+        <EmblemLeaderboard />
+      </TabPanel>
+      <TabPanel value={value} index={2} dir={theme.direction}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {ADDRESSES.map((addr, index) =>
+            <div className={classes.profileRows}>
+              <ProfileHover address={addr} />
+            </div>
+          )}
+        </div>
+      </TabPanel>
     </div>
   );
 }

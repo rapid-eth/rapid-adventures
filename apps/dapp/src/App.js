@@ -21,6 +21,7 @@ import Prequalifier from './views/Prequalifier'
 import Adventures from './pages/MUI/Adventures';
 import AdventureDetail from './pages/MUI/AdventureDetail';
 import Settings from './pages/MUI/Settings';
+import User from './pages/MUI/User';
 import NotFound from './pages/MUI/NotFound';
 
 /* --- Component --- */
@@ -58,11 +59,6 @@ export default () => (
 		</Router>
 	</Providers>
 );
-
-const User = () =>
-	<div>
-		<h1>Users page goes here</h1>
-	</div>
 
 const Earn = () =>
 	<div>
