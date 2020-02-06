@@ -75,7 +75,7 @@ const QuestCard = ({ id, properties: { title, subtitle, summary, content, image 
   const classes = useStyles();
   const history = useHistory();
   const [expanded, toggleExpanded] = useState(false);
-  const { progress: { loggedQuests }, setProgress } = useContext(ProgressContext);
+  const { progress, setProgress } = useContext(ProgressContext);
 
   const handleClick = () => {
     toggleExpanded(!expanded)
@@ -101,7 +101,7 @@ const QuestCard = ({ id, properties: { title, subtitle, summary, content, image 
           </Grid>
         </div>
         <Collapse in={expanded} className={classes.questCardExpandedContent} classes={{ hidden: classes.questCardExpandedContentHidden }}>
-          <Expander subtitle={subtitle || ''} id={id} content={content} image={image} loggedQuests={loggedQuests} setProgress={setProgress} />
+          <Expander subtitle={subtitle || ''} id={id} content={content} image={image} progress={progress} setProgress={setProgress} />
         </Collapse>
         <div className={classes.questCardButtonContainer}>
           <Button size="small" variant="contained" color="primary" onClick={handleClick} classes={{ root: classes.expandButton }}>
@@ -123,7 +123,7 @@ const QuestCard = ({ id, properties: { title, subtitle, summary, content, image 
 export default QuestCard
 
 
-const Expander = ({ id, image, content, loggedQuests, setProgress }) => {
+const Expander = ({ id, image, content, progress, setProgress }) => {
   return (
     <div>
       <Divider style={{ margin: '1em 0' }} />
@@ -134,9 +134,9 @@ const Expander = ({ id, image, content, loggedQuests, setProgress }) => {
         <Grid item xs={9} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingLeft: '2em' }}>
           <Typography style={{ marginTop: '1em' }}>{content}</Typography>
           <Button color="primary" variant="contained" size="small" style={{ marginTop: '2em' }}
-            disabled={loggedQuests.includes(id)}
+            disabled={progress.loggedQuests.includes(id)}
             onClick={() => {
-              setProgress({ loggedQuests: [...loggedQuests, id] })
+              setProgress({ ...progress, loggedQuests: [...progress.loggedQuests, id] })
             }}
           >
             <PlaylistAddIcon /> &nbsp;

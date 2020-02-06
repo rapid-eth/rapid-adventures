@@ -10,7 +10,7 @@ const defaultValues = {
 
 export const ProgressProvider = props => {
   const [progress, setProgress] = useLocalStorage('progress', defaultValues);
-  console.log('progress', progress)
+  console.log('progress', progress);
 
   return (
     <ProgressContext.Provider value={{ progress, setProgress }}>

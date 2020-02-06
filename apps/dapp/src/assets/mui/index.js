@@ -22,7 +22,7 @@ const theme = createMuiTheme({
     MuiCssBaseline: {
       '@global': {
         body: {
-          backgroundColor: '#3F446D',
+          // backgroundColor: '#3F446D',
         },
       },
     },

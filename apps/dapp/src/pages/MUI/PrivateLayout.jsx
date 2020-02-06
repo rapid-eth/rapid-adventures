@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
   },
   toolbar: {
-    paddingLeft: 65, // keep right padding when drawer closed
+    // paddingLeft: 65, // keep right padding when drawer closed
     paddingRight: 24, // keep right padding when drawer closed
     display: 'flex',
     justifyContent: 'center',
@@ -150,7 +150,6 @@ const AppDrawer = () => {
   const classes = useStyles();
   const [open, setOpen] = useLocalStorage("navBarFullWidth", true)
   const { progress: { loggedQuests } } = useContext(ProgressContext);
-  console.log('lq', loggedQuests.length)
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -207,7 +206,7 @@ const AppDrawer = () => {
       >
         <div className={classes.toolbarIcon}>
           <IconButton onClick={handleDrawerClose}>
-            <ChevronLeftIcon />
+            <ChevronLeftIcon style={{ color: 'white' }} />
           </IconButton>
         </div>
         <Divider />
