@@ -88,7 +88,7 @@ export const secondaryListItems = (
       <ListItemIcon>
         <LayersIcon style={{ color: grey[500] }} />
       </ListItemIcon>
-      <ListItemText primary="Testing" />
+      <ListItemText primary="Modal Test" />
     </ListItem>
     <ListItem button component={RouterLink} to="/playground">
       <ListItemIcon>

@@ -21,6 +21,7 @@ import Prequalifier from './views/Prequalifier'
 import Adventures from './pages/MUI/Adventures';
 import AdventureDetail from './pages/MUI/AdventureDetail';
 import Settings from './pages/MUI/Settings';
+import Testing from './pages/MUI/Testing';
 import User from './pages/MUI/User';
 import NotFound from './pages/MUI/NotFound';
 
@@ -48,6 +49,7 @@ export default () => (
 				<Signin path="/signin" />
 				<Signup path="/signup" />
 				<LearnMore path="/learnmore" />
+				<PrivateLayout path="/testing" component={Testing} />
 
 				{/* 404-style catch all when the route doesn't match */}
 				<PrivateLayout component={NotFound} />
@@ -74,3 +76,4 @@ const Guide = () =>
 	<div>
 		<h1>Guide page goes here</h1>
 	</div>
+
