@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useLocalStorage from '../../util/useLocalStorage';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -14,10 +14,11 @@ import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import { mainListItems, secondaryListItems } from './listItems';
 import ErrorBoundary from '../../ErrorBoundary'
 import ProfileMenu from './ProfileMenu';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import ProgressContext from '../../ProgressContext';
 
 function Copyright() {
   return (
@@ -148,6 +149,8 @@ const useStyles = makeStyles(theme => ({
 const AppDrawer = () => {
   const classes = useStyles();
   const [open, setOpen] = useLocalStorage("navBarFullWidth", true)
+  const { progress: { loggedQuests } } = useContext(ProgressContext);
+  console.log('lq', loggedQuests.length)
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -192,7 +195,7 @@ const AppDrawer = () => {
             Rapid Adventures Dashboard
           </Typography> */}
           <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={loggedQuests.length} color="secondary">
               <NotificationsIcon />
             </Badge>
           </IconButton>

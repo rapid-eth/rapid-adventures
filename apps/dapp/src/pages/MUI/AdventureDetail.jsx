@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme => ({
 export default function AdventureDetail() {
   const classes = useStyles();
   const { id } = useParams();
-  const { state: { adventures, quests } } = useContext(DataContext);
+  const { state: { quests } } = useContext(DataContext);
   const selectedQuests = quests.data.filter(quest => quest.adventures.includes(Number.parseInt(id)))
 
   return (

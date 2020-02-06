@@ -94,7 +94,7 @@ export default function FullWidthTabs() {
       <TabPanel value={value} index={2} dir={theme.direction}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           {ADDRESSES.map((addr, index) =>
-            <div className={classes.profileRows}>
+            <div className={classes.profileRows} key={index}>
               <ProfileHover address={addr} />
             </div>
           )}

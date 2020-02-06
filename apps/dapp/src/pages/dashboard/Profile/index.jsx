@@ -1,9 +1,9 @@
 /* --- Global --- */
-import {Avatar, ProfileCover} from '3box-ui-profiles';
+import { Avatar, ProfileCover } from '3box-ui-profiles';
 /* --- Local --- */
-import {AdventureCardActiveLarge, CollectionList} from 'components';
+import { AdventureCardActiveLarge, CollectionList } from 'components';
 
-import {ShowcaseRegionTop, ShowcaseRegionBottom} from './regions';
+import { ShowcaseRegionTop, ShowcaseRegionBottom } from './regions';
 
 const styles = {
   profileCard: {
@@ -53,15 +53,15 @@ const Showase = props => (
       minHeight: [320, 400, 400],
       zIndex: 100,
     }}>
-    <Atom.BackgroundGradient gradient="sunset" sx={{opacity: 0.2}} />
+    <Atom.BackgroundGradient gradient="sunset" sx={{ opacity: 0.2 }} />
 
-    <Atom.Flex sx={{flex: 1}}>
+    <Atom.Flex sx={{ flex: 1 }}>
       {/* Left */}
-      <Atom.Flex sx={{flex: 4}}></Atom.Flex>
+      <Atom.Flex sx={{ flex: 4 }}></Atom.Flex>
       {/* Left : End */}
 
       {/* Right */}
-      <Atom.Flex sx={{flex: 10}}>
+      <Atom.Flex sx={{ flex: 10 }}>
         <ShowcaseRegionTop />
         <ShowcaseRegionBottom />
       </Atom.Flex>
@@ -72,9 +72,9 @@ const Showase = props => (
 
 const Main = props => {
   return (
-    <Atom.Flex sx={{flex: 1, p: 4, zIndex: 1000}}>
+    <Atom.Flex sx={{ flex: 1, p: 4, zIndex: 1000 }}>
       {/* Left */}
-      <Atom.Flex sx={{flex: 4}}>
+      <Atom.Flex sx={{ flex: 4 }}>
         <Atom.Box sx={styles.asideLiftUp}>
           <Atom.Flex center>
             <Atom.Button m1>Send MESH Tip</Atom.Button>
@@ -98,7 +98,7 @@ const Main = props => {
 
 const ProfileCard = props => {
   return (
-    <Atom.Box card sx={{p: 0}}>
+    <Atom.Box card sx={{ p: 0 }}>
       <Atom.Box sx={profileCard.cover}>
         <ProfileCover />
         {/* <ProfileIdentity sx={styles.cardIdentity} /> */}

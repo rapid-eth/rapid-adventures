@@ -112,7 +112,7 @@ export default QuestCard
 const Step1 = ({ setActiveStep, ...rest }) => {
   const classes = useCardStyles();
   const { properties: { title, image } } = rest;
-  console.log('rest', rest)
+
   return (
     <div>
       <header className={classes.header}>

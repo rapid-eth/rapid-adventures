@@ -5,6 +5,7 @@ import { BoxProvider } from '3box-ui-system';
 import { EthersProvider } from 'ethers-react-system';
 import { PortalProvider, PortalTree } from 'react-portal-system';
 import { DataProvider } from './DataContext';
+import { ProgressProvider } from './ProgressContext';
 
 /* --- Local --- */
 import theme from './assets/theme';
@@ -19,12 +20,14 @@ export default props => {
       <MuiThemeProvider theme={muiTheme}>
         <EthersProvider>
           <DataProvider>
-            <BoxProvider config={BoxConfig}>
-              <PortalProvider>
-                <PortalTree />
-                {props.children}
-              </PortalProvider>
-            </BoxProvider>
+            <ProgressProvider>
+              <BoxProvider config={BoxConfig}>
+                <PortalProvider>
+                  <PortalTree />
+                  {props.children}
+                </PortalProvider>
+              </BoxProvider>
+            </ProgressProvider>
           </DataProvider>
         </EthersProvider>
       </MuiThemeProvider>

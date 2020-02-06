@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Container, Typography } from '@material-ui/core';
+import CompletedQuestCard from './CompletedQuestCard'
+
+import awardBadge from '../../assets/awardBadge.svg'
+import contactBadge from '../../assets/contactBadge.svg'
+import questBadge from '../../assets/questBadge.svg'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -8,7 +13,8 @@ const useStyles = makeStyles(theme => ({
     // flexDirection: 'row',
     height: '100%',
     // paddingTop: theme.spacing(2),
-    backgroundColor: '#EFEFEF',
+    // backgroundColor: '#EFEFEF',
+    background: 'linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);'
   },
   header: {
     backgroundColor: '#4364AB',
@@ -27,8 +33,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#EEEEEE',
     position: 'relative',
     top: -190,
-    left: 25,
-    borderRadius: 4,
+    borderRadius: 15,
     boxShadow: '5px 5px 5px gray',
     display: 'flex',
     flexDirection: 'column-reverse'
@@ -64,13 +69,28 @@ const User = () => {
                 <Typography variant="body2">
                   Consensys - RAPID
                 </Typography>
+                <div style={{ display: 'flex', justifyContent: 'space-around', padding: '1em' }}>
+                  <div>
+                    <img src={questBadge} alt="quest" />
+                  </div>
+                  <div>
+                    <img src={contactBadge} alt="contact" />
+                  </div>
+                  <div>
+                    <img src={awardBadge} alt="award" />
+                  </div>
+                </div>
               </div>
+            </Grid>
+            <Grid item xs={7}>
+              <CompletedQuestCard />
             </Grid>
           </Grid>
         </section>
       </div>
       <Container>
         <Grid container spacing={4}>
+
         </Grid>
       </Container>
     </div>

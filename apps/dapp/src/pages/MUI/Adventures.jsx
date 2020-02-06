@@ -197,10 +197,10 @@ const AdventuresPage = () => {
           <div className={classes.quests}>
             {filteredQuests.length
               ? filteredQuests.map(({ id, ...rest }) => {
-                return <QuestCard key={id} selectedAdventureId={selectedAdventureId} {...rest} />
+                return <QuestCard key={id} id={id} selectedAdventureId={selectedAdventureId} {...rest} />
               })
               : selectedQuests.map(({ id, ...rest }) => {
-                return <QuestCard key={id} selectedAdventureId={selectedAdventureId} {...rest} />
+                return <QuestCard key={id} id={id} selectedAdventureId={selectedAdventureId} {...rest} />
               }
               )}
           </div>
