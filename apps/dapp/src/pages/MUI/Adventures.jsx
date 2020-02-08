@@ -10,6 +10,21 @@ import rapidLogo from '../../assets/rapid.svg'
 import DataContext from '../../DataContext'
 import StartAdventureModal from './StartAdventureModal'
 
+const useChipStyles = makeStyles(theme => ({
+  root: {
+    backgroundColor: '#58B3AF',
+    color: theme.palette.common.white
+  }
+}));
+
+const CustomChip = (props) => {
+  const classes = useChipStyles();
+
+  return (
+    <Chip {...props} className={classes.root} />
+  )
+}
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -21,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   adventureCards: {
     flexBasis: '30%',
     borderRadius: '0 36px 36px 0',
-    backgroundColor: '#E9E9E9',
+    backgroundColor: '#95A4D2',
     padding: '18px 0 18px 18px',
   },
   wide: {
@@ -151,7 +166,7 @@ const AdventuresPage = () => {
                 <div key={id} className={clsx(classes.adventureCard, selectedAdventureId === id && classes.selected)} onClick={() => selectAdventure(id)}>
                   <div>
                     <img src={rapidLogo} alt="rapid logo" style={{ marginRight: '1em', marginBottom: '1em' }} />
-                    <Chip label={`${adventureQuestCounts[index]} Quests`} />
+                    <CustomChip label={`${adventureQuestCounts[index]} Quests`} />
                   </div>
                   <br />
                   <div>

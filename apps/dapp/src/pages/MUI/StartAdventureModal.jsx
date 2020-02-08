@@ -14,7 +14,10 @@ const styles = theme => ({
   root: {
     margin: 0,
     padding: theme.spacing(2),
-    textAlign: 'center'
+    textAlign: 'center',
+  },
+  title: {
+    fontWeight: 'bold'
   },
   closeButton: {
     position: 'absolute',
@@ -28,7 +31,7 @@ const DialogTitle = withStyles(styles)(props => {
   const { children, classes, onClose, ...other } = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h6">{children}</Typography>
+      <Typography variant="h6" className={classes.title}>{children}</Typography>
       {onClose ? (
         <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
           <CloseIcon />
@@ -62,30 +65,28 @@ export default function StartAdventureDialog({ open, handleClose }) {
           Time to start an Adventure!
         </DialogTitle>
         <DialogContent dividers>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <div>
-              <img src={startAdventure} alt="start adventure" style={{ padding: '0 2em' }} />
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1em' }}>
+            <div style={{ width: '50%' }}>
+              <img src={startAdventure} alt="start adventure" style={{ width: '100%', padding: '0 4em 0 2em' }} />
             </div>
             <div>
-              <Typography variant="body2" gutterBottom>
+              <Typography variant="h6" gutterBottom>
                 Text explaining Adventures on a high level
               </Typography>
-              <Typography gutterBottom variant="bold">
+              <Typography gutterBottom variant="body1">
                 As a reward you’ll
               </Typography>
-              <Typography gutterBottom>
-                <ul>
-                  <li>
-                    Climb the leaderboards
+              <ul>
+                <li>
+                  Climb the leaderboards
                   </li>
-                  <li>
-                    Loot rewards for completion
+                <li>
+                  Loot rewards for completion
                   </li>
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                  </li>
-                </ul>
-              </Typography>
+                <li>
+                  Get emblems to rep your accomplishments
+                </li>
+              </ul>
             </div>
           </div>
         </DialogContent>

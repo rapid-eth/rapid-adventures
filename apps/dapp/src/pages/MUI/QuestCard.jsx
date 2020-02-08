@@ -93,7 +93,7 @@ const QuestCard = ({ id, properties: { title, subtitle, summary, content, image 
         <div className={classes.questCardContent}>
           <Grid container>
             <Grid item xs={3}>
-              <Typography component="span">{title || ''}</Typography>
+              <Typography variant='h6' component="span"><b>{title || ''}</b></Typography>
             </Grid>
             <Grid item xs={9}>
               <Typography component="span" style={{ marginLeft: '3em' }}>{subtitle || ''}</Typography>

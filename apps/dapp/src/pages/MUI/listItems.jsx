@@ -36,7 +36,13 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="User" />
     </ListItem>
-    <ListItem button component={RouterLink} to="/earn">
+    <ListItem button component={RouterLink} to="/adventures">
+      <ListItemIcon>
+        <AcUnitIcon style={{ color: grey[500] }} />
+      </ListItemIcon>
+      <ListItemText primary="Adventures" />
+    </ListItem>
+    {/* <ListItem button component={RouterLink} to="/earn">
       <ListItemIcon>
         <ArrowUpwardIcon style={{ color: grey[500] }} />
       </ListItemIcon>
@@ -47,12 +53,12 @@ export const mainListItems = (
         <ArrowDownwardIcon style={{ color: grey[500] }} />
       </ListItemIcon>
       <ListItemText primary="Give" />
-    </ListItem>
-    <ListItem button component={RouterLink} to="/guide">
+    </ListItem> */}
+    <ListItem button component={RouterLink} to="/joinus">
       <ListItemIcon>
         <HelpIcon style={{ color: grey[500] }} />
       </ListItemIcon>
-      <ListItemText primary="Guide" />
+      <ListItemText primary="Join Us" />
     </ListItem>
     <ListItem button component={RouterLink} to="/settings">
       <ListItemIcon>

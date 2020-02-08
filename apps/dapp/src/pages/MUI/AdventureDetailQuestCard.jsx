@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import { Typography, Button, Checkbox, Grid, LinearProgress } from '@material-ui/core';
 import lottie from 'lottie-web';
 import QuestCardDifficulty from './QuestCardDifficulty';
 import QuestCardReward from './QuestCardReward';
+import ProgressContext from '../../ProgressContext';
 import cardBg1 from '../../assets/card-bg-1.svg';
 import cardBg2 from '../../assets/card-bg-2.svg';
 import sadDay from '../../assets/sad-day.svg';
@@ -95,13 +96,14 @@ const useCardStyles = makeStyles(theme => ({
 
 const QuestCard = (props) => {
   const [activeStep, setActiveStep] = useState(1);
+  const { progress, setProgress } = useContext(ProgressContext);
 
   return (
     <div>
       {activeStep === 1 && <Step1 setActiveStep={setActiveStep} activeStep={activeStep} {...props} />}
       {activeStep === 2 && <Step2 setActiveStep={setActiveStep} activeStep={activeStep} {...props} />}
       {activeStep === 3 && <Step3 setActiveStep={setActiveStep} activeStep={activeStep} {...props} />}
-      {activeStep === 4 && <Step4 setActiveStep={setActiveStep} activeStep={activeStep} {...props} />}
+      {activeStep === 4 && <Step4 setActiveStep={setActiveStep} activeStep={activeStep} progress={progress} setProgress={setProgress} {...props} />}
       {activeStep === 5 && <Step5 setActiveStep={setActiveStep} activeStep={activeStep} {...props} />}
     </div>
   )
@@ -232,9 +234,10 @@ const Step3 = ({ setActiveStep, activeStep, ...rest }) => {
   )
 }
 
-const Step4 = ({ setActiveStep, activeStep, ...rest }) => {
+const Step4 = ({ setActiveStep, activeStep, progress, setProgress, ...rest }) => {
   const classes = useCardStyles();
-  const { properties: { title } } = rest;
+  const { id, properties: { title } } = rest;
+
   return (
     <div>
       <header className={classes.header}>
@@ -271,7 +274,12 @@ const Step4 = ({ setActiveStep, activeStep, ...rest }) => {
       <Button variant="contained" color="primary" className={classes.startQuestButton} onClick={() => window.alert('check callback fired. another prequalifier goes here')}>
         Check
       </Button>
-      <Button variant="contained" color="primary" className={classes.startQuestButton} onClick={() => setActiveStep(5)}>
+      <Button variant="contained" color="primary" className={classes.startQuestButton}
+        onClick={() => {
+          setActiveStep(5);
+          setProgress({ ...progress, completedQuests: [...progress.completedQuests, id] })
+        }}
+      >
         Next
       </Button>
     </div>

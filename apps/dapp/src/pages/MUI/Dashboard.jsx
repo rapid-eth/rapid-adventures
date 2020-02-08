@@ -157,7 +157,7 @@ export default function Dashboard() {
             <Typography variant="h5">
               Admin
             </Typography>
-            <div>
+            <div style={{ display: 'flex', margin: '0 auto' }}>
               <DashboardPieChart />
             </div>
             <Leaderboards />

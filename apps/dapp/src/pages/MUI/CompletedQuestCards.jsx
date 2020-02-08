@@ -38,6 +38,7 @@ const CompletedQuestCards = () => {
     if (completedQuests.includes(quest.id)) {
       return quest
     }
+    return false
   }).filter(e => e)
 
   return (

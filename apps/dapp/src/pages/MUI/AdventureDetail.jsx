@@ -62,7 +62,7 @@ export default function AdventureDetail() {
         </div>
         <div className={classes.content}>
           {selectedQuests.map(({ id, ...rest }) => {
-            return <AdventureDetailQuestCard key={id} selectedAdventureId={id} {...rest} />
+            return <AdventureDetailQuestCard key={id} id={id} selectedAdventureId={id} {...rest} />
           })}
         </div>
       </Grid>
